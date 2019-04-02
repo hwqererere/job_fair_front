@@ -31,8 +31,12 @@ Page({
     }
 
     
+  },
+  delopenid:function(e){
+    let self=this
+    wx.clearStorageSync();
+    self.setData({ access: false })
   }
-
   
 
 
