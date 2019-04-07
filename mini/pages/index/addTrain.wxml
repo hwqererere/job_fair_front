@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="resume-top">
+    <view class='header-title' bindtap='backClick'>
+      <icon></icon>
+      <text>{{trainState}}学习培训经历</text>
+    </view>
+  </view>
+  <view class='form-group'>
+    <label class='form-label'>学校名称*</label>
+    <view class='form-item'>
+      <input class='form-input'></input>
+    </view>
+  </view>
+  <view class='form-group'>
+    <label class='form-label'>起止时间*</label>
+    <view class='form-item'>
+      <view class='form-time'>
+        <!-- <input bindtap='selsectdate'></input> -->
+        <picker class='form-input' mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindStartDateChange">
+              <view class="weui-input">{{date}}</view>
+            </picker>
+      </view>
+      <view class='form-line'>—</view>
+      <view class='form-time'>
+         <picker class='form-input' mode="date2" value="{{date2}}" start="2015-09-01" end="2017-09-01" bindchange="bindEndDateChange">
+              <view class="weui-input">{{date2}}</view>
+            </picker>
+      </view>
+    </view>
+  </view>
+  <view class='form-group'>
+    <label class='form-label'>学历*</label>
+    <view class='form-item'>
+      <input class='form-input' placeholder='学历或培训项目'></input>
+    </view>
+  </view>
+  <view class='form-group'>
+    <label class='form-label'>证书</label>
+    <view class='form-item'>
+      <input class='form-input' placeholder='获得证书'></input>
+    </view>
+  </view>
+  <view class='form-save'>
+    <button type='button' class='btn' bindtap='saveClick'>保存</button>
+  </view>
+</view>

@@ -1,0 +1,162 @@
+<view class="container">
+  <view class='top-pad'></view>
+  <view class="resume-top">
+    <view class='header-title' >
+      <icon bindtap='backClickFun'></icon>
+      <text>编写简历</text>
+    </view>
+  </view>
+  
+  <view class="resume-photo">
+    <view class='photo'>
+      <image src='http://qianduan88.com/weChat-images/small-program/timg.jpg'></image>
+    </view>
+    <text>小张</text>
+  </view>
+  <view class="form-group-name">
+    <view class='form-group-item'>
+      <text class='label'>姓名</text>
+      <text class='text'>张</text>
+    </view>
+    <view class='form-group-item'>
+      <text class='label'>性别</text>
+      <text class='text'>男</text>
+    </view>
+  </view>
+  <view class="form-group">
+    <text class='label'>民族*</text>
+    <text class='txt'>汉族</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class="form-group">
+    <text class='label'>婚否*</text>
+    <text class='txt'>未婚</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class="form-group">
+    <text class='label'>籍贯*</text>
+    <text class='txt'>北京市-北京市-东城区</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class="form-group">
+    <text class='label'>文化程度*</text>
+    <text class='txt'>初中</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class="form-group">
+    <text class='label'>现在住址*</text>
+    <text class='txt'>北京市-北京市-东城区</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class="form-group">
+    <text class='label'>求职状态*</text>
+    <text class='txt'>在职-考虑机会</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class="form-group">
+    <text class='label'>参加工作时间*</text>
+    <text class='txt'>无经验</text>
+    <icon class='right-arrow'></icon>
+  </view>
+  <view class='experience-group'>
+    <view class='experience-item'>
+      <view class='left' bindtap='addWorkClick'>
+        <icon></icon>
+        <text>去添加工作经历</text>
+      </view>
+      <view class='right'>
+        <icon></icon>
+        <text>无工作经历</text>
+      </view>
+    </view>
+    <view class='experience-box' hidden="{{workState}}">
+      <view class='experience-title'>
+        <icon></icon>
+        <text>工作经验</text>
+      </view>
+      <view class='experience-main'>
+        <icon class='dian'></icon>
+        <icon class='edit' bindtap='editWorkClick'></icon>
+        <view class='item'>
+          <text>5000</text>元/月</view>
+        <view class='item'>
+          <text>aaaaa</text>
+        </view>
+        <view class='item'>工作时间：2019-4 到 2019-10</view>
+      </view>
+      <view class='experience-main'>
+        <icon class='dian'></icon>
+        <icon class='edit' bindtap='editWorkClick'></icon>
+        <view class='item'>
+          <text>5000</text>元/月</view>
+        <view class='item'>
+          <text>aaaaa</text>
+        </view>
+        <view class='item'>工作时间：2019-4 到 2019-10</view>
+      </view>
+    </view>
+  </view>
+  <view class='experience-group'>
+    <view class='experience-item'>
+      <view class='left' bindtap='addTrainClick'>
+        <icon></icon>
+        <text>去添加学习培训经历</text>
+      </view>
+      <view class='right'>
+        <icon></icon>
+        <text>无培训经历</text>
+      </view>
+    </view>
+    <view class='experience-box' hidden="{{trainState}}">
+      <view class='experience-title'>
+        <icon></icon>
+        <text>培训经历</text>
+      </view>
+      <view class='experience-main'>
+        <icon class='dian'></icon>
+        <icon class='edit' bindtap='editTrainClick'></icon>
+        <view class='item'>
+          <text>aaa</text></view>
+        <view class='item'>
+          <text>bbb</text>
+        </view>
+        <view class='item'>时间：2019-4 到 2019-10</view>
+      </view>
+      <view class='experience-main'>
+        <icon class='dian'></icon>
+        <icon class='edit' bindtap='editTrainClick'></icon>
+        <view class='item'>
+          <text>aaa</text></view>
+        <view class='item'>
+          <text>bbb</text>
+        </view>
+        <view class='item'>时间：2019-4 到 2019-10</view>
+      </view>
+    </view>
+  </view>
+  <view class='experience-group'>
+    <view class='experience-item'>
+      <view class='left' bindtap='addHomeClick'>
+        <icon></icon>
+        <text>去添加家庭成员，便于联系</text>
+      </view>
+    </view>
+    <view class='experience-box' hidden="{{homeState}}">
+      <view class='experience-title'>
+        <icon></icon>
+        <text>家庭成员</text>
+      </view>
+      <view class='experience-main' value="false">
+        <icon class='dian'></icon>
+        <icon class='edit' bindtap='editHomeClick'></icon>
+        <view class='item'>
+          <text>aaa</text><text>bbb</text></view>
+        <view class='item'>1385215412</view>
+      </view>
+    </view>
+  </view>
+  <view class='bottom-pad'></view>
+  <view class='form-save'>
+    <button type='button' class='btn' bindtap='saveClick'>保存</button>
+  </view>
+</view>

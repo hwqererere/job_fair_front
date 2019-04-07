@@ -1,0 +1,233 @@
+.container {
+  background: #efefef;
+}
+.top-pad{
+    height: 170rpx;
+    background: #fff;
+    width: 100%;
+}
+.resume-top {
+  background: #e83743;
+  width: 100%;
+  height: 170rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.resume-photo {
+  height: 180rpx;
+  position: relative;
+  border-bottom: #eee solid 1px;
+  width: 100%;
+  background: #fff;
+}
+
+.resume-photo .photo {
+  position: absolute;
+  width: 160rpx;
+  height: 160rpx;
+  left: 50%;
+  top: 50%;
+  margin-top: -160rpx;
+  margin-left: -85rpx;
+  border-radius: 160rpx;
+  border: #fff solid 2px;
+}
+
+.resume-photo .photo image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 160rpx;
+}
+
+.resume-photo text {
+  font-size: 30rpx;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 100rpx;
+  line-height: 40rpx;
+  color: #1c1c1c;
+}
+
+.form-group {
+  height: 60rpx;
+  position: relative;
+  width: 100%;
+  background: #fff;
+}
+
+.form-group-name {
+  height: 90rpx;
+  position: relative;
+  width: 100%;
+  border-bottom: #eee solid 1px;
+  background: #fff;
+}
+
+.form-group-item {
+  width: 50%;
+  height: 60rpx;
+  float: left;
+}
+
+.form-group-item .label {
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  float: left;
+}
+
+.form-group-item .text {
+  line-height: 90rpx;
+  font-size: 30rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+
+.form-group .label {
+  position: absolute;
+  left: 20rpx;
+  top: 0;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+
+.form-group .txt {
+  line-height: 60rpx;
+  font-size: 30rpx;
+  float: right;
+  margin-right: 60rpx;
+}
+
+.form-group .right-arrow {
+  position: absolute;
+  right: 20rpx;
+  top: 30rpx;
+  background: url(http://qianduan88.com/weChat-images/small-program/arrow.png) no-repeat;
+  background-size: cover;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.experience-group {
+  width: 100%;
+}
+
+.experience-item {
+  width: 100%;
+  border-bottom: #eee solid 1px;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+}
+
+.experience-item .left {
+  float: left;
+  padding-left: 20rpx;
+}
+
+.experience-item .left icon {
+  background: url(http://qianduan88.com/weChat-images/small-program/add.png) no-repeat;
+  background-size: cover;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 28rpx;
+  display: block;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.experience-item .left text {
+  font-size: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.experience-item .right {
+  float: right;
+  padding-right: 20rpx;
+}
+
+.experience-item .right icon {
+  width: 30rpx;
+  height: 30rpx;
+  background: #fff;
+  border: #eee solid 1px;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  display: block;
+  float: left;
+}
+
+.experience-item .right text {
+  letter-spacing: 0;
+  font-size: 30rpx;
+}
+
+.experience-box {
+  padding: 35rpx;
+  text-align: center;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.experience-title {
+  margin-bottom: 30rpx;
+  text-align: left;
+}
+
+.experience-title icon {
+  display: block;
+  float: left;
+  background: url(http://qianduan88.com/weChat-images/small-program/icon001.png) no-repeat;
+  background-size: cover;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 0rpx;
+  margin-right: 20rpx;
+}
+
+.experience-title text {
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+
+.experience-main {
+  position: relative;
+  padding-left: 20rpx;
+  padding-bottom: 25rpx;
+  border-left: #ddd solid 1px;
+  text-align: left;
+}
+
+.experience-main .dian {
+  position: absolute;
+  top: -6rpx;
+  left: -6rpx;
+  background: #e83743;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 10rpx;
+}
+
+.experience-main .edit {
+  position: absolute;
+  top: 0;
+  right: 30rpx;
+  background: url(http://qianduan88.com/weChat-images/small-program/edit.png) no-repeat;
+  background-size: cover;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.experience-main .item {
+  line-height: 40rpx;
+  padding: 6rpx 0;
+  font-size: 28rpx;
+}

@@ -1,0 +1,22 @@
+.resume-top{
+   background: #e83743;
+   width: 100%;
+   height: 170rpx;
+}
+.resume-tip .tip-img{
+   height: 100rpx;
+   text-align: center;
+   padding: 20rpx 0;
+   padding-top: 220rpx;
+}
+.resume-tip .tip-img image{
+   width: 100rpx;
+   height: 100rpx;
+}
+.resume-tip text{
+   line-height: 48rpx;
+   font-size: 28rpx;
+   display: block;
+   color: #505050;
+   text-align: center;
+}

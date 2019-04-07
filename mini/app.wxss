@@ -1,10 +1,96 @@
-/**app.wxss**/
+.access{position:fixed;z-index:99999;left:0rpx;top:0rpx;width:100%;height:100%;}
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+.header-title {
+  position: absolute;
+  top: 106rpx;
+  left: 0;
+  padding: 0 10rpx;
+}
+
+.header-title icon {
+  display: block;
+  float: left;
+  width: 35rpx;
+  height: 35rpx;
+  background: url(http://qianduan88.com/weChat-images/small-program/back.png) no-repeat;
+  background-size: cover;
+  margin-top: 4rpx;
+  margin-right: 4rpx;
+}
+
+.header-title text {
+  color: #fff;
+  font-size: 32rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+}
+
+.hide {
+  display: none;
+}
+
+.form-group {
+  border-bottom: #ddd solid 1px;
+  position: relative;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 20rpx 0;
+}
+
+.form-label {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+.form-item {
+  padding-left: 160rpx;
+}
+.form-input {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  border:none; 
+}
+.form-item .form-time{
+  float: left;
+  width: 30%;
+}
+.form-item .form-line{
+  float: left;
+    width: 50rpx;
+}
+.form-save{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15rpx 0;
+  height: 80rpx;
+  background: #fff;
+  border-top: #ddd solid 1px;
+}
+.form-save .btn{
+   background: #e83743;
+   width:70%;
+   height: 80rpx;
+   line-height: 80rpx;
+   border-radius:  80rpx;
+   color: #fff;
+   font-size: 30rpx;
+}
+.bottom-pad{
+    height: 110rpx;
+    background: #fff;
+    width: 100%;
+}

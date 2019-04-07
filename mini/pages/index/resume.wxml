@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="resume-top">
+    <view class='header-title'>
+      <icon></icon>
+      <text>我的简历</text>
+    </view>
+  </view>
+  <view class='resume-tip'>
+      <view class='tip-img'>
+         <image src='http://qianduan88.com/weChat-images/small-program/edit.png' bindtap='resumeClick'></image>
+      </view>
+      <text>您还没有简历</text>
+      <text>去填写简历，赚赏金</text>
+  </view>
+</view>

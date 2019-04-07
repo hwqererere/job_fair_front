@@ -1,4 +1,3 @@
-const app = getApp()
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -16,7 +15,18 @@ const formatNumber = n => {
 }
 
 
-const loginaccess = function (st,callback) {
+function port(portName){
+  var ports={};
+  ports.access ="candidate"
+
+  let url ="https://res.hothwq.com/index.php?r=";
+  console.log(ports[portName]);
+  return url + ports[portName];
+}
+
+
+
+const loginaccess = function (st, callback) {
   wx.login({
     success: loginRes => {
       wx.getUserInfo({
@@ -24,25 +34,15 @@ const loginaccess = function (st,callback) {
           wx.setStorageSync("nickName", getUserInfoRes.userInfo.nickName);
           wx.setStorageSync("avatarUrl", getUserInfoRes.userInfo.avatarUrl);
           let reurl = "https://res.hothwq.com/index.php?r=candidate"
-          wx.request({
-            url: reurl,
-            data: { code: loginRes['code'], rawData: getUserInfoRes['rawData'], signature: getUserInfoRes['signature'], encryptedData: getUserInfoRes['encryptedData'], iv: getUserInfoRes['iv'], signtype: st },
-            header: {
-              'content-type': 'application/json'
-            },
-            success: function (res) {
-              if(res.data.code==200){
-                wx.setStorageSync('openid', res.data.data.openid)
-                wx.setStorageSync('signtype', res.data.data.linktype)                
-                app.globalData.openid = res.data.data.openid
-                callback.call(this,{})
-              }
-              console.log(res)
-            },
-            fail: function (e) {
-              console.log(e)
-            }
-          })
+
+          requestFn("access", { code: loginRes['code'], rawData: getUserInfoRes['rawData'], signature: getUserInfoRes['signature'], encryptedData: getUserInfoRes['encryptedData'], iv: getUserInfoRes['iv'], signtype: st },function(){
+            wx.setStorageSync('openid', res.data.data.openid)
+            wx.setStorageSync('signtype', res.data.data.linktype)
+            app.globalData.openid = res.data.data.openid
+            console.log("ffff");
+          },"GET")
+
+          
         }
       });
     },
@@ -53,9 +53,26 @@ const loginaccess = function (st,callback) {
   })
 }
 
+const requestFn=function(portName,da,callback,meth="POST"){
+  let u = port(portName);
+  console.log(portName)
+  wx.request({
+    url: port(portName), // 仅为示例，并非真实的接口地址
+    data: da,
+    method:meth,
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success(res) {
+      console.log(res.data)
+    }
+  })
+}
+
 
 
 module.exports = {
   formatTime: formatTime,
-  loginaccess: loginaccess
+  loginaccess: loginaccess,
+  requestFn: requestFn
 }

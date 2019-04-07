@@ -1,1 +1,308 @@
-.access{position:fixed;z-index:99999;left:0rpx;top:0rpx;width:100%;height:100%;}
+/**index.wxss**/
+
+.container {
+  background: #efefef;
+}
+
+.index-top {
+  background: url(http://qianduan88.com/weChat-images/small-program/social-security.jpg) no-repeat center bottom;
+  background-size: cover;
+  height: 568rpx;
+  width: 100%;
+  position: relative;
+}
+
+
+.header-search {
+  height: 64rpx;
+  position: absolute;
+  top: 180rpx;
+  left: 0;
+  width: 100%;
+}
+
+.header-search .search-box {
+  position: relative;
+  height: 64rpx;
+  padding: 0 120rpx;
+}
+
+.header-search .select-addr {
+  position: absolute;
+  left: 20rpx;
+  top: 12rpx;
+  width: 90rpx;
+}
+
+.header-search .select-addr icon {
+  display: block;
+  float: right;
+  width: 0;
+  height: 0;
+  border-right: 12rpx solid transparent;
+  border-left: 12rpx solid transparent;
+  border-top: 12rpx solid #fff;
+  margin-top: 18rpx;
+}
+
+.header-search .select-addr text {
+  color: #fff;
+  font-size: 30rpx;
+  display: block;
+  float: left;
+}
+
+.search-main {
+  background: #fff;
+  border-radius: 64rpx;
+  height: 64rpx;
+  position: relative;
+}
+
+.search-input {
+  border-radius: 64rpx;
+  background: none;
+  text-align: center;
+  color: #c37d70;
+  font-size: 32rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+}
+
+.header-search .scan {
+  position: absolute;
+  right: 20rpx;
+  top: 2rpx;
+  width: 90rpx;
+}
+
+.header-search .scan icon {
+  width: 32rpx;
+  height: 32rpx;
+  background: url(http://qianduan88.com/weChat-images/small-program/scan.png) no-repeat;
+  background-size: cover;
+  display: block;
+  float: left;
+  margin-left: 14rpx;
+}
+
+.header-search .scan text {
+  color: #fff;
+  font-size: 22rpx;
+  width: 90rpx;
+  display: block;
+  float: left;
+  height: 36rpx;
+  line-height: 36rpx;
+}
+
+.search-position {
+  width: 100%;
+  line-height: 95rpx;
+  margin-bottom: 15rpx;
+  position: relative;
+  background: #999;
+}
+
+.search-position .search-item {
+  width: 50%;
+  float: left;
+  vertical-align: top;
+  letter-spacing: normal;
+  font-size: 0;
+  letter-spacing: -5rpx;
+  text-align: center;
+  background: #fff;
+}
+
+.search-position .search-item icon {
+  font-size: 28rpx;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: normal;
+  width: 36rpx;
+  height: 36rpx;
+  background: url(http://qianduan88.com/weChat-images/small-program/drop-down.png) no-repeat;
+  background-size: cover;
+  margin-top: 32rpx;
+}
+
+.search-position .search-item text {
+  font-size: 28rpx;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: normal;
+  color: #000;
+}
+
+.position-list {
+}
+
+.position-group {
+  margin-bottom: 20rpx;
+  background: #fff;
+  padding: 20rpx 0;
+  width: 100%;
+}
+
+.position-main {
+  padding: 0 20rpx;
+}
+
+.position-hd {
+  position: relative;
+  padding-left: 120rpx;
+  border-bottom: #f6f6f6 solid 1px;
+  padding-bottom: 20rpx;
+}
+
+.position-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 105rpx;
+  height: 105rpx;
+}
+
+.position-hd .position-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.position-hd .position-item {
+  position: relative;
+}
+
+.position-hd .position-item .price {
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  color: #ff5632;
+  font-size: 32rpx;
+}
+
+.position-hd .position-item .title {
+  color: #000;
+  font-size: 32rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+}
+
+.position-hd .position-item .name {
+  color: #bababa;
+  font-size: 26rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: 15rpx 0;
+}
+
+.position-hd .position-item .label {
+  vertical-align: top;
+  letter-spacing: normal;
+  font-size: 0;
+  letter-spacing: -5rpx;
+}
+
+.position-hd .position-item .label .box {
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 15rpx;
+  font-size: 26rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+  letter-spacing: 0;
+}
+
+.position-hd .position-item .label .box.bg1 {
+  background: #e1f3fe;
+  color: #79bea2;
+}
+
+.position-hd .position-item .label .box.bg2 {
+  background: #f7ece9;
+  color: #ee9a84;
+}
+
+.position-bd {
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 10rpx 20rpx;
+}
+
+.position-bd text {
+  color: #e5e5e5;
+  font-size: 24rpx;
+}
+
+.position-bd text.time {
+  color: #9d9d9d;
+  font-size: 24rpx;
+  float: right;
+  margin-top: 2rpx;
+}
+
+.all-position-box {
+  position: absolute;
+  background: #fff;
+  top: 110rpx;
+  left: 0;
+  z-index: 1000;
+  padding-top: 40rpx;
+}
+.all-position-bg{
+  position: absolute;
+  background: #000;
+  opacity: 0.4;
+  top: 110rpx;
+  left: 0;
+  z-index: 1;
+  width:100%;
+  height: 200%;
+}
+.all-position-list {
+  padding: 0 36rpx;
+  padding-bottom: 0;
+  vertical-align: top;
+  letter-spacing: normal;
+  font-size: 0;
+  letter-spacing: -5rpx;
+}
+
+.all-position-list text {
+  font-size: 28rpx;
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: normal;
+  background: #eee;
+  color: #7f7f7f;
+  padding:10rpx 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+}
+.all-position-list text.current{
+   background: #3241b4;
+   color: #fff;
+}
+.all-position-btn {
+  height: 80rpx;
+}
+
+.all-position-btn view {
+  float: left;
+  width: 50%;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: none;
+}
+
+.all-position-btn view.btn1 {
+  background: #efefef;
+  color: #3241b4;
+}
+
+.all-position-btn view.btn2 {
+  background: #003f8c;
+  color: #fff;
+}

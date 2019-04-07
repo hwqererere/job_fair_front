@@ -1,0 +1,24 @@
+<view class="container">
+  <view class='top-pad'></view>
+  <view class="my-top">
+    <view class='header-title'>
+      <icon bindtap='backClickFun'></icon>
+      <text>个人中心</text>
+    </view>
+    <view class="my-photo">
+      <image src='http://qianduan88.com/weChat-images/small-program/timg.jpg'></image>
+      <text>aaa</text>
+    </view>
+  </view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item border" bindtap='personalClick'>
+      <image src='http://qianduan88.com/weChat-images/small-program/timg.jpg'></image>
+      <text>个人资料</text>
+    </view>
+    <view class="flex-item border" bindtap='resumeClick'>
+      <image src='http://qianduan88.com/weChat-images/small-program/timg.jpg'></image>
+      <text>我的简历</text>
+    </view>
+    <view class="flex-item"></view>
+  </view>
+</view>
