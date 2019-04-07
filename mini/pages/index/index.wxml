@@ -2,16 +2,13 @@
 <view class="container">
 
   <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" ></button>
-  <button  wx:if="{{access}}" bindtap='delopenid'>清除openid</button>
+
 
 
 
 
   <view class='index-top'>
-    <view class='header-title'>
-    
-      <text>闵行区莘庄镇社会保障事务中心</text>
-    </view>
+
     <view class='header-search'>
       <view class='search-box'>
         <view class='select-addr'>

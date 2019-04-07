@@ -1,11 +1,6 @@
 <view class="container">
   <view class='top-pad'></view>
-  <view class="resume-top">
-    <view class='header-title' >
-      <icon bindtap='backClickFun'></icon>
-      <text>编写简历</text>
-    </view>
-  </view>
+
   
   <view class="resume-photo">
     <view class='photo'>

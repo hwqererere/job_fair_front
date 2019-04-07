@@ -1,4 +1,4 @@
-.access{position:fixed;z-index:99999;left:0rpx;top:0rpx;width:100%;height:100%;}
+.access{position:fixed;z-index:99999;left:0rpx;top:0rpx;width:100%;height:100%;background:none}
 .container {
   height: 100%;
   display: flex;
@@ -8,30 +8,6 @@
   box-sizing: border-box;
 }
 
-.header-title {
-  position: absolute;
-  top: 106rpx;
-  left: 0;
-  padding: 0 10rpx;
-}
-
-.header-title icon {
-  display: block;
-  float: left;
-  width: 35rpx;
-  height: 35rpx;
-  background: url(http://qianduan88.com/weChat-images/small-program/back.png) no-repeat;
-  background-size: cover;
-  margin-top: 4rpx;
-  margin-right: 4rpx;
-}
-
-.header-title text {
-  color: #fff;
-  font-size: 32rpx;
-  height: 35rpx;
-  line-height: 35rpx;
-}
 
 .hide {
   display: none;

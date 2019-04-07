@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
   resumeClick:function(){
     wx.navigateTo({
@@ -30,7 +30,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    let openid = wx.getStorageSync('openid') ? wx.getStorageSync('openid') : ""
+    if (openid == "") {
+      wx.switchTab({
+        url: 'index'
+      })
+    } 
   },
 
   /**
