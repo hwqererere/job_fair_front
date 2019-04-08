@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/index/resumeEdit",
     "pages/index/index",
     "pages/index/personal",
     "pages/index/my",
     
     "pages/index/resume",
-    "pages/index/resumeEdit",
+    
     "pages/index/addWork",
     "pages/index/addTrain",
     "pages/index/addHome"

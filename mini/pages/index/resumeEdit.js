@@ -1,7 +1,7 @@
 var util = require('../../lib/util');
 var config = require('../../config');
 var cos = require('../../lib/cos');
-
+var utils=require('../../utils/util')
 
 const app = getApp()
 
@@ -12,8 +12,14 @@ Page({
    */
   data: {
     resume: {
-      headface: ""
+      headface: "",
+      sex:1,
+      nation:"汉族",
+      marital_status:0,
+      identitycard:0
     },
+    reslink: app.globalData.reslink ,
+    lib: utils.formlibFn(),
     workState: true,
     trainState: true,
     homeState: true,
@@ -24,9 +30,7 @@ Page({
    */
   onLoad: function (options) {
     let self=this
-    let set_resume=self.data.resume
-    set_resume.headface = app.globalData.reslink + "style/default_head.jpg"
-    self.setData({ resume: set_resume})
+
 
 
   },
@@ -40,32 +44,49 @@ Page({
       success: function (res) {
         var filePath = res.tempFilePaths[0];
         if (filePath) {
+          let set_resume = self.data.resume
+          // set_resume.headface = "https://" + res.Location
+          set_resume.headface = filePath
+          self.setData({
+            resume: set_resume
+          })
           var Key = util.getRandFileName(filePath);
-          wx.showLoading({ title: '正在上传...' });
-          cos.postObject({
-            Bucket: config.Bucket,
-            Region: config.Region,
-            Key: "mhjczx/data/"+Key,
-            FilePath: filePath,
-          }, function (err, res) {
-            wx.hideLoading();
-            if (res && res.Location) {
-              let set_resume=self.data.resume
-              set_resume.headface = "https://"+res.Location
-             
-              self.setData({
-                resume: set_resume
-              })
-              console.log(res)
-
-            } else {
-              console.log(err)
-              wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 });
-            }
-          });
+          
+          
         }
       }
     })
+  },
+  save:function(){
+    let self=this
+    if (self.data.resume.headface!=""){
+      wx.showLoading({ title: '正在上传...' });
+      cos.postObject({
+        Bucket: config.Bucket,
+        Region: config.Region,
+        Key: "mhjczx/data/" + Key,
+        FilePath: filePath,
+      }, function (err, res) {
+        wx.hideLoading();
+        if (res && res.Location) {
+    
+          set_resume.headface = "https://" + res.Location
+
+          
+
+        } else {
+          console.log(err)
+          wx.hideLoading();
+          wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 });
+        }
+      });
+    }
+  },
+  bindPickerChange:function(e){
+    let self=this
+    let type=e.target.dataset.type
+    let value=e.detail.value
+    self.setData({ resume: utils.resume_set(self,self.data.resume,type,value)})
   },
   addWorkClick:function(){
      wx.redirectTo({

@@ -1,5 +1,5 @@
 .container {
-  background: #efefef;
+  background: #fff;
 }
 .top-pad{
     height: 170rpx;
@@ -43,45 +43,15 @@
 
 .form-group {
   height: 60rpx;
-  position: relative;
+  float: left;
   width: 100%;
-  background: #fff;
-}
-
-.form-group-name {
-  height: 90rpx;
-  position: relative;
-  width: 100%;
-  border-bottom: #eee solid 1px;
-  background: #fff;
-}
-
-.form-group-item {
-  width: 50%;
-  height: 60rpx;
-  float: left;
-}
-
-.form-group-item .label {
-  height: 90rpx;
-  line-height: 90rpx;
-  font-size: 30rpx;
-  margin-left: 20rpx;
-  float: left;
-}
-
-.form-group-item .text {
-  line-height: 90rpx;
-  font-size: 30rpx;
-  float: left;
-  margin-left: 20rpx;
+  border-top:2rpx solid #ececec;
 }
 
 .form-group .label {
-  position: absolute;
-  left: 20rpx;
-  top: 0;
-  line-height: 90rpx;
+  float: left;
+margin-left:20rpx; 
+  line-height: 60rpx;
   font-size: 30rpx;
 }
 
@@ -91,16 +61,10 @@
   float: right;
   margin-right: 60rpx;
 }
-
-.form-group .right-arrow {
-  position: absolute;
-  right: 20rpx;
-  top: 30rpx;
-  background: url(http://qianduan88.com/weChat-images/small-program/arrow.png) no-repeat;
-  background-size: cover;
-  width: 36rpx;
-  height: 36rpx;
-}
+.form-group input[type='text']{
+  float:right;margin-right:60rpx;font-size:30rpx;line-height:60rpx;text-align: right;height:60rpx}
+.form-group picker{line-height: 60rpx;font-size: 30rpx;float: right;margin-right: 60rpx;height:60rpx}
+.form-group .picker{line-height: 60rpx;font-size: 30rpx;float: right;height:60rpx}
 
 .experience-group {
   width: 100%;

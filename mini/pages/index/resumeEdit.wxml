@@ -4,29 +4,47 @@
   
   <view class="resume-photo">
     <view class='photo'>
-      <image bindtap="updateface" src='{{resume.headface}}'></image>
+      <image bindtap="updateface" src='{{resume.headface?resume.headface:reslink+"style/default_head.jpg"}}'></image>
     </view>
-    <text>小张</text>
+ 
   </view>
-  <view class="form-group-name">
-    <view class='form-group-item'>
+  <view class="form-group">
+    
       <text class='label'>姓名</text>
-      <text class='text'>张</text>
+      <input type='text' placeholder='请输入姓名' value=''></input>
     </view>
-    <view class='form-group-item'>
+    <view class='form-group'>
       <text class='label'>性别</text>
-      <text class='text'>男</text>
+      <picker bindchange="bindPickerChange" data-type='sex' value="{{resume.sex}}" range="{{lib.sex}}">
+    <view class="picker">
+      {{lib.sex[resume.sex]}}
     </view>
+  </picker>
+    </view>
+
+  <view class="form-group">
+    <text class='label'>民族</text>
+    <picker bindchange="bindPickerChange" data-type='nation' value="{{resume.nation}}" range="{{lib.nation}}">
+    <view class="picker">
+      {{resume.nation}}
+    </view>
+  </picker>
   </view>
   <view class="form-group">
-    <text class='label'>民族*</text>
-    <text class='txt'>汉族</text>
-    <icon class='right-arrow'></icon>
+    <text class='label'>婚否</text>
+    <picker bindchange="bindPickerChange" data-type='marital_status' value="{{resume.marital_status}}" range="{{lib.marital_status}}">
+    <view class="picker">
+      {{lib.marital_status[resume.marital_status]}}
+    </view>
+  </picker>
   </view>
   <view class="form-group">
-    <text class='label'>婚否*</text>
-    <text class='txt'>未婚</text>
-    <icon class='right-arrow'></icon>
+    <text class='label'>学历</text>
+    <picker bindchange="bindPickerChange" data-type='identitycard' value="{{resume.identitycard}}" range="{{lib.identitycard}}">
+    <view class="picker">
+      {{lib.identitycard[resume.identitycard]}}
+    </view>
+  </picker>
   </view>
   <view class="form-group">
     <text class='label'>籍贯*</text>

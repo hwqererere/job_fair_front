@@ -87,13 +87,39 @@ const requestFn=function(portName,da,callback,meth="POST"){
 }
 
 
-
-
-
+function formlib(){
+  let obj={}
+  obj.sex = ['女', '男']
+  obj.nation=['汉族','其他民族']
+  obj.marital_status = ['未婚','已婚','已婚已育']
+  obj.identitycard = ['初中或以下','高中','中专','大专、高职','本科','研究生','博士','博士后','其他']
+  return obj
+}
+const formlibFn=function(){
+  return formlib()
+}
+const resume_set=function(self,resume,type,value){
+  let lib=formlib()
+  let indextype = ['sex', 'marital_status','identitycard']
+  let inarr=false;
+  for(let i=0;i<indextype.length;i++){
+    if(type==indextype[i]){
+      inarr=true
+    }
+  }
+  if (inarr){
+    resume[type] = value
+  }else{
+    resume[type] = lib[type][value]
+  }
+  return resume
+}
 
 module.exports = {
   portFn:portFn,
   formatTime: formatTime,
   loginaccess: loginaccess,
-  requestFn: requestFn
+  requestFn: requestFn,
+  formlibFn:formlibFn,
+  resume_set: resume_set
 }
