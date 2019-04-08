@@ -10,37 +10,33 @@
 
 .resume-photo {
   height: 180rpx;
-  position: relative;
+
   border-bottom: #eee solid 1px;
   width: 100%;
   background: #fff;
 }
 
 .resume-photo .photo {
-  position: absolute;
-  width: 160rpx;
-  height: 160rpx;
-  left: 50%;
-  top: 50%;
-  margin-top: -160rpx;
-  margin-left: -85rpx;
-  border-radius: 160rpx;
+
+  width: 100%;
+  float:left;
+  height: 200rpx; 
+  text-align:center;
   border: #fff solid 2px;
 }
 
 .resume-photo .photo image {
   width: 160rpx;
   height: 160rpx;
-  border-radius: 160rpx;
+  border-radius: 160rpx;overflow:hidden;
 }
 
 .resume-photo text {
   font-size: 30rpx;
-  text-align: center;
-  position: absolute;
+  float:left;
+  text-align: center;  
   width: 100%;
-  left: 0;
-  top: 100rpx;
+  height:40rpx;
   line-height: 40rpx;
   color: #1c1c1c;
 }

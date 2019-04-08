@@ -1,10 +1,10 @@
 <view class="container">
-  <view class='top-pad'></view>
+
 
   
   <view class="resume-photo">
     <view class='photo'>
-      <image src='http://qianduan88.com/weChat-images/small-program/timg.jpg'></image>
+      <image bindtap="updateface" src='{{resume.headface}}'></image>
     </view>
     <text>小张</text>
   </view>

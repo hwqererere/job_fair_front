@@ -1,10 +1,19 @@
-// pages/index/resumeEdit.js
+var util = require('../../lib/util');
+var config = require('../../config');
+var cos = require('../../lib/cos');
+
+
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    resume: {
+      headface: ""
+    },
     workState: true,
     trainState: true,
     homeState: true,
@@ -14,49 +23,49 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let self=this
+    let set_resume=self.data.resume
+    set_resume.headface = app.globalData.reslink + "style/default_head.jpg"
+    self.setData({ resume: set_resume})
+
 
   },
+  updateface:function(){
+    let self=this
+    wx.chooseImage({
+      count: 1,
+      camera: 'back',
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        var filePath = res.tempFilePaths[0];
+        if (filePath) {
+          var Key = util.getRandFileName(filePath);
+          wx.showLoading({ title: '正在上传...' });
+          cos.postObject({
+            Bucket: config.Bucket,
+            Region: config.Region,
+            Key: "mhjczx/data/"+Key,
+            FilePath: filePath,
+          }, function (err, res) {
+            wx.hideLoading();
+            if (res && res.Location) {
+              let set_resume=self.data.resume
+              set_resume.headface = "https://"+res.Location
+             
+              self.setData({
+                resume: set_resume
+              })
+              console.log(res)
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+            } else {
+              console.log(err)
+              wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 });
+            }
+          });
+        }
+      }
+    })
   },
   addWorkClick:function(){
      wx.redirectTo({

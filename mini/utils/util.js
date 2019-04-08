@@ -19,12 +19,17 @@ const formatNumber = n => {
 
 function port(portName){
   var ports={};
-  ports.access ="candidate"
-
+  ports.access ="candidate"//授权验证
+  ports.osskey="osskey"
+  ports.resumeSelect="resume-select"//查询简历
+  ports.resumeCreate="resume-create"//创建简历
   let url ="https://res.hothwq.com/index.php?r=";
   return url + ports[portName];
 }
 
+const portFn=function(portName){
+  return port(portName)
+}
 
 
 const loginaccess = function (st, callback) {
@@ -34,7 +39,7 @@ const loginaccess = function (st, callback) {
         success: getUserInfoRes => {
           wx.setStorageSync("nickName", getUserInfoRes.userInfo.nickName);
           wx.setStorageSync("avatarUrl", getUserInfoRes.userInfo.avatarUrl);
-          let reurl = "https://res.hothwq.com/index.php?r=candidate"
+
 
           requestFn("access", { code: loginRes['code'], rawData: getUserInfoRes['rawData'], signature: getUserInfoRes['signature'], encryptedData: getUserInfoRes['encryptedData'], iv: getUserInfoRes['iv'], signtype: st },function(res){
             console.log(res)
@@ -83,7 +88,11 @@ const requestFn=function(portName,da,callback,meth="POST"){
 
 
 
+
+
+
 module.exports = {
+  portFn:portFn,
   formatTime: formatTime,
   loginaccess: loginaccess,
   requestFn: requestFn

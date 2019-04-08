@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    reslink:"https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/"
   }
 })
