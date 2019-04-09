@@ -44,12 +44,16 @@ Page({
     //简历是否已填
     let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
     if (have_resume == 0) {
-      wx.navigateTo({
-        url: 'resumeEdit',
+      utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {
+        if(res.data.length==0){
+          wx.navigateTo({
+            url: 'resumeEdit',
+          })
+        }
+        
       })
-      // util.requestFn("resumeSelect", { userId: app.openid},function(res){
-      //     console.log(res)
-      //   })
+      
+      
     }
   },
 })

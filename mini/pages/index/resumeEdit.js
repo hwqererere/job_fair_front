@@ -32,9 +32,7 @@ Page({
    */
   onLoad: function (options) {
     let self=this
-    // utils.requestFn('resumeSelect',{},function(res){
-    //   console.log(res)
-    // })
+
 
     self.setData({
       resume:{
@@ -122,12 +120,16 @@ Page({
       end_date:utils.formatTime(time)
     })
     let type = e.currentTarget.dataset.type ? e.currentTarget.dataset.type:e.target.dataset.type
+
     if (type ==-1){
+
       self.setData({ exptype:-1})
       self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'start_date', self.data.start_date)})
       self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'end_date', self.data.end_date) })
-    } else if (e.target.type == 'edit'){
-      self.setData({ exptype:'edit'})
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'corporate_name', '') })
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'work_name', '') })
+    } else {
+      self.setData({ exptmp: self.data.resume.exp[type], exptype:type})
 
     }
   },
@@ -168,12 +170,15 @@ Page({
       wx.showToast({ title: '请填写职位', icon: 'none', duration: 2000 })
     }else{
       let setresume = self.data.resume
-      if(self.data.exptype=='add'){
+      if(self.data.exptype==-1){
         setresume.exp.push(self.data.exptmp)
-      }      
+      }else{
+        setresume.exp[self.data.exptype] = self.data.exptmp
+      }
+
       self.setData({ resume: setresume, workState:false})
-      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'corporate_name', '') })
-      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'work_name', '') })
+
+  
 
     }
   },

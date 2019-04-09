@@ -99,7 +99,17 @@
       <text class='label'>现在住址*</text>
       <input type='text' bindinput="input_text" data-type="domicile" placeholder='请输入现住地址' value='{{resume.domicile}}'></input>
     </view>
-  
+    <view class='experience-main' wx:for="{{resume.leparray_data}}" wx:key='key'>
+        <icon class='dian'></icon>
+        <icon class='edit' bindtap='educ' data-type='{{index}}'></icon>
+        <view class='item'>
+          {{item.school}}
+          </view>
+        <view class='item'>
+          <text>{{item.major}}</text>
+        </view>
+        <view class='item'>教育时间：{{item.start_date}} 到 {{item.end_date}}</view>
+      </view>
 
     <view class='experience-box form-group' >
       <view class='experience-title'>
@@ -109,7 +119,7 @@
     </view>
     <view class='experience-main' wx:for="{{resume.exp}}" wx:key='key'>
         <icon class='dian'></icon>
-        <icon class='edit' bindtap='work' data-type='edit' data-index='{{index}}'></icon>
+        <icon class='edit' bindtap='work' data-type='{{index}}'></icon>
         <view class='item'>
           {{item.corporate_name}}
           </view>
@@ -120,11 +130,19 @@
       </view>
 
  
-    <view class='experience-group' bindtap='work' data-type="add">
+    <view class='experience-group' bindtap='work' data-type="-1">
     <view class='experience-item' >
       <view class='left' >
         <icon></icon>
         <text>添加工作经历</text>
+      </view>      
+    </view>
+  </view>
+      <view class='experience-group' bindtap='educ' data-type="-1">
+    <view class='experience-item' >
+      <view class='left' >
+        <icon></icon>
+        <text>添加教育经历</text>
       </view>      
     </view>
   </view>
@@ -172,6 +190,52 @@
        <input type='text' bindinput="input_tmp" data-type="work_name" placeholder='请输入职务' value='{{exptmp.work_name}}'></input>
     </view>
   </view>
+  
+  <view class='form-save-exp'>
+    <button type='button' class='savebtn' bindtap='expsub'>保存</button>
+    <button type='button' class='cancelbtn' bindtap='expcancel'>取消</button>
+  </view>
+  </view>
+</view>
+
+
+  <view class="laybg" wx:if="{{educState}}"></view>
+  <view class="addexpbox" wx:if="{{educState}}">
+    
+  <view class='form-group'>
+    <label class='form-label'>起止时间</label>
+    <view class='form-item'>
+      <view class='form-time'>
+          <picker mode="date" value="{{start_date}}" start="1970-01-01" end="{{over_date}}"  bindchange="bindDateChange" data-type="begin">
+            <view class="picker">
+               {{start_date}}
+            </view>
+          </picker>
+       
+      </view>
+      <view class='form-line'>—</view>
+      <view class='form-time'>
+        <picker mode="date" value="{{end_date}}" start="1970-01-01" end="{{over_date}}"  bindchange="bindDateChange" data-type="end">
+            <view class="picker">
+               {{end_date}}
+            </view>
+          </picker>
+      </view>
+    </view>
+
+  <view class='form-group'>
+      <label class='form-label'>教育单位</label>
+      <view class='form-item'>
+          <input type='text' bindinput="input_tmpeduc" data-type="school" placeholder='请填写学校' value='{{eductmp.school}}'></input>
+      </view>
+  </view>
+    <view class='form-group'>
+    <label class='form-label'>专业</label>
+    <view class='form-item'>
+       <input type='text' bindinput="input_tmpeduc" data-type="major" placeholder='请填写专业' value='{{eductmp.major}}'></input>
+    </view>
+  </view>
+  
   <view class='form-save-exp'>
     <button type='button' class='savebtn' bindtap='expsub'>保存</button>
     <button type='button' class='cancelbtn' bindtap='expcancel'>取消</button>
