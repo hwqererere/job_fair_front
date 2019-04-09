@@ -8,7 +8,8 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') 
 }
 
 const formatNumber = n => {
@@ -90,9 +91,12 @@ const requestFn=function(portName,da,callback,meth="POST"){
 function formlib(){
   let obj={}
   obj.sex = ['女', '男']
-  obj.nation=['汉族','其他民族']
   obj.marital_status = ['未婚','已婚','已婚已育']
-  obj.identitycard = ['初中或以下','高中','中专','大专、高职','本科','研究生','博士','博士后','其他']
+  obj.education = ['初中或以下','高中','中专','大专、高职','本科','研究生','博士','博士后','其他']
+  obj.political_status=['群众','党员','团员']
+  obj.place=['本区','本市非本区','外省市']
+  obj.county=['黄浦区','徐汇区','长宁区','静安区','普陀区','虹口区','杨浦区','浦东新区','闵行区','宝山区','嘉定区','金山区','松江区','青浦区','奉贤区','崇明区']
+  obj.street=['莘庄镇','七宝镇','浦江镇','梅陇镇','虹桥镇','马桥镇','吴泾镇','华漕镇','颛桥镇','江川路街道','新虹街道','古美路街道','浦锦街道']
   return obj
 }
 const formlibFn=function(){
@@ -100,7 +104,7 @@ const formlibFn=function(){
 }
 const resume_set=function(self,resume,type,value){
   let lib=formlib()
-  let indextype = ['sex', 'marital_status','identitycard']
+  let indextype = ['street','county']
   let inarr=false;
   for(let i=0;i<indextype.length;i++){
     if(type==indextype[i]){
@@ -108,9 +112,10 @@ const resume_set=function(self,resume,type,value){
     }
   }
   if (inarr){
-    resume[type] = value
-  }else{
     resume[type] = lib[type][value]
+  }else{
+    resume[type] = value
+    
   }
   return resume
 }

@@ -47,21 +47,23 @@
   width: 100%;
   border-top:2rpx solid #ececec;
 }
-
+.form-group.large{height:auto}
+.form-group.notop{border-top:0rpx}
+.form-group.nobtm{border-bottom:0rpx}
 .form-group .label {
   float: left;
 margin-left:20rpx; 
   line-height: 60rpx;
   font-size: 30rpx;
 }
-
+.form-group textarea{float:right;width:550rpx;min-height:200rpx;overflow:hidden;font-size:30rpx;}
 .form-group .txt {
   line-height: 60rpx;
   font-size: 30rpx;
   float: right;
   margin-right: 60rpx;
 }
-.form-group input[type='text']{
+.form-group input{
   float:right;margin-right:60rpx;font-size:30rpx;line-height:60rpx;text-align: right;height:60rpx}
 .form-group picker{line-height: 60rpx;font-size: 30rpx;float: right;margin-right: 60rpx;height:60rpx}
 .form-group .picker{line-height: 60rpx;font-size: 30rpx;float: right;height:60rpx}
@@ -84,7 +86,7 @@ margin-left:20rpx;
 }
 
 .experience-item .left icon {
-  background: url(http://qianduan88.com/weChat-images/small-program/add.png) no-repeat;
+  background: url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/add.png) no-repeat;
   background-size: cover;
   width: 40rpx;
   height: 40rpx;
@@ -123,6 +125,7 @@ margin-left:20rpx;
 }
 
 .experience-box {
+  float:left;
   padding: 35rpx;
   text-align: center;
   background: #fff;
@@ -130,14 +133,14 @@ margin-left:20rpx;
 }
 
 .experience-title {
-  margin-bottom: 30rpx;
+  float:left;margin-left:20rpx;
   text-align: left;
 }
 
 .experience-title icon {
   display: block;
   float: left;
-  background: url(http://qianduan88.com/weChat-images/small-program/icon001.png) no-repeat;
+  background: url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/icon001.png) no-repeat;
   background-size: cover;
   width: 40rpx;
   height: 40rpx;
@@ -151,9 +154,12 @@ margin-left:20rpx;
 }
 
 .experience-main {
+  float:left;
   position: relative;
-  padding-left: 20rpx;
-  padding-bottom: 25rpx;
+  width:calc(100% - 60rpx);
+  margin-left: 40rpx;
+  padding-left:20rpx;
+  margin-bottom: 25rpx;
   border-left: #ddd solid 1px;
   text-align: left;
 }
@@ -161,7 +167,7 @@ margin-left:20rpx;
 .experience-main .dian {
   position: absolute;
   top: -6rpx;
-  left: -6rpx;
+  left: -5rpx;
   background: #e83743;
   width: 10rpx;
   height: 10rpx;
@@ -172,7 +178,7 @@ margin-left:20rpx;
   position: absolute;
   top: 0;
   right: 30rpx;
-  background: url(http://qianduan88.com/weChat-images/small-program/edit.png) no-repeat;
+  background: url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/edit.png) no-repeat;
   background-size: cover;
   width: 60rpx;
   height: 60rpx;
@@ -182,4 +188,28 @@ margin-left:20rpx;
   line-height: 40rpx;
   padding: 6rpx 0;
   font-size: 28rpx;
+}
+
+
+.addexpbox{position:fixed;z-index:1000;width:90%;left:5%;height:auto;top:10%;background-color:#fff;}
+.form-item {float:right;max-width:450rpx;}
+.form-item .form-time{float: left;width: 180rpx;}
+.form-item .form-time picker{width:220rpx;margin-right:0rpx;float:left;}
+.form-item .form-time picker .picker{float:left;width:220rpx;margin-left:0rpx;}
+.form-item .form-line{
+  float: left;
+    width: 50rpx;
+}
+.form-save-exp{float:left;width: 100%;height: 80rpx;background: #fff;}
+.form-save-exp .savebtn{float:left;width:50%;color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;}
+.form-save-exp .cancelbtn{float:left;width:50%;text-align:center;background-color:#fff;border-radius:0rpx;}
+.form-save{
+  position: fixed;z-index: 99;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15rpx 0;
+  height: 80rpx;
+  background: #fff;
+  border-top: #ddd solid 1px;
 }

@@ -1,35 +1,90 @@
 <view class="container">
-
-
-  
   <view class="resume-photo">
     <view class='photo'>
-      <image bindtap="updateface" src='{{resume.headface?resume.headface:reslink+"style/default_head.jpg"}}'></image>
+      <image bindtap="updateface" src='{{headface?headface:reslink+"style/default_head.jpg"}}'></image>
     </view>
  
   </view>
-  <view class="form-group">
-    
-      <text class='label'>姓名</text>
-      <input type='text' placeholder='请输入姓名' value=''></input>
+  <view class="form-group">    
+      <text class='label'>姓名*</text>
+      <input type='text' bindinput="input_text" data-type="username" placeholder='请输入姓名' value='{{resume.username}}'></input>
     </view>
     <view class='form-group'>
-      <text class='label'>性别</text>
+      <text class='label'>性别*</text>
       <picker bindchange="bindPickerChange" data-type='sex' value="{{resume.sex}}" range="{{lib.sex}}">
     <view class="picker">
       {{lib.sex[resume.sex]}}
     </view>
   </picker>
     </view>
-
-  <view class="form-group">
-    <text class='label'>民族</text>
-    <picker bindchange="bindPickerChange" data-type='nation' value="{{resume.nation}}" range="{{lib.nation}}">
+      <view class="form-group">    
+      <text class='label'>手机*</text>
+      <input type='number' bindinput="input_text" data-type="phone" placeholder='请输入手机' value='{{resume.phone}}'></input>
+    </view>
+   <view class="form-group">    
+      <text class='label'>身份证*</text>
+      <input type='text' bindinput="input_text" data-type="identitycard" placeholder='请输入身份证' value='{{resume.identitycard}}'></input>
+    </view>
+    <view class="form-group">    
+      <text class='label'>年龄*</text>
+      <input type='number' bindinput="input_text" data-type="age" placeholder='请输入年龄' value='{{resume.age}}'></input>
+    </view>
+    <view class="form-group">    
+      <text class='label'>民族</text>
+      <input type='text' bindinput="input_text" data-type="nation" placeholder='请填写民族' value='{{resume.nation}}'></input>
+    </view>
+      <view class="form-group">
+    <text class='label'>政治面貌</text>
+    <picker bindchange="bindPickerChange" data-type='political_status' value="{{resume.political_status}}" range="{{lib.political_status}}">
     <view class="picker">
-      {{resume.nation}}
+      {{lib.political_status[resume.political_status]}}
     </view>
   </picker>
   </view>
+    <view class="form-group">
+    <text class='label'>学历</text>
+    <picker bindchange="bindPickerChange" data-type='education' value="{{resume.education}}" range="{{lib.education}}">
+    <view class="picker">
+      {{lib.education[resume.education]}}
+    </view>
+  </picker>
+  </view>
+  <view class="form-group nobtm">
+    <text class='label'>户籍地*</text>
+    <picker bindchange="bindPickerChange" data-type='place' value="{{resume.place}}" range="{{lib.place}}">
+    <view class="picker">
+      {{lib.place[resume.place]}}
+    </view>
+  </picker>
+  </view>
+  
+  <view class="form-group notop" wx:if="{{resume.place==0}}">
+    <text class='label'></text>
+    <picker bindchange="bindPickerChange" data-type='street' value="{{streetindex}}" range="{{lib.street}}">
+    <view class="picker">
+      {{lib.street[streetindex]}}
+    </view>
+  </picker>
+  </view>
+
+  <view class="form-group notop" wx:if="{{resume.place==1}}">
+    <text class='label'></text>
+    <picker bindchange="bindPickerChange" data-type='county' value="{{countyindex}}" range="{{lib.county}}">
+    <view class="picker">
+      {{lib.county[countyindex]}}
+    </view>
+  </picker>
+  </view>
+
+  <view class="form-group notop" wx:if="{{resume.place==2}}">
+    <text class='label'></text>
+    <picker mode = "region" bindchange="bindRegionChange" data-type='region' value="{{region}}" >
+    <view class="picker">
+      {{region[0]}}-{{region[1]}}-{{region[2]}}
+    </view>
+  </picker>
+  </view>
+
   <view class="form-group">
     <text class='label'>婚否</text>
     <picker bindchange="bindPickerChange" data-type='marital_status' value="{{resume.marital_status}}" range="{{lib.marital_status}}">
@@ -38,138 +93,88 @@
     </view>
   </picker>
   </view>
-  <view class="form-group">
-    <text class='label'>学历</text>
-    <picker bindchange="bindPickerChange" data-type='identitycard' value="{{resume.identitycard}}" range="{{lib.identitycard}}">
-    <view class="picker">
-      {{lib.identitycard[resume.identitycard]}}
+
+  
+  <view class="form-group">    
+      <text class='label'>现在住址*</text>
+      <input type='text' bindinput="input_text" data-type="domicile" placeholder='请输入现住地址' value='{{resume.domicile}}'></input>
     </view>
-  </picker>
-  </view>
-  <view class="form-group">
-    <text class='label'>籍贯*</text>
-    <text class='txt'>北京市-北京市-东城区</text>
-    <icon class='right-arrow'></icon>
-  </view>
-  <view class="form-group">
-    <text class='label'>文化程度*</text>
-    <text class='txt'>初中</text>
-    <icon class='right-arrow'></icon>
-  </view>
-  <view class="form-group">
-    <text class='label'>现在住址*</text>
-    <text class='txt'>北京市-北京市-东城区</text>
-    <icon class='right-arrow'></icon>
-  </view>
-  <view class="form-group">
-    <text class='label'>求职状态*</text>
-    <text class='txt'>在职-考虑机会</text>
-    <icon class='right-arrow'></icon>
-  </view>
-  <view class="form-group">
-    <text class='label'>参加工作时间*</text>
-    <text class='txt'>无经验</text>
-    <icon class='right-arrow'></icon>
-  </view>
-  <view class='experience-group'>
-    <view class='experience-item'>
-      <view class='left' bindtap='addWorkClick'>
-        <icon></icon>
-        <text>去添加工作经历</text>
-      </view>
-      <view class='right'>
-        <icon></icon>
-        <text>无工作经历</text>
-      </view>
-    </view>
-    <view class='experience-box' hidden="{{workState}}">
+  
+
+    <view class='experience-box form-group' >
       <view class='experience-title'>
         <icon></icon>
         <text>工作经验</text>
       </view>
-      <view class='experience-main'>
+    </view>
+    <view class='experience-main' wx:for="{{resume.exp}}" wx:key='key'>
         <icon class='dian'></icon>
-        <icon class='edit' bindtap='editWorkClick'></icon>
+        <icon class='edit' bindtap='work' data-type='edit' data-index='{{index}}'></icon>
         <view class='item'>
-          <text>5000</text>元/月</view>
+          {{item.corporate_name}}
+          </view>
         <view class='item'>
-          <text>aaaaa</text>
+          <text>{{item.work_name}}</text>
         </view>
-        <view class='item'>工作时间：2019-4 到 2019-10</view>
+        <view class='item'>工作时间：{{item.start_date}} 到 {{item.end_date}}</view>
       </view>
-      <view class='experience-main'>
-        <icon class='dian'></icon>
-        <icon class='edit' bindtap='editWorkClick'></icon>
-        <view class='item'>
-          <text>5000</text>元/月</view>
-        <view class='item'>
-          <text>aaaaa</text>
-        </view>
-        <view class='item'>工作时间：2019-4 到 2019-10</view>
-      </view>
+
+ 
+    <view class='experience-group' bindtap='work' data-type="add">
+    <view class='experience-item' >
+      <view class='left' >
+        <icon></icon>
+        <text>添加工作经历</text>
+      </view>      
     </view>
   </view>
-  <view class='experience-group'>
-    <view class='experience-item'>
-      <view class='left' bindtap='addTrainClick'>
-        <icon></icon>
-        <text>去添加学习培训经历</text>
-      </view>
-      <view class='right'>
-        <icon></icon>
-        <text>无培训经历</text>
-      </view>
+      <view class="form-group large">    
+      <text class='label'>个人描述</text>
+      <textarea bindinput="input_text" data-type="job_intention" auto-height placeholder="请填写对自己的描述" placeholder-style="font-size:20rpx" value="{{resume.job_intention}}"></textarea>
     </view>
-    <view class='experience-box' hidden="{{trainState}}">
-      <view class='experience-title'>
-        <icon></icon>
-        <text>培训经历</text>
-      </view>
-      <view class='experience-main'>
-        <icon class='dian'></icon>
-        <icon class='edit' bindtap='editTrainClick'></icon>
-        <view class='item'>
-          <text>aaa</text></view>
-        <view class='item'>
-          <text>bbb</text>
-        </view>
-        <view class='item'>时间：2019-4 到 2019-10</view>
-      </view>
-      <view class='experience-main'>
-        <icon class='dian'></icon>
-        <icon class='edit' bindtap='editTrainClick'></icon>
-        <view class='item'>
-          <text>aaa</text></view>
-        <view class='item'>
-          <text>bbb</text>
-        </view>
-        <view class='item'>时间：2019-4 到 2019-10</view>
-      </view>
-    </view>
-  </view>
-  <view class='experience-group'>
-    <view class='experience-item'>
-      <view class='left' bindtap='addHomeClick'>
-        <icon></icon>
-        <text>去添加家庭成员，便于联系</text>
-      </view>
-    </view>
-    <view class='experience-box' hidden="{{homeState}}">
-      <view class='experience-title'>
-        <icon></icon>
-        <text>家庭成员</text>
-      </view>
-      <view class='experience-main' value="false">
-        <icon class='dian'></icon>
-        <icon class='edit' bindtap='editHomeClick'></icon>
-        <view class='item'>
-          <text>aaa</text><text>bbb</text></view>
-        <view class='item'>1385215412</view>
-      </view>
-    </view>
-  </view>
   <view class='bottom-pad'></view>
   <view class='form-save'>
-    <button type='button' class='btn' bindtap='saveClick'>保存</button>
+    <button type='button' class='btn' bindtap='save'>保存</button>
+  </view>
+
+  <view class="laybg" wx:if="{{workState}}"></view>
+  <view class="addexpbox" wx:if="{{workState}}">
+    <view class='form-group'>
+    <label class='form-label'>工作单位</label>
+    <view class='form-item'>
+       <input type='text' bindinput="input_tmp" data-type="corporate_name" placeholder='请填写工作单位' value='{{exptmp.corporate_name}}'></input>
+    </view>
+  </view>
+  <view class='form-group'>
+    <label class='form-label'>起止时间</label>
+    <view class='form-item'>
+      <view class='form-time'>
+          <picker mode="date" value="{{start_date}}" start="1970-01-01" end="{{over_date}}"  bindchange="bindDateChange" data-type="begin">
+            <view class="picker">
+               {{start_date}}
+            </view>
+          </picker>
+       
+      </view>
+      <view class='form-line'>—</view>
+      <view class='form-time'>
+        <picker mode="date" value="{{end_date}}" start="1970-01-01" end="{{over_date}}"  bindchange="bindDateChange" data-type="end">
+            <view class="picker">
+               {{end_date}}
+            </view>
+          </picker>
+      </view>
+    </view>
+  </view>
+  <view class='form-group'>
+    <label class='form-label'>职务</label>
+    <view class='form-item'>
+       <input type='text' bindinput="input_tmp" data-type="work_name" placeholder='请输入职务' value='{{exptmp.work_name}}'></input>
+    </view>
+  </view>
+  <view class='form-save-exp'>
+    <button type='button' class='savebtn' bindtap='expsub'>保存</button>
+    <button type='button' class='cancelbtn' bindtap='expcancel'>取消</button>
+  </view>
   </view>
 </view>
