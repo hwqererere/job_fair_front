@@ -15,7 +15,7 @@ Page({
     app.globalData.signtype = signtype
     let openid = wx.getStorageSync('openid') ? wx.getStorageSync('openid') : ""
     if (openid != "") {
-      app.openid = openid
+      app.globalData.openid = openid
       self.setData({ access: true })
       self.checkresume()
     } else {

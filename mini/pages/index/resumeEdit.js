@@ -22,9 +22,10 @@ Page({
     reslink: app.globalData.reslink ,
     lib: utils.formlibFn(),
     exptmp:{corporate_name:"",work_name:"",start_date:"",end_date:""},
+    edutmp: { school_name: "", major: "", start_date: "", end_date: "" },
     exptype:-1,//-1为新增
     workState: false,
-   
+    educState: false,
   },
 
   /**
@@ -36,24 +37,36 @@ Page({
 
     self.setData({
       resume:{
+        userId: app.globalData.openid,
         username:"",
         url_id:"",
         phone:"",
         sex:1,
         nation:"",
+        postal_code:"",
         marital_status:0,
         identitycard:"",
         education:0,
         age:"",
         political_status:0,
         place:0,
+        home_phone:"",
+        expected_income:'',
+        personnel_type:0,
+        technical_title:"",
+        working_life:'',
+        strong_point:'',
+        Job_intention:'',
+        person_height:"",
+        weight:"",
         province:self.data.region[0],
         city:self.data.region[1],
         county:self.data.lib['county'][0],
         street:self.data.lib['street'][0],
         domicile:"",
         job_intention:"",
-        exp:[]
+        workarray_data:[],
+        leparray_data:[]
       }
     })
 
@@ -110,81 +123,139 @@ Page({
     console.log(self.data.resume)
   },
 
-  work:function(e){
+  addlist:function(e){
     let self=this
     let time=new Date(); 
-    self.setData({
-      workState:true,
+    let open = e.currentTarget.dataset.open ? e.currentTarget.dataset.open : e.target.dataset.open
+    if (open =='workState'){
+      self.setData({ workState: true})
+    }else{
+      self.setData({ educState: true })
+    }
+    self.setData({      
       over_date:utils.formatTime(time),
       start_date:utils.formatTime(time),
       end_date:utils.formatTime(time)
     })
     let type = e.currentTarget.dataset.type ? e.currentTarget.dataset.type:e.target.dataset.type
-
-    if (type ==-1){
-
-      self.setData({ exptype:-1})
-      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'start_date', self.data.start_date)})
-      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'end_date', self.data.end_date) })
-      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'corporate_name', '') })
-      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'work_name', '') })
+    self.setData({ exptype: type })
+    if (type ==-1){     
+      if(self.data.workState){
+        self.setData({ exptmp: { corporate_name: "", work_name: "", start_date: self.data.start_date, end_date: self.data.end_date } })
+      }else{
+        self.setData({ edutmp: { school_name: "", major: "", start_date: self.data.start_date, end_date: self.data.end_date }})
+      }      
     } else {
-      self.setData({ exptmp: self.data.resume.exp[type], exptype:type})
-
+      if(self.data.workState){
+        self.setData({ exptmp: self.data.resume.workarray_data[type], exptype: type })
+      }else{
+        self.setData({ edutmp: self.data.resume.leparray_data[type], exptype: type })
+      }
     }
   },
    bindDateChange(e) {
     let self=this
     let type=e.target.dataset.type
-    if(type=='begin'){
-      self.setData({
-        start_date: e.detail.value,
-        exptmp:utils.resume_set(self,self.data.exptmp,'start_date',e.detail.value)
-      })
+    if (self.data.educState) {    
+     
+      if (type == 'begin') {
+        self.setData({ start_date: e.detail.value })
+        self.setData({ edutmp: { school_name: self.data.edutmp.school_name, major: self.data.edutmp.major, start_date: e.detail.value, end_date: self.data.edutmp.end_date }})
+      }else{
+         self.setData({ end_date: e.detail.value })
+         self.setData({ edutmp: { school_name: self.data.edutmp.school_name, major: self.data.edutmp.major, start_date: self.data.edutmp.start_date, end_date: e.detail.value} })
+      }      
     }else{
-      self.setData({
-        end_date: e.detail.value,
-        exptmp:utils.resume_set(self,self.data.exptmp,'end_date',e.detail.value)
-      })  
+      
+      if (type == 'begin'){
+        self.setData({ start_date: e.detail.value })
+        self.setData({ exptmp: { corporate_name: self.data.exptmp.corporate_name, work_name: self.data.exptmp.work_name, start_date: e.detail.value, end_date: self.data.exptmp.end_date } })
+      }else{
+        self.setData({ end_date: e.detail.value })
+        self.setData({ exptmp: { corporate_name: self.data.exptmp.corporate_name, work_name: self.data.exptmp.work_name, start_date: self.data.exptmp.start_date , end_date: e.detail.value } })
+      }      
+
+     
     }
   },
   input_tmp:function(e){
-    let self=this
+    let self = this    
     let type=e.target.dataset.type
     let value=e.detail.value
-    self.setData({ exptmp: utils.resume_set(self,self.data.exptmp,type,value)})
-  },
-  expcancel:function(){
-    let self = this
-    self.setData({
-      workState: false
-    })
-    self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'corporate_name', '') })
-    self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'work_name', '') })
-  },
-  expsub:function(){
-    let self=this
-    if (self.data.exptmp.corporate_name==""){
-      wx.showToast({title: '请填写公司',icon: 'none', duration: 2000})
-    } else if (self.data.exptmp.work_name==""){
-      wx.showToast({ title: '请填写职位', icon: 'none', duration: 2000 })
+    if (self.data.educState){
+      self.setData({ edutmp: utils.resume_set(self, self.data.edutmp, type, value) })
     }else{
-      let setresume = self.data.resume
-      if(self.data.exptype==-1){
-        setresume.exp.push(self.data.exptmp)
-      }else{
-        setresume.exp[self.data.exptype] = self.data.exptmp
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, type, value) })
+    }    
+  },
+
+  listcancel:function(){
+    let self = this
+    if (self.data.workState){
+      self.setData({ workState: false })
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'corporate_name', '') })
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'work_name', '') })
+    }else{
+      self.setData({ educState: false })
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'school_name', '') })
+      self.setData({ exptmp: utils.resume_set(self, self.data.exptmp, 'major', '') })
+    }
+    
+  },
+  listsub:function(){
+    let self=this
+    if (self.data.workState){
+      if (self.data.exptmp.corporate_name == "") {
+        wx.showToast({ title: '请填写公司', icon: 'none', duration: 2000 })
+      } else if (self.data.exptmp.work_name == "") {
+        wx.showToast({ title: '请填写职位', icon: 'none', duration: 2000 })
+      } else {
+        if (self.data.exptype == -1) {  
+          let workarray_data = utils.arrReplace(self.data.resume.workarray_data, self.data.resume.workarray_data.length, self.data.exptmp)        
+          let set_resume = self.data.resume
+          set_resume.workarray_data = workarray_data
+          self.setData({ resume: set_resume })           
+        } else {
+          let workarray_data = utils.arrReplace(self.data.resume.workarray_data, self.data.exptype, self.data.exptmp)
+          workarray_data[self.data.exptype] = self.data.exptmp
+          self.setData({ resume: utils.resume_set(self, self.data.resume, 'workarray_data', workarray_data) })
+         
+        }        
+        self.setData({ workState: false }) 
       }
-
-      self.setData({ resume: setresume, workState:false})
-
-  
-
+    }else{
+      if (self.data.edutmp.school_name == "") {
+        wx.showToast({ title: '请填写培训单位', icon: 'none', duration: 2000 })
+      } else {
+        let setresume = self.data.resume
+        if (self.data.exptype == -1) {
+          setresume.leparray_data[setresume.leparray_data.length]=self.data.edutmp
+        } else {
+          setresume.leparray_data[self.data.exptype] = self.data.edutmp
+        }
+        self.setData({ resume: setresume, educState: false })
+      }
+    }
+  },
+  delsub:function(){
+    let self=this
+    console.log("cccc")
+    let set_resume = self.data.resume
+    if (self.data.workState){      
+      set_resume.workarray_data.splice(self.data.exptype,1)
+      self.setData({ resume: set_resume, workState: false })
+    }else{
+      set_resume.leparray_data.splice(self.data.exptype, 1)
+      self.setData({ resume: set_resume, educState: false })
     }
   },
   checksave:function(){
     let self=this
     let re=true
+    if (self.data.headface==''){
+      re = false
+      wx.showToast({ title: '请上传照片', icon: "none", duration: 2000 })
+    }
     if(self.data.resume.username==''){
       re=false
       wx.showToast({ title: '请填写姓名', icon: "none", duration: 2000})

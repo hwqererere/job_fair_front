@@ -97,6 +97,7 @@ function formlib(){
   obj.place=['本区','本市非本区','外省市']
   obj.county=['黄浦区','徐汇区','长宁区','静安区','普陀区','虹口区','杨浦区','浦东新区','闵行区','宝山区','嘉定区','金山区','松江区','青浦区','奉贤区','崇明区']
   obj.street=['莘庄镇','七宝镇','浦江镇','梅陇镇','虹桥镇','马桥镇','吴泾镇','华漕镇','颛桥镇','江川路街道','新虹街道','古美路街道','浦锦街道']
+  obj.personnel_type = ['失业','征地','协保','下岗','退休','应期毕业生','外来媳妇','退伍军人']
   return obj
 }
 const formlibFn=function(){
@@ -114,10 +115,27 @@ const resume_set=function(self,resume,type,value){
   if (inarr){
     resume[type] = lib[type][value]
   }else{
-    resume[type] = value
-    
+    resume[type] = value    
   }
+  
   return resume
+}
+
+
+const arrReplace=function(arr,ind,revalue){
+  // console.log(arr, revalue)
+  let newarr=[]
+  for (let i = 0; i < arr.length; i++) {
+    if (i == ind) {
+      newarr[i] = revalue
+    } else {
+      newarr[i] = arr[i]
+    }
+  }
+  if (arr.length == ind){
+    newarr[ind] = revalue
+  } 
+  return newarr;
 }
 
 module.exports = {
@@ -126,5 +144,6 @@ module.exports = {
   loginaccess: loginaccess,
   requestFn: requestFn,
   formlibFn:formlibFn,
-  resume_set: resume_set
+  resume_set: resume_set,
+  arrReplace: arrReplace
 }
