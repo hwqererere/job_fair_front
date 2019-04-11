@@ -7,7 +7,7 @@
 .index-top {
   background: url(http://qianduan88.com/weChat-images/small-program/social-security.jpg) no-repeat center bottom;
   background-size: 100% auto;
-  height: 468rpx;
+  height: 368rpx;
   width: 100%;
 }
 
@@ -16,60 +16,32 @@
   height: 64rpx;
   float:left;
   width: 100%;
-  margin-top:10rpx 
+  background-color:#357ac0;
 }
 
 .header-search .search-box {
-  position: relative;
-  height: 64rpx;
-  padding: 0 120rpx;
+  float:left;
+  height: 64rpx;padding:0rpx 40rpx;
+
 }
 
-
-
-.search-main {
+.header-search .search-input {
+  border-radius: 24rpx;float:left;margin-top:4rpx;width:480rpx;
   background: #fff;
-  border-radius: 64rpx;
-  height: 64rpx;
-  position: relative;
-}
-
-.search-input {
-  border-radius: 64rpx;
-  background: none;
   text-align: center;
   color: #c37d70;
-  font-size: 32rpx;
-  height: 64rpx;
-  line-height: 64rpx;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
 }
-
+.header-search .search{float:left;height:64rpx;margin-left:-50rpx;width:60rpx;line-height:56rpx; }
+.header-search .icon{float:left;height:64rpx;margin-left:20rpx;width:60rpx;line-height:64rpx;color:#fff}
 .header-search .scan {
-  position: absolute;
-  right: 20rpx;
-  top: 2rpx;
+  height:64rpx;float:left;line-height:64rpx;
   width: 90rpx;
+  color:#fff;
 }
 
-.header-search .scan icon {
-  width: 32rpx;
-  height: 32rpx;
-  background: url(http://qianduan88.com/weChat-images/small-program/scan.png) no-repeat;
-  background-size: cover;
-  display: block;
-  float: left;
-  margin-left: 14rpx;
-}
-
-.header-search .scan text {
-  color: #fff;
-  font-size: 22rpx;
-  width: 90rpx;
-  display: block;
-  float: left;
-  height: 36rpx;
-  line-height: 36rpx;
-}
 
 .search-position {
   width: 100%;

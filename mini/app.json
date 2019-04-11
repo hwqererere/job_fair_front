@@ -13,9 +13,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "闵行区莘庄镇社会保障事务中心",
-    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#357ac0",
+    "navigationBarTitleText": "莘庄就业",
+    "navigationBarTextStyle":"white",
     "navigationStyle": "default"
   },
   "tabBar": {

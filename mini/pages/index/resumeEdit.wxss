@@ -87,8 +87,6 @@ margin-left:20rpx;
 }
 
 .experience-item .left icon {
-  background: url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/add.png) no-repeat;
-  background-size: cover;
   width: 40rpx;
   height: 40rpx;
   margin-top: 28rpx;
@@ -141,8 +139,7 @@ margin-left:20rpx;
 .experience-title icon {
   display: block;
   float: left;
-  background: url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/icon001.png) no-repeat;
-  background-size: cover;
+
   width: 40rpx;
   height: 40rpx;
   margin-top: 0rpx;

@@ -118,7 +118,7 @@
   </view>
   <view class='experience-box form-group'>
     <view class='experience-title'>
-      <icon></icon>
+      <icon class='icon-study'></icon>
       <text>教育经历</text></view>
   </view>
   <view class='experience-group' bindtap='addlist' data-open='educState' data-type="-1">

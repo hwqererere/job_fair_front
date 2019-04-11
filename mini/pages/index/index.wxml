@@ -5,21 +5,18 @@
 
 
 
-
+    <view class='header-search'>
+      <view class='search-box'>
+      <view class='scan icon-scan'></view>
+          <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
+          <view class="search icon-search"></view>
+          <view class="icon icon-code"></view>
+      </view>
+    </view>
 
   <view class='index-top'>
 
-    <view class='header-search'>
-      <view class='search-box'>
-        <view class='search-main'>
-          <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
-        </view>
-        <view class='scan'>
-          <icon></icon>
-          <text>扫一扫</text>
-        </view>
-      </view>
-    </view>
+
   </view>
 </view>
 <view class="container">
