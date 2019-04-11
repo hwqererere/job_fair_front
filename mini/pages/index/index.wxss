@@ -25,30 +25,7 @@
   padding: 0 120rpx;
 }
 
-.header-search .select-addr {
-  position: absolute;
-  left: 20rpx;
-  top: 12rpx;
-  width: 90rpx;
-}
 
-.header-search .select-addr icon {
-  display: block;
-  float: right;
-  width: 0;
-  height: 0;
-  border-right: 12rpx solid transparent;
-  border-left: 12rpx solid transparent;
-  border-top: 12rpx solid #fff;
-  margin-top: 18rpx;
-}
-
-.header-search .select-addr text {
-  color: #fff;
-  font-size: 30rpx;
-  display: block;
-  float: left;
-}
 
 .search-main {
   background: #fff;

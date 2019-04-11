@@ -11,10 +11,6 @@
 
     <view class='header-search'>
       <view class='search-box'>
-        <view class='select-addr'>
-          <text>莘庄</text>
-          <icon></icon>
-        </view>
         <view class='search-main'>
           <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
         </view>

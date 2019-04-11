@@ -1,5 +1,6 @@
 .container {
   background: #fff;
+
 }
 .top-pad{
     height: 170rpx;
@@ -64,7 +65,7 @@ margin-left:20rpx;
   margin-right: 60rpx;
 }
 .form-group input{
-  float:right;margin-right:60rpx;font-size:30rpx;line-height:60rpx;text-align: right;height:60rpx}
+  float:right;margin-right:30rpx;font-size:30rpx;line-height:60rpx;text-align: right;height:60rpx}
 .form-group picker{line-height: 60rpx;font-size: 30rpx;float: right;margin-right: 60rpx;height:60rpx}
 .form-group .picker{line-height: 60rpx;font-size: 30rpx;float: right;height:60rpx}
 
@@ -126,7 +127,7 @@ margin-left:20rpx;
 
 .experience-box {
   float:left;
-  padding: 35rpx;
+  padding: 35rpx 0rpx;
   text-align: center;
   background: #fff;
   margin-bottom: 20rpx;

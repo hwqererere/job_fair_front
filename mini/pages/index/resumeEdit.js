@@ -55,6 +55,7 @@ Page({
         personnel_type:0,
         technical_title:"",
         working_life:'',
+        remark:'',
         strong_point:'',
         Job_intention:'',
         person_height:"",
@@ -120,7 +121,6 @@ Page({
     self.setData({ resume: utils.resume_set(self,self.data.resume,'province',e.detail.value[0])})
     self.setData({ resume: utils.resume_set(self,self.data.resume,'city',e.detail.value[1])})
     self.setData({ resume: utils.resume_set(self,self.data.resume,'county',e.detail.value[2])})
-    console.log(self.data.resume)
   },
 
   addlist:function(e){
@@ -284,26 +284,28 @@ Page({
     if (self.data.headface != "" && self.checksave()) {
       wx.showLoading({ title: '正在上传...' });
       var Key = util.getRandFileName(self.data.headface);
-      cos.postObject({
-        Bucket: config.Bucket,
-        Region: config.Region,
-        Key: "mhjczx/data/" + Key,
-        FilePath: self.data.headface,
-      }, function (err, res) {
-        wx.hideLoading();
-        if (res && res.Location) {
-          
-          self.setData({ resume: utils.resume_set(self, self.data.resume, 'url_id', Key) })
-          // headface = self.data.reslink + "data" + Key
-          console.log(self.data.resume)
+      self.setData({ resume: utils.resume_set(self, self.data.resume, 'url_id', Key) })
+        // headface = self.data.reslink + "data" + Key
+      utils.requestFn('resumeCreate', self.data.resume, function (resdata) {
+            cos.postObject({
+              Bucket: config.Bucket,
+              Region: config.Region,
+              Key: "mhjczx/data/" + Key,
+              FilePath: self.data.headface,
+            }, function (err, res) {
+              wx.hideLoading();
+              if (res && res.Location) {
+                wx.setStorageSync('resume', self.data.resume)
 
+                wx.navigateBack({ delta: 1})        
 
-        } else {
-          console.log(err)
-          wx.hideLoading();
-          wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 });
-        }
-      });
+              } else {
+                console.log(err)
+                wx.hideLoading();
+                wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 });
+              }
+            });
+      })
     }
   },
 })
