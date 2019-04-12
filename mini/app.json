@@ -18,31 +18,6 @@
     "navigationBarTextStyle":"white",
     "navigationStyle": "default"
   },
-  "tabBar": {
-    "color": "#000",
-    "selectedColor": "#e81f1f",
-    "backgroundColor": "#fff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/position.png",
-        "selectedIconPath": "images/position_1.png",
-        "text": "职位"
-      },
-      {
-        "pagePath": "pages/index/resume",
-        "iconPath": "images/resume.png",
-        "selectedIconPath": "images/resume_1.png",
-        "text": "简历"
-      },
-      {
-        "pagePath": "pages/index/my",
-        "iconPath": "images/my.png",
-        "selectedIconPath": "images/my_1.png",
-        "text": "我的"
-      }
-    ]
-  },
+ 
   "sitemapLocation": "sitemap.json"
 }

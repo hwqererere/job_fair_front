@@ -22,7 +22,15 @@ view,input,icon{  font-family: 'iconfont';}
 .icon-study:before{
   content:"\e63b";
 }
-
+.icon-my:before{
+  content:"\e7e5";
+}
+.icon-open:before{
+  content:"\e557";
+}
+.icon-close:before{
+  content:"\e606";
+}
 .access{position:fixed;z-index:99999;left:0rpx;top:0rpx;width:100%;height:100%;background:none}
 .container {
   height: 100%;
@@ -76,3 +84,39 @@ view,input,icon{  font-family: 'iconfont';}
 }
 
 .laybg{position:fixed;width:100%;height:100%;left:0rpx;top:0rpx;z-index:999;background-color:#000;opacity:0.7}
+
+
+
+
+.header-search {
+  height: 64rpx;
+  float:left;
+  width: 100%;
+  
+}
+
+.header-search .search-box {
+  float:left;width:calc(100% - 40rpx);
+  height: 64rpx;padding:0rpx 20rpx;position:fixed;left:0rpx;top:0rpx;background-color:#357ac0;
+
+}
+
+.header-search .search-input {
+  border-radius: 24rpx;float:left;margin-top:4rpx;width:480rpx;
+  background: #fff;
+  text-align: center;
+  color: #c37d70;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.header-search .search{float:left;height:64rpx;margin-left:-50rpx;width:60rpx;line-height:56rpx; }
+.header-search .icon{float:left;height:64rpx;margin-left:10rpx;width:60rpx;line-height:64rpx;color:#fff}
+.header-search .scan {
+  height:64rpx;float:left;line-height:64rpx;
+  width: 60rpx;margin-right:20rpx;
+  color:#fff;
+}
+
+
+.scroll-view{width:100%;float:left;height:calc(100% - 64rpx);background: #efefef;}

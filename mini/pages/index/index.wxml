@@ -1,78 +1,60 @@
 <!--index.wxml-->
-<view class="container">
-
   <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" ></button>
-
-
-
-    <view class='header-search'>
+   <view class='header-search'>
       <view class='search-box'>
       <view class='scan icon-scan'></view>
           <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
           <view class="search icon-search"></view>
           <view class="icon icon-code"></view>
+          <view class="icon icon-my"></view>
       </view>
     </view>
 
-  <view class='index-top'>
+      <view class='index-top' wx:if="{{false}}">
 
 
   </view>
-</view>
-<view class="container">
+
+
+
   <view class='search-position'>
-    <view class='search-item'>
-      <text>全部职位</text>
-      <icon></icon>
+    <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0">
+      <view class="set">全部职位</view>
+      <view class="icon {{(searchItem==0 && searchOpen)?'icon-close':'icon-open'}}"></view>
     </view>
-    <view class='search-item'>
-      <text>筛选</text>
-      <icon></icon>
+    <view class='search-item {{searchItem==1?"active":""}}' bindtap="searchItemChose" data-si="1">
+      <view class="set">筛选 </view>
+     <icon class="icon {{(searchItem==1 && searchOpen)?'icon-close':'icon-open'}}"></icon>
     </view>
-    <view class='all-position-box hide'>
+    <view class='all-position-box' wx:if="{{searchOpen && searchItem==0}}" >
         <view class='all-position-list'>
-            <text class='current'>不限</text>
-            <text>决策管理类</text>
-            <text>人事行政类</text>
-            <text>财务管理</text>
-            <text>营销类</text>
-            <text>技术类</text>
-            <text>生产服务类</text>
-            <text>其他</text>
+            <text class='{{allcounts[0][0]==0?"current":""}}'>不限</text>
+            <text wx:for="{{searchitems[0][0]}}" wx:key="key00" bindtap="setitem" data-id="0-0-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text>  
         </view>
         <view class='all-position-btn'>
-            <view class='btn1'>重置</view>
+            <view class='btn1' bindtap="reset" data-id="0">重置</view>
             <view class='btn2'>确定</view>
         </view>
     </view>
-    <view class='all-position-box hide'>
+    <view class='all-position-box' wx:if="{{searchOpen && searchItem==1}}">
         <view class='all-position-list'>
-            <text class='current'>不限</text>
-            <text>早九晚五</text>
-            <text>双休</text>
-            <text>长白班</text>
-            <text>福利好</text>
-            <text>包吃住</text>
-            <text>班车接送</text>
-            <text>五险一金</text>
+            <text class='{{allcounts[1][0]==0?"current":""}}'>不限</text>
+            <text wx:for="{{searchitems[1][0]}}" wx:key="key10" bindtap="setitem" data-id="1-0-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text>  
         </view>
         <view class='all-position-list'>
-            <text class='current'>不限</text>
-            <text>长三角及扶贫专区</text>
-            <text>某某街道</text>
-            <text>某某街道</text>
-            <text>某某街道</text>
-            <text>某某街道</text>
-            <text>某某街道</text>
-            <text>某某街道</text>
+            <text class='{{allcounts[1][1]==0?"current":""}}'>不限</text>
+            <text wx:for="{{searchitems[1][1]}}" wx:key="key11" bindtap="setitem" data-id="1-1-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text>  
         </view>
         <view class='all-position-btn'>
-            <view class='btn1'>重置</view>
+            <view class='btn1' bindtap="reset" data-id="1">重置</view>
             <view class='btn2'>确定</view>
         </view>
     </view>
     <view class='all-position-bg hide'></view>
   </view>
+
+<scroll-view scroll-y class="scroll-view" >
+
   <view class='position-group'>
     <view class='position-main'>
       <view class='position-hd'>
@@ -168,4 +150,4 @@
       </view>
     </view>
   </view> 
-</view>
+</scroll-view>

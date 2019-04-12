@@ -4,7 +4,12 @@ const app = getApp()
 const utils=require("../../utils/util.js");
 Page({
   data: {
-    access:false
+    access:false,
+    searchItem:0,
+    searchOpen:false,
+    searchitems: [[[{ check: 0, txt: '决策管理类' }, { check: 0, txt: '人事行政类' }, { check: 0, txt: '财务管理' }, { check: 0, txt: '营销类' }, { check: 0, txt: '技术类' }, { check: 0, txt: '生产服务类' }, { check: 0, txt:'其他'}],[]],[
+      [{ check: 0, txt: '早九晚五' }, { check: 0, txt: '双休' }, { check: 0, txt: '长白班' }, { check: 0, txt: '福利好' }, { check: 0, txt: '包吃住' }, { check: 0, txt: '班车接送' }, { check: 0, txt: '五险一金' }], [{ check: 0, txt: '长三角及扶贫专区' }, { check: 0, txt: '莘庄镇' }, { check: 0, txt: '七宝镇' }, { check: 0, txt: '大学生实践和生态环保专区' }, { check: 0, txt: '浦江镇' }, { check: 0, txt: '梅陇镇' }, { check: 0, txt: '虹桥镇' }, { check: 0, txt: '马桥镇' }, { check: 0, txt: '吴泾镇' }, { check: 0, txt: '华漕镇' }, { check: 0, txt: '颛桥镇' }, { check: 0, txt: '江川路街道' }, { check: 0, txt: '新虹街道' }, { check: 0, txt: '古美路街道' }, { check: 0, txt: '浦锦街道' } ]]],
+      allcounts:[[0,0],[0,0]]
   },
   //事件处理函数
 
@@ -39,8 +44,60 @@ Page({
    
 
   },
-  checkresume: function () {
+  searchItemChose:function(e){
     let self=this
+    let si = e.target.dataset.si ? e.target.dataset.si : e.currentTarget.dataset.si
+    if (self.data.searchOpen && si == self.data.searchItem){
+      self.setData({ searchOpen: false })      
+    }else{
+      self.setData({ searchOpen: true, searchItem: si })
+    }
+  },
+  setitem:function(e){
+    let self=this
+    let id = e.target.dataset.si ? e.target.dataset.id : e.currentTarget.dataset.id
+    let idarr=id.split("-")
+    let dataitem=self.data.searchitems
+    let dataallcounts = self.data.allcounts
+    if (self.data.searchitems[idarr[0]][idarr[1]][idarr[2]].check==1){      
+      dataitem[idarr[0]][idarr[1]][idarr[2]].check=0
+      dataallcounts[idarr[0]][idarr[1]]--
+    }else{     
+      dataitem[idarr[0]][idarr[1]][idarr[2]].check = 1      
+      dataallcounts[idarr[0]][idarr[1]]++
+    }
+    self.setData({ searchitems: dataitem, allcounts:dataallcounts})
+  },
+  reset:function(e){
+    let self = this
+    let id = e.target.dataset.si ? e.target.dataset.id : e.currentTarget.dataset.id
+    let idarr=id.split("-")
+    let dataitem = self.data.searchitems
+    let dataallcounts = self.data.allcounts
+    dataallcounts[idarr[0]][0]=0
+    dataallcounts[idarr[0]][1]=0
+    if(idarr.length==1){
+      for (let i = 0; i < dataitem[id][0].length; i++) {
+        if (dataitem[idarr[0]][0][i].check == 1) {
+          dataitem[idarr[0]][0][i].check = 0
+        }
+      }
+      for (let i = 0; i < dataitem[id][1].length; i++) {
+        if (dataitem[idarr[0]][1][i].check == 1) {
+          dataitem[idarr[0]][1][i].check = 0
+        }
+      }
+    }else{
+      for (let i = 0; i < dataitem[id][1].length; i++) {
+        if (dataitem[idarr[0]][idarr[1]][i].check == 1) {
+          dataitem[idarr[0]][idarr[1]][i].check = 0
+        }
+      }
+    }    
+    self.setData({ searchitems: dataitem, allcounts: dataallcounts })
+  },
+  checkresume: function () {
+    /*let self=this
     //简历是否已填
     let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
     if (have_resume == 0) {
@@ -54,6 +111,6 @@ Page({
       })
       
       
-    }
+    }*/
   },
 })
