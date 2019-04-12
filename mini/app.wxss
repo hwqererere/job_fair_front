@@ -97,7 +97,7 @@ view,input,icon{  font-family: 'iconfont';}
 
 .header-search .search-box {
   float:left;width:calc(100% - 40rpx);
-  height: 64rpx;padding:0rpx 20rpx;position:fixed;left:0rpx;top:0rpx;background-color:#357ac0;
+  height: 64rpx;padding:0rpx 20rpx;position:fixed;left:0rpx;top:0rpx;background-color:#357ac0;z-index: 999;
 
 }
 
@@ -119,4 +119,3 @@ view,input,icon{  font-family: 'iconfont';}
 }
 
 
-.scroll-view{width:100%;float:left;height:calc(100% - 64rpx);background: #efefef;}
