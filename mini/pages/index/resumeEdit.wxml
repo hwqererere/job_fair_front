@@ -159,7 +159,7 @@
     <text class='label'>个人描述</text>
     <textarea bindinput="input_text" data-type="remark" auto-height placeholder="请填写对自己的描述" placeholder-style="font-size:20rpx" value="{{resume.remark}}"></textarea>
   </view>
-  <view class='bottom-pad'></view>
+
   <view class='form-save'>
     <button type='button' class='btn' bindtap='save'>保存</button></view>
   <view class="laybg" wx:if="{{workState}}"></view>

@@ -1,50 +1,20 @@
+// pages/resume/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    trainState:"",
-    date: '2016-09-01',
-    date2: '2018-09-01',
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.trainState == "add") {
-      this.setData({
-        trainState: "添加"
-      })
-    } else {
-      this.setData({
-        trainState: "编辑"
-      })
-    }
+
   },
-  backClick: function () {
-    wx.redirectTo({
-      url: 'resumeEdit',
-    })
-  },
-  saveClick: function () {
-    wx.redirectTo({
-      url: 'resumeEdit',
-    })
-  },
-  bindStartDateChange: function (e) {
-    console.log(e)
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  bindEndDateChange: function (e) {
-    console.log(e)
-    this.setData({
-      date: e.detail.value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

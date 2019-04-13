@@ -10,9 +10,9 @@
 
 
 .resume-photo {
-  height: 180rpx;
+  height: 200rpx;
 
-  border-bottom: #eee solid 1px;
+  border-bottom: #ddd solid 1px;
   width: 100%;
   background: #fff;
 }
@@ -23,30 +23,20 @@
   float:left;
   height: 200rpx; 
   text-align:center;
-  border: #fff solid 2px;
 }
 
 .resume-photo .photo image {
   width: 160rpx;
-  height: 160rpx;
+  height: 160rpx;margin-top:10rpx;
   border-radius: 160rpx;overflow:hidden;
 }
 
-.resume-photo text {
-  font-size: 30rpx;
-  float:left;
-  text-align: center;  
-  width: 100%;
-  height:40rpx;
-  line-height: 40rpx;
-  color: #1c1c1c;
-}
 
 .form-group {
   height: 60rpx;
   float: left;
   width: 100%;
-  border-top:2rpx solid #ececec;
+  border-top:2rpx solid #ececec;background-color:#fff;
 }
 .form-group.large{height:auto}
 .form-group.notop{border-top:0rpx}
@@ -70,7 +60,7 @@ margin-left:20rpx;
 .form-group .picker{line-height: 60rpx;font-size: 30rpx;float: right;height:60rpx}
 
 .experience-group {
-  width: 100%;
+  width: 100%;float:left;
 }
 
 .experience-item {
@@ -198,7 +188,7 @@ margin-left:20rpx;
   float: left;
     width: 50rpx;
 }
-.form-save{position: fixed;z-index: 99;bottom: 0;left: 0;width: 100%;padding: 15rpx 0;height: 80rpx;background: #fff;border-top: #ddd solid 1px;}
+.form-save{float:left;width: 100%;padding: 15rpx 0;height: 80rpx;background: #fff;border-top: #ddd solid 1px;}
 
 .form-save-exp{float:left;width: 100%;height: 80rpx;background: #fff;}
 .form-save-exp view{float:left;}

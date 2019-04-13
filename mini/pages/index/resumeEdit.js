@@ -33,43 +33,52 @@ Page({
    */
   onLoad: function (options) {
     let self=this
-
-
-    self.setData({
-      resume:{
-        userId: app.globalData.openid,
-        username:"",
-        url_id:"",
-        phone:"",
-        sex:1,
-        nation:"",
-        postal_code:"",
-        marital_status:0,
-        identitycard:"",
-        education:0,
-        age:"",
-        political_status:0,
-        place:0,
-        home_phone:"",
-        expected_income:'',
-        personnel_type:0,
-        technical_title:"",
-        working_life:'',
-        remark:'',
-        strong_point:'',
-        Job_intention:'',
-        person_height:"",
-        weight:"",
-        province:self.data.region[0],
-        city:self.data.region[1],
-        county:self.data.lib['county'][0],
-        street:self.data.lib['street'][0],
-        domicile:"",
-        job_intention:"",
-        workarray_data:[],
-        leparray_data:[]
-      }
-    })
+    if (app.globalData.addresume){
+      self.setData({
+        resume: {
+          id:"",
+          userId: app.globalData.openid,
+          username: "",
+          url_id: "",
+          phone: "",
+          sex: 1,
+          nation: "",
+          postal_code: "",
+          marital_status: 0,
+          identitycard: "",
+          education: 0,
+          age: "",
+          political_status: 0,
+          place: 0,
+          home_phone: "",
+          expected_income: '',
+          personnel_type: 0,
+          technical_title: "",
+          working_life: '',
+          remark: '',
+          strong_point: '',
+          Job_intention: '',
+          person_height: "",
+          weight: "",
+          province: self.data.region[0],
+          city: self.data.region[1],
+          county: self.data.lib['county'][0],
+          street: self.data.lib['street'][0],
+          domicile: "",
+          job_intention: "",
+          workarray_data: [],
+          leparray_data: []
+        }
+      })
+    }else{
+      let rstmp=wx.getStorageSync('resume')
+      let rs=rstmp.resume;
+      rs.workarray_data=rstmp.WorkExperience
+      rs.leparray_data=rstmp.LearningExperience
+      self.setData({ resume: rs, headface: app.globalData.reslink +"data/"+rs.url_id})
+    }
+    
+    
 
 
   },
@@ -283,10 +292,20 @@ Page({
     console.log(self.checksave())
     if (self.data.headface != "" && self.checksave()) {
       wx.showLoading({ title: '正在上传...' });
-      var Key = util.getRandFileName(self.data.headface);
+      var Key=""
+      var port=""
+      if(app.globalData.addresume){
+        Key = util.getRandFileName(self.data.headface);
+        port ='resumeCreate'
+      }else{
+        Key=self.data.resume.url_id
+        port = 'resumeUpdate'
+      }
+      
       self.setData({ resume: utils.resume_set(self, self.data.resume, 'url_id', Key) })
         // headface = self.data.reslink + "data" + Key
-      utils.requestFn('resumeCreate', self.data.resume, function (resdata) {
+        console.log(self.data.resume)
+      utils.requestFn(port, self.data.resume, function (resdata) {
             cos.postObject({
               Bucket: config.Bucket,
               Region: config.Region,
@@ -296,13 +315,11 @@ Page({
               wx.hideLoading();
               if (res && res.Location) {
                 wx.setStorageSync('resume', self.data.resume)
-
                 wx.navigateBack({ delta: 1})        
-
               } else {
                 console.log(err)
                 wx.hideLoading();
-                wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 });
+                wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 })
               }
             });
       })

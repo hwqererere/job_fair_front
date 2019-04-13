@@ -2,6 +2,8 @@
 //获取应用实例
 const app = getApp()
 const utils=require("../../utils/util.js");
+const drawQrcode=require('../../lib/weapp.qrcode.js');
+
 Page({
   data: {
     access:false,
@@ -10,7 +12,10 @@ Page({
     searchitems: [[[{ check: 0, txt: '决策管理类' }, { check: 0, txt: '人事行政类' }, { check: 0, txt: '财务管理' }, { check: 0, txt: '营销类' }, { check: 0, txt: '技术类' }, { check: 0, txt: '生产服务类' }, { check: 0, txt:'其他'}],[]],[
       [{ check: 0, txt: '早九晚五' }, { check: 0, txt: '双休' }, { check: 0, txt: '长白班' }, { check: 0, txt: '福利好' }, { check: 0, txt: '包吃住' }, { check: 0, txt: '班车接送' }, { check: 0, txt: '五险一金' }], [{ check: 0, txt: '长三角及扶贫专区' }, { check: 0, txt: '莘庄镇' }, { check: 0, txt: '七宝镇' }, { check: 0, txt: '大学生实践和生态环保专区' }, { check: 0, txt: '浦江镇' }, { check: 0, txt: '梅陇镇' }, { check: 0, txt: '虹桥镇' }, { check: 0, txt: '马桥镇' }, { check: 0, txt: '吴泾镇' }, { check: 0, txt: '华漕镇' }, { check: 0, txt: '颛桥镇' }, { check: 0, txt: '江川路街道' }, { check: 0, txt: '新虹街道' }, { check: 0, txt: '古美路街道' }, { check: 0, txt: '浦锦街道' } ]]],
       allcounts:[[0,0],[0,0]],
-      job:[]
+      job:[],
+      codelay:false,
+      have_resume:true,
+      lay:false
   },
   //事件处理函数
 
@@ -25,7 +30,7 @@ Page({
       self.setData({ access: true })
       self.checkresume()
     } else {
-      util.loginaccess(signtype, function () {
+      utils.loginaccess(signtype, function () {
         self.setData({ access: true })
         self.checkresume()
       })
@@ -47,7 +52,7 @@ Page({
     let self = this
     if (e.detail.userInfo) {
       let signtype = app.globalData.signtype
-      util.loginaccess(signtype, function () {
+      utils.loginaccess(signtype, function () {
         self.setData({ access: true })
         self.checkresume()
       })
@@ -111,21 +116,73 @@ Page({
   searchitemclick:function(){
     this.setData({ searchOpen:false})
   },
+  linkto:function(e){
+    let link = e.target.dataset.link ? e.target.dataset.link : e.currentTarget.dataset.link
+    wx.navigateTo({
+      url: link,
+    })
+  },
+  showresumecode:function(){
+    if(!this.data.codelay){
+      this.setData({ lay: true, codelay: true },()=>{
+        let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
+        if (have_resume == 1) {
+          let width = wx.getSystemInfoSync().windowWidth
+          let size = 500 / 750 * width
+            drawQrcode({
+              width: size,
+              height: size,
+              x: 0,
+              y: 0,
+              canvasId: 'myQrcode',
+              typeNumber: 10,
+              text: JSON.stringify({ link: '../resume/index?resumeId=' + wx.getStorageSync('openid')}),
+              callback(e) {
+                console.log(e)
+              }
+            })
+        }
+      })
+
+    }else{
+      this.setData({lay:false,codelay:false})
+    }
+    
+  },
+  closelay:function(){
+    this.setData({ searchOpen:false,lay:false,codelay:false})
+  },
   checkresume: function () {
-    /*let self=this
+    let self=this
     //简历是否已填
     let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
     if (have_resume == 0) {
-      utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {
-        if(res.data.length==0){
-          wx.navigateTo({
-            url: 'resumeEdit',
-          })
+      utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {console.log(res)
+        if(res.data.length!=0){
+          wx.setStorageSync('resume', res.data.countries[0])
+          wx.setStorageSync('have_resume', wx.getStorageSync('openid') )
+        }else{
+          self.setData({have_resume:false})
         }
         
       })
       
       
-    }*/
+    }
   },
+  addresume:function(){
+    app.globalData.addresume=1
+    wx.navigateTo({
+      url: 'resumeEdit',
+    })
+  },
+  scan:function(){
+    utils.scan(function(res){
+      if(res.link){
+        wx.navigateTo({
+          url: '../resume/index?resumeId='
+        })
+      }
+    })
+  }
 })

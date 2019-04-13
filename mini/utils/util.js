@@ -24,6 +24,7 @@ function port(portName){
   ports.osskey="osskey"
   ports.resumeSelect="resume-select"//查询简历
   ports.resumeCreate="resume-create"//创建简历
+  ports.resumeUpdate="resume-update"//更新简历
   let url ="https://res.hothwq.com/index.php?r=";
   return url + ports[portName];
 }
@@ -137,7 +138,15 @@ const arrReplace=function(arr,ind,revalue){
   } 
   return newarr;
 }
-
+const scan=function(callback){
+  wx.scanCode({
+    onlyFromCamera: true,
+    success(res) {
+      let result=res.result
+      callback.call(this,JSON.parse(result))
+      }
+  })
+}
 module.exports = {
   portFn:portFn,
   formatTime: formatTime,
@@ -145,5 +154,6 @@ module.exports = {
   requestFn: requestFn,
   formlibFn:formlibFn,
   resume_set: resume_set,
-  arrReplace: arrReplace
+  arrReplace: arrReplace,
+  scan:scan
 }

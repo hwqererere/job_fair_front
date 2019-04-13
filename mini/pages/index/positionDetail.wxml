@@ -1,0 +1,110 @@
+<view class="container">
+  <view class="page-box">
+    <view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <image src='http://qianduan88.com/weChat-images/small-program/pic001.png'></image>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>￥4000-10000</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+          <image class='img' src='../../images/icon001.png'></image>
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'>03-21</text>
+        </view>
+      </view>
+    </view>
+    <view class='position-tab'>
+      <view class="position-tab-item current" bindtap='jumpTo' data-opt="zhiwei">职位描述</view>
+      <view class="position-tab-item" bindtap='jumpTo' data-opt="xinzi">薪资待遇</view>
+      <view class="position-tab-item" bindtap='jumpTo' data-opt="company">公司信息</view>
+    </view>
+    <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="{{true}}">
+      <view class='position-tab-content' id="zhiwei">
+        <view class='position-tab-title'>
+          <image class='img' src='../../images/icon002.png'></image>
+          <text>工作内容</text>
+        </view>
+        <view class='position-tab-main'>
+          <text>通过有线很好的和客户沟通通过有线很好的和客户沟通通过有线很好的和客户沟通通过有线很好的和客户沟通通过有线很好的和客户沟通</text>
+        </view>
+        <view class='position-tab-title MT25'>
+          <image class='img' src='../../images/icon003.png'></image>
+          <text>招聘要求</text>
+        </view>
+        <view class='position-tab-main'>
+          <text>年龄不限，性别不限</text>
+        </view>
+        <view class='position-tab-title MT25'>
+          <image class='img' src='../../images/icon004.png'></image>
+          <text>工作住址</text>
+        </view>
+        <view class='position-tab-main'>
+          <text>工作地址：闵行区联友路4209号</text>
+          <view class="position-tab-map">
+            <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location></map>
+          </view>
+        </view>
+        <view class='position-tab-title'>
+          <image class='img' src='../../images/icon005.png'></image>
+          <text>地图导航</text>
+        </view>
+      </view>
+      <view class='H20'></view>
+      <view class='salary-box' id="xinzi">
+        <view class='position-tab-title'>
+          <image class='img' src='../../images/icon008.png'></image>
+          <text>薪资待遇</text>
+        </view>
+        <view class='salary-main'>
+          <text>￥5000-￥8000/月</text>
+        </view>
+      </view>
+      <view class='H20'></view>
+      <view class='company-box' id="company">
+        <view class='position-tab-title'>
+          <image class='img' src='../../images/icon006.png'></image>
+          <text>公司信息</text>
+        </view>
+        <view class='company-logo'>
+          <view class='img'>
+            <image src='../../images/pic001.png'></image>
+          </view>
+        </view>
+        <view class='company-name'>公司名字公司名字</view>
+        <view class='company-info'>
+          <view class='item border'>
+            <text>公司规模</text>
+            <text>500-100人</text>
+          </view>
+          <view class='item'>
+            <text>所属行业</text>
+            <text>农业</text>
+          </view>
+        </view>
+ 
+      </view>
+      <view class='H20'></view>
+      <view class='company-bottom-pad'></view>
+    </scroll-view>
+    <cover-view class='company-bottom-btn'>
+      <cover-view class='bottom-btn-box'>
+        <cover-view class='sending-resume'>
+          <cover-image class='img' src='../../images/icon009.png'></cover-image>
+          <cover-view class='text'>投递简历</cover-view>
+          </cover-view>
+        <cover-view class='collection'>立即预定</cover-view>
+      </cover-view>
+      </cover-view>
+  </view>
+</view>

@@ -1,11 +1,18 @@
-// pages/index/personal.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    latitude: 31.2221754,
+    longitude: 121.281587,
+    markers: [{
+      id: 1,
+      latitude: 31.2221754,
+      longitude: 121.281587,
+      name: '某某公司'
+    }],
+    toView: ''
   },
 
   /**
@@ -14,7 +21,18 @@ Page({
   onLoad: function (options) {
 
   },
-
+  jumpTo: function (e) {
+    var id = e.currentTarget.dataset.opt;
+    console.log(id)
+    this.setData({
+      toView: id
+    })
+  },
+  backClick: function () {
+    wx.reLaunch({
+      url: 'index'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

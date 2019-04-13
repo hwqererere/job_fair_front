@@ -1,0 +1,313 @@
+.container {
+  background: #fff;
+}
+
+.position-group {
+  margin-bottom: 20rpx;
+  background: #fff;
+  padding-top: 40rpx;
+  width: 100%;
+}
+
+.position-main {
+  padding: 0 20rpx;
+}
+
+.position-hd {
+  position: relative;
+  padding-left: 120rpx;
+  border-bottom: #f6f6f6 solid 1px;
+  padding-bottom: 20rpx;
+}
+
+.position-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 105rpx;
+  height: 105rpx;
+}
+
+.position-hd .position-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.position-hd .position-item {
+  position: relative;
+}
+
+.position-hd .position-item .price {
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  color: #ff5632;
+  font-size: 32rpx;
+}
+
+.position-hd .position-item .title {
+  color: #000;
+  font-size: 32rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+}
+
+.position-hd .position-item .name {
+  color: #bababa;
+  font-size: 26rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding: 15rpx 0;
+}
+
+.position-hd .position-item .label {
+  vertical-align: top;
+  letter-spacing: normal;
+  font-size: 0;
+  letter-spacing: -5rpx;
+}
+
+.position-hd .position-item .label .box {
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 15rpx;
+  font-size: 26rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+  letter-spacing: 0;
+}
+
+.position-hd .position-item .label .box.bg1 {
+  background: #e1f3fe;
+  color: #79bea2;
+}
+
+.position-hd .position-item .label .box.bg2 {
+  background: #f7ece9;
+  color: #ee9a84;
+}
+
+.position-bd {
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 30rpx 0;
+}
+
+.position-bd .img {
+  width: 51rpx;
+  height: 51rpx;
+  display: block;
+  float: left;
+}
+
+.position-bd text {
+  color: #303030;
+  font-size: 28rpx;
+}
+
+.position-bd text.time {
+  color: #9d9d9d;
+  font-size: 24rpx;
+  float: right;
+  margin-top: 2rpx;
+}
+
+.position-tab {
+  width: 100%;
+  height: 100rpx;
+  border-bottom: #c7c7c7 solid 1px;
+}
+
+.position-tab-item {
+  width: 33.33%;
+  height: 100rpx;
+  text-align: center;
+  background: #fff;
+  line-height: 100rpx;
+  display: block;
+  float: left;
+  font-size: 30rpx;
+}
+
+.position-tab-item.current {
+  border-bottom: #171717 solid 1px;
+}
+
+.position-tab-content {
+  background: #fff;
+  width: 100%;
+}
+
+.position-tab-title {
+  padding: 0 30rpx;
+  border-bottom: #e4e4e4 solid 1px;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.position-tab-title.MT25 {
+  margin-top: 25rpx;
+}
+
+.position-tab-title .img {
+  width: 56rpx;
+  height: 56rpx;
+  display: block;
+  float: left;
+  margin-top: 24rpx;
+  margin-right: 20rpx;
+}
+
+.position-tab-title text {
+  font-size: 32rpx;
+}
+
+.position-tab-main {
+  padding: 30rpx;
+}
+
+.position-tab-main text {
+  line-height: 32rpx;
+  font-size: 30rpx;
+  color: #4f4f4f;
+}
+
+.position-tab-map {
+  padding-top: 20rpx;
+}
+
+#myMap {
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+  z-index: 100;
+}
+
+.salary-box {
+  background: #fff;
+  width: 100%;
+}
+
+.salary-main {
+  line-height: 100rpx;
+  padding: 10rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.salary-main text {
+  color: #ff5d2e;
+}
+
+.company-box {
+  background: #fff;
+  width: 100%;
+}
+
+.company-logo {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.company-logo .img {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  border: #f5f5f5 solid 4px;
+  padding: 10rpx;
+}
+
+.company-logo .img image {
+  width: 100%;
+  height: 100%;
+}
+
+.company-name {
+  text-align: center;
+  line-height: 50rpx;
+  color: #000;
+}
+
+.company-info {
+  margin: 0 20rpx;
+  margin-top: 80rpx;
+  border-bottom: #e4e4e4 solid 1px;
+  padding: 30rpx 0;
+  letter-spacing: -5rpx;
+  vertical-align: top;
+}
+
+.company-info .item {
+  width: 50%;
+  letter-spacing: 0;
+  display: inline-block;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.company-info .item.border {
+  border-right: #e4e4e4 solid 1px;
+  margin-left: -1px;
+}
+
+.company-info .item text {
+  display: block;
+  font-size: 32rpx;
+  color: #515151;
+  line-height: 46rpx;
+}
+
+.company-bottom-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  background: #fff;
+  z-index: 9000;
+}
+
+.bottom-btn-box {
+  position: relative;
+  padding-right: 200rpx;
+}
+
+.bottom-btn-box .sending-resume {
+  width: 200rpx;
+  margin: 0 auto;
+  font-size: 32rpx;
+}
+
+.bottom-btn-box .sending-resume .img {
+  width: 65rpx;
+  height: 65rpx;
+  display: block;
+  float: left;
+  margin-top: 14rpx;
+  margin-right: 10rpx;
+}
+.bottom-btn-box .sending-resume .text {
+  line-height: 100rpx;
+}
+.collection {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100rpx;
+  background: #e83743;
+  width: 200rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.H20 {
+  height: 10rpx;
+}
+
+.company-bottom-pad {
+  height: 200rpx;
+  background: #fff;
+  width: 100%;
+}

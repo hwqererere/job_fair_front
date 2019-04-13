@@ -1,23 +1,26 @@
 <!--index.wxml-->
   <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" ></button>
+  <view class="laybg {{lay?'lay':''}}" wx:if="{{searchOpen || lay}}" bindtap="closelay"></view>
+   <view class="qcodelay " wx:if="{{codelay}}">
+             <canvas wx:if= "{{have_resume}}" canvas-id="myQrcode"></canvas>
+             <view class="noresume" wx:if="{{!have_resume}}">
+             <view class="line">您还没有建立简历</view>
+             <button bindtap="addresume" type="warn">去建立简历</button>
+             </view>
+          </view>
    <view class='header-search'>
       <view class='search-box'>
-      <view class='scan icon-scan'></view>
+      <view class='scan icon-scan' bindtap="scan"></view>
           <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
           <view class="search icon-search"></view>
-          <view class="icon icon-code"></view>
-          <view class="icon icon-my"></view>
+          <view class="icon icon-code" bindtap="showresumecode"></view>
+         
+          <view class="icon icon-my" bindtap="linkto" data-link="my"></view>
       </view>
     </view>
-
-      <view class='index-top' wx:if="{{false}}">
-
-
-  </view>
-
-
-
-  <view class='search-position'>
+  <view class='index-top' wx:if="{{false}}">
+</view>
+ <view class='search-position'>
     <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0">
       <view class="set">全部职位</view>
       <view class="icon {{(searchItem==0 && searchOpen)?'icon-close':'icon-open'}}"></view>
@@ -51,12 +54,11 @@
             <view class='btn2' bindtap="searchitemclick">确定</view>
         </view>
     </view>
-    <view class="laybg" wx:if="{{searchOpen}}"></view>
+    
   </view>
 
-<scroll-view scroll-y class="scroll-view" >
-
-  <view class='position-group' wx:for="{{job}}">
+<scroll-view scroll-y="true" class="scroll-view" >
+  <view class='position-group' wx:for="{{job}}" bindtap="linkto " data-link="positionDetail">
     <view class='position-main'>
       <view class='position-hd'>
         <view class='position-img'>
