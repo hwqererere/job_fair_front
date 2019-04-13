@@ -14,17 +14,13 @@ Page({
   onLoad: function(options) {
     
   },
-  personalClick: function() {
+  link:function(e){
+    let link = e.currentTarget.dataset.link ? e.currentTarget.dataset.link : e.target.dataset.link
     wx.navigateTo({
-    
-      url: 'personal',
+      url: link,
     })
   },
-  resumeClick: function() {
-    wx.navigateTo({
-      url: 'resumeEdit',
-    })
-  },
+
 
 
   /**

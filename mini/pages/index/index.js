@@ -37,6 +37,9 @@ Page({
     }
     self.setrandomjob()
   },
+  onShow: function () {
+    this.checkresume()
+  },
   setrandomjob:function(){
     let self=this
     let j=['信息采集员','网络管理员','仓库保管员','出纳']
@@ -158,20 +161,20 @@ Page({
     let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
     if (have_resume == 0) {
       utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {console.log(res)
-        if(res.data.length!=0){
+        if(res.data.countries.length!=0){
           wx.setStorageSync('resume', res.data.countries[0])
           wx.setStorageSync('have_resume', wx.getStorageSync('openid') )
+          self.setData({ have_resume: true})
         }else{
           self.setData({have_resume:false})
         }
         
       })
-      
-      
     }
   },
   addresume:function(){
     app.globalData.addresume=1
+    this.closelay()
     wx.navigateTo({
       url: 'resumeEdit',
     })

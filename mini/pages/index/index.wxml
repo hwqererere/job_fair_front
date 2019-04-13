@@ -58,8 +58,8 @@
   </view>
 
 <scroll-view scroll-y="true" class="scroll-view" >
-  <view class='position-group' wx:for="{{job}}" bindtap="linkto " data-link="positionDetail">
-    <view class='position-main'>
+  <view class='position-group' wx:for="{{job}}" >
+    <view class='position-main' bindtap="linkto" data-link="positionDetail">
       <view class='position-hd'>
         <view class='position-img'>
           <view>{{item.area}}</view>

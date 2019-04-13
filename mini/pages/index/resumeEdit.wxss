@@ -118,7 +118,7 @@ margin-left:20rpx;
   padding: 35rpx 0rpx;
   text-align: center;
   background: #fff;
-  margin-bottom: 20rpx;
+
 }
 
 .experience-title {

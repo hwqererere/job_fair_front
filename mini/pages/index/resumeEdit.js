@@ -72,9 +72,10 @@ Page({
       })
     }else{
       let rstmp=wx.getStorageSync('resume')
-      let rs=rstmp.resume;
-      rs.workarray_data=rstmp.WorkExperience
-      rs.leparray_data=rstmp.LearningExperience
+      let rs={}
+      rs=rstmp.resume;
+      rs["workarray_data"]=rstmp.WorkExperience
+      rs["leparray_data"]=rstmp.LearningExperience
       self.setData({ resume: rs, headface: app.globalData.reslink +"data/"+rs.url_id})
     }
     
@@ -315,6 +316,7 @@ Page({
               wx.hideLoading();
               if (res && res.Location) {
                 wx.setStorageSync('resume', self.data.resume)
+                delete app.globalData.addresume
                 wx.navigateBack({ delta: 1})        
               } else {
                 console.log(err)
