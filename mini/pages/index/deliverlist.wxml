@@ -1,0 +1,147 @@
+<view class="container"><view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <view>B区</view>
+          <view>22</view>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>企业未查看</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+  
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'></text>
+        </view>
+      </view>
+    </view>
+
+    <view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <view>B区</view>
+          <view>22</view>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>等待排队通知</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'></text>
+        </view>
+      </view>
+    </view>
+    <view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <view>B区</view>
+          <view>22</view>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>等待排队通知</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'></text>
+        </view>
+      </view>
+    </view>
+    <view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <view>B区</view>
+          <view>22</view>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>等待排队通知</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'></text>
+        </view>
+      </view>
+    </view>
+    <view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <view>B区</view>
+          <view>22</view>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>等待排队通知</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'></text>
+        </view>
+      </view>
+    </view>
+    <view class='position-group' bindtap='positionDetailClick'>
+      <view class='position-main'>
+        <view class='position-hd'>
+          <view class='position-img'>
+            <view>B区</view>
+          <view>22</view>
+          </view>
+          <view class='position-item'>
+            <view class='title'>活动策划员</view>
+            <view class='name'>上海朴实检测有限公司</view>
+            <view class='label'>
+              <text class='box bg1'>福利好</text>
+              <text class='box bg1'>五险一金</text>
+              <text class='box bg1'>其他</text>
+            </view>
+            <text class='price'>等待排队通知</text>
+          </view>
+        </view>
+        <view class='position-bd'>
+          <text>大学生实践和生态环保专区</text>
+          <text class='time'></text>
+        </view>
+      </view>
+    </view>
+    </view>

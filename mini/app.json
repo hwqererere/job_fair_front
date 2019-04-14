@@ -5,6 +5,7 @@
     "pages/index/my",
     "pages/index/resumeEdit",
     "pages/index/positionDetail",
+    "pages/index/deliverlist",
     "pages/resume/index"
   ],
   "window": {

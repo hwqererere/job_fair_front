@@ -165,7 +165,7 @@
   </view>
 
   <view class='form-save'>
-    <button type='button' class='btn' bindtap='save'>保存</button></view>
+    <button type='warn' class='btn' bindtap='save'>保存</button></view>
   <view class="laybg" wx:if="{{workState}}"></view>
   <view class="addexpbox" wx:if="{{workState}}">
     <view class='form-group'>

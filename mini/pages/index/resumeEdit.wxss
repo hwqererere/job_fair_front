@@ -190,7 +190,7 @@ margin-left:20rpx;
     width: 50rpx;
 }
 .form-save{float:left;width: 100%;padding: 15rpx 0;height: 80rpx;background: #fff;border-top: #ddd solid 1px;}
-
+.form-save .btn{width:40%;margin-left:30%;float:left;color:#fff}
 .form-save-exp{float:left;width: 100%;height: 80rpx;background: #fff;}
 .form-save-exp view{float:left;}
 .form-save-exp .savebtn{float:left;width:50%;color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;}
