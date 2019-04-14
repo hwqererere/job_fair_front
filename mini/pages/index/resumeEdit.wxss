@@ -56,7 +56,7 @@ margin-left:20rpx;
 }
 .form-group input{
   float:right;margin-right:30rpx;font-size:30rpx;line-height:60rpx;text-align: right;height:60rpx}
-.form-group picker{line-height: 60rpx;font-size: 30rpx;float: right;margin-right: 60rpx;height:60rpx}
+.form-group picker{line-height: 60rpx;font-size: 30rpx;float: right;margin-right: 30rpx;height:60rpx}
 .form-group .picker{line-height: 60rpx;font-size: 30rpx;float: right;height:60rpx}
 
 .experience-group {
@@ -79,10 +79,10 @@ margin-left:20rpx;
 .experience-item .left icon {
   width: 40rpx;
   height: 40rpx;
-  margin-top: 28rpx;
+  margin-top: 20rpx;
   display: block;
   float: left;
-  margin-right: 20rpx;
+  margin-right: 20rpx;font-size:40rpx;line-height:30rpx;
 }
 
 .experience-item .left text {
@@ -129,7 +129,7 @@ margin-left:20rpx;
 .experience-title icon {
   display: block;
   float: left;
-
+  font-size:50rpx;
   width: 40rpx;
   height: 40rpx;
   margin-top: 0rpx;
@@ -140,7 +140,7 @@ margin-left:20rpx;
   font-size: 30rpx;
   line-height: 40rpx;
 }
-
+.experiencelay{float:left;width:100%;background-color:#fff}
 .experience-main {
   float:left;
   position: relative;
@@ -179,7 +179,8 @@ margin-left:20rpx;
 }
 
 
-.addexpbox{position:fixed;z-index:1000;width:90%;left:5%;height:auto;top:10%;background-color:#fff;}
+.addexpbox{position:fixed;z-index:1000;width:90%;left:5%;height:auto;top:10%;background-color:#fff;padding:20rpx;}
+.addexpbox .form-group{border:0rpx;}
 .form-item {float:right;max-width:450rpx;}
 .form-item .form-time{float: left;width: 180rpx;}
 .form-item .form-time picker{width:220rpx;margin-right:0rpx;float:left;}

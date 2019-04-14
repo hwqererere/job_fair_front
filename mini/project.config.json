@@ -41,8 +41,8 @@
 				{
 					"id": 1,
 					"name": "other",
-					"pathName": "pages/index/resumeEdit",
-					"query": ""
+					"pathName": "pages/resume/index",
+					"query": "resumeId=oVI_i5PmzL3GrnF_S9EtZVxC1QaM"
 				}
 			]
 		}

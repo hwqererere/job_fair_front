@@ -3,7 +3,6 @@
     
     "pages/index/index",
     "pages/index/my",
-    "pages/index/resume",
     "pages/index/resumeEdit",
     "pages/index/positionDetail",
     "pages/resume/index"

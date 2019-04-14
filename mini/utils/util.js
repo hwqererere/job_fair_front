@@ -44,7 +44,6 @@ const loginaccess = function (st, callback) {
 
 
           requestFn("access", { code: loginRes['code'], rawData: getUserInfoRes['rawData'], signature: getUserInfoRes['signature'], encryptedData: getUserInfoRes['encryptedData'], iv: getUserInfoRes['iv'], signtype: st },function(res){
-            console.log(res)
             if(res.code==200){
               wx.setStorageSync('openid', res.data.openid)
               wx.setStorageSync('signtype', res.data.linktype)
@@ -74,7 +73,6 @@ const loginaccess = function (st, callback) {
 
 const requestFn=function(portName,da,callback,meth="POST"){
   let u = port(portName);
-  // console.log(meth)
   wx.request({
     url: port(portName), // 仅为示例，并非真实的接口地址
     data: da,
@@ -126,16 +124,22 @@ const resume_set=function(self,resume,type,value){
 const arrReplace=function(arr,ind,revalue){
   // console.log(arr, revalue)
   let newarr=[]
-  for (let i = 0; i < arr.length; i++) {
-    if (i == ind) {
-      newarr[i] = revalue
-    } else {
-      newarr[i] = arr[i]
+  if(arr){
+    for (let i = 0; i < arr.length; i++) {
+      if (i == ind) {
+        newarr[i] = revalue
+      } else {
+        newarr[i] = arr[i]
+      }
     }
+    if (arr.length == ind) {
+      newarr[ind] = revalue
+    } 
+  }else{
+    newarr[0]=revalue
   }
-  if (arr.length == ind){
-    newarr[ind] = revalue
-  } 
+  
+  
   return newarr;
 }
 const scan=function(callback){
@@ -147,6 +151,45 @@ const scan=function(callback){
       }
   })
 }
+
+const uploadimg=function(savename,filepath,callback){
+  let util = require('../lib/util');
+  let config = require('../config');
+  let cos = require('../lib/cos');
+  wx.showToast({
+    title: '文件上传中...',duration:200,icon:'success'
+  })
+  cos.postObject({
+    Bucket: config.Bucket,
+    Region: config.Region,
+    Key: "mhjczx/data/" + savename,
+    FilePath: filepath,
+  }, function (err, res) {
+    wx.hideLoading();
+    if (res && res.Location) {
+      wx.hideLoading();
+      callback.call(this)
+
+    } else {
+      console.log(err)
+      wx.hideLoading();
+      wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 })
+    }
+  });
+}
+const getfilename=function(filepath){
+  let util = require('../lib/util');
+  let config = require('../config');
+  let re=util.getRandFileName(filepath);
+  return re;
+}
+function randomTime(){
+  let timestamp = (new Date()).getTime();
+  return timestamp;
+}
+const randomTimeFn=function(){
+  
+}
 module.exports = {
   portFn:portFn,
   formatTime: formatTime,
@@ -155,5 +198,8 @@ module.exports = {
   formlibFn:formlibFn,
   resume_set: resume_set,
   arrReplace: arrReplace,
-  scan:scan
+  scan:scan,
+  uploadimg: uploadimg,
+  getfilename:getfilename,
+  randomTimeFn:randomTimeFn
 }

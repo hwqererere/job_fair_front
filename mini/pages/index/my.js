@@ -1,18 +1,22 @@
-// pages/index/my.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    head:"",
+    name:"",
+    resumeId:wx.getStorageSync("have_resume")
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    let resume=wx.getStorageSync('resume')
+
+      this.setData({ head: app.globalData.reslink + "data/" + resume.url_id,name:resume.username})
   },
   link:function(e){
     let link = e.currentTarget.dataset.link ? e.currentTarget.dataset.link : e.target.dataset.link

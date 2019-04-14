@@ -2,12 +2,12 @@
 
   <view class="my-top">
     <view class="my-photo">
-      <image src='http://qianduan88.com/weChat-images/small-program/timg.jpg'></image>
-      <text>aaa</text>
+      <image src='{{head}}'></image>
+      <text>{{name}}</text>
     </view>
   </view>
   <view class="flex-wrp" >
-    <view class="flex-item border" bindtap='link' data-link="../resume/index">
+    <view class="flex-item border" bindtap='link' data-link="../resume/index?resumeId={{resumeId}}">
       <view class="icon-resume resume"></view>
       <text>查看简历</text>
     </view>

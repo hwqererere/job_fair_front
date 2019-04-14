@@ -1,9 +1,0 @@
-<view class="container">
-  <view class='resume-tip'>
-      <view class='tip-img'>
-         <image src='	https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/edit.png' bindtap='resumeClick'></image>
-      </view>
-      <text>您还没有简历</text>
-      <text>去填写简历，赚赏金</text>
-  </view>
-</view>

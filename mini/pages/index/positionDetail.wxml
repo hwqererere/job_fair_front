@@ -100,10 +100,10 @@
     <cover-view class='company-bottom-btn'>
       <cover-view class='bottom-btn-box'>
         <cover-view class='sending-resume'>
-          <cover-image class='img' src='../../images/icon009.png'></cover-image>
-          <cover-view class='text'>投递简历</cover-view>
+          
+          <view class='text'>投递简历</view>
           </cover-view>
-        <cover-view class='collection'>立即预定</cover-view>
+        <cover-view class='collection'>收藏</cover-view>
       </cover-view>
       </cover-view>
   </view>

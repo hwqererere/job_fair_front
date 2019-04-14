@@ -162,7 +162,7 @@ Page({
     if (have_resume == 0) {
       utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {console.log(res)
         if(res.data.countries.length!=0){
-          wx.setStorageSync('resume', res.data.countries[0])
+          wx.setStorageSync('resume', res.data.countries[0].resume)
           wx.setStorageSync('have_resume', wx.getStorageSync('openid') )
           self.setData({ have_resume: true})
         }else{

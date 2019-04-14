@@ -23,7 +23,7 @@
   </view>
   <view class="form-group">
     <text class='label'>年龄*</text>
-    <input type='number' bindinput="input_text" data-type="age" placeholder='请输入年龄' value='{{resume.age}}'></input>
+    <input type='number' bindinput="input_text" data-type="age" placeholder='请输入年龄' value='{{resume.age==0?"":resume.age}}'></input>
   </view>
   <view class="form-group">
     <text class='label'>民族</text>
@@ -100,11 +100,11 @@
   </view>
      <view class="form-group">
     <text class='label'>身高(CM)</text>
-    <input type='text' bindinput="input_text" data-type="person_height" placeholder='例:175' value='{{resume.person_height}}'></input>
+    <input type='text' bindinput="input_text" data-type="person_height" placeholder='例:175' value='{{resume.person_height==0?"":resume.person_height}}'></input>
   </view>
      <view class="form-group">
     <text class='label'>体重(KG)</text>
-    <input type='text' bindinput="input_text" data-type="weight" placeholder='例:70' value='{{resume.weight}}'></input>
+    <input type='text' bindinput="input_text" data-type="weight" placeholder='例:70' value='{{resume.weight==0?"":resume.weight}}'></input>
   </view>
 
   <view class="form-group">
@@ -124,36 +124,40 @@
   <view class='experience-group' bindtap='addlist' data-open='educState' data-type="-1">
     <view class='experience-item'>
       <view class='left'>
-        <icon></icon>
+        <icon class="icon-add"></icon>
         <text>添加教育经历</text></view>
     </view>
   </view>
-  <view class='experience-main' wx:for="{{resume.leparray_data}}" wx:key='key'>
+  <view class="experiencelay" wx:for="{{resume.leparray_data}}" wx:key='key'>
+  <view class='experience-main' >
     <icon class='dian'></icon>
     <icon class='edit' bindtap='addlist' data-type='{{index}}'></icon>
     <view class='item'>{{item.school_name}}</view>
     <view class='item'>
       <text>{{item.major}}</text></view>
     <view class='item'>教育时间：{{item.start_date}} 到 {{item.end_date}}</view></view>
+    </view>
   <view class='experience-box form-group'>
     <view class='experience-title'>
-      <icon></icon>
+      <icon class="icon-work"></icon>
       <text>工作经验</text></view>
   </view>
-  <view class='experience-main' wx:for="{{resume.workarray_data}}" wx:key='key'>
-    <icon class='dian'></icon>
-    <icon class='edit' bindtap='addlist' data-open="workState" data-type='{{index}}'></icon>
-    <view class='item'>{{item.corporate_name}}</view>
-    <view class='item'>
-      <text>{{item.work_name}}</text></view>
-    <view class='item'>工作时间：{{item.start_date}} 到 {{item.end_date}}</view></view>
   <view class='experience-group' bindtap='addlist' data-open='workState' data-type="-1">
     <view class='experience-item'>
       <view class='left'>
-        <icon></icon>
+        <icon class="icon-add"></icon>
         <text>添加工作经历</text></view>
     </view>
   </view>
+  <view class="experiencelay" wx:for="{{resume.workarray_data}}" wx:key='key'>
+  <view class='experience-main' >
+    <icon class='dian'></icon>
+    <icon class='icon-edit' bindtap='addlist' data-open="workState" data-type='{{index}}'></icon>
+    <view class='item'>{{item.corporate_name}}</view>
+    <view class='item'>
+      <text>{{item.work_name}}</text></view>
+    <view class='item'>工作时间：{{item.start_date}} 到 {{item.end_date}}</view></view></view>
+  
 
   <view class="form-group large">
     <text class='label'>个人描述</text>

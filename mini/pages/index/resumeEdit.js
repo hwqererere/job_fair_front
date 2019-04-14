@@ -1,10 +1,5 @@
-var util = require('../../lib/util');
-var config = require('../../config');
-var cos = require('../../lib/cos');
 var utils=require('../../utils/util')
-
 const app = getApp()
-
 Page({
 
   /**
@@ -13,6 +8,7 @@ Page({
   data: {
     resume:{} ,
     headface: "",
+    facechange:false,
     region: ['广东省', '广州市', '海珠区'],
     streetindex:0,
     countyindex:0,
@@ -47,7 +43,7 @@ Page({
           marital_status: 0,
           identitycard: "",
           education: 0,
-          age: "",
+          age:0,
           political_status: 0,
           place: 0,
           home_phone: "",
@@ -58,8 +54,8 @@ Page({
           remark: '',
           strong_point: '',
           Job_intention: '',
-          person_height: "",
-          weight: "",
+          person_height:0,
+          weight:0,
           province: self.data.region[0],
           city: self.data.region[1],
           county: self.data.lib['county'][0],
@@ -73,10 +69,8 @@ Page({
     }else{
       let rstmp=wx.getStorageSync('resume')
       let rs={}
-      rs=rstmp.resume;
-      rs["workarray_data"]=rstmp.WorkExperience
-      rs["leparray_data"]=rstmp.LearningExperience
-      self.setData({ resume: rs, headface: app.globalData.reslink +"data/"+rs.url_id})
+      rs=rstmp;
+      self.setData({ resume: rs, headface: app.globalData.reslink +"data/"+rs.url_id+"?_time="+utils.randomTimeFn()})
     }
     
     
@@ -95,7 +89,8 @@ Page({
         if (filePath) {
           // set_resume.headface = "https://" + res.Location
           self.setData({
-            headface: filePath
+            headface: filePath,
+            facechange:true
           })
         }
       }
@@ -220,8 +215,9 @@ Page({
       } else if (self.data.exptmp.work_name == "") {
         wx.showToast({ title: '请填写职位', icon: 'none', duration: 2000 })
       } else {
-        if (self.data.exptype == -1) {  
-          let workarray_data = utils.arrReplace(self.data.resume.workarray_data, self.data.resume.workarray_data.length, self.data.exptmp)        
+        if (self.data.exptype == -1) { 
+          let len = self.data.resume.workarray_data ? self.data.resume.workarray_data.length:0
+          let workarray_data = utils.arrReplace(self.data.resume.workarray_data, len, self.data.exptmp)        
           let set_resume = self.data.resume
           set_resume.workarray_data = workarray_data
           self.setData({ resume: set_resume })           
@@ -239,7 +235,11 @@ Page({
       } else {
         let setresume = self.data.resume
         if (self.data.exptype == -1) {
-          setresume.leparray_data[setresume.leparray_data.length]=self.data.edutmp
+          let len = setresume.leparray_data? setresume.leparray_data.length:0
+          let leparray_data = utils.arrReplace(self.data.resume.leparray_data, len, self.data.edutmp)
+          let set_resume = self.data.resume
+          set_resume.leparray_data = leparray_data
+          self.setData({ resume: set_resume }) 
         } else {
           setresume.leparray_data[self.data.exptype] = self.data.edutmp
         }
@@ -249,7 +249,6 @@ Page({
   },
   delsub:function(){
     let self=this
-    console.log("cccc")
     let set_resume = self.data.resume
     if (self.data.workState){      
       set_resume.workarray_data.splice(self.data.exptype,1)
@@ -292,11 +291,11 @@ Page({
     let self = this
     console.log(self.checksave())
     if (self.data.headface != "" && self.checksave()) {
-      wx.showLoading({ title: '正在上传...' });
+     
       var Key=""
       var port=""
       if(app.globalData.addresume){
-        Key = util.getRandFileName(self.data.headface);
+        Key = utils.getfilename(self.data.headface);
         port ='resumeCreate'
       }else{
         Key=self.data.resume.url_id
@@ -304,26 +303,19 @@ Page({
       }
       
       self.setData({ resume: utils.resume_set(self, self.data.resume, 'url_id', Key) })
-        // headface = self.data.reslink + "data" + Key
-        console.log(self.data.resume)
       utils.requestFn(port, self.data.resume, function (resdata) {
-            cos.postObject({
-              Bucket: config.Bucket,
-              Region: config.Region,
-              Key: "mhjczx/data/" + Key,
-              FilePath: self.data.headface,
-            }, function (err, res) {
-              wx.hideLoading();
-              if (res && res.Location) {
-                wx.setStorageSync('resume', self.data.resume)
-                delete app.globalData.addresume
-                wx.navigateBack({ delta: 1})        
-              } else {
-                console.log(err)
-                wx.hideLoading();
-                wx.showToast({ title: '上传失败', icon: 'error', duration: 2000 })
-              }
-            });
+          if(self.data.facechange){
+            utils.uploadimg(Key, self.data.headface, function () {
+              wx.setStorageSync('resume', self.data.resume)
+              delete app.globalData.addresume
+              wx.navigateBack({ delta: 1 })
+            })
+          }else{
+            wx.setStorageSync('resume', self.data.resume)
+            delete app.globalData.addresume
+            wx.navigateBack({ delta: 1 })
+          }
+
       })
     }
   },
