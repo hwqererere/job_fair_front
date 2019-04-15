@@ -1,0 +1,27 @@
+<view class="container">
+
+  <view class="my-top">
+    <view class="my-photo">
+      <image src='{{head}}'></image>
+      <text>{{name}}</text>
+    </view>
+  </view>
+  <view class="flex-wrp" >
+    <view class="flex-item border" bindtap='link' data-link="../resume/index?resumeId={{resumeId}}">
+      <view class="icon-resume resume"></view>
+      <text>查看简历</text>
+    </view>
+    <view class="flex-item border" bindtap='link' data-link="resumeEdit" >
+      <view class="icon-edit edit"></view>
+      <text>编辑简历</text>
+    </view>
+    <view class="flex-item border" bindtap='link' data-link="deliverlist">
+      <view class="icon-deliver deliver"></view>
+      <text>投递情况</text>
+    </view>
+    <view class="flex-item border" bindtap='link' data-link="">
+      <view class="icon-work work"></view>
+      <text>主办单位</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,207 @@
+.container {
+  background: #fff;
+
+}
+.top-pad{
+    height: 170rpx;
+    background: #fff;
+    width: 100%;
+}
+
+
+.resume-photo {
+  height: 200rpx;
+
+  border-bottom: #ddd solid 1px;
+  width: 100%;
+  background: #fff;
+}
+
+.resume-photo .photo {
+
+  width: 100%;
+  float:left;
+  height: 200rpx; 
+  text-align:center;
+}
+
+.resume-photo .photo image {
+  width: 160rpx;
+  height: 160rpx;margin-top:10rpx;
+  border-radius: 160rpx;overflow:hidden;
+}
+
+
+.form-group {
+  height: 60rpx;
+  float: left;
+  width: 100%;
+  border-top:2rpx solid #ececec;background-color:#fff;
+}
+.form-group.large{height:auto}
+.form-group.notop{border-top:0rpx}
+.form-group.nobtm{border-bottom:0rpx}
+.form-group .label {
+  float: left;
+margin-left:20rpx; 
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.form-group textarea{float:right;width:550rpx;min-height:200rpx;overflow:hidden;font-size:30rpx;}
+.form-group .txt {
+  line-height: 60rpx;
+  font-size: 30rpx;
+  float: right;
+  margin-right: 60rpx;
+}
+.form-group input{
+  float:right;margin-right:30rpx;font-size:30rpx;line-height:60rpx;text-align: right;height:60rpx}
+.form-group picker{line-height: 60rpx;font-size: 30rpx;float: right;margin-right: 30rpx;height:60rpx}
+.form-group .picker{line-height: 60rpx;font-size: 30rpx;float: right;height:60rpx}
+
+.experience-group {
+  width: 100%;float:left;
+}
+
+.experience-item {
+  width: 100%;
+  border-bottom: #eee solid 1px;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+}
+
+.experience-item .left {
+  float: left;
+  padding-left: 20rpx;
+}
+
+.experience-item .left icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  display: block;
+  float: left;
+  margin-right: 20rpx;font-size:40rpx;line-height:30rpx;
+}
+
+.experience-item .left text {
+  font-size: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.experience-item .right {
+  float: right;
+  padding-right: 20rpx;
+}
+
+.experience-item .right icon {
+  width: 30rpx;
+  height: 30rpx;
+  background: #fff;
+  border: #eee solid 1px;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  display: block;
+  float: left;
+}
+
+.experience-item .right text {
+  letter-spacing: 0;
+  font-size: 30rpx;
+}
+
+.experience-box {
+  float:left;
+  padding: 35rpx 0rpx;
+  text-align: center;
+  background: #fff;
+
+}
+
+.experience-title {
+  float:left;margin-left:20rpx;
+  text-align: left;
+}
+
+.experience-title icon {
+  display: block;
+  float: left;
+  font-size:50rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 0rpx;
+  margin-right: 20rpx;
+}
+
+.experience-title text {
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+.experiencelay{float:left;width:100%;background-color:#fff}
+.experience-main {
+  float:left;
+  position: relative;
+  width:calc(100% - 60rpx);
+  margin-left: 40rpx;
+  padding-left:20rpx;
+  margin-bottom: 25rpx;
+  border-left: #ddd solid 1px;
+  text-align: left;
+}
+
+.experience-main .dian {
+  position: absolute;
+  top: -6rpx;
+  left: -5rpx;
+  background: #e83743;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 10rpx;
+}
+
+.experience-main .edit {
+  position: absolute;
+  top: 0;
+  right: 30rpx;font-size:40rpx;line-height:40rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.experience-main .del {
+  position: absolute;
+  top: 0;
+  right: 120rpx;font-size:40rpx;line-height:40rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.experience-main .item {
+  line-height: 40rpx;
+  padding: 6rpx 0;
+  font-size: 28rpx;
+}
+
+
+.addexpbox{position:fixed;z-index:1000;width:700rpx;left:50%;margin-left:-350rpx;height:auto;top:10%;background-color:#fff;padding:20rpx;}
+.addexpbox .form-group{border:0rpx;}
+.form-item {float:right;max-width:450rpx;}
+.form-item .form-time{float: left;width: 180rpx;}
+.form-item .form-time picker{width:220rpx;margin-right:0rpx;float:left;}
+.form-item .form-time picker .picker{float:left;width:220rpx;margin-left:0rpx;}
+.form-item .form-line{
+  float: left;
+    width: 50rpx;
+}
+.form-save{float:left;width: 100%;padding: 15rpx 0;height: 80rpx;background: #fff;border-top: #ddd solid 1px;}
+.form-save .btn{width:40%;margin-left:30%;float:left;color:#fff}
+.form-save-exp{float:left;width: 100%;height: 80rpx;background: #fff;}
+.form-save-exp view{float:left;}
+.form-save-exp .savebtn{float:left;width:calc(50% - 4rpx);color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;height:80rpx;line-height:80rpx}
+.form-save-exp .cancelbtn{float:left;width:calc(50% - 4rpx);text-align:center;background-color:#fff;border-radius:0rpx;border-left:1rpx solid #ddd;height:80rpx;line-height:80rpx;margin-left:-1rpx;}
+
+
+.form-save-exp.adddel .savebtn{float:left;width:33%;color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;}
+.form-save-exp.adddel .delbtn{float:left;width:33%;color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;}
+.form-save-exp.adddel .cancelbtn{float:left;width:33%;text-align:center;background-color:#fff;border-radius:0rpx;}

@@ -165,9 +165,14 @@ margin-left:20rpx;
 .experience-main .edit {
   position: absolute;
   top: 0;
-  right: 30rpx;
-  background: url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/edit.png) no-repeat;
-  background-size: cover;
+  right: 30rpx;font-size:40rpx;line-height:40rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.experience-main .del {
+  position: absolute;
+  top: 0;
+  right: 120rpx;font-size:40rpx;line-height:40rpx;
   width: 60rpx;
   height: 60rpx;
 }
@@ -179,7 +184,7 @@ margin-left:20rpx;
 }
 
 
-.addexpbox{position:fixed;z-index:1000;width:90%;left:5%;height:auto;top:10%;background-color:#fff;padding:20rpx;}
+.addexpbox{position:fixed;z-index:1000;width:700rpx;left:50%;margin-left:-350rpx;height:auto;top:10%;background-color:#fff;padding:20rpx;}
 .addexpbox .form-group{border:0rpx;}
 .form-item {float:right;max-width:450rpx;}
 .form-item .form-time{float: left;width: 180rpx;}
@@ -193,8 +198,8 @@ margin-left:20rpx;
 .form-save .btn{width:40%;margin-left:30%;float:left;color:#fff}
 .form-save-exp{float:left;width: 100%;height: 80rpx;background: #fff;}
 .form-save-exp view{float:left;}
-.form-save-exp .savebtn{float:left;width:50%;color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;}
-.form-save-exp .cancelbtn{float:left;width:50%;text-align:center;background-color:#fff;border-radius:0rpx;}
+.form-save-exp .savebtn{float:left;width:calc(50% - 4rpx);color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;height:80rpx;line-height:80rpx}
+.form-save-exp .cancelbtn{float:left;width:calc(50% - 4rpx);text-align:center;background-color:#fff;border-radius:0rpx;border-left:1rpx solid #ddd;height:80rpx;line-height:80rpx;margin-left:-1rpx;}
 
 
 .form-save-exp.adddel .savebtn{float:left;width:33%;color:#e83743;text-align:center;background-color:#fff;border-radius:0rpx;}

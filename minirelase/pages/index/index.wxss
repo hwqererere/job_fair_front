@@ -1,0 +1,43 @@
+/**index.wxss**/.index-top {background:url(http://qianduan88.com/weChat-images/small-program/social-security.jpg) no-repeat center bottom;background-size:100% auto;height:368rpx;width:100%;}
+.search-position {width:100%;float:left;height:90rpx;position:relative;background:#999;float:left}
+.search-position .search-item {width:50%;float:left;height:82rpx;line-height:82rpx;text-align:center;background:#fff;border-bottom:8rpx solid #fff}
+.search-position .search-item.active {border-bottom:8rpx solid #e0e0e0}
+.search-position .search-item .set {font-size:28rpx;height:90rpx;float:left;margin-left: 160rpx;}
+.search-position .search-item .icon {font-size:28rpx;float:left;height:90rpx;width:40rpx;}
+.position-list {}
+.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;}
+.position-main {padding:0 20rpx;}
+.position-hd {position:relative;padding-left:120rpx;border-bottom:#f6f6f6 solid 1px;padding-bottom:20rpx;}
+.position-img {position:absolute;left:0;top:0;width:105rpx;height:105rpx;background-color:#357ac0;border-radius: 52rpx;}
+.position-hd .position-img image {width:100%;height:100%;color:#fff}
+.position-hd .position-img view{float:left;width:100%;font-size:30rpx;color:#fff;text-align: center;}
+.position-hd .position-img view:nth-child(1){margin-top:10rpx}
+.position-hd .position-item {position:relative;}
+.position-hd .position-item .price {position:absolute;right:10rpx;top:0rpx;color:#ff5632;font-size:32rpx;}
+.position-hd .position-item .title {color:#000;font-size:32rpx;height:36rpx;line-height:36rpx;}
+.position-hd .position-item .name {color:#bababa;font-size:26rpx;height:30rpx;line-height:30rpx;padding:15rpx 0;}
+.position-hd .position-item .label {vertical-align:top;letter-spacing:normal;font-size:0;letter-spacing:-5rpx;}
+.position-hd .position-item .label .box {height:40rpx;line-height:40rpx;padding:0 15rpx;font-size:26rpx;margin-right:10rpx;display:inline-block;letter-spacing:0;}
+.position-hd .position-item .label .box.bg1 {background:#e1f3fe;color:#79bea2;}
+.position-hd .position-item .label .box.bg2 {background:#f7ece9;color:#ee9a84;}
+.position-bd {height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
+.position-bd text {color:#e5e5e5;font-size:24rpx;}
+.position-bd text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}
+.all-position-box {position:absolute;background:#fff;top:98rpx;left:0;z-index:1000;padding-top:10rpx;}
+.all-position-bg {position:absolute;background:#000;opacity:0.4;top:110rpx;left:0;z-index:1;width:100%;height:200%;}
+.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;}
+.all-position-list text {font-size:24rpx;float:left;background:#eee;color:#7f7f7f;padding:10rpx 24rpx;height:30rpx;line-height:30rpx;border-radius:20rpx;margin:10rpx 10rpx;}
+.all-position-list text.current {background:#357ac0;color:#fff;}
+.all-position-btn {height:80rpx;float:left;width:100%}
+.all-position-btn view {float:left;width:50%;font-size:30rpx;text-align:center;border-radius:none;height:80rpx;line-height:80rpx;}
+.all-position-btn view.btn1 {background:#efefef;color:#357ac0;}
+.all-position-btn view.btn2 {background:#357ac0;color:#fff;}
+.laybg{position:fixed;top:170rpx;left:0rpx;width:100%;height:calc(100% - 64rpx - 98rpx);z-index:999}
+.laybg.lay{top:64rpx;z-index:1001;height:calc(100% - 64rpx)}
+.qcodelay{position:fixed;z-index:9999;width:700rpx;height:700rpx;background-color:#fff;top:calc(50% - 350rpx);left:calc(50% - 350rpx);}
+.qcodelay canvas{width:500rpx;height:500rpx;margin:100rpx;}
+.qcodelay .noresume{float:left;width:100%}
+.qcodelay .noresume .line{width:100%;float:left;margin-top:200rpx;text-align:center;margin-bottom:200rpx;}
+.qcodelay .noresume button{width:400rpx;margin-left:150rpx;float:left;}
+
+.scroll-view{width:100%;position:fixed;left:0rpx;bottom:0rpx;height:calc(100% - 64rpx - 90rpx);background: #efefef;overflow-y:auto;z-index:0}
