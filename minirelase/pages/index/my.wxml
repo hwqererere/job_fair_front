@@ -4,6 +4,7 @@
     <view class="my-photo">
       <image src='{{head}}'></image>
       <text>{{name}}</text>
+              <view class="icon icon-code" bindtap="showresumecode"></view>
     </view>
   </view>
   <view class="flex-wrp" >

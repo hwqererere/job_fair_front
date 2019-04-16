@@ -25,6 +25,8 @@ function port(portName){
   ports.resumeSelect="resume-select"//查询简历
   ports.resumeCreate="resume-create"//创建简历
   ports.resumeUpdate="resume-update"//更新简历
+  ports.recruitInfoSelect ="recruit-info-select" //获取岗位信息
+
   let url ="https://res.hothwq.com/index.php?r=";
   return url + ports[portName];
 }

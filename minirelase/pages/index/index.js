@@ -7,6 +7,7 @@ const drawQrcode=require('../../lib/weapp.qrcode.js');
 Page({
   data: {
     access:false,
+    reslink: app.globalData.reslink,
     searchItem:0,
     searchOpen:false,
     searchitems: [[[{ check: 0, txt: '决策管理类' }, { check: 0, txt: '人事行政类' }, { check: 0, txt: '财务管理' }, { check: 0, txt: '营销类' }, { check: 0, txt: '技术类' }, { check: 0, txt: '生产服务类' }, { check: 0, txt:'其他'}],[]],[
@@ -39,6 +40,13 @@ Page({
   },
   onShow: function () {
     this.checkresume()
+    this.getlist()
+  },
+
+  getlist:function(){
+    utils.requestFn('recruitInfoSelect',{},function(res){
+      console.log(res)
+    })
   },
   setrandomjob:function(){
     let self=this
@@ -125,33 +133,7 @@ Page({
       url: link,
     })
   },
-  showresumecode:function(){
-    if(!this.data.codelay){
-      this.setData({ lay: true, codelay: true },()=>{
-        let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
-        if (have_resume == 1) {
-          let width = wx.getSystemInfoSync().windowWidth
-          let size = 500 / 750 * width
-            drawQrcode({
-              width: size,
-              height: size,
-              x: 0,
-              y: 0,
-              canvasId: 'myQrcode',
-              typeNumber: 10,
-              text: JSON.stringify({ link: '../resume/index?resumeId=' + wx.getStorageSync('openid')}),
-              callback(e) {
-                console.log(e)
-              }
-            })
-        }
-      })
-
-    }else{
-      this.setData({lay:false,codelay:false})
-    }
-    
-  },
+  
   closelay:function(){
     this.setData({ searchOpen:false,lay:false,codelay:false})
   },
