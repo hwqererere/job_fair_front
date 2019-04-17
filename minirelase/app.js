@@ -6,7 +6,7 @@ App({
     wx.request({
       url: self.globalData.reslink +"style/version?_random=timestamp",
       success:function(res){
-        console.log(res.data)
+      
         let version = wx.getStorageSync('version') ? wx.getStorageSync('version'):0
         if(version<res.data.version){
           wx.removeStorageSync('resume')

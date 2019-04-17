@@ -1,20 +1,19 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/index/my",
     "pages/index/resumeEdit",
     "pages/index/positionDetail",
     "pages/index/deliverlist",
     "pages/index/resume"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#003399",
     "navigationBarTitleText": "莘庄就业",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle": "white",
     "navigationStyle": "default"
   },
- 
   "sitemapLocation": "sitemap.json"
 }

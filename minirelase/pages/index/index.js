@@ -11,7 +11,7 @@ Page({
     searchItem:0,
     searchOpen:false,
     searchitems: [[[{ check: 0, txt: '决策管理类' }, { check: 0, txt: '人事行政类' }, { check: 0, txt: '财务管理' }, { check: 0, txt: '营销类' }, { check: 0, txt: '技术类' }, { check: 0, txt: '生产服务类' }, { check: 0, txt:'其他'}],[]],[
-      [{ check: 0, txt: '早九晚五' }, { check: 0, txt: '双休' }, { check: 0, txt: '长白班' }, { check: 0, txt: '福利好' }, { check: 0, txt: '包吃住' }, { check: 0, txt: '班车接送' }, { check: 0, txt: '五险一金' }], [{ check: 0, txt: '长三角及扶贫专区' }, { check: 0, txt: '莘庄镇' }, { check: 0, txt: '七宝镇' }, { check: 0, txt: '大学生实践和生态环保专区' }, { check: 0, txt: '浦江镇' }, { check: 0, txt: '梅陇镇' }, { check: 0, txt: '虹桥镇' }, { check: 0, txt: '马桥镇' }, { check: 0, txt: '吴泾镇' }, { check: 0, txt: '华漕镇' }, { check: 0, txt: '颛桥镇' }, { check: 0, txt: '江川路街道' }, { check: 0, txt: '新虹街道' }, { check: 0, txt: '古美路街道' }, { check: 0, txt: '浦锦街道' } ]]],
+      [], [{ check: 0, txt: '长三角及扶贫专区' }, { check: 0, txt: '莘庄镇' }, { check: 0, txt: '七宝镇' }, { check: 0, txt: '大学生实践和生态环保专区' }, { check: 0, txt: '浦江镇' }, { check: 0, txt: '梅陇镇' }, { check: 0, txt: '虹桥镇' }, { check: 0, txt: '马桥镇' }, { check: 0, txt: '吴泾镇' }, { check: 0, txt: '华漕镇' }, { check: 0, txt: '颛桥镇' }, { check: 0, txt: '江川路街道' }, { check: 0, txt: '新虹街道' }, { check: 0, txt: '古美路街道' }, { check: 0, txt: '浦锦街道' } ]]],
       allcounts:[[0,0],[0,0]],
       job:[],
       codelay:false,
@@ -36,7 +36,32 @@ Page({
         self.checkresume()
       })
     }
-    self.setrandomjob()
+    self.setrandomjob();
+    self.getfuli();
+  },
+  getfuli: function () {
+    let self=this
+    let fulitmp=wx.getStorageSync('fuli')
+    if (!fulitmp || (fulitmp.time - 0 + 300000) < utils.getsortTime){
+      utils.requestFn('fuli', {}, function (res) {
+        if(res.code==200){
+          let fuli={}
+          fuli.update = utils.getsortTime
+          fuli.list=res.data
+          wx.setStorageSync('fuli', fuli)
+          let arr=[]
+          for(let i=0;i<fuli.list.length;i++){
+            arr[i] = { id: fuli.list[i].id, check: 0, txt: fuli.list[i].fuli}
+          }
+          let newsearchitems=[[[],[]],[[],[]]]
+          newsearchitems[0] = self.data.searchitems[0]
+          newsearchitems[1][0]=arr
+          newsearchitems[1][1] = self.data.searchitems[1][1]
+          self.setData({ searchitems:newsearchitems})
+          console.log(self.data.searchitems)
+        }
+      })
+    }    
   },
   onShow: function () {
     this.checkresume()

@@ -34,6 +34,7 @@
         <view class="set">全部职位</view>
         <view class="icon {{(searchItem==0 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></view>
     </view>
+    
     <view class='search-item {{searchItem==1?"active":""}}' bindtap="searchItemChose" data-si="1">
         <view class="set">筛选</view>
         <icon class="icon {{(searchItem==1 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></icon>

@@ -17,6 +17,10 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getsortTime=function(){
+  var timestamp = new Date().getTime();
+  return timestamp;
+}
 
 function port(portName){
   var ports={};
@@ -26,8 +30,9 @@ function port(portName){
   ports.resumeCreate="resume-create"//创建简历
   ports.resumeUpdate="resume-update"//更新简历
   ports.recruitInfoSelect ="recruit-info-select" //获取岗位信息
-
-  let url ="https://res.hothwq.com/index.php?r=";
+  ports.fuli="fuli" //获取福利列表
+  // let url ="https://res.hothwq.com/index.php?r=";
+  let url = "https://res.hothwq.com/";
   return url + ports[portName];
 }
 
@@ -203,5 +208,6 @@ module.exports = {
   scan:scan,
   uploadimg: uploadimg,
   getfilename:getfilename,
-  randomTimeFn:randomTimeFn
+  randomTimeFn:randomTimeFn,
+  getsortTime: getsortTime
 }
