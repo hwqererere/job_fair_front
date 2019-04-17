@@ -1,4 +1,4 @@
-<view class='container'>
+<scroll-view scroll-y="true" class="scroll-view">
   <view class="photoline">
     <view class="photo">
       <image mode='aspectFit'  src="{{resume.url_id?reslink+'data/'+resume.url_id:reslink+'style/default_head.jpg'}}"></image>
@@ -101,4 +101,7 @@
     <label>个人描述</label>
     <view>{{resume.remark?resume.remark:"无"}}</view>
   </view>
-</view>
+</scroll-view>
+
+<import src="footbar.wxml" />
+<template is="footbar" data="{{current: 'resume'}}" />

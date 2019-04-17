@@ -1,4 +1,4 @@
-.container {background: #fff;width:calc(100% - 20rpx);float:left;padding:10rpx;}
+.scroll-view {width:100%;float:left;position:fixed;top:0rpx;left:0rpx;height:calc(100% - 120rpx)}
 .photoline{float:left;width:100%;}
 .photoline .photo{float:left;height:300rpx;width:200rpx;}
 .photoline .photo image{width:300rpx;height:300rpx;}
