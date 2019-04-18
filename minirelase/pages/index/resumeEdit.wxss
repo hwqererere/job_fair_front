@@ -1,35 +1,36 @@
-.container {
-  background: #fff;
-
-}
-.top-pad{
-    height: 170rpx;
-    background: #fff;
-    width: 100%;
-}
-
-
+.container {background: #fff;}
+.icon{position:absolute;right:30rpx;top:30rpx;width:60rpx;height:60rpx;font-size:40rpx;color:#0066cc}
 .resume-photo {
-  height: 200rpx;
-
+  height: 160rpx;float:left;
   border-bottom: #ddd solid 1px;
   width: 100%;
-  background: #fff;
+  position:relative;
 }
 
-.resume-photo .photo {
+.resume-photo .photo {width: 110rpx;float:left;height: 110rpx;margin:0 20rpx;}
+.resume-photo .photo image {width: 110rpx;height: 110rpx;margin-top:10rpx;border-radius:55rpx;overflow:hidden;}
+.resume-photo .nameinfo{float:left;width:calc(100% - 150rpx);}
+.resume-photo .nameinfo label{float:left;width:100%;font-size:30rpx;height:40rpx;line-height:40rpx;}
+.resume-photo .nameinfo label:first-child{font-size:40rpx;font-weight:bold;margin-top:10rpx;line-height:70rpx;height:70rpx;}
 
-  width: 100%;
-  float:left;
-  height: 200rpx; 
-  text-align:center;
-}
+.baseline{float:left;width:calc(100% - 60rpx);margin-top:10rpx;padding-left:30rpx;padding-right:30rpx}
+.baseline label{float:left;height:40rpx;font-size:30rpx}
+.baseline label:nth-child(1){width:200rpx;margin-left:25rpx;text-align:left}
+.baseline label:nth-child(2){width:50rpx;margin-left:-60rpx;}
+.baseline label:nth-child(3){width:500rpx;margin-left:-40rpx;}
+.baseline label.k2{letter-spacing:70rpx}
+.baseline label.k3{letter-spacing:21rpx}
+.baseline label.k4{letter-spacing:5rpx}
+.grayline{float:left;width:100%;height:20rpx;background-color:#f8f8fa;margin:20rpx 0rpx;}
 
-.resume-photo .photo image {
-  width: 160rpx;
-  height: 160rpx;margin-top:10rpx;
-  border-radius: 160rpx;overflow:hidden;
-}
+.array{float:left;width:calc(100% - 60rpx);padding-left:30rpx;padding-right:30rpx;}
+.array .titleline{float:left;width:100%;height:90rpx;}
+.array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0066cc;margin-top:30rpx;margin-right:20rpx}
+.array .titleline .title{float:left;font-size:36rpx;font-weight:bold;border-bottom:1px solid #ddd;width:calc(100% - 30rpx);height:88rpx;line-height:88rpx;}
+.array .list{float:left;width:100%;position:relative;}
+.array .list {float:left;width:100%;}
+.array .list label:nth-child(1){float:left;}
+.array .list label:nth-child(2){float:right;}
 
 
 .form-group {

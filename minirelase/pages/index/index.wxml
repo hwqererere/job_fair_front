@@ -72,7 +72,7 @@
     <view class='position-group' wx:for="{{job}}">
         <view class='position-main' bindtap="linkto" data-link="positionDetail" data-id="{{}}">
             <view class='position-hd'>
-                <view class='position-img'>
+                <view class='position-img' wx:if="{{item.area && item.no}}">
                     <view>{{item.area}}</view>
                     <view>{{item.no}}</view></view>
                 <view class='position-item'>

@@ -22,7 +22,15 @@ Page({
       self.setData({ resume: wx.getStorageSync('resume') })
     } else {
       utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {
-        self.setData({ resume: res.data.countries[0].resume })
+        if (res.data.countries.length==0){
+          app.globalData.addresume = 1
+          wx.navigateTo({
+            url: 'resumeEdit',
+          })
+        }else{
+          self.setData({ resume: res.data.countries[0].resume })
+        }
+        
       })
     }
     console.log(self.data.resume)

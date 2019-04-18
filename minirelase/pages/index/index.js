@@ -187,11 +187,7 @@ Page({
     }
   },
   addresume:function(){
-    app.globalData.addresume=1
-    this.closelay()
-    wx.navigateTo({
-      url: 'resumeEdit',
-    })
+    
   },
   scan:function(){
     utils.scan(function(res){

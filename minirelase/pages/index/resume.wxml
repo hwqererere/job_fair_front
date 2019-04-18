@@ -41,10 +41,7 @@
     <label>现住地址</label>
     <view>{{resume.domicile?resume.domicile:"无"}}</view>
   </view>
-  <view class="line">
-    <label>邮编</label>
-    <view>{{resume.postal_code?resume.postal_code:"无"}}</view>
-  </view>
+  
   <view class="line">
     <label>人员类别</label>
     <view>{{lib.personnel_type[resume.personnel_type]}}</view>
@@ -53,26 +50,13 @@
     <label>家庭电话</label>
     <view>{{resume.home_phone?resume.home_phone:"无"}}</view>
   </view>
-  <view class="line">
-    <label>职业等级|职称</label>
-    <view>{{resume.technical_title?resume.technical_title:"无"}}</view>
-  </view>
-  <view class="line">
-    <label>从事专业年限</label>
-    <view>{{resume.working_life?resume.working_life:0}}年</view>
-  </view>
-  <view class="line" >
-    <label>特 长</label>
-    <view>{{resume.strong_point?resume.strong_point:"无"}}</view>
-  </view>
+  
+  
   <view class="line" >
     <label>身高(CM)</label>
     <view>{{resume.person_height}}</view>
   </view>
-  <view class="line" >
-    <label>体重(KG)</label>
-    <view>{{resume.weight}}</view>
-  </view>
+  
   <view class="line" >
     <label>求职意向</label>
     <view>{{resume.Job_intention?resume.Job_intention:"无"}}</view>
