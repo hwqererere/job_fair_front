@@ -1,7 +1,52 @@
 .container {
-  position:fixed;top:0rpx;left:0rpx;width:100%;height:100%;
+  position:fixed;top:0rpx;left:0rpx;width:100%;height:calc(100% -120rpx);
   background: #fff;
 }
+
+.container {background: #fff;height:calc(100% - 100rpx);float:left;width:100%;position:fixed;left:0rpx;top:0rpx;}
+.icon{position:absolute;right:30rpx;top:30rpx;width:60rpx;height:60rpx;font-size:40rpx;color:#0066cc}
+.resume-photo {
+  height: 160rpx;float:left;
+  border-bottom: #ddd solid 1px;
+  width: 100%;
+  position:relative;
+}
+
+.resume-photo .photo {width: 110rpx;float:left;height: 110rpx;margin:0 20rpx;}
+.resume-photo .photo image {width: 110rpx;height: 110rpx;margin-top:10rpx;border-radius:55rpx;overflow:hidden;}
+.resume-photo .nameinfo{float:left;width:calc(100% - 150rpx);}
+.resume-photo .nameinfo label{float:left;width:100%;font-size:30rpx;height:40rpx;line-height:40rpx;}
+.resume-photo .nameinfo label:first-child{font-size:40rpx;font-weight:bold;margin-top:10rpx;line-height:70rpx;height:70rpx;}
+
+.baseline{float:left;width:calc(100% - 60rpx);margin-top:10rpx;padding-left:30rpx;padding-right:30rpx}
+.baseline label{float:left;height:40rpx;font-size:30rpx}
+.baseline label:nth-child(1){width:200rpx;margin-left:25rpx;text-align:left}
+.baseline label:nth-child(2){width:50rpx;margin-left:-60rpx;}
+.baseline label:nth-child(3){width:500rpx;margin-left:-40rpx;}
+.baseline label.k2{letter-spacing:70rpx}
+.baseline label.k3{letter-spacing:21rpx}
+.baseline label.k4{letter-spacing:5rpx}
+.grayline{float:left;width:100%;height:20rpx;background-color:#f8f8fa;margin:20rpx 0rpx;}
+
+.array{float:left;width:calc(100% - 60rpx);padding-left:30rpx;padding-right:30rpx;}
+.array .icon-icon_delete{right:120rpx;color:#f00}
+.array .titleline{float:left;width:100%;height:90rpx;}
+.array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0066cc;margin-top:30rpx;margin-right:20rpx}
+.array .titleline .title{float:left;font-size:36rpx;font-weight:bold;border-bottom:1px solid #ddd;width:calc(100% - 30rpx);height:88rpx;line-height:88rpx;}
+.array .list{float:left;width:calc(100% - 20rpx);position:relative;padding:10rpx;border-bottom:1rpx solid #ddd}
+.array .list {float:left;width:100%;}
+.array .list label:nth-child(1){float:left;}
+.array .list label:nth-child(2){float:right;}
+
+.array .add{width:100%;float:left;height:100rpx;line-height:100rpx;text-align:center;}
+.array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#0066cc;}
+
+.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#0066cc;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd}
+
+
+
+
+
 
 
 .my-top {

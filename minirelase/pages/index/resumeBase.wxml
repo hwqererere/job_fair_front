@@ -1,0 +1,70 @@
+<scroll-view scroll-y="true"  class="container">
+  <view class="resume-photo">
+    <view class='photo'><image bindtap="updateface" src='{{headface?headface:reslink+"style/default_head.jpg"}}'></image></view>
+
+  </view>
+  <view class="baseline"><label class="k2">姓名</label><label>:</label><label><input type="number" value="{{resume.username}}" bindinput='inputchange' data-type="username" placeholder='请填写姓名'></input></label></view>
+  
+  <view class="baseline"><label class="k2">名族</label><label>:</label><label><input type="number" value="{{resume.nation}}" bindinput='inputchange' data-type="nation" placeholder='请填写民族'></input></label></view>
+  <view class="baseline"><label class="k2">手机</label><label>:</label><label><input type="number" value="{{resume.phone}}" bindinput='inputchange' data-type="phone" placeholder='填错将收不到通知短信'></input></label></view>
+  <view class="baseline"><label class="k2">婚否</label><label>:</label><label>
+  <picker bindchange="inputchange" data-type="marital_status" value="{{resume.marital_status}}" range="{{lib.marital_status}}">
+    <view class="picker">
+      {{lib.marital_status[resume.marital_status]}}
+    </view>
+  </picker>
+  
+  </label></view>
+  <view class="baseline"><label class="k3">身份证</label><label>:</label><label><input type="text" value="{{resume.identitycard}}" bindinput='inputchange' data-type="identitycard" placeholder='请填写身份证号'></input></label></view>
+
+
+  <view class="baseline"><label class="k2">学历</label><label>:</label><label>
+  <picker bindchange="inputchange" data-type="education" value="{{resume.education}}" range="{{lib.education}}">
+    <view class="picker">
+      {{lib.education[resume.education]}}
+    </view>
+  </picker>
+  </label></view>
+  <view class="baseline"><label class="k4">现住地址</label><label>:</label><label><input type="text" value="{{resume.domicile}}" bindinput='inputchange' data-type="domicile" placeholder='请填写可联系的地址'></input></label></view>
+  <view class="baseline"><label class="k4">政治面貌</label><label>:</label><label>
+  <picker bindchange="inputchange" data-type="political_status" value="{{resume.political_status}}" range="{{lib.political_status}}">
+    <view class="picker">
+      {{lib.political_status[resume.political_status]}}
+    </view>
+  </picker>
+  </label></view>
+  <view class="baseline"><label class="k2">座机</label><label>:</label><label><input type="text" value="{{resume.home_phone}}" bindinput='inputchange' data-type="home_phone" placeholder='请填写座机'></input></label></view>
+  <view class="baseline"><label class="k3">户籍地</label><label>:</label><label>
+  <picker bindchange="inputchange" data-type="place" value="{{resume.place}}" range="{{lib.place}}">
+    <view class="picker">
+      {{lib.place[resume.place]}}
+    </view>
+  </picker>
+  </label></view>
+  <view class="baseline" wx:if="{{resume.place==0}}"><label class="k4"></label><label></label><label><picker bindchange="inputchange" data-type="street" value="{{resume.street}}" range="{{lib.street}}">
+    <view class="picker">
+      {{resume.street}}
+    </view>
+  </picker></label></view>
+    <view class="baseline" wx:if="{{resume.place==1}}"><label class="k4"></label><label></label><label><picker bindchange="inputchange" data-type="county" value="{{resume.county}}" range="{{lib.county}}">
+    <view class="picker">
+      {{resume.county}}
+    </view>
+  </picker></label></view>
+      <view class="baseline" wx:if="{{resume.place==2}}"><label class="k4"></label><label></label><label><picker mode="region" bindchange="bindRegionChange"  value="{{region}}">
+      <view class="picker">{{region[0]}}-{{region[1]}}-{{region[2]}}</view></picker></label></view>
+  
+  <view class="baseline"><label class="k4">期望收入</label><label>:</label><label><input type="text" value="{{resume.expected_income}}" bindinput='inputchange' data-type="expected_income" placeholder='请填写期望收入'></input></label></view>
+  <view class="baseline"><label class="k4">当前状态</label><label>:</label><label>
+  <picker bindchange="inputchange" data-type="personnel_type" value="{{resume.personnel_type}}" range="{{lib.personnel_type}}">
+    <view class="picker">
+      {{lib.personnel_type[resume.personnel_type]}}
+    </view>
+  </picker>
+ </label></view>
+  <view class="baseline"><label class="k2">身高</label><label>:</label><label><input type="text" value="{{resume.person_height}}" bindinput='inputchange' data-type="person_height" placeholder='cm'></input></label></view>
+  <view class="baseline"><label class="k4">求职意向</label><label>:</label><label><input type="text" value="{{resume.Job_intention}}" bindinput='inputchange' data-type="Job_intention" placeholder='请填写求职意向'></input></label></view>
+  
+</scroll-view >
+<view class="save icon-icon_dispose" bindtap='sub'>确定</view>
+

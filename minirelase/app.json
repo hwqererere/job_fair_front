@@ -3,6 +3,9 @@
     "pages/index/index",
     "pages/index/my",
     "pages/index/resumeEdit",
+    "pages/index/workarr",
+    "pages/index/eduarr",
+    "pages/index/resumeBase",
     "pages/index/positionDetail",
     "pages/index/deliverlist",
     "pages/index/resume"

@@ -42,7 +42,7 @@
 				{
 					"id": 1,
 					"name": "other",
-					"pathName": "pages/index/resumeEdit",
+					"pathName": "pages/index/my",
 					"query": "resumeId=oVI_i5PmzL3GrnF_S9EtZVxC1QaM",
 					"scene": null
 				}

@@ -26,9 +26,8 @@ function port(portName){
   var ports={};
   ports.access ="candidate"//授权验证
   ports.osskey="osskey"
-  ports.resumeSelect="resume-select"//查询简历
-  ports.resumeCreate="resume-create"//创建简历
-  ports.resumeUpdate="resume-update"//更新简历
+  ports.resumeSelect="resume"//查询简历
+  ports.resumeUpdate="resume/update"//更新简历  有id为更新，没id为创建
   ports.recruitInfoSelect ="recruit-info-select" //获取岗位信息
   ports.fuli="fuli" //获取福利列表
   // let url ="https://res.hothwq.com/index.php?r=";
@@ -103,7 +102,7 @@ function formlib(){
   obj.place=['本区','本市非本区','外省市']
   obj.county=['黄浦区','徐汇区','长宁区','静安区','普陀区','虹口区','杨浦区','浦东新区','闵行区','宝山区','嘉定区','金山区','松江区','青浦区','奉贤区','崇明区']
   obj.street=['莘庄镇','七宝镇','浦江镇','梅陇镇','虹桥镇','马桥镇','吴泾镇','华漕镇','颛桥镇','江川路街道','新虹街道','古美路街道','浦锦街道']
-  obj.personnel_type = ['失业','征地','协保','下岗','退休','应期毕业生','外来媳妇','退伍军人']
+  obj.personnel_type = ['失业','在职','征地','协保','下岗','退休','应期毕业生','外来媳妇','退伍军人']
   return obj
 }
 const formlibFn=function(){

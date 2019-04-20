@@ -1,11 +1,11 @@
-<view class="container">
+<scroll-view scroll-y="true"  class="container">
   <view class="resume-photo">
     <view class='photo'><image bindtap="updateface" src='{{headface?headface:reslink+"style/default_head.jpg"}}'></image></view>
     <view class="nameinfo">
       <label>{{resume.username?resume.username:'姓名'}}</label>
       <label>{{resume.sex==1?'男':'女'}}{{resume.age?("|"+resume.age+'岁'):''}}{{resume.nation?("|"+resume.nation):''}}</label>
     </view>
-    <view class="icon icon-bianji"></view>
+    <view class="icon icon-bianji" bindtap="resumebase"></view>
   </view>
   <view class="baseline"><label class="k2">手机</label><label>:</label><label>{{resume.phone}}</label></view>
   <view class="baseline"><label class="k2">婚否</label><label>:</label><label>{{lib.marital_status[resume.marital_status]}}</label></view>
@@ -14,7 +14,7 @@
   <view class="baseline"><label class="k4">现住地址</label><label>:</label><label>{{resume.domicile}}</label></view>
   <view class="baseline"><label class="k4">政治面貌</label><label>:</label><label>{{lib.political_status[resume.political_status]}}</label></view>
   <view class="baseline"><label class="k2">座机</label><label>:</label><label>{{resume.home_phone}}</label></view>
-  <view class="baseline"><label class="k3">户籍地</label><label>:</label><label>{{resume.place==0?(resume.county+resume.	street):''}}{{resume.place==1?(resume.city+resume.county):''}}{{resume.place==2?(resume.province+resume.city+resume.county):''}}</label></view>
+  <view class="baseline"><label class="k3">户籍地</label><label>:</label><label>{{resume.place==0?(resume.	street):''}}{{resume.place==1?(resume.city+resume.county):''}}{{resume.place==2?(resume.province+resume.city+resume.county):''}}</label></view>
   <view class="baseline"><label class="k4">期望收入</label><label>:</label><label>{{resume.expected_income}}</label></view>
   <view class="baseline"><label class="k4">当前状态</label><label>:</label><label>{{lib.personnel_type[resume.personnel_type]}}</label></view>
   <view class="baseline"><label class="k2">身高</label><label>:</label><label>{{resume.person_height}}cm</label></view>
@@ -26,18 +26,48 @@
       <view class="dot"></view>
       <view class="title">工作经历</view>
     </view>
-    <view class="list" wx:for="{{workarray_data}}">
-      <view class="icon icon-bianji"></view>
+    <view class="list" wx:for="{{resume.workarray_data}}" wx:key="key">
+      <view class="icon icon-bianji" bindtap='eidtworkarray' data-index="{{index}}"></view>
+      <view class="icon icon-icon_delete" bindtap='delarray' data-type="workarray_data" data-index="{{index}}"></view>
       <view class="line">
-        <label>{{item.begin}}-{{item.end}}</label>
-        <label>{{item.corporate_name}}</label>
+        {{item.begin}}-{{item.end}}
       </view>
       <view class="line">
-        <label>{{item.begin}}-{{item.end}}</label>
-        <label>{{item.corporate_name}}</label>
+        {{item.corporate_name}}
+      </view>
+      <view class="line">
+        {{item.job_name}}
+      </view>
+      <view class="line">
+        {{item.profile}}
       </view>
     </view>
+    <view class="add" bindtap='eidtworkarray' data-index="-1"><view class="ico icon-icon_add"></view>添加工作经历</view>
   </view>
-</view>
 
+  <view class="grayline"></view>
+  <view class="array">
+    <view class="titleline">
+      
+      <view class="dot"></view>
+      <view class="title">教育经历</view>
+    </view>
+    <view class="list" wx:for="{{resume.leparray_data}}" wx:key="key">
+      <view class="icon icon-bianji" bindtap='eidteduarray' data-index="{{index}}"></view>
+      <view class="icon icon-icon_delete" bindtap='delarray' data-type="leparray_data" data-index="{{index}}"></view>
+      <view class="line">
+        {{item.begin}}-{{item.end}}
+      </view>
+      <view class="line">
+        {{item.school}}
+      </view>
+      <view class="line">
+        {{item.majoy}}
+      </view>
+    </view>
+    <view class="add" bindtap='eidteduarray' data-index="-1"><view class="ico icon-icon_add" ></view>添加教育经历</view>
+    
+  </view>
+</scroll-view >
+<view class="save icon-icon_dispose" bindtap='save'>保存</view>
 
