@@ -1,12 +1,7 @@
 <!--index.wxml-->
 <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
 <view class="laybg {{lay?'lay':''}}" wx:if="{{searchOpen || lay}}" bindtap="closelay"></view>
-<view class="qcodelay " wx:if="{{codelay}}">
-    <canvas wx:if="{{have_resume}}" canvas-id="myQrcode"></canvas>
-    <view class="noresume" wx:if="{{!have_resume}}">
-        <view class="line">您还没有建立简历</view>
-        <button bindtap="addresume" type="warn">去建立简历</button></view>
-</view>
+
 
 
 <view class='header-search'>

@@ -8,8 +8,9 @@
     "pages/index/resumeBase",
     "pages/index/positionDetail",
     "pages/index/deliverlist",
-    "pages/index/resume"
+    "pages/index/resume",
 
+    "pages/comp/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

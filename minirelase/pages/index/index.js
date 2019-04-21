@@ -15,9 +15,7 @@ Page({
     fulilist:[],
     allcounts:[0,0,0],
       job:[],
-      codelay:false,
-      have_resume:true,
-      lay:false
+      
   },
   //事件处理函数
 

@@ -1,4 +1,6 @@
 const app = getApp()
+const utils = require("../../utils/util.js");
+const drawQrcode = require('../../lib/weapp.qrcode.js');
 Page({
 
   /**
@@ -7,7 +9,9 @@ Page({
   data: {
     head:"",
     name:"",
-    resumeId:wx.getStorageSync("have_resume")
+    codelay: false,
+    resumeId: wx.getStorageSync('resume'),
+    resume:wx.getStorageSync('resume')
   },
 
   /**
@@ -25,53 +29,12 @@ Page({
     })
   },
 
-
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    let openid = wx.getStorageSync('openid') ? wx.getStorageSync('openid') : ""
-    if (openid == "") {
-      wx.switchTab({
-        url: 'index'
-      })
-    } 
+  closelay:function(){
+    this.setData({ codelay: false })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  showresumecode: function () {
-    if (!this.data.codelay) {
-      this.setData({ lay: true, codelay: true }, () => {
-        let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
-        if (have_resume == 1) {
+  opencode: function () {
+    if(wx.getStorageSync('resume')){
+        this.setData({ codelay: true }, () => {
           let width = wx.getSystemInfoSync().windowWidth
           let size = 500 / 750 * width
           drawQrcode({
@@ -81,17 +44,19 @@ Page({
             y: 0,
             canvasId: 'myQrcode',
             typeNumber: 10,
-            text: JSON.stringify({ link: '../resume/index?resumeId=' + wx.getStorageSync('openid') }),
+            text: JSON.stringify({ resumeId: wx.getStorageSync('openid') }),
             callback(e) {
               console.log(e)
             }
           })
-        }
+          
+        })
+    }else{
+      wx.navigateTo({
+        url: 'resumeEdit',
       })
-
-    } else {
-      this.setData({ lay: false, codelay: false })
     }
+    
 
   },
 })

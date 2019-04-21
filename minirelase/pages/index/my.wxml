@@ -1,19 +1,36 @@
 <scroll-view scroll-y="true"  class="container">
   <view class="resume-photo">
     <view class='photo'><image bindtap="updateface" src='{{head}}'></image></view>
-    <view class="nameinfo">
+    <view class="nameinfo" url="resumeEdit">
       <label>{{resume.username?resume.username:'姓名'}}</label>
-      <label class="icon-bianji">修改</label>
+      <navigator class="icon-bianji">修改</navigator>
     </view>
-    <view class="icon icon-ico" bindtap="resumebase"></view>
+    <view class="icon icon-ico" bindtap="opencode"></view>
   </view>
   
   <view class="grayline"></view>
   <view class="array">
     <view class="titleline">
-      
       <view class="dot"></view>
       <view class="title">我的投递</view>
+    </view>
+    <view class="list">
+      <view>
+        <label class="icon-icon_workfile_line"></label>
+        <label>收藏</label>
+      </view>
+      <view>
+        <label class="icon-jianli-A"></label>
+        <label>投递历史</label>
+      </view>
+      <view>
+        <label class="icon-icon_scan_namecard"></label>
+        <label>投递状态</label>
+      </view>
+      <view>
+        <label class="icon-icon_shakehands"></label>
+        <label>有意向</label>
+      </view>
     </view>
 
 
@@ -21,8 +38,11 @@
 
 </scroll-view >
 
+<view class="laybg" wx:if="{{codelay}}" bindtap="closelay"></view>
+<view class="qcodelay " wx:if="{{codelay}}">
+    <canvas canvas-id="myQrcode"></canvas>
 
-
+</view>
 <!-- 
 
 <scroll-view scroll-y="true"  class="container">
@@ -55,4 +75,4 @@
 </scroll-view> -->
 
 <import src="footbar.wxml" />
-<template is="footbar" data="{{current: 'resume'}}" />
+<template is="footbar" data="{{current: 'my'}}" />
