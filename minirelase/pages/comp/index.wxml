@@ -24,6 +24,14 @@
   </view>
   <view class="grayline"></view>
 </view>
+<view class="scrolltitle"><view class="dot"></view><label>等待面试</label></view>
 <scroll-view class="scroll">
 
 </scroll-view>
+
+
+<view class="bondstep1" wx:if="{{bondstep==1}}">
+  <view class="logo mt60"></view>
+  <input type="text" placeholder='请输入需要绑定的企业名称' bindinput='bindinput' data-type="bondcompname"></input>
+  <view class="nextbtn" bindtap='bondstep'>下一步</view>
+</view>

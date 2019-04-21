@@ -1,9 +1,12 @@
+const app = getApp()
+const utils = require("../../utils/util.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    jobinfo:{},
     latitude: 31.2221754,
     longitude: 121.281587,
     markers: [{
@@ -19,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    self.setData({ jobinfo: app.globalData.jobinfo})
   },
   jumpTo: function (e) {
     var id = e.currentTarget.dataset.opt;

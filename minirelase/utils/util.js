@@ -30,6 +30,9 @@ function port(portName){
   ports.resumeUpdate="resume/update"//更新简历  有id为更新，没id为创建
   ports.recruitInfoSelect ="recruit-info-select" //获取岗位信息
   ports.fuli="fuli" //获取福利列表
+
+  ports.compBund="company/select-bundling"//查询微信号绑定企业信息
+  ports.compUpdUseCom ="company/update-user-company"
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.hothwq.com/";
   return url + ports[portName];

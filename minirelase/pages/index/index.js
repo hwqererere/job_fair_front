@@ -71,7 +71,11 @@ Page({
   getlist:function(){
     let self=this
     utils.requestFn('recruitInfoSelect',{},function(res){
-      self.setData({job:res.data.countries})
+      let tmp = res.data.countries
+      for(let i=0;i<tmp.length;i++){
+        tmp[i].fuli=tmp[i].fuli.split(";")
+      }
+      self.setData({job:tmp})
     })
   },
   setrandomjob:function(){
@@ -131,7 +135,7 @@ Page({
   },
   reset:function(e){
     let self = this
-    let id = e.target.dataset.si ? e.target.dataset.id : e.currentTarget.dataset.id
+    let id = e.target.dataset.id ? e.target.dataset.id : e.currentTarget.dataset.id
     let type = id - 0
     let dataitem = []
     if (type == 0) {
@@ -184,8 +188,17 @@ Page({
       })
     }
   },
-  addresume:function(){
-    
+  linktojob:function(e){
+    let self=this
+    let id = e.target.dataset.id ? e.target.dataset.id : e.currentTarget.dataset.id
+    for(let i=0;i<self.data.job.length;i++){
+      if(self.data.job[i].id==id){
+        app.globalData.jobinfo=self.data.job[i]
+        wx.navigateTo({
+          url: 'positionDetail',
+        })
+      }
+    }
   },
   scan:function(){
     utils.scan(function(res){

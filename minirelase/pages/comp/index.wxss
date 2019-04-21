@@ -10,5 +10,11 @@
 .actbox .actline .li label{float:left;width:100%;text-align:center;}
 .actbox .actline .li label:nth-child(1){height:64rpx;margin-top:44rpx;font-size:60rpx;line-height:64rpx;color:#78abdd}
 .actbox .actline .li label:nth-child(2){margin-top:30rpx;}
-.scrolltitle{position:fixed;top:560rpx;height:40rpx;}
+.scrolltitle{position:fixed;top:560rpx;height:60rpx;}
+.scrolltitle .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0066cc;margin-top:15rpx;margin-right:20rpx;margin-left:20rpx;}
+.scrolltitle label{height:60rpx;line-height:60rpx;}
 .scroll{position:fixed;left:0rpx;bottom:0rpx;height:calc(100% - 600rpx);width:100% }
+
+.bondstep1{position: fixed;height:100%;z-index: 10;width:100%;left:0rpx;top:0rpx;background-color:#fff}
+.bondstep1 input{float:left;width:80%;margin-left:10%;border-bottom:#e9e9e9;height:100rpx;text-align:center;font-size:40rpx;margin-top:100rpx;}
+.bondstep1 .nextbtn{width:80%;float:left;border-radius:10rpx;height:80rpx;color:#fff;background-color:#0066cc;margin-left:10%;line-heihgt:80rpx;text-align:center;font-size:50rpx;}

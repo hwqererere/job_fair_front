@@ -65,7 +65,7 @@
 </view>
 <scroll-view scroll-y="true" class="scroll-view">
     <view class='position-group' wx:for="{{job}}">
-        <view class='position-main' bindtap="linkto" data-link="positionDetail" data-id="{{}}">
+        <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
             <view class='position-hd'>
                 <view class='position-img' wx:if="{{item.area && item.no}}">
                     <view>{{item.area}}</view>
@@ -74,10 +74,8 @@
                     <view class='title'>{{item.jobName}}</view>
                     <view class='name'>{{item.name}}</view>
                     <view class='label'>
-                        <text class='box bg1'>福利好</text>
-                        <text class='box bg1'>五险一金</text>
-                        <text class='box bg2'>工资高</text>
-                        <text class='box bg1'>其他</text></view>
+                        <text class='box bg1' wx:for="{{item.fuli}}" wx:for-item="fuliitem">{{fuliitem}}</text>
+                    </view>
                     <text class='price'>￥{{item.pay}}</text></view>
             </view>
             <view class='position-bd'>
