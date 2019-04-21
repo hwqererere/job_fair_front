@@ -32,7 +32,11 @@ function port(portName){
   ports.fuli="fuli" //获取福利列表
 
   ports.compBund="company/select-bundling"//查询微信号绑定企业信息
-  ports.compUpdUseCom ="company/update-user-company"
+  ports.compUpdUseCom ="company/update-user-company"//绑定微信号到企业
+  ports.company="company"
+  ports.compDeli ="company/delivery"//查询当前企业投递简历
+  ports.delistat ="company/deliverystat"//更改投递状态
+
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.hothwq.com/";
   return url + ports[portName];

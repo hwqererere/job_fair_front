@@ -1,9 +1,9 @@
 <scroll-view scroll-y="true"  class="container">
   <view class="resume-photo">
     <view class='photo'><image bindtap="updateface" src='{{head}}'></image></view>
-    <view class="nameinfo" url="resumeEdit">
+    <view class="nameinfo" >
       <label>{{resume.username?resume.username:'姓名'}}</label>
-      <navigator class="icon-bianji">修改</navigator>
+      <navigator class="icon-bianji" url="resumeEdit">修改</navigator>
     </view>
     <view class="icon icon-ico" bindtap="opencode"></view>
   </view>

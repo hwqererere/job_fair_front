@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bondstep:0,
+    bondsteps:0,
     bondcompname:"",
+    reslink: app.globalData.reslink,
+    deli:[]
   },
 
   /**
@@ -17,20 +19,28 @@ Page({
     let self=this
     if (!wx.getStorageSync('openid')){
       utils.loginaccess(1,function(){
-        self.checkcompbond(function(){})
+        self.checkcompbond(function(){
+          self.getdeInSe_ReCo()
+        })
       })
     }else{
-      self.checkcompbond(function () { })
+      if(!wx.getStorageSync('company_id')){
+        self.checkcompbond(function () {
+          self.getdeInSe_ReCo()
+        })
+      }else{
+        self.getdeInSe_ReCo()
+      }
+      
     }
   },
   checkcompbond:function(callback){
     let self=this
     utils.requestFn('compBund', { user_id:wx.getStorageSync('openid')},function(res){
       if(res.code==200){
-        self.setData({ bondstep:1})
-        callback.call(this)
+        self.setData({ bondsteps:1})
       }else if(res.code==400){
-        
+        callback.call(this)
       }else{
         wx.showToast({
           title:res.code,
@@ -39,6 +49,16 @@ Page({
       }
     })
   },
+  getdeInSe_ReCo:function(){//获取投递简历，未标示
+    let self=this
+    utils.requestFn('compDeli',{company_id:wx.getStorageSync('company_id')},function(res){
+      if(res.code==200){
+        
+        self.setData({deli:res.data})
+      }
+    })
+  },
+
   bindinput:function(e){
     let self=this
     let type = e.currentTarget.dataset.type ? e.currentTarget.dataset.type : e.target.dataset.type
@@ -48,8 +68,22 @@ Page({
   },
   bondstep:function(){
     let self=this
-    utils.requestFn('compUpdUseCom', { companyName: self.data.bondcompname, user_id: wx.getStorageSync('openid')},function(res){
-      console.log(res)
-    })
+    if (self.data.bondsteps==1){
+      utils.requestFn('compUpdUseCom', { companyName: self.data.bondcompname, userId: wx.getStorageSync('openid') }, function (res) {
+        if (res.code == 200) {
+          wx.setStorageSync("company_id",res.data.company_id)
+          self.setData({ bondsteps: 2 })
+        } else {
+          wx.showToast({
+            title: res.msg,
+          })
+        }
+
+      })
+    } else if (self.data.bondsteps==2){
+      self.setData({ bondsteps: 0 })
+      self.getdeInSe_ReCo()
+    }
+    
   },
 })

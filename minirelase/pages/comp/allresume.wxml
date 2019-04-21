@@ -1,0 +1,12 @@
+<view class="li" wx:for="{{deli}}" wx:if="{{item.status!=1 && item.status!=4}}">
+    <view class="img">
+      <image src="{{reslink+item.url_id}}"></image>
+    </view>
+    <view class="msg">
+      <label>{{item.username}}|{{item.sex==0?"女":"男"}}</label>
+      <label>{{item.jobName}}</label>
+    </view>
+    <view class="nowantbtn" wx:if="{{item.status==3}}" bindtap='act' data-id="{{item.id}}" data-value="2">拒绝</view>
+    <view class="wantbtn" wx:if="{{item.status==3}}" bindtap='act' data-id="{{item.id}}" data-value="4">录用</view>
+    <view class="cannt" wx:if="{{item.status==2}}">不符合</view>
+  </view>

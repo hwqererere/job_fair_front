@@ -8,20 +8,17 @@
           <view>22</view>
           </view>
           <view class='position-item'>
-            <view class='title'>活动策划员</view>
-            <view class='name'>上海朴实检测有限公司</view>
+            <view class='title'>{{jobinfo.jobName}}</view>
+            <view class='name'>{{jobinfo.name}}</view>
             <view class='label'>
-              <text class='box bg1'>福利好</text>
-              <text class='box bg1'>五险一金</text>
-              <text class='box bg1'>其他</text>
+              <text class='box bg1' wx:for="{{jobinfo.fuli}}">{{item}}</text>
             </view>
-            <text class='price'>￥4000-10000</text>
+            <text class='price'>{{jobinfo.pay}}</text>
           </view>
         </view>
         <view class='position-bd'>
-          <image class='img' src='../../images/icon001.png'></image>
-          <text>大学生实践和生态环保专区</text>
-          <text class='time'>03-21</text>
+          <text>{{jobinfo.street_name}}</text>
+          <text class='time'></text>
         </view>
       </view>
     </view>
@@ -33,114 +30,46 @@
     <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="{{true}}">
       <view class='position-tab-content' id="zhiwei">
         <view class='position-tab-title'>
-          <image class='img' src='../../images/icon002.png'></image>
+    
           <text>工作内容</text>
         </view>
         <view class='position-tab-main'>
           <text>
+{{jobinfo.work_content}}
 
-工作职责：
 
-1、根据不同行业开展人事外包业务推荐，并根据客户问题提供解决方案与咨询；
-
-2、积极完成人事外包产品的销售，主要包括：人事外包、薪酬福利、HR工具等产品；
-
-3、跟进客户需求，维护客户关系，不断开发潜在客户并促成合作；
-
-4、及时搜集、反馈客户意见和建议，积极协调内外资源，提高客户满意度；
-
-5、组织市场活动：行业发布会、沙龙等活动，维护良好的客户关系。
-
- 
-
-职位要求：
-
-1、大专或本科以上学历；
-
-2、能够根据客户具体需求，独立完成客户方案的修改和整理工作；
-
-3、具有良好的抗压性，踏实，优秀的沟通表达能力；
-
-4.、强烈的责任心及学习上进心，良好的团队合作意识与内部沟通、协作能力；
-
-5.、定期拜访客户，积极寻找销售机会点，在上级经理指导下完成销售工作；
-
-6、熟练的办公软件操作能力和一定的英文读写能力。
-
- 
-
-关于公司福利及其他：
-
-一、薪资及工作时间
-
-薪资：无责任底薪+补贴+业务提成+年终奖金
-
-工作时间：周一至周五9:00-17:30，周末双休。
-
-二、福利
-
-六险一金：社会保险（养老保险、基本医疗保险、工伤保险、失业保险、生育保险），公司额外为员工购买补充医疗保险用于门诊及住院； 员工住房公积金。
-
-三、休假
-
-法律规定的公休假日及婚假、产假、陪产假等法定休假；转正员工每年享受7-10天的带薪年假及每年享受12天的全薪病假。
-
-四、员工关怀
-
-员工月度生日会、员工户外拓展/聚餐/旅游、公司年会等；员工每年定期享受一次全面的身体检查。
-
-五、培训与发展
-
-培训：公司有完善的培训体系、为员工提供适应全新业务模式的系统培训；
-
-晋升空间：业务顾问-高级业务顾问-业务主管-业务经理。</text>
+</text>
         </view>
         <view class='position-tab-title MT25'>
-          <image class='img' src='../../images/icon003.png'></image>
+      
           <text>招聘要求</text>
         </view>
         <view class='position-tab-main'>
-          <text>年龄不限，性别不限</text>
+          <text>{{jobinfo.work_demand}}</text>
         </view>
-        <view class='position-tab-title MT25'>
-          <image class='img' src='../../images/icon004.png'></image>
-          <text>工作住址</text>
-        </view>
+
         <view class='position-tab-main'>
-          <text>工作地址：闵行区联友路4209号</text>
+          <text>工作地址：{{jobinfo.workingplace}}</text>
           <view class="position-tab-map">
-            <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location></map>
+            <!-- <map id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location></map> -->
           </view>
         </view>
 
       </view>
       <view class='H20'></view>
-      <view class='salary-box' id="xinzi">
-        <view class='position-tab-title'>
-          <image class='img' src='../../images/icon008.png'></image>
-          <text>薪资待遇</text>
-        </view>
-        <view class='salary-main'>
-          <text>￥5000-￥8000/月</text>
-        </view>
-      </view>
-      <view class='H20'></view>
+
       <view class='company-box' id="company">
         <view class='position-tab-title'>
-          <image class='img' src='../../images/icon006.png'></image>
+          
           <text>公司信息</text>
         </view>
 
-        <view class='company-name'>公司名字公司名字</view>
+        <view class='company-name'>{{jobinfo.name}}</view>
         <view class='company-info'>
-          <view class='item border'>
-            <text>公司规模</text>
-            <text>500-100人</text>
-          </view>
-          <view class='item'>
-            <text>所属行业</text>
-            <text>农业</text>
-          </view>
+         
+            {{jobinfo.remarks}}
+    
+         
         </view>
  
       </view>

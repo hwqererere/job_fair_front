@@ -10,7 +10,11 @@
     "pages/index/deliverlist",
     "pages/index/resume",
 
-    "pages/comp/index"
+    "pages/comp/index",
+    "pages/comp/compinfo",
+    "pages/comp/joblist",
+    "pages/comp/allresume",
+    "pages/comp/want"
   ],
   "window": {
     "backgroundTextStyle": "light",
