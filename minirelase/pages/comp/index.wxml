@@ -2,3 +2,28 @@
   <view class="logo mt60"></view>
   <view class="title">欢迎登录莘庄就业企业客户端</view>
 </view>
+<view class="actbox">
+  <view class="grayline"></view>
+  <view class="actline">
+    <view class="li">
+      <label class="icon-icon_compile"></label>
+      <label>企业简介</label>
+    </view>
+    <view class="li">
+      <label class="icon-gongzuobao"></label>
+      <label>职位</label>
+    </view>
+    <view class="li">
+      <label class="icon-jianli-A"></label>
+      <label>投递</label>
+    </view>
+    <view class="li">
+      <label class="icon-icon_shakehands"></label>
+      <label>录用意向</label>
+    </view>
+  </view>
+  <view class="grayline"></view>
+</view>
+<scroll-view class="scroll">
+
+</scroll-view>
