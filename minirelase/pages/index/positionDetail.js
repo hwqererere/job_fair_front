@@ -26,7 +26,20 @@ Page({
     self.setData({ jobinfo: app.globalData.jobinfo})
     console.log(app.globalData.jobinfo)
   },
+  deli:function(){
+    if(wx.getStorageSync('resume')){
+      let resume = wx.getStorageSync('resume')
+      utils.requestFn('deliUserDeli', { recruitId: app.globalData.jobinfo.id, resumeId: resume.id, openid:wx.getStorageSync('openid')},function(res){
+        wx.showToast({
+          title: res.msg,
+        })
+      })
+    }else{
+      wx.navigateTo({
+        url: 'resumeEdit',
+      })
+    }
+  }
 
-
-
+  
 })

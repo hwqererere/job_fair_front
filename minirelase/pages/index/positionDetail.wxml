@@ -73,17 +73,12 @@
         </view>
  
       </view>
-      <view class='H20'></view>
-      <view class='company-bottom-pad'></view>
+     
     </scroll-view>
-    <cover-view class='company-bottom-btn'>
-      <cover-view class='bottom-btn-box'>
-        <cover-view class='sending-resume'>
-          
-          <view class='text' >投递简历</view>
-          </cover-view>
-        <cover-view class='collection'>收藏</cover-view>
-      </cover-view>
-      </cover-view>
+    <view class="foot">
+      <view class='deli'  bindtap='deli'>投递简历</view>
+      <view class='fav'  bindtap='fav'>收藏</view>
+    </view>
+
   </view>
 </view>

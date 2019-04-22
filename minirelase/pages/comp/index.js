@@ -40,10 +40,11 @@ Page({
       if(res.code==200){
         self.setData({ bondsteps:1})
       }else if(res.code==400){
-        callback.call(this)
+        self.setData({ bondsteps: 1 })
       }else{
+        self.setData({ bondsteps: 1 })
         wx.showToast({
-          title:res.code,
+          title:res.msg,
           icon:"none"
         })
       }

@@ -29,7 +29,8 @@ function port(portName){
   ports.resumeSelect="resume"//查询简历
   ports.resumeUpdate="resume/update"//更新简历  有id为更新，没id为创建
   ports.recruitInfoSelect ="recruit-info-select" //获取岗位信息
-  ports.fuli="fuli" //获取福利列表
+  ports.fuli = "fuli" //获取福利列表
+  ports.deliUserDeli ="delivery-info-select/user-delivery" //用户投递
 
   ports.compBund="company/select-bundling"//查询微信号绑定企业信息
   ports.compUpdUseCom ="company/update-user-company"//绑定微信号到企业
