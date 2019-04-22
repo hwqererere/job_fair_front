@@ -1,4 +1,4 @@
-<view class="container">
+<scroll-view scroll-y="true"  class="container">
   <view class="page-box">
     <view class='position-group' bindtap='positionDetailClick'>
       <view class='position-main'>
@@ -8,7 +8,7 @@
           <view>22</view>
           </view>
           <view class='position-item'>
-            <view class='title'>{{jobinfo.jobName}}</view>
+            <view class='title'>{{jobinfo.jobName}} </view>
             <view class='name'>{{jobinfo.name}}</view>
             <view class='label'>
               <text class='box bg1' wx:for="{{jobinfo.fuli}}">{{item}}</text>
@@ -20,14 +20,11 @@
           <text>{{jobinfo.street_name}}</text>
           <text class='time'></text>
         </view>
+        <view>招{{jobinfo.mansize}}人</view>
       </view>
     </view>
-    <view class='position-tab'>
-      <view class="position-tab-item current" bindtap='jumpTo' data-opt="zhiwei">职位描述</view>
-      <view class="position-tab-item" bindtap='jumpTo' data-opt="xinzi">薪资待遇</view>
-      <view class="position-tab-item" bindtap='jumpTo' data-opt="company">公司信息</view>
-    </view>
-    <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="{{true}}">
+
+   
       <view class='position-tab-content' id="zhiwei">
         <view class='position-tab-title'>
     
@@ -74,11 +71,13 @@
  
       </view>
      
-    </scroll-view>
-    <view class="foot">
-      <view class='deli'  bindtap='deli'>投递简历</view>
-      <view class='fav'  bindtap='fav'>收藏</view>
-    </view>
+ 
+ 
 
   </view>
-</view>
+</scroll-view >
+
+   <view class="foot">
+      <view class='deli'  bindtap='deli'>{{deli?'已投递':'投递'}}</view>
+      <view class='fav'  bindtap='fav'>{{fav?'取消收藏':'收藏'}}</view>
+    </view>

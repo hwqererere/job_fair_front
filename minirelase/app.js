@@ -13,7 +13,10 @@ App({
           wx.removeStorageSync('have_resume')
           wx.removeStorageSync('openid')
           wx.removeStorageSync('signtype')
+          wx.removeStorageSync('deli')
+          wx.removeStorageSync('fav')
           wx.setStorageSync('version', res.data.version)
+
         }
       }
     })
