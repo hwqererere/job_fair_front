@@ -1,18 +1,44 @@
-/**index.wxss**/.index-top {background:url(http://qianduan88.com/weChat-images/small-program/social-security.jpg) no-repeat center bottom;background-size:100% auto;height:368rpx;width:100%;}
-.search-position {width:100%;float:left;height:90rpx;position:relative;background:#999;float:left}
-.search-position .search-item {width:50%;float:left;height:82rpx;line-height:82rpx;text-align:center;background:#fff;border-bottom:8rpx solid #fff}
+/**index.wxss**/
+.header-search{height: 80rpx; float:left; width: 100%;position:fixed;z-index:100;top:0rpx;background-color:#003399}
+.header-search .tit{float:left;height:80rpx;padding:0rpx 30rpx;line-height:70rpx;color:#fff;}
+.header-search .search-input{border-radius: 30rpx;float:left;margin-top:4rpx;width:520rpx; background: #fff; text-align: center; color: #000; font-size: 24rpx; height: 60rpx; line-height: 60rpx;}
+.header-search .search{float:left;height:80rpx;margin-left:-60rpx;width:60rpx;line-height:60rpx;font-size:48rpx;}
+.header-search .scan{height:80rpx;float:right;line-height:40rpx; width: 80rpx;margin-right:20rpx; }
+.header-search .scan .icon-richscan_icon{float:right;width:100%;height:30rpx;line-height:30rpx;color:#fff;text-align: center;font-size:24rpx;margin-top:10rpx;}
+.header-search .scan .scanword{float:right;width:100%;height:30rpx;line-height:30rpx;color:#fff;font-size:24rpx;text-align:center}
+
+.swiper{position:fixed;top:80rpx;height:240rpx;left:0rpx;width:100%;z-index:90;}
+.swiper .tip{background-color:#003399;color:#fff;line-height:50rpx;text-align:center;font-size:40rpx;padding-top:40rpx}
+.swiper .tip text{float:left;width:100%;color:#fff;}
+.swiper  .slide-image{height:240rpx;width:100%;}
+
+.search-position {width:100%;position:fixed;height:90rpx;background:#999;z-index:90;left:0rpx;top:320rpx;}
+.search-position .search-item {width:33.3%;float:left;height:82rpx;line-height:82rpx;text-align:center;background:#fff;border-bottom:8rpx solid #fff}
 .search-position .search-item.active {border-bottom:8rpx solid #e0e0e0}
-.search-position .search-item .set {font-size:28rpx;height:90rpx;float:left;margin-left: 160rpx;}
+.search-position .search-item .set {font-size:28rpx;height:90rpx;float:left;margin-left: 70rpx;text-align:center}
 .search-position .search-item .icon {font-size:28rpx;float:left;height:90rpx;width:40rpx;}
+
+.all-position-box {position:fixed;background:#fff;top:410rpx;left:0;z-index:90;padding-top:10rpx;width:100%}
+.all-position-bg {position:absolute;background:#000;opacity:0.4;top:110rpx;left:0;z-index:1;width:100%;height:200%;}
+.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;}
+.all-position-list text {font-size:24rpx;float:left;background:#eee;color:#7f7f7f;padding:10rpx 24rpx;height:30rpx;line-height:30rpx;border-radius:20rpx;margin:10rpx 10rpx;}
+.all-position-list text.current {background:#357ac0;color:#fff;}
+.all-position-btn {height:80rpx;float:left;width:100%}
+.all-position-btn view {float:left;width:50%;font-size:30rpx;text-align:center;border-radius:none;height:80rpx;line-height:80rpx;}
+.all-position-btn view.btn1 {background:#efefef;color:#357ac0;}
+.all-position-btn view.btn2 {background:#357ac0;color:#fff;}
+
+
+
 .position-list {}
-.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;}
+.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;float:left;}
 .position-main {padding:0 20rpx;}
-.position-hd {position:relative;padding-left:120rpx;border-bottom:#f6f6f6 solid 1px;padding-bottom:20rpx;}
-.position-img {position:absolute;left:0;top:0;width:105rpx;height:105rpx;background-color:#357ac0;border-radius: 52rpx;}
+.position-hd {float:left;border-bottom:#f6f6f6 solid 1px;padding-bottom:20rpx;width:100%;position:relative}
+.position-img {float:left;width:105rpx;height:105rpx;background-color:#357ac0;border-radius: 52rpx;margin-right:10rpx;}
 .position-hd .position-img image {width:100%;height:100%;color:#fff}
 .position-hd .position-img view{float:left;width:100%;font-size:30rpx;color:#fff;text-align: center;}
 .position-hd .position-img view:nth-child(1){margin-top:10rpx}
-.position-hd .position-item {position:relative;}
+.position-hd .position-item {float:left;width:calc(100% - 125rpx)}
 .position-hd .position-item .price {position:absolute;right:10rpx;top:0rpx;color:#ff5632;font-size:32rpx;}
 .position-hd .position-item .title {color:#000;font-size:32rpx;height:36rpx;line-height:36rpx;}
 .position-hd .position-item .name {color:#bababa;font-size:26rpx;height:30rpx;line-height:30rpx;padding:15rpx 0;}
@@ -23,21 +49,7 @@
 .position-bd {height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
 .position-bd text {color:#e5e5e5;font-size:24rpx;}
 .position-bd text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}
-.all-position-box {position:absolute;background:#fff;top:98rpx;left:0;z-index:1000;padding-top:10rpx;}
-.all-position-bg {position:absolute;background:#000;opacity:0.4;top:110rpx;left:0;z-index:1;width:100%;height:200%;}
-.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;}
-.all-position-list text {font-size:24rpx;float:left;background:#eee;color:#7f7f7f;padding:10rpx 24rpx;height:30rpx;line-height:30rpx;border-radius:20rpx;margin:10rpx 10rpx;}
-.all-position-list text.current {background:#357ac0;color:#fff;}
-.all-position-btn {height:80rpx;float:left;width:100%}
-.all-position-btn view {float:left;width:50%;font-size:30rpx;text-align:center;border-radius:none;height:80rpx;line-height:80rpx;}
-.all-position-btn view.btn1 {background:#efefef;color:#357ac0;}
-.all-position-btn view.btn2 {background:#357ac0;color:#fff;}
-.laybg{position:fixed;top:170rpx;left:0rpx;width:100%;height:calc(100% - 64rpx - 98rpx);z-index:999}
-.laybg.lay{top:64rpx;z-index:1001;height:calc(100% - 64rpx)}
-.qcodelay{position:fixed;z-index:9999;width:700rpx;height:700rpx;background-color:#fff;top:calc(50% - 350rpx);left:calc(50% - 350rpx);}
-.qcodelay canvas{width:500rpx;height:500rpx;margin:100rpx;}
-.qcodelay .noresume{float:left;width:100%}
-.qcodelay .noresume .line{width:100%;float:left;margin-top:200rpx;text-align:center;margin-bottom:200rpx;}
-.qcodelay .noresume button{width:400rpx;margin-left:150rpx;float:left;}
 
-.scroll-view{width:100%;position:fixed;left:0rpx;bottom:0rpx;height:calc(100% - 64rpx - 90rpx);background: #efefef;overflow-y:auto;z-index:0}
+.laybg{position:fixed;top:410rpx;left:0rpx;width:100%;height:calc(100% - 410rpx);z-index:89}
+
+.scroll-view{width:100%;position:fixed;left:0rpx;top:410rpx;height:calc(100% - 120rpx - 410rpx);background: #efefef;overflow-y:auto;z-index:0}

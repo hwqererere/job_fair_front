@@ -1,0 +1,51 @@
+<view class="logolay">
+  <view class="logo mt60"></view>
+  <view class="title">欢迎登录莘庄就业企业客户端</view>
+</view>
+<view class="actbox">
+  <view class="grayline"></view>
+  <view class="actline">
+    <navigator class="li" url="compinfo">
+      <label class="icon-icon_compile"></label>
+      <label>企业简介</label>
+    </navigator>
+    <navigator class="li" url="joblist">
+      <label class="icon-gongzuobao"></label>
+      <label>职位</label>
+    </navigator>
+    <navigator class="li" url="allresume">
+      <label class="icon-jianli-A"></label>
+      <label>投递</label>
+    </navigator>
+    <navigator class="li" url="want">
+      <label class="icon-icon_shakehands"></label>
+      <label>录用</label>
+    </navigator>
+  </view>
+  <view class="grayline"></view>
+</view>
+<view class="scrolltitle"><view class="dot"></view><label>等待面试</label></view>
+<scroll-view class="scroll">
+  <view class="li" wx:for="{{deli}}" wx:if="{{item.status==1}}">
+    <view class="img">
+      <image src="{{reslink+item.url_id}}"></image>
+    </view>
+    <view class="msg">
+      <label>{{item.username}}|{{item.sex==0?"女":"男"}}</label>
+      <label>{{item.jobName}}</label>
+    </view>
+    <view class="invite" bindtap="invite" data-id="{{item.id}}">通知面试</view>
+  </view>
+</scroll-view>
+
+
+<view class="bondstep" wx:if="{{bondsteps==1}}">
+  <view class="logo mt60"></view>
+  <input type="text" placeholder='请输入需要绑定的企业名称' bindinput='bindinput' data-type="bondcompname"></input>
+  <view class="nextbtn" bindtap='bondstep'>下一步</view>
+</view>
+<view class="bondstep" wx:if="{{bondsteps==2}}">
+  <icon type="success" size="75"></icon>
+  <label>绑定成功</label>
+  <view class="nextbtn" bindtap='bondstep'>关闭</view>
+</view>

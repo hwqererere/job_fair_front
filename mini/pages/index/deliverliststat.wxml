@@ -1,0 +1,16 @@
+
+    <view class='position-group' wx:for="{{deli}}" wx:key="key" wx:if="{{item.status!=4}}">
+        <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
+            <view class='position-hd'>
+                
+                <view class='position-item'>
+                    <view class='title'>{{item.jobName}}</view>
+                    <view class='name'>{{item.name}}</view>
+                    
+                    <text class='price' wx:if="{{item.status==1}}">待通知</text>
+                    <text class='price' wx:if="{{item.status==2}}">拒绝</text>
+                    </view>
+            </view>
+     
+        </view>
+    </view>

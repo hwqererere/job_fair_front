@@ -1,20 +1,30 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/index/my",
     "pages/index/resumeEdit",
+    "pages/index/workarr",
+    "pages/index/eduarr",
+    "pages/index/resumeBase",
     "pages/index/positionDetail",
+    "pages/index/resume",
     "pages/index/deliverlist",
-    "pages/resume/index"
+    "pages/index/deliverliststat",
+    "pages/index/deliverlistsuccess",
+    "pages/index/favlist",
+
+
+    "pages/comp/index",
+    "pages/comp/compinfo",
+    "pages/comp/joblist",
+    "pages/comp/allresume",
+    "pages/comp/want"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#357ac0",
+    "navigationBarBackgroundColor": "#003399",
     "navigationBarTitleText": "莘庄就业",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle": "white",
     "navigationStyle": "default"
-  },
- 
-  "sitemapLocation": "sitemap.json"
+  }
 }

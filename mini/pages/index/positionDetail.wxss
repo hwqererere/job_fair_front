@@ -1,5 +1,6 @@
+/* pages/index/positionDetail.wxss */
 .container {
-  background: #fff;
+  background: #fff;position:fixed;left:0rpx;top:0rpx;width:100%;height:calc(100% - 100rpx);
 }
 
 .position-group {
@@ -226,7 +227,7 @@
 
 .company-name {
   text-align: center;
-  line-height: 50rpx;
+  line-height: 50rpx;font-size:40rpx;
   color: #000;
 }
 
@@ -235,7 +236,7 @@
   margin-top: 80rpx;
   border-bottom: #e4e4e4 solid 1px;
   padding: 30rpx 0;
-  letter-spacing: -5rpx;
+
   vertical-align: top;
 }
 
@@ -259,58 +260,11 @@
   line-height: 46rpx;
 }
 
-.company-bottom-btn {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 100rpx;
-  line-height: 100rpx;
-  width: 100%;
-  background: #fff;
-  z-index: 9000;
-}
-
-.bottom-btn-box {
-  position: relative;
-  padding-right: 200rpx;
-}
-
-.bottom-btn-box .sending-resume {
-  width: 200rpx;
-  margin: 0 auto;
-  font-size: 32rpx;
-}
-
-.bottom-btn-box .sending-resume .img {
-  width: 65rpx;
-  height: 65rpx;
-  display: block;
-  float: left;
-  margin-top: 14rpx;
-  margin-right: 10rpx;
-}
-.bottom-btn-box .sending-resume .text {
-  line-height: 100rpx;
-}
-.collection {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100rpx;
-  background: #e83743;
-  width: 200rpx;
-  color: #fff;
-  font-size: 32rpx;
-  text-align: center;
-  line-height: 100rpx;
-}
 
 .H20 {
   height: 10rpx;
 }
 
-.company-bottom-pad {
-  height: 200rpx;
-  background: #fff;
-  width: 100%;
-}
+.foot{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;}
+.foot .deli{float:left;width:60%;color:#000;font-size:40rpx;line-height:100rpx;background-color:#fff;text-align:center;background-color:#0066cc;color:#fff}
+.foot .fav{float:left;width:40%;color:#fff;background-color:#f00;height:100rpx;line-height:100rpx;text-align:center;font-size:40rpx;}

@@ -1,0 +1,16 @@
+<template name="footbar">
+  <view class="footbar">
+  <navigator url="index"  class="v {{current=='index'?'current':''}}">
+    <view class="icon-zhiwei-"></view>
+    <view>职位</view>
+  </navigator>
+  <navigator url="resume"  class="v {{current=='resume'?'current':''}}">
+    <view class="icon-jianli-A"></view>
+    <view>简历</view>
+  </navigator>
+  <navigator url="my" class="v {{current=='my'?'current':''}}">
+    <view class="icon-gerenyonghutouxiang2"></view>
+    <view>我的</view>
+  </navigator>
+  </view>
+</template>

@@ -7,15 +7,17 @@ const drawQrcode=require('../../lib/weapp.qrcode.js');
 Page({
   data: {
     access:false,
+    reslink: app.globalData.reslink,
     searchItem:0,
     searchOpen:false,
-    searchitems: [[[{ check: 0, txt: '决策管理类' }, { check: 0, txt: '人事行政类' }, { check: 0, txt: '财务管理' }, { check: 0, txt: '营销类' }, { check: 0, txt: '技术类' }, { check: 0, txt: '生产服务类' }, { check: 0, txt:'其他'}],[]],[
-      [{ check: 0, txt: '早九晚五' }, { check: 0, txt: '双休' }, { check: 0, txt: '长白班' }, { check: 0, txt: '福利好' }, { check: 0, txt: '包吃住' }, { check: 0, txt: '班车接送' }, { check: 0, txt: '五险一金' }], [{ check: 0, txt: '长三角及扶贫专区' }, { check: 0, txt: '莘庄镇' }, { check: 0, txt: '七宝镇' }, { check: 0, txt: '大学生实践和生态环保专区' }, { check: 0, txt: '浦江镇' }, { check: 0, txt: '梅陇镇' }, { check: 0, txt: '虹桥镇' }, { check: 0, txt: '马桥镇' }, { check: 0, txt: '吴泾镇' }, { check: 0, txt: '华漕镇' }, { check: 0, txt: '颛桥镇' }, { check: 0, txt: '江川路街道' }, { check: 0, txt: '新虹街道' }, { check: 0, txt: '古美路街道' }, { check: 0, txt: '浦锦街道' } ]]],
-      allcounts:[[0,0],[0,0]],
+    jobtypelist:[],
+    streetlist: [],
+    fulilist:[],
+    allcounts:[0,0,0],
       job:[],
-      codelay:false,
-      have_resume:true,
-      lay:false
+      page:0,
+    searchinfo:{}
+      
   },
   //事件处理函数
 
@@ -35,22 +37,102 @@ Page({
         self.checkresume()
       })
     }
-    self.setrandomjob()
+    self.getstreet();
+    self.getfuli();
+    self.getjobtype();
+  },
+  getjobtype:function(){
+    let self = this
+    let jobtypetmp = wx.getStorageSync('jobtype')
+    if (!jobtypetmp || (jobtypetmp.update - 0 + 300000) < utils.getsortTime) {
+      utils.requestFn('jobtype', {}, function (res) {
+        if (res.code == 200) {
+          let jobtype = {}
+          jobtype.update = utils.getsortTime
+          jobtype.list = res.data
+          wx.setStorageSync('jobtype', jobtype)
+          let arr = []
+          for (let i = 0; i < jobtype.list.length; i++) {
+            arr[i] = { id: jobtype.list[i].id, check: 0, txt: jobtype.list[i].job_name }
+          }
+          self.setData({ jobtypelist: arr })
+        }
+      })
+    } else {
+      let arr = []
+      for (let i = 0; i < jobtypetmp.list.length; i++) {
+        arr[i] = { id: jobtypetmp.list[i].id, check: 0, txt: jobtypetmp.list[i].job_name }
+      }
+      self.setData({ jobtypelist: arr })
+    }  
+  },
+  getstreet: function () {
+    let self = this
+    let streettmp = wx.getStorageSync('street')
+    if (!streettmp || (streettmp.update - 0 + 300000) < utils.getsortTime) {
+      utils.requestFn('street', {}, function (res) {
+        if (res.code == 200) {
+          let street = {}
+          street.update = utils.getsortTime
+          street.list = res.data
+          wx.setStorageSync('street', street)
+          let arr = []
+          for (let i = 0; i < street.list.length; i++) {
+            arr[i] = { id: street.list[i].id, check: 0, txt: street.list[i].street_name }
+          }
+          self.setData({ streetlist: arr })
+        }
+      })
+    } else {
+      let arr = []
+      for (let i = 0; i < streettmp.list.length; i++) {
+        arr[i] = { id: streettmp.list[i].id, check: 0, txt: streettmp.list[i].street_name }
+      }
+      self.setData({ streetlist: arr })
+    }    
+    console.log(self.data.streetlist)
+  },
+  getfuli: function () {
+    let self=this
+    let fulitmp=wx.getStorageSync('fuli')
+    if (!fulitmp || (fulitmp.update - 0 + 300000) < utils.getsortTime){
+      utils.requestFn('fuli', {}, function (res) {
+        if(res.code==200){
+          let fuli={}
+          fuli.update = utils.getsortTime
+          fuli.list=res.data
+          wx.setStorageSync('fuli', fuli)
+          let arr=[]
+          for(let i=0;i<fuli.list.length;i++){
+            arr[i] = { id: fuli.list[i].id, check: 0, txt: fuli.list[i].fuli}
+          }
+          self.setData({fulilist:arr})
+        }
+      })
+    }else{
+      let arr=[]
+      for (let i = 0; i < fulitmp.list.length; i++) {
+        arr[i] = { id: fulitmp.list[i].id, check: 0, txt: fulitmp.list[i].fuli }
+      }
+      self.setData({ fulilist: arr })
+    }    
   },
   onShow: function () {
     this.checkresume()
+    this.getlist({})
   },
-  setrandomjob:function(){
+
+  getlist:function(data){
     let self=this
-    let j=['信息采集员','网络管理员','仓库保管员','出纳']
-    let e=['上海智传有限公司','上海朴实有限公司','上海纳柯有限公司','上海隆基机械有限公司']
-    let jobj=[]
-    for(let i=0;i<15;i++){
-      let obj = { jobname: j[i % 4], compname: e[i % 4], area: "A区", no: ("0" + i), belong: self.data.searchitems[1][1][i].txt, minrepay: 4000, maxrepay: 8000, tag: [self.data.searchitems[1][1][i % 7].txt, self.data.searchitems[1][1][i % 7].txt, self.data.searchitems[1][1][i % 7].txt, self.data.searchitems[1][1][i % 7].txt]}
-      jobj.push(obj)
-    }
-    this.setData({ job:jobj})
+    utils.requestFn('recruitInfoSelect', data,function(res){
+      let tmp = res.data
+      for(let i=0;i<tmp.length;i++){
+        tmp[i].fuli=tmp[i].fuli.split(";")
+      }
+      self.setData({job:tmp})
+    })
   },
+  
   bindGetUserInfo: function (e) {
     let self = this
     if (e.detail.userInfo) {
@@ -75,49 +157,107 @@ Page({
   setitem:function(e){
     let self=this
     let id = e.target.dataset.si ? e.target.dataset.id : e.currentTarget.dataset.id
-    let idarr=id.split("-")
-    let dataitem=self.data.searchitems
-    let dataallcounts = self.data.allcounts
-    if (self.data.searchitems[idarr[0]][idarr[1]][idarr[2]].check==1){      
-      dataitem[idarr[0]][idarr[1]][idarr[2]].check=0
-      dataallcounts[idarr[0]][idarr[1]]--
-    }else{     
-      dataitem[idarr[0]][idarr[1]][idarr[2]].check = 1      
-      dataallcounts[idarr[0]][idarr[1]]++
+    let type = e.target.dataset.type ? e.target.dataset.type: e.currentTarget.dataset.type
+    type=type-0
+    let dataitem=[]
+    if(type==0){
+      dataitem = self.data.jobtypelist
+    }else if(type==1){
+      dataitem = self.data.fulilist
+    }else if(type==2){
+      dataitem = self.data.streetlist
     }
-    self.setData({ searchitems: dataitem, allcounts:dataallcounts})
+    let dataallcounts = self.data.allcounts
+    if (dataitem[id].check==1){      
+      dataitem[id].check = 0
+      dataallcounts[type]--
+    }else{     
+      dataitem[id].check = 1      
+      dataallcounts[type]++
+    }
+    
+    if(type==0){
+      self.setData({ jobtypelist: dataitem, allcounts: dataallcounts })
+    }else if(type==1){
+      self.setData({ fulilist: dataitem, allcounts: dataallcounts })
+    }else if(type==2){
+      self.setData({ streetlist: dataitem, allcounts: dataallcounts })
+    }
+    
   },
   reset:function(e){
     let self = this
-    let id = e.target.dataset.si ? e.target.dataset.id : e.currentTarget.dataset.id
-    let idarr=id.split("-")
-    let dataitem = self.data.searchitems
+    let id = e.target.dataset.id ? e.target.dataset.id : e.currentTarget.dataset.id
+    let type = id - 0
+    let dataitem = []
+    if (type == 0) {
+      dataitem = self.data.jobtypelist
+    } else if (type == 1) {
+      dataitem = self.data.fulilist
+    } else if (type == 2) {
+      dataitem = self.data.streetlist
+    }
     let dataallcounts = self.data.allcounts
-    if(idarr.length==1){
-      dataallcounts[idarr[0]][0] = 0
-      dataallcounts[idarr[0]][1] = 0
-      for (let i = 0; i < dataitem[id][0].length; i++) {
-        if (dataitem[idarr[0]][0][i].check == 1) {
-          dataitem[idarr[0]][0][i].check = 0
-        }
-      }
-      for (let i = 0; i < dataitem[id][1].length; i++) {
-        if (dataitem[idarr[0]][1][i].check == 1) {
-          dataitem[idarr[0]][1][i].check = 0
-        }
-      }
-    }else{
-      dataallcounts[idarr[0]][idarr[1]] = 0
-      for (let i = 0; i < dataitem[idarr[0]][idarr[1]].length; i++) {
-        if (dataitem[idarr[0]][idarr[1]][i].check == 1) {
-          dataitem[idarr[0]][idarr[1]][i].check = 0
-        }
-      }
-    }    
-    self.setData({ searchitems: dataitem, allcounts: dataallcounts })
+    for(let i=0;i<dataitem.length;i++){
+      dataitem[i].check=0
+    }
+    dataallcounts[type]=0
+    if (type == 0) {
+      self.setData({ jobtypelist: dataitem, allcounts: dataallcounts })
+    } else if (type == 1) {
+      self.setData({ fulilist: dataitem, allcounts: dataallcounts })
+    } else if (type == 2) {
+      self.setData({ streetlist: dataitem, allcounts: dataallcounts })
+    }
   },
   searchitemclick:function(){
-    this.setData({ searchOpen:false})
+    let self=this
+    let search={}
+    if (self.data.allcounts[0]!=0){
+      let job=[]
+      for (let i = 0; i < self.data.jobtypelist.length;i++){
+        if (self.data.jobtypelist[i].check){
+          console.log("aa")
+          job.push(self.data.jobtypelist[i].id)
+        }
+      }
+
+      search.jobId = job.join(",")
+    }
+    if(self.data.allcounts[2]!=0){
+      let street = []
+      for (let i = 0; i < self.data.streetlist.length; i++) {
+        if (self.data.streetlist[i].check) {
+          street.push(self.data.streetlist[i].id)
+        }
+      }
+      search.street = street.join(",")
+    }
+    if (self.data.allcounts[1] != 0) {
+      let fuli = []
+      for (let i = 0; i < self.data.fulilist.length; i++) {
+        if (self.data.fulilist[i].check) {
+          fuli.push(self.data.fulilist[i].id)
+        }
+      }
+      search.fuli = fuli.join(",")
+    }
+    self.getlist(search)
+    self.setData({searchinfo:search, searchOpen:false,page:0})
+  },
+  nextpage:function(){
+    let self = this
+    let searchinfo=self.data.searchinfo
+    searchinfo.page=self.data.page-0+1
+    utils.requestFn('recruitInfoSelect',searchinfo, function (res) {
+      let tmp = res.data
+      let job=self.data.job
+      for (let i = 0; i < tmp.length; i++) {
+        tmp[i].fuli = tmp[i].fuli.split(";")
+        job.push(tmp[i])
+      }
+      self.setData({ job: tmp, page: searchinfo.page })
+    })
   },
   linkto:function(e){
     let link = e.target.dataset.link ? e.target.dataset.link : e.currentTarget.dataset.link
@@ -125,33 +265,7 @@ Page({
       url: link,
     })
   },
-  showresumecode:function(){
-    if(!this.data.codelay){
-      this.setData({ lay: true, codelay: true },()=>{
-        let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
-        if (have_resume == 1) {
-          let width = wx.getSystemInfoSync().windowWidth
-          let size = 500 / 750 * width
-            drawQrcode({
-              width: size,
-              height: size,
-              x: 0,
-              y: 0,
-              canvasId: 'myQrcode',
-              typeNumber: 10,
-              text: JSON.stringify({ link: '../resume/index?resumeId=' + wx.getStorageSync('openid')}),
-              callback(e) {
-                console.log(e)
-              }
-            })
-        }
-      })
-
-    }else{
-      this.setData({lay:false,codelay:false})
-    }
-    
-  },
+  
   closelay:function(){
     this.setData({ searchOpen:false,lay:false,codelay:false})
   },
@@ -172,19 +286,27 @@ Page({
       })
     }
   },
-  addresume:function(){
-    app.globalData.addresume=1
-    this.closelay()
-    wx.navigateTo({
-      url: 'resumeEdit',
-    })
+  linktojob:function(e){
+    let self=this
+    let id = e.target.dataset.id ? e.target.dataset.id : e.currentTarget.dataset.id
+    for(let i=0;i<self.data.job.length;i++){
+      if(self.data.job[i].id==id){
+        app.globalData.jobinfo=self.data.job[i]
+        wx.navigateTo({
+          url: 'positionDetail',
+        })
+      }
+    }
   },
   scan:function(){
     utils.scan(function(res){
-      if(res.link){
+      if(res.openid){
         wx.navigateTo({
-          url: '../resume/index?resumeId='
+          url: 'resume?resumeId='
         })
+      }else if(res.company_id){
+
+        
       }
     })
   }

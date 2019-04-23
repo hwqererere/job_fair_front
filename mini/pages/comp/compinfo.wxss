@@ -1,0 +1,19 @@
+.compname{flaot:left;width:100%;height:80rpx;line-height:80rpx;font-size:60rpx;text-align:center;}
+.baseline{float:left;width:calc(100% - 60rpx);margin-top:10rpx;padding-left:30rpx;padding-right:30rpx}
+.baseline label{float:left;font-size:30rpx}
+.baseline label:nth-child(1){width:200rpx;margin-left:25rpx;text-align:left}
+.baseline label:nth-child(2){width:50rpx;margin-left:-60rpx;}
+.baseline label:nth-child(3){width:500rpx;margin-left:-40rpx;}
+.baseline label.k2{letter-spacing:70rpx}
+.baseline label.k3{letter-spacing:21rpx}
+.baseline label.k4{letter-spacing:5rpx}
+
+.baseline picker{float:left;width:100%;height:60rpx;}
+.baseline picker view{float:left;width:100%;height:60rpx;}
+.baseline textarea{float:left;width:480rpx;line-height:60rpx;}
+.baseline .for1,.for2{float:left;}
+.baseline textarea{height:auto;}
+.icon-icon_task{color:#006633}
+.savebtn{float:left;width:100%;height:80rpx;line-height: 80rpx;text-align:center;font-size:36rpx;border-top:1rpx solid #ddd;color:#00bb30}
+
+.fulilay{position:fixed;left:0rpx;top:0rpx;height:100%;width:100%;z-index:999;background-color:#fff}

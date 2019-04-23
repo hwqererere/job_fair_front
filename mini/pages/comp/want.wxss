@@ -1,0 +1,5 @@
+.li{float:left;width:100%;height:150rpx;}
+.li .img{float:left;margin-left:20rpx;height:150rpx;width:150rpx;overflow:hidden;border-radius:75rpx;margin-right:20rpx;}
+.li .msg{float:left;height:150rpx;width:calc(100% - 400rpx)}
+.li .msg label{float:left;width:100%;height:75rpx;line-height:75rpx;}
+.li .invite{background-color:#0066cc;color:#fff;float:right;width:180rpx;text-align:center;line-height:80rpx;height:80rpx;margin-top:35rpx;margin-right:20rpx;border-radius:20rpx;}

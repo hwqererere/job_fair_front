@@ -1,87 +1,89 @@
 <!--index.wxml-->
-  <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" ></button>
-  <view class="laybg {{lay?'lay':''}}" wx:if="{{searchOpen || lay}}" bindtap="closelay"></view>
-   <view class="qcodelay " wx:if="{{codelay}}">
-             <canvas wx:if= "{{have_resume}}" canvas-id="myQrcode"></canvas>
-             <view class="noresume" wx:if="{{!have_resume}}">
-             <view class="line">您还没有建立简历</view>
-             <button bindtap="addresume" type="warn">去建立简历</button>
-             </view>
-          </view>
-   <view class='header-search'>
-      <view class='search-box'>
-      <view class='scan icon-scan' bindtap="scan"></view>
-          <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
-          <view class="search icon-search"></view>
-          <view class="icon icon-code" bindtap="showresumecode"></view>
-         
-          <view class="icon icon-my" bindtap="linkto" data-link="my"></view>
-      </view>
-    </view>
-  <view class='index-top' wx:if="{{false}}">
+<button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
+<view class="laybg {{lay?'lay':''}}" wx:if="{{searchOpen || lay}}" bindtap="closelay"></view>
+
+
+
+<view class='header-search'>
+        <view class="tit">莘庄</view>
+        <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
+        <view class="search icon-linedesign-12"></view>
+        <view class="scan">
+          <view class=' icon-richscan_icon' bindtap="scan"></view>
+          <view class='scanword'>扫一扫</view>
+        </view>
 </view>
- <view class='search-position'>
+<swiper class="swiper" indicator-dots="true" autoplay="false" interval="50000" duration="500">
+    <block >
+        <swiper-item class="tip">
+            <text>2019年上海市民营企业招聘周</text>
+            <text>暨闵行区莘庄镇专场活动</text>
+        </swiper-item>
+        <swiper-item>
+            <image src="{{reslink}}style/ad.png" class="slide-image"  />
+        </swiper-item>
+    </block>
+</swiper>
+<view class='search-position'>
     <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0">
-      <view class="set">全部职位</view>
-      <view class="icon {{(searchItem==0 && searchOpen)?'icon-close':'icon-open'}}"></view>
+        <view class="set">按职能</view>
+        <view class="icon {{(searchItem==0 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></view>
     </view>
     <view class='search-item {{searchItem==1?"active":""}}' bindtap="searchItemChose" data-si="1">
-      <view class="set">筛选 </view>
-     <icon class="icon {{(searchItem==1 && searchOpen)?'icon-close':'icon-open'}}"></icon>
+        <view class="set">按福利</view>
+        <view class="icon {{(searchItem==1 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></view>
     </view>
-    <view class='all-position-box' wx:if="{{searchOpen && searchItem==0}}" >
+    <view class='search-item {{searchItem==2?"active":""}}' bindtap="searchItemChose" data-si="2">
+        <view class="set">按专区</view>
+        <icon class="icon {{(searchItem==2 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></icon>
+    </view>
+    <view class='all-position-box' wx:if="{{searchOpen && searchItem==0}}">
         <view class='all-position-list'>
-            <text class='{{allcounts[0][0]==0?"current":""}}' bindtap="reset" data-id="0">不限</text>
-            <text wx:for="{{searchitems[0][0]}}" wx:key="key00" bindtap="setitem" data-id="0-0-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text>  
-        </view>
+            <text class='{{allcounts[0]==0?"current":""}}' bindtap="reset" data-id="0">不限</text>
+            <text wx:for="{{jobtypelist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="0" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
         <view class='all-position-btn'>
             <view class='btn1' bindtap="reset" data-id="0">重置</view>
-            <view class='btn2' bindtap="searchitemclick">确定</view>
-        </view>
-        
+            <view class='btn2' bindtap="searchitemclick">确定</view></view>
     </view>
     <view class='all-position-box' wx:if="{{searchOpen && searchItem==1}}">
         <view class='all-position-list'>
-            <text class='{{allcounts[1][0]==0?"current":""}}' bindtap="reset" data-id="1-0">不限</text>
-            <text wx:for="{{searchitems[1][0]}}" wx:key="key10" bindtap="setitem" data-id="1-0-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text>  
-        </view>
-        <view class='all-position-list'>
-            <text class='{{allcounts[1][1]==0?"current":""}}' bindtap="reset" data-id="1-1">不限</text>
-            <text wx:for="{{searchitems[1][1]}}" wx:key="key11" bindtap="setitem" data-id="1-1-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text>  
-        </view>
+            <text class='{{allcounts[1]==0?"current":""}}' bindtap="reset" data-id="1">不限</text>
+            <text wx:for="{{fulilist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="1" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
         <view class='all-position-btn'>
             <view class='btn1' bindtap="reset" data-id="1">重置</view>
-            <view class='btn2' bindtap="searchitemclick">确定</view>
+            <view class='btn2' bindtap="searchitemclick">确定</view></view>
+    </view>
+
+    <view class='all-position-box' wx:if="{{searchOpen && searchItem==2}}">
+        <view class='all-position-list'>
+            <text class='{{allcounts[2]==0?"current":""}}' bindtap="reset" data-id="2">不限</text>
+            <text wx:for="{{streetlist}}" wx:key="key11" bindtap="setitem" data-id="{{index}}" data-type="2" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
+        <view class='all-position-btn'>
+            <view class='btn1' bindtap="reset" data-id="2">重置</view>
+            <view class='btn2' bindtap="searchitemclick">确定</view></view>
+    </view>
+</view>
+<scroll-view scroll-y="true" class="scroll-view" bindscrolltolower="nextpage">
+    <view class='position-group' wx:for="{{job}}" wx:key="key">
+        <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
+            <view class='position-hd'>
+                <view class='position-img' wx:if="{{item.area && item.no}}">
+                    <view>{{item.area}}</view>
+                    <view>{{item.no}}</view></view>
+                <view class='position-item'>
+                    <view class='title'>{{item.jobName}}</view>
+                    <view class='name'>{{item.name}}</view>
+                    <view class='label'>
+                        <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem">{{fuliitem}}</text>
+                    </view>
+                    <text class='price'>￥{{item.pay}}</text></view>
+            </view>
+            <view class='position-bd'>
+                <text>{{item.belong}}</text>
+                <text class='time'></text>
+            </view>
         </view>
     </view>
-    
-  </view>
-
-<scroll-view scroll-y="true" class="scroll-view" >
-  <view class='position-group' wx:for="{{job}}" >
-    <view class='position-main' bindtap="linkto" data-link="positionDetail">
-      <view class='position-hd'>
-        <view class='position-img'>
-          <view>{{item.area}}</view>
-          <view>{{item.no}}</view>
-        </view>
-        <view class='position-item'>
-          <view class='title'>{{item.jobname}}</view>
-          <view class='name'>{{item.compname}}</view>
-          <view class='label'>
-            <text class='box bg1'>福利好</text>
-            <text class='box bg1'>五险一金</text>
-            <text class='box bg2'>工资高</text>
-            <text class='box bg1'>其他</text>
-          </view>
-          <text class='price'>￥4000-8000</text>
-        </view>
-      </view>
-      <view class='position-bd'>
-        <text>{{item.belong}}</text>
-        <text class='time'></text>
-      </view>
-    </view>
-  </view>
-
 </scroll-view>
+<import src="footbar.wxml" />
+<template is="footbar" data="{{current: 'index'}}" />

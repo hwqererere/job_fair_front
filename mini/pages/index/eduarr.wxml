@@ -1,0 +1,23 @@
+<scroll-view scroll-y="true"  class="container">
+  <view class="baseline"><label class="k4">开始时间</label><label>:</label><label>
+    <picker mode="date" value="{{edudata.begin}}" fields="month" bindchange="bindDateChange" data-type="begin">
+    <view class="picker">
+      {{edudata.begin?edudata.begin:'请选择'}}
+    </view>
+  </picker>
+  </label></view>
+  <view class="baseline"><label class="k4">结束时间</label><label>:</label><label>
+  
+  <picker mode="date" value="{{edudata.end}}" fields="month" bindchange="bindDateChange" data-type="end">
+    <view class="picker">
+      {{edudata.end?edudata.end:'请选择'}}
+    </view>
+  </picker>
+  
+  </label></view>
+  <view class="baseline"><label class="k4">学校名称</label><label>:</label><label><input type="text" value="{{edudata.school}}" placeholder='xx学校' bindinput="bindDateChange" data-type="school"></input></label></view>
+   <view class="baseline"><label class="k2">专业</label><label>:</label><label><input type="text" bindinput='bindDateChange' value="{{edudata.majoy}}" placeholder='例:计算机专业' data-type="majoy"></input></label></view>
+  
+</scroll-view >
+<view class="save icon-icon_dispose" bindtap='sub' wx:if="{{edudata.school && edudata.begin && edudata.end}}">确定</view>
+

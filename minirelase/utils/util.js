@@ -41,7 +41,8 @@ function port(portName){
   ports.company="company"
   ports.compDeli ="company/delivery"//查询当前企业投递简历
   ports.delistat ="company/deliverystat"//更改投递状态
-
+  ports.fuliupdate ="fuli/fuli-save-or-update"//福利
+  ports.udcop ="company/update-company"
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.hothwq.com/";
   return url + ports[portName];

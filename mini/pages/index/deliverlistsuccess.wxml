@@ -1,0 +1,15 @@
+
+    <view class='position-group' wx:for="{{deli}}" wx:key="key" wx:if="{{item.status==4}}">
+        <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
+            <view class='position-hd'>
+                
+                <view class='position-item'>
+                    <view class='title'>{{item.jobName}}</view>
+                    <view class='name'>{{item.name}}</view>
+                    
+                    
+                    </view>
+            </view>
+     
+        </view>
+    </view>
