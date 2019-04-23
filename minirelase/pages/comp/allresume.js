@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    deli:[]
+    deli:[],
+    reslink: app.globalData.reslink,
   },
 
   /**
@@ -14,17 +15,23 @@ Page({
    */
   onLoad: function (options) {
     let self = this
+    self.getdeli()
+  },
+  getdeli:function(){
+    let self = this
     utils.requestFn('compDeli', { company_id: wx.getStorageSync('company_id') }, function (res) {
       if (res.code == 200) {
-
         self.setData({ deli: res.data })
       }
     })
   },
   act:function(e){
+    let self = this
     let value = e.target.dataset.value ? e.target.dataset.value : e.currentTarget.dataset.value
     let id = e.target.dataset.id ? e.target.dataset.id : e.currentTarget.dataset.id
-    utils.requestFn('delistat', { id:id,stat:value},function(){})
+    utils.requestFn('delistat', { id:id,stat:value},function(){
+      self.getdeli()
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

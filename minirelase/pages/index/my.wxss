@@ -34,10 +34,10 @@
 .array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0066cc;margin-top:30rpx;margin-right:20rpx}
 .array .titleline .title{float:left;font-size:36rpx;font-weight:bold;border-bottom:1px solid #ddd;width:calc(100% - 30rpx);height:88rpx;line-height:88rpx;}
 .array .list{float:left;width:calc(100% - 20rpx);position:relative;padding:20rpx 0rpx;}
-.array .list view{float:left;width:25%;}
-.array .list view label{float:left;width:100%;text-align: center;}
-.array .list view label:nth-child(1){float:left;height:60rpx;font-size:40rpx;}
-.array .list view label:nth-child(2){float:right;}
+.array .list navigator{float:left;width:25%;}
+.array .list navigator label{float:left;width:100%;text-align: center;}
+.array .list navigator label:nth-child(1){float:left;height:60rpx;font-size:40rpx;}
+.array .list navigator label:nth-child(2){float:right;}
 
 .array .add{width:100%;float:left;height:100rpx;line-height:100rpx;text-align:center;}
 .array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#0066cc;}

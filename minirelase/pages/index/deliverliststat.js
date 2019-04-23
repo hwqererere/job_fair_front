@@ -1,24 +1,29 @@
+const utils = require('../../utils/util')
 const app = getApp()
-const utils = require("../../utils/util.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    reslink: app.globalData.reslink,
+    deli:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let self = this
-    utils.requestFn('compDeli', { company_id: wx.getStorageSync('company_id') }, function (res) {
-      if (res.code == 200) {
-
-        self.setData({ deli: res.data })
+    let self=this
+    utils.requestFn('deliUserDs',{openid:wx.getStorageSync('openid')},function(res){
+      if(res.code==200){
+        self.setData({deli:res.data})
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:"none"
+        })
       }
+
     })
   },
 

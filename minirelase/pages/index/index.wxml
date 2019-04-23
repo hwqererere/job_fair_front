@@ -39,8 +39,8 @@
     </view>
     <view class='all-position-box' wx:if="{{searchOpen && searchItem==0}}">
         <view class='all-position-list'>
-            <text class='{{allcounts[0][0]==0?"current":""}}' bindtap="reset" data-id="0">不限</text>
-            <text wx:for="{{searchitems[0][0]}}" wx:key="key00" bindtap="setitem" data-id="0-0-{{index}}" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
+            <text class='{{allcounts[0]==0?"current":""}}' bindtap="reset" data-id="0">不限</text>
+            <text wx:for="{{jobtypelist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="0" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
         <view class='all-position-btn'>
             <view class='btn1' bindtap="reset" data-id="0">重置</view>
             <view class='btn2' bindtap="searchitemclick">确定</view></view>
@@ -57,14 +57,14 @@
     <view class='all-position-box' wx:if="{{searchOpen && searchItem==2}}">
         <view class='all-position-list'>
             <text class='{{allcounts[2]==0?"current":""}}' bindtap="reset" data-id="2">不限</text>
-            <text wx:for="{{zhuanqulist}}" wx:key="key11" bindtap="setitem" data-id="{{index}}" data-type="2" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
+            <text wx:for="{{streetlist}}" wx:key="key11" bindtap="setitem" data-id="{{index}}" data-type="2" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
         <view class='all-position-btn'>
             <view class='btn1' bindtap="reset" data-id="2">重置</view>
             <view class='btn2' bindtap="searchitemclick">确定</view></view>
     </view>
 </view>
-<scroll-view scroll-y="true" class="scroll-view">
-    <view class='position-group' wx:for="{{job}}">
+<scroll-view scroll-y="true" class="scroll-view" bindscrolltolower="nextpage">
+    <view class='position-group' wx:for="{{job}}" wx:key="key">
         <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
             <view class='position-hd'>
                 <view class='position-img' wx:if="{{item.area && item.no}}">
@@ -74,7 +74,7 @@
                     <view class='title'>{{item.jobName}}</view>
                     <view class='name'>{{item.name}}</view>
                     <view class='label'>
-                        <text class='box bg1' wx:for="{{item.fuli}}" wx:for-item="fuliitem">{{fuliitem}}</text>
+                        <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem">{{fuliitem}}</text>
                     </view>
                     <text class='price'>￥{{item.pay}}</text></view>
             </view>

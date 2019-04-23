@@ -34,7 +34,7 @@
       <label>{{item.username}}|{{item.sex==0?"女":"男"}}</label>
       <label>{{item.jobName}}</label>
     </view>
-    <view class="invite">通知面试</view>
+    <view class="invite" bindtap="invite" data-id="{{item.id}}">通知面试</view>
   </view>
 </scroll-view>
 

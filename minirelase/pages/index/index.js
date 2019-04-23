@@ -10,11 +10,13 @@ Page({
     reslink: app.globalData.reslink,
     searchItem:0,
     searchOpen:false,
-    zhinenglist: [{ check: 0, txt: '决策管理类' }, { check: 0, txt: '人事行政类' }, { check: 0, txt: '财务管理' }, { check: 0, txt: '营销类' }, { check: 0, txt: '技术类' }, { check: 0, txt: '生产服务类' }, { check: 0, txt: '其他' }],
-    zhuanqulist: [{ check: 0, txt: '长三角及扶贫专区' }, { check: 0, txt: '莘庄镇' }, { check: 0, txt: '七宝镇' }, { check: 0, txt: '大学生实践和生态环保专区' }, { check: 0, txt: '浦江镇' }, { check: 0, txt: '梅陇镇' }, { check: 0, txt: '虹桥镇' }, { check: 0, txt: '马桥镇' }, { check: 0, txt: '吴泾镇' }, { check: 0, txt: '华漕镇' }, { check: 0, txt: '颛桥镇' }, { check: 0, txt: '江川路街道' }, { check: 0, txt: '新虹街道' }, { check: 0, txt: '古美路街道' }, { check: 0, txt: '浦锦街道' }],
+    jobtypelist:[],
+    streetlist: [],
     fulilist:[],
     allcounts:[0,0,0],
       job:[],
+      page:0,
+    searchinfo:{}
       
   },
   //事件处理函数
@@ -35,13 +37,65 @@ Page({
         self.checkresume()
       })
     }
-    self.setrandomjob();
+    self.getstreet();
     self.getfuli();
+    self.getjobtype();
+  },
+  getjobtype:function(){
+    let self = this
+    let jobtypetmp = wx.getStorageSync('jobtype')
+    if (!jobtypetmp || (jobtypetmp.update - 0 + 300000) < utils.getsortTime) {
+      utils.requestFn('jobtype', {}, function (res) {
+        if (res.code == 200) {
+          let jobtype = {}
+          jobtype.update = utils.getsortTime
+          jobtype.list = res.data
+          wx.setStorageSync('jobtype', jobtype)
+          let arr = []
+          for (let i = 0; i < jobtype.list.length; i++) {
+            arr[i] = { id: jobtype.list[i].id, check: 0, txt: jobtype.list[i].job_name }
+          }
+          self.setData({ jobtypelist: arr })
+        }
+      })
+    } else {
+      let arr = []
+      for (let i = 0; i < jobtypetmp.list.length; i++) {
+        arr[i] = { id: jobtypetmp.list[i].id, check: 0, txt: jobtypetmp.list[i].job_name }
+      }
+      self.setData({ jobtypelist: arr })
+    }  
+  },
+  getstreet: function () {
+    let self = this
+    let streettmp = wx.getStorageSync('street')
+    if (!streettmp || (streettmp.update - 0 + 300000) < utils.getsortTime) {
+      utils.requestFn('street', {}, function (res) {
+        if (res.code == 200) {
+          let street = {}
+          street.update = utils.getsortTime
+          street.list = res.data
+          wx.setStorageSync('street', street)
+          let arr = []
+          for (let i = 0; i < street.list.length; i++) {
+            arr[i] = { id: street.list[i].id, check: 0, txt: street.list[i].street_name }
+          }
+          self.setData({ streetlist: arr })
+        }
+      })
+    } else {
+      let arr = []
+      for (let i = 0; i < streettmp.list.length; i++) {
+        arr[i] = { id: streettmp.list[i].id, check: 0, txt: streettmp.list[i].street_name }
+      }
+      self.setData({ streetlist: arr })
+    }    
+    console.log(self.data.streetlist)
   },
   getfuli: function () {
     let self=this
     let fulitmp=wx.getStorageSync('fuli')
-    if (!fulitmp || (fulitmp.time - 0 + 300000) < utils.getsortTime){
+    if (!fulitmp || (fulitmp.update - 0 + 300000) < utils.getsortTime){
       utils.requestFn('fuli', {}, function (res) {
         if(res.code==200){
           let fuli={}
@@ -65,22 +119,20 @@ Page({
   },
   onShow: function () {
     this.checkresume()
-    this.getlist()
+    this.getlist({})
   },
 
-  getlist:function(){
+  getlist:function(data){
     let self=this
-    utils.requestFn('recruitInfoSelect',{},function(res){
-      let tmp = res.data.countries
+    utils.requestFn('recruitInfoSelect', data,function(res){
+      let tmp = res.data
       for(let i=0;i<tmp.length;i++){
         tmp[i].fuli=tmp[i].fuli.split(";")
       }
       self.setData({job:tmp})
     })
   },
-  setrandomjob:function(){
-    
-  },
+  
   bindGetUserInfo: function (e) {
     let self = this
     if (e.detail.userInfo) {
@@ -109,11 +161,11 @@ Page({
     type=type-0
     let dataitem=[]
     if(type==0){
-      dataitem = self.data.zhinenglist
+      dataitem = self.data.jobtypelist
     }else if(type==1){
       dataitem = self.data.fulilist
     }else if(type==2){
-      dataitem = self.data.zhuanqulist
+      dataitem = self.data.streetlist
     }
     let dataallcounts = self.data.allcounts
     if (dataitem[id].check==1){      
@@ -125,11 +177,11 @@ Page({
     }
     
     if(type==0){
-      self.setData({ zhinenglist: dataitem, allcounts: dataallcounts })
+      self.setData({ jobtypelist: dataitem, allcounts: dataallcounts })
     }else if(type==1){
       self.setData({ fulilist: dataitem, allcounts: dataallcounts })
     }else if(type==2){
-      self.setData({ zhuanqulist: dataitem, allcounts: dataallcounts })
+      self.setData({ streetlist: dataitem, allcounts: dataallcounts })
     }
     
   },
@@ -139,11 +191,11 @@ Page({
     let type = id - 0
     let dataitem = []
     if (type == 0) {
-      dataitem = self.data.zhinenglist
+      dataitem = self.data.jobtypelist
     } else if (type == 1) {
       dataitem = self.data.fulilist
     } else if (type == 2) {
-      dataitem = self.data.zhuanqulist
+      dataitem = self.data.streetlist
     }
     let dataallcounts = self.data.allcounts
     for(let i=0;i<dataitem.length;i++){
@@ -151,15 +203,61 @@ Page({
     }
     dataallcounts[type]=0
     if (type == 0) {
-      self.setData({ zhinenglist: dataitem, allcounts: dataallcounts })
+      self.setData({ jobtypelist: dataitem, allcounts: dataallcounts })
     } else if (type == 1) {
       self.setData({ fulilist: dataitem, allcounts: dataallcounts })
     } else if (type == 2) {
-      self.setData({ zhuanqulist: dataitem, allcounts: dataallcounts })
+      self.setData({ streetlist: dataitem, allcounts: dataallcounts })
     }
   },
   searchitemclick:function(){
-    this.setData({ searchOpen:false})
+    let self=this
+    let search={}
+    if (self.data.allcounts[0]!=0){
+      let job=[]
+      for (let i = 0; i < self.data.jobtypelist.length;i++){
+        if (self.data.jobtypelist[i].check){
+          console.log("aa")
+          job.push(self.data.jobtypelist[i].id)
+        }
+      }
+
+      search.jobId = job.join(",")
+    }
+    if(self.data.allcounts[2]!=0){
+      let street = []
+      for (let i = 0; i < self.data.streetlist.length; i++) {
+        if (self.data.streetlist[i].check) {
+          street.push(self.data.streetlist[i].id)
+        }
+      }
+      search.street = street.join(",")
+    }
+    if (self.data.allcounts[1] != 0) {
+      let fuli = []
+      for (let i = 0; i < self.data.fulilist.length; i++) {
+        if (self.data.fulilist[i].check) {
+          fuli.push(self.data.fulilist[i].id)
+        }
+      }
+      search.fuli = fuli.join(",")
+    }
+    self.getlist(search)
+    self.setData({searchinfo:search, searchOpen:false,page:0})
+  },
+  nextpage:function(){
+    let self = this
+    let searchinfo=self.data.searchinfo
+    searchinfo.page=self.data.page-0+1
+    utils.requestFn('recruitInfoSelect',searchinfo, function (res) {
+      let tmp = res.data
+      let job=self.data.job
+      for (let i = 0; i < tmp.length; i++) {
+        tmp[i].fuli = tmp[i].fuli.split(";")
+        job.push(tmp[i])
+      }
+      self.setData({ job: tmp, page: searchinfo.page })
+    })
   },
   linkto:function(e){
     let link = e.target.dataset.link ? e.target.dataset.link : e.currentTarget.dataset.link
@@ -202,10 +300,13 @@ Page({
   },
   scan:function(){
     utils.scan(function(res){
-      if(res.link){
+      if(res.openid){
         wx.navigateTo({
-          url: '../resume/index?resumeId='
+          url: 'resume?resumeId='
         })
+      }else if(res.company_id){
+
+        
       }
     })
   }

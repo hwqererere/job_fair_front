@@ -78,6 +78,6 @@
 </scroll-view >
 
    <view class="foot">
-      <view class='deli'  bindtap='deli'>{{deli?'已投递':'投递'}}</view>
-      <view class='fav'  bindtap='fav'>{{fav?'取消收藏':'收藏'}}</view>
+      <view class='deli'  bindtap='deliFn'>{{deli?'已投递':'投递'}}</view>
+      <view class='fav'  bindtap='favFn'>{{fav?'取消收藏':'收藏'}}</view>
     </view>

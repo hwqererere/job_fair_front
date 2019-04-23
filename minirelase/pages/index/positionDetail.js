@@ -49,31 +49,62 @@ Page({
    
     
   },
-  deli:function(){
+  deliFn:function(){
     let self=this
-    if(wx.getStorageSync('resume') && !self.data.deli){
-      let resume = wx.getStorageSync('resume')
-      utils.requestFn('deliUserDeli', { recruitId: app.globalData.jobinfo.id, resumeId: resume.id, openid:wx.getStorageSync('openid')},function(res){
-        wx.showToast({
-          title: res.msg,
+    if(!self.data.deli){
+      if (wx.getStorageSync('resume')){
+        let resume = wx.getStorageSync('resume')
+        utils.requestFn('deliUserDeli', { recruitId: app.globalData.jobinfo.id, resumeId: resume.id, openid: wx.getStorageSync('openid') }, function (res) {
+          wx.showToast({
+            title: res.msg,
+          })
+          if (wx.getStorageSync('deli')) {
+            let deli = wx.getStorageSync('deli')
+            deli.push(app.globalData.jobinfo)
+            wx.setStorageSync('deli', deli)
+          } else {
+            let deli = []
+            deli[0] = app.globalData.jobinfo
+            wx.setStorageSync('deli', deli)
+
+          }
+          self.setData({ deli: true })
         })
-        if (wx.getStorageSync('deli')) {
-          let deli = wx.getStorageSync('deli')
-          deli.push(app.globalData.jobinfo)
-          wx.setStorageSync('deli',deli)
-        }else{
-          let deli=[]
-          deli[0] = app.globalData.jobinfo
-          wx.setStorageSync('deli', deli)
-          
-        }
-        self.setData({ deli: true })
-      })
-    }else{
-      wx.navigateTo({
-        url: 'resumeEdit',
-      })
+      } else {
+        wx.navigateTo({
+          url: 'resumeEdit',
+        })
+      }
+      
     }
+  },
+  favFn:function(){
+    let self = this
+    if(self.data.fav){
+      let fav = wx.getStorageSync('fav')
+      let newfav=[]
+      for(let i=0;i<fav.length;i++){
+        if (fav[i].id != self.data.jobinfo.id){
+          newfav.push(fav[i])
+        }
+      }
+      wx.setStorageSync('fav',newfav)
+      self.setData({ fav: false })
+    }else{
+      if (wx.getStorageSync('fav')) {
+        let fav = wx.getStorageSync('fav')
+        fav.push(app.globalData.jobinfo)
+        wx.setStorageSync('fav', fav)
+      } else {
+        let fav = []
+        fav[0] = app.globalData.jobinfo
+        wx.setStorageSync('fav', fav)
+
+      }
+      self.setData({ fav: true })
+    }
+    
+
   }
 
   

@@ -7,8 +7,12 @@
     "pages/index/eduarr",
     "pages/index/resumeBase",
     "pages/index/positionDetail",
-    "pages/index/deliverlist",
     "pages/index/resume",
+    "pages/index/deliverlist",
+    "pages/index/deliverliststat",
+    "pages/index/deliverlistsuccess",
+    "pages/index/favlist",
+
 
     "pages/comp/index",
     "pages/comp/compinfo",

@@ -1,25 +1,18 @@
-const app = getApp()
-const utils = require("../../utils/util.js");
+// pages/index/favlist.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    reslink: app.globalData.reslink,
+    job:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let self = this
-    utils.requestFn('compDeli', { company_id: wx.getStorageSync('company_id') }, function (res) {
-      if (res.code == 200) {
-
-        self.setData({ deli: res.data })
-      }
-    })
+    
   },
 
   /**
@@ -33,7 +26,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({ job: wx.getStorageSync('fav')})
+    console.log(this.data.job)
   },
 
   /**

@@ -28,8 +28,6 @@ Page({
         self.checkcompbond(function () {
           self.getdeInSe_ReCo()
         })
-      }else{
-        self.getdeInSe_ReCo()
       }
       
     }
@@ -39,6 +37,10 @@ Page({
     utils.requestFn('compBund', { user_id:wx.getStorageSync('openid')},function(res){
       if(res.code==200){
         self.setData({ bondsteps:1})
+      }else if(res.code==300){
+        wx.setStorageSync('company_id',res.data[0].company_id)
+        callback.call(this)
+        self.setData({ bondsteps: 0 })
       }else if(res.code==400){
         self.setData({ bondsteps: 1 })
       }else{
@@ -77,6 +79,7 @@ Page({
         } else {
           wx.showToast({
             title: res.msg,
+            icon:'none'
           })
         }
 
@@ -87,4 +90,18 @@ Page({
     }
     
   },
+  onShow:function(){
+    if(wx.getStorageSync('company_id')){
+      this.getdeInSe_ReCo()
+    }
+    
+  },
+  invite:function(e){
+    let self=this
+    let id = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : e.target.dataset.id
+    utils.requestFn('delistat', { id: id, stat: 3 }, function () { 
+      self.getdeInSe_ReCo()
+    })
+
+  }
 })
