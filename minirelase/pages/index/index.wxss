@@ -20,7 +20,7 @@
 
 .all-position-box {position:fixed;background:#fff;top:410rpx;left:0;z-index:90;padding-top:10rpx;width:100%}
 .all-position-bg {position:absolute;background:#000;opacity:0.4;top:110rpx;left:0;z-index:1;width:100%;height:200%;}
-.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;}
+.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;margin-bottom:10rpx;}
 .all-position-list text {font-size:24rpx;float:left;background:#eee;color:#7f7f7f;padding:10rpx 24rpx;height:30rpx;line-height:30rpx;border-radius:20rpx;margin:10rpx 10rpx;}
 .all-position-list text.current {background:#357ac0;color:#fff;}
 .all-position-btn {height:80rpx;float:left;width:100%}
@@ -31,7 +31,7 @@
 
 
 .position-list {}
-.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;float:left;}
+.position-group {margin-bottom:20rpx;background:#fff;padding-top:40rpx;padding-bottom: 4rpx;width:100%;float:left;}
 .position-main {padding:0 20rpx;}
 .position-hd {float:left;border-bottom:#f6f6f6 solid 1px;padding-bottom:20rpx;width:100%;position:relative}
 .position-img {float:left;width:105rpx;height:105rpx;background-color:#357ac0;border-radius: 52rpx;margin-right:10rpx;}
@@ -46,10 +46,10 @@
 .position-hd .position-item .label .box {height:40rpx;line-height:40rpx;padding:0 15rpx;font-size:26rpx;margin-right:10rpx;display:inline-block;letter-spacing:0;}
 .position-hd .position-item .label .box.bg1 {background:#e1f3fe;color:#79bea2;}
 .position-hd .position-item .label .box.bg2 {background:#f7ece9;color:#ee9a84;}
-.position-bd {height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
+.position-bd {float:left;height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
 .position-bd text {color:#e5e5e5;font-size:24rpx;}
 .position-bd text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}
 
 .laybg{position:fixed;top:410rpx;left:0rpx;width:100%;height:calc(100% - 410rpx);z-index:89}
 
-.scroll-view{width:100%;position:fixed;left:0rpx;top:410rpx;height:calc(100% - 120rpx - 410rpx);background: #efefef;overflow-y:auto;z-index:0}
+.scroll-view{width:100%;position:fixed;left:0rpx;top:410rpx;height:calc(100% - 120rpx - 410rpx);background: #f8f8fa;overflow-y:auto;z-index:0}

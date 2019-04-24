@@ -28,7 +28,9 @@
 </view>
 <view class="scrolltitle"><view class="dot"></view><label>等待面试</label></view>
 <scroll-view class="scroll">
+
   <view class="li" wx:for="{{deli}}" wx:if="{{item.status==1}}">
+  <view class="grayline2"></view>
     <navigator class="img" url="resume?openid={{item.openid}}">
       <image src="{{reslink+item.url_id}}"></image>
     </navigator>

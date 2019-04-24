@@ -14,7 +14,7 @@
       <view class="dot"></view>
       <view class="title">我的投递</view>
     </view>
-    <view class="list">
+    <view class="list leftp">
       <navigator url='favlist'>
         <label class="icon-icon_workfile_line"></label>
         <label>收藏</label>

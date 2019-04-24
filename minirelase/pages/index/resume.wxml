@@ -18,7 +18,7 @@
   <view class="baseline"><label class="k4">期望收入</label><label>:</label><label>{{resume.expected_income}}</label></view>
   <view class="baseline"><label class="k4">当前状态</label><label>:</label><label>{{lib.personnel_type[resume.personnel_type]}}</label></view>
   <view class="baseline"><label class="k2">身高</label><label>:</label><label>{{resume.person_height}}cm</label></view>
-  <view class="baseline"><label class="k4">求职意向</label><label>:</label><label>{{resume.Job_intention}}</label></view>
+  <view class="baseline pb"><label class="k4">求职意向</label><label>:</label><label>{{resume.Job_intention}}</label></view>
   <view class="grayline"></view>
   <view class="array">
     <view class="titleline">

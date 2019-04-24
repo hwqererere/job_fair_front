@@ -6,7 +6,7 @@
       {{streetlist[streetindex].street_name}}
     </view>
   </picker></label></view>
-<view class="baseline"><label class="k4">福利标签</label><label>:</label><label bindtap="openfuliconfig">
+<view class="baseline"><label class="k4 pt">福利标签</label><label>:</label><label bindtap="openfuliconfig">
     <view wx:for="{{compinfo.fuli}}" class="for1" wx:key="f1" wx:for-index="fi1"><view wx:for="{{fulilist}}" wx:for-item="listitem"  wx:if="{{listitem.id==item}}" class="for2" wx:key="f2" wx:index="fi2">{{fi1==0?'':','}}{{listitem.fuli}}</view></view>
     <view class="icon-icon_task" ></view>
   </label></view>

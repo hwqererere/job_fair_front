@@ -1,18 +1,21 @@
-.container {background: #fff;height:calc(100% - 100rpx);float:left;width:100%;position:fixed;left:0rpx;top:0rpx;}
+.container {background: #fff;height:calc(100% - 100rpx);float:left;width:100%;position:fixed;left:0rpx;top:0rpx;padding-top:20rpx;}
 .icon{position:absolute;right:30rpx;top:30rpx;width:60rpx;height:60rpx;font-size:40rpx;color:#0066cc}
 
 
-.baseline{float:left;width:calc(100% - 60rpx);margin-top:10rpx;padding-left:30rpx;padding-right:30rpx}
-.baseline label{float:left;height:60rpx;font-size:30rpx}
+.baseline{float:left;width:calc(100% - 60rpx);margin-top:30rpx;padding-left:30rpx;padding-right:20rpx}
+.baseline.pb{padding-bottom:40rpx;}
+.baseline label{float:left;height:40rpx;font-size:30rpx}
 .baseline label:nth-child(1){width:200rpx;margin-left:25rpx;text-align:left}
-.baseline label:nth-child(2){width:50rpx;margin-left:-60rpx;}
-.baseline label:nth-child(3){width:500rpx;margin-left:-40rpx;}
-.baseline label.k2{letter-spacing:70rpx}
-.baseline label.k3{letter-spacing:21rpx}
-.baseline label.k4{letter-spacing:5rpx}
+.baseline label:nth-child(2){width:70rpx;margin-left:-60rpx;}
+.baseline label:nth-child(3){width:470rpx;margin-left:-40rpx;color:#ccc;letter-spacing:5rpx;}
+.baseline label.k2{letter-spacing:66rpx;color:#333}
+.baseline label.k3{letter-spacing:17rpx;color:#333}
+.baseline label.k4{letter-spacing:3rpx;color:#333}
+.grayline{float:left;width:100%;height:20rpx;background-color:#f8f8fa;margin:20rpx 0rpx;}
+
 .baseline picker{float:left;width:100%;height:60rpx;}
 .baseline picker view{float:left;width:100%;height:60rpx;}
 .baseline textarea{float:left;width:480rpx;line-height:60rpx;}
 
-.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#0066cc;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd}
+.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#0066cc;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd;letter-spacing: 10rpx;}
 

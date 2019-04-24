@@ -23,12 +23,12 @@
         <view>招{{jobinfo.mansize}}人</view>
       </view>
     </view>
-
+<view class="grayline"></view>
    
       <view class='position-tab-content' id="zhiwei">
         <view class='position-tab-title'>
     
-          <text>工作内容</text>
+          工作内容
         </view>
         <view class='position-tab-main'>
           <text>
@@ -37,7 +37,8 @@
 
 </text>
         </view>
-        <view class='position-tab-title MT25'>
+        <view class="grayline"></view>
+        <view class='position-tab-title'>
       
           <text>招聘要求</text>
         </view>
@@ -53,7 +54,7 @@
         </view>
 
       </view>
-      <view class='H20'></view>
+      <view class="grayline"></view>
 
       <view class='company-box' id="company">
         <view class='position-tab-title'>
@@ -78,6 +79,7 @@
 </scroll-view >
 
    <view class="foot">
-      <view class='deli'  bindtap='deliFn'>{{deli?'已投递':'投递'}}</view>
+      
       <view class='fav'  bindtap='favFn'>{{fav?'取消收藏':'收藏'}}</view>
+      <view class='deli'  bindtap='deliFn'>{{deli?'已投递':'投递'}}</view>
     </view>
