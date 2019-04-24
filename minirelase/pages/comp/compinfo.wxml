@@ -12,7 +12,7 @@
   </label></view>
 
 <view class="baseline"><label class="k4">企业简介</label><label>:</label><label>
-<textarea bindinput="inputchangeFn" data-type="remarks">{{compinfo.remarks}}</textarea>
+<textarea bindinput="inputchangeFn" data-type="remarks" value='{{compinfo.remarks}}'></textarea>
   </label></view>
 
 <view class="savebtn icon-icon_dispose" bindtap="save">保存</view>

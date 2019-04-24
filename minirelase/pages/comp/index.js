@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    access: false,
     bondsteps:0,
     bondcompname:"",
     reslink: app.globalData.reslink,
@@ -15,8 +16,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
     let self=this
+    let signtype = option.signtype ? option.signtype : (wx.getStorageSync('signtype') ? wx.getStorageSync('signtype') : 0)
+    app.globalData.signtype = signtype
+    let openid = wx.getStorageSync('openid') ? wx.getStorageSync('openid') : ""
+    if (openid != "") {
+      app.globalData.openid = openid
+      self.setData({ access: true })
+
+    } else {
+      utils.loginaccess(signtype, function () {
+        self.setData({ access: true })
+        
+      })
+    }
+
+
+
     if (!wx.getStorageSync('openid')){
       utils.loginaccess(1,function(){
         self.checkcompbond(function(){
@@ -31,6 +48,31 @@ Page({
       }
       
     }
+  },
+  bindGetUserInfo: function (e) {
+    let self = this
+    if (e.detail.userInfo) {
+      let signtype = app.globalData.signtype
+      utils.loginaccess(signtype, function () {
+        self.setData({ access: true })
+        if (!wx.getStorageSync('openid')) {
+          utils.loginaccess(1, function () {
+            self.checkcompbond(function () {
+              self.getdeInSe_ReCo()
+            })
+          })
+        } else {
+          if (!wx.getStorageSync('company_id')) {
+            self.checkcompbond(function () {
+              self.getdeInSe_ReCo()
+            })
+          }
+
+        }
+      })
+    }
+
+
   },
   checkcompbond:function(callback){
     let self=this
@@ -74,7 +116,7 @@ Page({
     if (self.data.bondsteps==1){
       utils.requestFn('compUpdUseCom', { companyName: self.data.bondcompname, userId: wx.getStorageSync('openid') }, function (res) {
         if (res.code == 200) {
-          wx.setStorageSync("company_id",res.data.company_id)
+          wx.setStorageSync("company_id",res.data[0].company_id)
           self.setData({ bondsteps: 2 })
         } else {
           wx.showToast({

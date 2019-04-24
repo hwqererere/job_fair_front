@@ -1,2 +1,50 @@
-<!--pages/comp/joblist.wxml-->
-<text>pages/comp/joblist.wxml</text>
+<view class='position-group' wx:for="{{job}}" wx:key="key" >
+        <view class='position-main' bindtap="changeinfo"  data-id="{{item.id}}">
+            <view class='position-hd'>
+                <view class='position-img' wx:if="{{item.area && item.no}}">
+                    <view>{{item.area}}</view>
+                    <view>{{item.no}}</view></view>
+                <view class='position-item'>
+                    <view class='title'>{{item.jobName}}</view>
+                    <view class='name'>{{item.name}}</view>
+                    <view class='label'>
+                        <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem" wx:for-index="find" wx:if="{{find<4}}">{{fuliitem}}</text>
+                    </view>
+                    <text class='price'>￥{{item.pay}}</text></view>
+            </view>
+            <view class='position-bd'>
+                <text>{{item.street_name}}</text>
+                <text class='time'></text>
+            </view>
+        </view>
+    </view>
+   <view class="btn" bindtap="changeinfo"  data-id="0">新增</view>
+<view class="changelay" wx:if="{{changelay}}">
+    <view class="baseline"><label class="k4">职位名称</label><label>:</label><label><input type="text" value="{{changejob.jobName}}" bindinput='inputchangeFn' data-type="jobName" placeholder='请填写职位名称'></input></label></view>
+    <view class="baseline"><label class="k4">招人数量</label><label>:</label><label><input type="text" value="{{changejob.mansize}}" bindinput='inputchangeFn' data-type="mansize" placeholder='默认为1'></input></label></view>
+     <view class="baseline"><label class="k2">学历</label><label>:</label><label>
+     <picker bindchange="inputchangeFn" data-type="record" value="{{changejob.record}}" range="{{lib.education}}">
+    <view class="picker">
+      {{lib.education[changejob.record]}}
+    </view>
+  </picker>
+     </label></view>
+    <view class="baseline"><label class="k2">薪酬</label><label>:</label><label><input type="text" value="{{changejob.pay}}" bindinput='inputchangeFn' data-type="pay" placeholder='请填写薪酬'></input></label></view>
+    <view class="baseline"><label class="k4">工作地点</label><label>:</label><label><input type="text" value="{{changejob.workingplace}}" bindinput='inputchangeFn' data-type="workingplace" placeholder='工作地点'></input></label></view>
+    <view class="baseline"><label class="k4">职能归属</label><label>:</label><label>
+      <picker bindchange="jobchange" data-type="street" value="{{jobtypelist[jobtypeindex]}}" range="{{jobtypelist}}" range-key="job_name" >
+        <view class="picker" >
+          {{jobtypelist[jobtypeindex].job_name}}
+        </view>
+      </picker>
+    
+    </label></view>
+    <view class="baseline"><label class="k4">工作内容</label><label>:</label><label>
+    <textarea value='{{changejob.work_content}}' bindinput="inputchangeFn" data-type="work_content"></textarea>
+    </label></view>
+    <view class="baseline"><label class="k4">岗位需求</label><label>:</label><label>
+    <textarea value='{{changejob.work_demand}}' bindinput="inputchangeFn" data-type="work_demand"></textarea>
+    </label></view>
+    <view class="btn" bindtap="sub">修改</view>
+
+</view>

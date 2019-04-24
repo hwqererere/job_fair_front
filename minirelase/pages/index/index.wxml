@@ -74,12 +74,12 @@
                     <view class='title'>{{item.jobName}}</view>
                     <view class='name'>{{item.name}}</view>
                     <view class='label'>
-                        <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem">{{fuliitem}}</text>
+                        <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem" wx:for-index="find" wx:if="{{find<4}}">{{fuliitem}}</text>
                     </view>
                     <text class='price'>￥{{item.pay}}</text></view>
             </view>
             <view class='position-bd'>
-                <text>{{item.belong}}</text>
+                <text>{{item.street_name}}</text>
                 <text class='time'></text>
             </view>
         </view>

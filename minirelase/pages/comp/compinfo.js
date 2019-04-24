@@ -150,6 +150,7 @@ Page({
     let self=this
     utils.requestFn('fuliupdate', { fuli:self.data.addfuli},function(res){
       if(res.code==200){
+        wx.removeStorageSync('fuli')
         self.getfuli()
         setTimeout(function(){
           self.openfuliconfig()
@@ -166,10 +167,15 @@ Page({
   save:function(){
     let self=this
     let compinfo=self.data.compinfo
-    compinfo.fuli=compinfo.fuli.join(",")
+
+
     compinfo.streetId = self.data.streetlist[self.data.streetindex].id
     utils.requestFn('udcop',compinfo,function(res){
-      console.log(res)
+      if(res.code==200){
+        wx.showToast({
+          title:res.msg
+        })
+      }
     })
 
   }

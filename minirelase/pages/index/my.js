@@ -11,16 +11,19 @@ Page({
     name:"",
     codelay: false,
     resumeId: wx.getStorageSync('resume'),
-    resume:wx.getStorageSync('resume')
+    resume:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let resume=wx.getStorageSync('resume')
+    
+  },
+  onShow:function(){
+    let resume = wx.getStorageSync('resume')
 
-      this.setData({ head: app.globalData.reslink + "data/" + resume.url_id,name:resume.username})
+    this.setData({ resume: wx.getStorageSync('resume'), head: app.globalData.reslink + "data/" + resume.url_id, name: resume.username })
   },
   link:function(e){
     let link = e.currentTarget.dataset.link ? e.currentTarget.dataset.link : e.target.dataset.link

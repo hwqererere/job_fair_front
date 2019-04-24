@@ -12,7 +12,7 @@
 .baseline picker view{float:left;width:100%;height:60rpx;}
 .baseline textarea{float:left;width:480rpx;line-height:60rpx;}
 .baseline .for1,.for2{float:left;}
-.baseline textarea{height:auto;}
+.baseline textarea{height:auto;min-height:600rpx;}
 .icon-icon_task{color:#006633}
 .savebtn{float:left;width:100%;height:80rpx;line-height: 80rpx;text-align:center;font-size:36rpx;border-top:1rpx solid #ddd;color:#00bb30}
 

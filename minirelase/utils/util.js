@@ -43,6 +43,7 @@ function port(portName){
   ports.delistat ="company/deliverystat"//更改投递状态
   ports.fuliupdate ="fuli/fuli-save-or-update"//福利
   ports.udcop ="company/update-company"
+  ports.recruitUpdate = "recruit-info-select/update" //岗位信息更新
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.hothwq.com/";
   return url + ports[portName];

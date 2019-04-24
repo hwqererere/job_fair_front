@@ -19,5 +19,5 @@
    <view class="baseline"><label class="k2">职位</label><label>:</label><label><input type="text" bindinput='bindDateChange' value="{{workdata.job_name}}" placeholder='营业员' data-type="job_name"></input></label></view>
   <view class="baseline"><label class="k4">工作描述</label><label>:</label><label><textarea bindinput="bindDateChange" data-type="profile" placeholder='{{workdata.profile==""?"描述项目经验，成功案例。限120字":""}}'>{{workdata.profile}}</textarea></label></view>
 </scroll-view >
-<view class="save icon-icon_dispose" wx:if="{{workdata.job_name && workdata.corporate_name && workdata.begin && workdata.end}}" bindtap='sub'>确定</view>
+<view class="save icon-icon_dispose"  bindtap='sub'>确定</view>
 
