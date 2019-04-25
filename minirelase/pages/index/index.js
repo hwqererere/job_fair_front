@@ -258,11 +258,14 @@ Page({
     utils.requestFn('recruitInfoSelect',searchinfo, function (res) {
       let tmp = res.data
       let job=self.data.job
+      console.log(self.data.job,tmp.length)
       for (let i = 0; i < tmp.length; i++) {
         tmp[i].fuli = tmp[i].fuli.split(";")
+        
         job.push(tmp[i])
       }
-      self.setData({ job: tmp, page: searchinfo.page })
+      self.setData({ job: job, page: searchinfo.page })
+      console.log(self.data.job)
     })
   },
   linkto:function(e){

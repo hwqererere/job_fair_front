@@ -29,7 +29,7 @@
       </navigator>
       <navigator url='deliverlistsuccess'>
         <label class="icon-icon_shakehands"></label>
-        <label>有意向</label>
+        <label>意向录用</label>
       </navigator>
     </view>
 
