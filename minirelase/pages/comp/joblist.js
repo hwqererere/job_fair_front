@@ -12,6 +12,7 @@ Page({
     changelay:false,
     jobtypelist:[],
     jobtypeindex:0,
+    delid:0
   },
   
   /**
@@ -89,7 +90,33 @@ Page({
         wx.showToast({
           title: res.msg
         })
+        self.getlist()
+      }
+      self.setData({ changelay:false})
+    })
+  },
+  cancel:function(){
+    this.setData({ changelay: false })
+  },
+  delinfo:function(e){
+    let self=this
+    wx.showModal({
+      title: '注意',
+      content: '确定要删除吗',
+      success(res) {
+        if (res.confirm) {
+          let rid = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : e.target.dataset.id
+          utils.requestFn('recruitDel', { openid: wx.getStorageSync("openid"), company_id: wx.getStorageSync("company_id"), recruitid:rid},function(re){
+            wx.showToast({
+              title: re.msg,
+              icon:"none"
+            })
+            self.getlist()
+          })
+        } else if (res.cancel) {
+          self.setData({ delid:0})
+        }
       }
     })
-  } 
+  }
 })

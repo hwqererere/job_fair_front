@@ -23,6 +23,12 @@ Page({
 
   onLoad: function (option) {
     let self = this
+    let company_id = wx.getStorageSync('company_id') ? wx.getStorageSync('company_id'):""
+    // if (company_id){
+    //   wx.redirectTo({
+    //     url: '../comp/index',
+    //   })
+    // }
     //授权验证
     let signtype = option.signtype ? option.signtype : (wx.getStorageSync('signtype') ? wx.getStorageSync('signtype') : 0)
     app.globalData.signtype = signtype

@@ -8,20 +8,22 @@
   position:relative;
 }
 
-.resume-photo .photo {width: 110rpx;float:left;height: 110rpx;margin:0 20rpx;}
-.resume-photo .photo image {width: 110rpx;height: 110rpx;margin-top:10rpx;border-radius:55rpx;overflow:hidden;}
-.resume-photo .nameinfo{float:left;width:calc(100% - 150rpx);}
-.resume-photo .nameinfo label{float:left;width:100%;font-size:30rpx;height:40rpx;line-height:40rpx;}
-.resume-photo .nameinfo label:first-child{font-size:40rpx;font-weight:bold;margin-top:10rpx;line-height:70rpx;height:70rpx;}
+.resume-photo .photo {width: 120rpx;float:left;height: 120rpx;margin:10rpx;margin-left:60rpx;}
+.resume-photo .photo image {width: 120rpx;height: 120rpx;margin-top:10rpx;border-radius:60rpx;overflow:hidden;}
+.resume-photo .nameinfo{float:left;width:calc(100% - 200rpx);}
+.resume-photo .nameinfo label{float:left;width:100%;font-size:30rpx;height:40rpx;line-height:40rpx;text-indent:30rpx;color:#525252;letter-spacing:5rpx;}
+.resume-photo .nameinfo label:first-child{font-size:40rpx;font-weight:bold;margin-top:20rpx;line-height:70rpx;height:70rpx;color:#000;letter-spacing:5rpx;}
 
-.baseline{float:left;width:calc(100% - 60rpx);margin-top:10rpx;padding-left:30rpx;padding-right:30rpx}
+
+.baseline{float:left;width:calc(100% - 60rpx);margin-top:30rpx;padding-left:30rpx;padding-right:20rpx}
+.baseline.pb{padding-bottom:40rpx;}
 .baseline label{float:left;height:40rpx;font-size:30rpx}
 .baseline label:nth-child(1){width:200rpx;margin-left:25rpx;text-align:left}
-.baseline label:nth-child(2){width:50rpx;margin-left:-60rpx;}
-.baseline label:nth-child(3){width:500rpx;margin-left:-40rpx;}
-.baseline label.k2{letter-spacing:70rpx}
-.baseline label.k3{letter-spacing:21rpx}
-.baseline label.k4{letter-spacing:5rpx}
+.baseline label:nth-child(2){width:70rpx;margin-left:-60rpx;}
+.baseline label:nth-child(3){width:470rpx;margin-left:-40rpx;color:#ccc;letter-spacing:5rpx;}
+.baseline label.k2{letter-spacing:66rpx;color:#333}
+.baseline label.k3{letter-spacing:17rpx;color:#333}
+.baseline label.k4{letter-spacing:3rpx;color:#333}
 .grayline{float:left;width:100%;height:20rpx;background-color:#f8f8fa;margin:20rpx 0rpx;}
 
 .array{float:left;width:calc(100% - 60rpx);padding-left:30rpx;padding-right:30rpx;}

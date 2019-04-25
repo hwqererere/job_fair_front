@@ -26,4 +26,4 @@
 .addinput .btn{height:60rpx;line-height:60rpx;font-size:30rpx;text-align:center;color:#525252;padding:0rpx 20rpx;background-color:#e6e6e6;width:100rpx;border-radius:10rpx;margin-left:20rpx;float:left;}
 .fulilayscrollview{float:left;width:calc(100% - 50rpx);height:700rpx;padding-top:40rpx;padding-left:25rpx;padding-right:25rpx;}
 .addline{float:left;width:100%;margin-top:20rpx;}
-.addline .btn{width:140rpx;float:left;margin-left:305rpx;background-color:#003366;color:#fff;border-radius:10rpx;height:60rpx;line-height:60rpx;text-align:center;}
+.addline .btn{width:140rpx;float:left;margin-left:305rpx;color:#00bb30;border-radius:10rpx;height:60rpx;line-height:60rpx;text-align:center;}

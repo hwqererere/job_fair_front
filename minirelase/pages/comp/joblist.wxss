@@ -1,21 +1,20 @@
-.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;float:left;}
-.position-main {padding:0 20rpx;}
-.position-hd {float:left;border-bottom:#f6f6f6 solid 1px;padding-bottom:20rpx;width:100%;position:relative}
-.position-img {float:left;width:105rpx;height:105rpx;background-color:#357ac0;border-radius: 52rpx;margin-right:10rpx;}
-.position-hd .position-img image {width:100%;height:100%;color:#fff}
-.position-hd .position-img view{float:left;width:100%;font-size:30rpx;color:#fff;text-align: center;}
-.position-hd .position-img view:nth-child(1){margin-top:10rpx}
-.position-hd .position-item {float:left;width:calc(100% - 125rpx)}
-.position-hd .position-item .price {position:absolute;right:10rpx;top:0rpx;color:#ff5632;font-size:32rpx;}
-.position-hd .position-item .title {color:#000;font-size:32rpx;height:36rpx;line-height:36rpx;}
-.position-hd .position-item .name {color:#bababa;font-size:26rpx;height:30rpx;line-height:30rpx;padding:15rpx 0;}
-.position-hd .position-item .label {vertical-align:top;letter-spacing:normal;font-size:0;letter-spacing:-5rpx;}
-.position-hd .position-item .label .box {height:40rpx;line-height:40rpx;padding:0 15rpx;font-size:26rpx;margin-right:10rpx;display:inline-block;letter-spacing:0;}
-.position-hd .position-item .label .box.bg1 {background:#e1f3fe;color:#79bea2;}
-.position-hd .position-item .label .box.bg2 {background:#f7ece9;color:#ee9a84;}
-.position-bd {height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
-.position-bd text {color:#e5e5e5;font-size:24rpx;}
-.position-bd text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}
+.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;float:left;position:relative;}
+
+
+.position-group .position-item {float:left;width:calc(100% - 125rpx)}
+
+.position-group .position-item .title {color:#000;font-size:32rpx;height:60rpx;line-height:60rpx;}
+.position-group .position-item .name {color:#bababa;font-size:26rpx;height:60rpx;line-height:60rpx;padding:15rpx 0;}
+.position-group .position-item .label {vertical-align:top;letter-spacing:normal;font-size:0;letter-spacing:-5rpx;}
+.position-group .position-item .label .box {height:40rpx;line-height:40rpx;padding:0 15rpx;font-size:26rpx;margin-right:10rpx;display:inline-block;letter-spacing:0;}
+.position-group .position-item .label .box.bg1 {background:#e1f3fe;color:#79bea2;}
+.position-group .position-item .label .box.bg2 {background:#f7ece9;color:#ee9a84;}
+.position-group .position-item .icon{position:absolute;top:20rpx;width:60rpx;height:60rpx;font-size:40rpx;}
+.position-group .position-item .icon.icon-bianji{right:60rpx;color:#003366}
+.position-group .position-item .icon.icon-icon_delete{right:180rpx;color:#f00}
+.position-group {height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
+.position-group text {color:#e5e5e5;font-size:24rpx;}
+.position-group text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}
 
 .changelay{width:100%;float:left;background-color:#fff;padding-top:20rpx;}
 
@@ -34,4 +33,5 @@
 .baseline picker view{float:left;width:100%;height:60rpx;}
 .baseline textarea{float:left;width:480rpx;line-height:60rpx;height:350rpx}
 
- .btn{width:140rpx;float:left;margin-left:305rpx;background-color:#003366;color:#fff;border-radius:10rpx;height:60rpx;line-height:60rpx;text-align:center;}
+ .btn{width:140rpx;float:right;margin-top:40rpx;margin-right:30rpx;background-color:#e6e6e6;color:#525252;border-radius:10rpx;height:60rpx;line-height:60rpx;text-align:center;}
+  .btn.left{float:left;margin-left:30rpx;}

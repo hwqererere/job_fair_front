@@ -44,6 +44,7 @@ function port(portName){
   ports.fuliupdate ="fuli/fuli-save-or-update"//福利
   ports.udcop ="company/update-company"
   ports.recruitUpdate = "recruit-info-select/update" //岗位信息更新
+  ports.recruitDel = "recruit-info-select/delrecruit" //岗位信息删除
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.hothwq.com/";
   return url + ports[portName];

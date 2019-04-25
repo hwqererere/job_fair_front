@@ -1,3 +1,4 @@
+<view class="body" wx:if="{{!fulilay}}">
 <view class="compname">{{compinfo.name}}</view>
 <view class="baseline"><label class="k2">地址</label><label>:</label><label><input type="text" bindinput="inputchangeFn" data-type="address" value="{{compinfo.address}}"></input></label></view>
 <view class="baseline"><label class="k4">联系电话</label><label>:</label><label><input type="text" bindinput="inputchangeFn" data-type="phone_call" value="{{compinfo.phone_call}}"></input></label></view>
@@ -16,7 +17,7 @@
   </label></view>
 
 <view class="savebtn icon-icon_dispose" bindtap="save">保存</view>
-
+</view>
 
 <view class="fulilay" wx:if="{{fulilay}}">
   <scroll-view class="fulilayscrollview">

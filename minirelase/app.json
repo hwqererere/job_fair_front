@@ -12,8 +12,6 @@
     "pages/index/deliverliststat",
     "pages/index/deliverlistsuccess",
     "pages/index/favlist",
-
-
     "pages/comp/index",
     "pages/comp/compinfo",
     "pages/comp/joblist",
@@ -27,5 +25,6 @@
     "navigationBarTitleText": "莘庄就业",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
