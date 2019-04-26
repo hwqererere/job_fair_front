@@ -21,15 +21,15 @@
       </navigator>
       <navigator url='deliverlist'>
         <label class="icon-jianli-A"></label>
-        <label>投递历史</label>
+        <label>我的投递</label>
       </navigator>
       <navigator  url='deliverliststat'>
         <label class="icon-icon_scan_namecard"></label>
-        <label>投递状态</label>
+        <label>主办单位</label>
       </navigator>
       <navigator url='deliverlistsuccess'>
         <label class="icon-icon_shakehands"></label>
-        <label>意向录用</label>
+        <label>办事指南</label>
       </navigator>
     </view>
 
