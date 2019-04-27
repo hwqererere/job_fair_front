@@ -75,18 +75,22 @@ Page({
   getstreet: function () {
     let self = this
     let streettmp = wx.getStorageSync('street')
-    if (!streettmp || (streettmp.update - 0 + 300000) < utils.getsortTime) {
+    let streetupdate=wx.getStorageSync('streetupdate')
+    if (!streettmp || (streetupdate - 0 + 300000) < utils.getsortTime) {
       utils.requestFn('street', {}, function (res) {
         if (res.code == 200) {
           let street = {}
-          street.update = utils.getsortTime
+          wx.setStorageSync('streetupdate', utils.getsortTime)
+
           street.list = res.data
+
           wx.setStorageSync('street', street)
           let arr = []
           for (let i = 0; i < street.list.length; i++) {
             arr[i] = { id: street.list[i].id, check: 0, txt: street.list[i].street_name }
           }
           self.setData({ streetlist: arr })
+          
         }
       })
     } else {
@@ -96,16 +100,18 @@ Page({
       }
       self.setData({ streetlist: arr })
     }    
-    console.log(self.data.streetlist)
+
   },
   getfuli: function () {
     let self=this
     let fulitmp=wx.getStorageSync('fuli')
-    if (!fulitmp || (fulitmp.update - 0 + 300000) < utils.getsortTime){
+    let fuliupdate=wx.getStorageSync('fuliupdate')
+    if (!fulitmp || (fuliupdate - 0 + 300000) < utils.getsortTime){
       utils.requestFn('fuli', {}, function (res) {
         if(res.code==200){
           let fuli={}
           fuli.update = utils.getsortTime
+          wx.setStorageSync('fuliupdate', utils.getsortTime)
           fuli.list=res.data
           wx.setStorageSync('fuli', fuli)
           let arr=[]
