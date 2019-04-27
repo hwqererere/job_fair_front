@@ -15,8 +15,8 @@
   </picker>
   
   </label></view>
-  <view class="baseline"><label class="k4">公司名称</label><label>:</label><label><input type="text" value="{{workdata.corporate_name}}" placeholder='xx公司' bindinput="bindDateChange" data-type="corporate_name"></input></label></view>
-   <view class="baseline"><label class="k2">职位</label><label>:</label><label><input type="text" bindinput='bindDateChange' value="{{workdata.job_name}}" placeholder='营业员' data-type="job_name"></input></label></view>
+  <view class="baseline"><label class="k4">公司名称</label><label>:</label><label><input type="text" value="{{workdata.corporate_name}}" maxlength='30' placeholder='限15字' bindinput="bindDateChange" data-type="corporate_name"></input></label></view>
+   <view class="baseline"><label class="k2">职位</label><label>:</label><label><input type="text" bindinput='bindDateChange' value="{{workdata.job_name}}" placeholder='营业员' maxlength='30' placeholder='限15字' data-type="job_name"></input></label></view>
   <view class="baseline"><label class="k4">工作描述</label><label>:</label><label><textarea bindinput="bindDateChange" data-type="profile" placeholder='{{workdata.profile==""?"描述项目经验，成功案例。限120字":""}}'>{{workdata.profile}}</textarea></label></view>
 </scroll-view >
 <view class="save icon-icon_dispose"  bindtap='sub'>确定</view>

@@ -3,7 +3,7 @@
     <view class='position-group' bindtap='positionDetailClick'>
       <view class='position-main'>
         <view class='position-hd'>
-          <view class='position-img'>
+          <view class='position-img' wx:if="{{false}}">
             <view>B区</view>
           <view>22</view>
           </view>

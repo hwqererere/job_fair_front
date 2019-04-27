@@ -9,8 +9,6 @@
     "pages/index/positionDetail",
     "pages/index/resume",
     "pages/index/deliverlist",
-    "pages/index/deliverliststat",
-    "pages/index/deliverlistsuccess",
     "pages/index/favlist",
     "pages/comp/index",
     "pages/comp/compinfo",
@@ -21,7 +19,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#003399",
+    "navigationBarBackgroundColor": "#0080ff",
     "navigationBarTitleText": "莘庄就业",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default"

@@ -12,7 +12,7 @@
   <view class="array">
     <view class="titleline">
       <view class="dot"></view>
-      <view class="title">我的投递</view>
+      <view class="title">我的职小二</view>
     </view>
     <view class="list leftp">
       <navigator url='favlist'>

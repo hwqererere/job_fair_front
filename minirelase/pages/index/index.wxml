@@ -15,12 +15,15 @@
 </view>
 <swiper class="swiper" indicator-dots="true" autoplay="false" interval="50000" duration="500">
     <block >
-        <swiper-item class="tip">
+        <!-- <swiper-item class="tip">
             <text>2019年上海市民营企业招聘周</text>
             <text>暨闵行区莘庄镇专场活动</text>
+        </swiper-item> -->
+        <swiper-item>
+            <image src="{{reslink}}style/ad.jpg" class="slide-image"  />
         </swiper-item>
         <swiper-item>
-            <image src="{{reslink}}style/ad.png" class="slide-image"  />
+            <image src="{{reslink}}style/ad2.jpg" class="slide-image"  />
         </swiper-item>
     </block>
 </swiper>

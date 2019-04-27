@@ -17,5 +17,5 @@
 .baseline picker view{float:left;width:100%;height:60rpx;}
 .baseline textarea{float:left;width:480rpx;line-height:60rpx;}
 
-.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#0066cc;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd;letter-spacing:10rpx; }
+.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#0080ff;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd;letter-spacing:10rpx; }
 
