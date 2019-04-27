@@ -75,14 +75,14 @@
                     <view>{{item.no}}</view></view>
                 <view class='position-item'>
                     <view class='title'>{{item.jobName}}</view>
-                    <view class='name'>{{item.name}}</view>
+                    <view class='name'>{{item.name}}{{item.street_name=='其它'?'':'('+item.street_name+')'}}</view>
                     <view class='label'>
                         <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem" wx:for-index="find" wx:if="{{find<4}}">{{fuliitem}}</text>
                     </view>
-                    <text class='price'>￥{{item.pay}}</text></view>
+                    <text class='price' wx:if="{{item.pay.length<11}}">{{item.pay}}</text></view>
             </view>
             <view class='position-bd'>
-                <text>{{item.street_name}}</text>
+                <text>展位:{{item.area}}{{item.showno}}</text>
                 <text class='time'></text>
             </view>
         </view>

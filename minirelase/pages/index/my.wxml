@@ -23,7 +23,7 @@
         <label class="icon-jianli-A"></label>
         <label>我的投递</label>
       </navigator>
-      <navigator  url='deliverliststat'>
+      <navigator  url='organizer'>
         <label class="icon-icon_scan_namecard"></label>
         <label>主办单位</label>
       </navigator>

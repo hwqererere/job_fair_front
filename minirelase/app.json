@@ -10,6 +10,7 @@
     "pages/index/resume",
     "pages/index/deliverlist",
     "pages/index/favlist",
+    "pages/index/organizer",
     "pages/comp/index",
     "pages/comp/compinfo",
     "pages/comp/joblist",

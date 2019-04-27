@@ -2,7 +2,7 @@
 .ord view{float:left;width:33%;height:82rpx;line-height:80rpx;text-align:center;border-left:1rpx solid #fff;background-color:#fff;color:#000;margin-left:0rpx;}
 .ord view:first-child{border-left:0rpx;}
 .ord view.current{border-bottom:8rpx solid #e0e0e0}
-.main{position:fixed;top:80rpx;left:0rpx;width:100%;height:calc(100% - 80rpx)}
+.main{position:fixed;top:90rpx;left:0rpx;width:100%;height:calc(100% - 90rpx)}
 
 .position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;float:left;}
 .position-main {padding:0 20rpx;}

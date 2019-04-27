@@ -133,7 +133,10 @@ Page({
     utils.requestFn('recruitInfoSelect', data,function(res){
       let tmp = res.data
       for(let i=0;i<tmp.length;i++){
-        tmp[i].fuli=tmp[i].fuli.split(";")
+        if (tmp[i].fuli){
+          tmp[i].fuli = tmp[i].fuli.split(";")
+        }
+        
       }
       self.setData({job:tmp})
     })
@@ -260,7 +263,10 @@ Page({
       let job=self.data.job
       console.log(self.data.job,tmp.length)
       for (let i = 0; i < tmp.length; i++) {
-        tmp[i].fuli = tmp[i].fuli.split(";")
+        if(tmp[i].fuli){
+          tmp[i].fuli = tmp[i].fuli.split(";")
+        }
+        
         
         job.push(tmp[i])
       }

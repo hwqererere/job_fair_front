@@ -1,12 +1,12 @@
 <view class="ord">
-  <view class="{{curr==0?'current':''}}" >全部</view>
-  <view class="{{curr==1?'current':''}}" >等待通知</view>
-  <view class="{{curr==2?'current':''}}" >录用</view>
+  <view class="{{curr==0?'current':''}}" bindtap='ord' data-curr="0">全部</view>
+  <view class="{{curr==1?'current':''}}" bindtap='ord' data-curr="1">等待通知</view>
+  <view class="{{curr==2?'current':''}}" bindtap='ord' data-curr="2">录用</view>
 </view>
 <scroll-view class="main">
 
 
-<view class='position-group' wx:for="{{deli}}" wx:key="key" wx:if="{{item.status!=5}}">
+<view class='position-group' wx:for="{{job}}" wx:key="key" wx:if="{{item.status!=5}}">
         <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
             <view class='position-hd'>
                 
