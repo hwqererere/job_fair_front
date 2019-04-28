@@ -16,7 +16,8 @@ Page({
     allcounts:[0,0,0],
       job:[],
       page:0,
-    searchinfo:{}
+    searchinfo:{},
+    top:1
       
   },
   //事件处理函数
@@ -46,6 +47,22 @@ Page({
     self.getstreet();
     self.getfuli();
     self.getjobtype();
+  },
+  scrolltopset:function(){
+    if(this.data.top==3){
+      this.setData({ top: 2 })
+    }
+    
+  },
+  scrolldownset: function (e) {
+    if(e.detail.scrollTop>120){
+      if (this.data.top != 3) {
+        this.setData({ top: 3 })
+      }
+    }
+
+   
+   
   },
   getjobtype:function(){
     let self = this
@@ -138,13 +155,17 @@ Page({
     let self=this
     utils.requestFn('recruitInfoSelect', data,function(res){
       let tmp = res.data
-      for(let i=0;i<tmp.length;i++){
-        if (tmp[i].fuli){
-          tmp[i].fuli = tmp[i].fuli.split(";")
+      if(tmp){
+        for (let i = 0; i < tmp.length; i++) {
+          if (tmp[i].fuli) {
+            tmp[i].fuli = tmp[i].fuli.split(";")
+          }
+
         }
-        
+        self.setData({ job: tmp })
       }
-      self.setData({job:tmp})
+      
+      
     })
   },
   
@@ -232,7 +253,6 @@ Page({
       let job=[]
       for (let i = 0; i < self.data.jobtypelist.length;i++){
         if (self.data.jobtypelist[i].check){
-          console.log("aa")
           job.push(self.data.jobtypelist[i].id)
         }
       }
@@ -330,5 +350,15 @@ Page({
         
       }
     })
+  },
+  searchval:function(e){
+    let val=e.detail.value
+    let searchinfo=this.data.searchinfo;
+    searchinfo.jobName=val
+    this.setData({searchinfo:searchinfo})
+  },
+  search:function(){
+    let searchinfo=this.data.searchinfo
+    this.getlist(searchinfo)
   }
 })

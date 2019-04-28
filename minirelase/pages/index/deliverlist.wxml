@@ -15,9 +15,8 @@
                     <view class='name'>{{item.name}}</view>
                      <view class='name'>您是第{{item.sort}}位投递该职位的人</view>
                     
-                    <text class='price' wx:if="{{item.status==1}}">待通知</text>
                     <text class='price' wx:if="{{item.status==2}}">拒绝</text>
-                    <text class='price' wx:if="{{item.status==3}}">已发送面试通知</text>
+                    <text class='price' wx:if="{{item.status==3 || item.status==1}}">等待反馈</text>
                     <text class='price' wx:if="{{item.status==4}}">录用</text>
                     </view>
             </view>

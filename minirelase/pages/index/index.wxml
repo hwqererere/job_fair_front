@@ -1,13 +1,14 @@
 <!--index.wxml-->
 <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
-<view class="laybg {{lay?'lay':''}}" wx:if="{{searchOpen || lay}}" bindtap="closelay"></view>
+<view class="laybg {{lay?'lay':''}} {{top==3?'close':'open'}}" wx:if="{{searchOpen || lay}}" bindtap="closelay"></view>
 
 
 
 <view class='header-search'>
         <view class="tit">莘庄</view>
-        <input type='text' class='search-input' placeholder='搜索职位/公司'></input>
-        <view class="search icon-linedesign-12"></view>
+        <view class='search-input'><input type='text'  bindinput="searchval" placeholder='搜索职位/公司'></input><view class="search icon-linedesign-12" bindtap="search"></view></view>
+        
+        
         <view class="scan">
           <view class=' icon-richscan_icon' bindtap="scan"></view>
           <view class='scanword'>扫一扫</view>
@@ -20,14 +21,12 @@
             <text>暨闵行区莘庄镇专场活动</text>
         </swiper-item> -->
         <swiper-item>
-            <image src="{{reslink}}style/ad.jpg" class="slide-image"  />
+            <image src="{{reslink}}style/ad3.jpg" class="slide-image"  />
         </swiper-item>
-        <swiper-item>
-            <image src="{{reslink}}style/ad2.jpg" class="slide-image"  />
-        </swiper-item>
+        
     </block>
 </swiper>
-<view class='search-position'>
+<view class="search-position {{top==2?'spopen':''}} {{top==3?'spclose':''}}">
     <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0" wx:if="{{false}}">
         <view class="set">按职能</view>
         <view class="icon {{(searchItem==0 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></view>
@@ -40,7 +39,7 @@
         <view class="set">按专区</view>
         <icon class="icon {{(searchItem==2 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></icon>
     </view>
-    <view class='all-position-box' wx:if="{{searchOpen && searchItem==0}}">
+    <view class="all-position-box {{top==3?'close':'open'}}" wx:if="{{searchOpen && searchItem==0}}">
         <view class='all-position-list'>
             <text class='{{allcounts[0]==0?"current":""}}' bindtap="reset" data-id="0">不限</text>
             <text wx:for="{{jobtypelist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="0" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
@@ -48,7 +47,7 @@
             <view class='btn1' bindtap="reset" data-id="0">重置</view>
             <view class='btn2' bindtap="searchitemclick">确定</view></view>
     </view>
-    <view class='all-position-box' wx:if="{{searchOpen && searchItem==1}}">
+    <view class="all-position-box  {{top==3?'close':'open'}}" wx:if="{{searchOpen && searchItem==1}}">
         <view class='all-position-list'>
             <text class='{{allcounts[1]==0?"current":""}}' bindtap="reset" data-id="1">不限</text>
             <text wx:for="{{fulilist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="1" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
@@ -57,7 +56,7 @@
             <view class='btn2' bindtap="searchitemclick">确定</view></view>
     </view>
 
-    <view class='all-position-box' wx:if="{{searchOpen && searchItem==2}}">
+    <view class="all-position-box  {{top==3?'close':'open'}}"  wx:if="{{searchOpen && searchItem==2}}">
         <view class='all-position-list'>
             <text class='{{allcounts[2]==0?"current":""}}' bindtap="reset" data-id="2">不限</text>
             <text wx:for="{{streetlist}}" wx:key="key11" bindtap="setitem" data-id="{{index}}" data-type="2" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
@@ -66,7 +65,7 @@
             <view class='btn2' bindtap="searchitemclick">确定</view></view>
     </view>
 </view>
-<scroll-view scroll-y="true" class="scroll-view" bindscrolltolower="nextpage">
+<scroll-view scroll-y="true" class="scroll-view {{top==2?'scropen':''}} {{top==3?'scrclose':''}}" bindscrolltoupper="scrolltopset" bindscroll="scrolldownset" bindscrolltolower="nextpage">
     <view class='position-group' wx:for="{{job}}" wx:key="key">
         <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
             <view class='position-hd'>
@@ -75,14 +74,14 @@
                     <view>{{item.no}}</view></view>
                 <view class='position-item'>
                     <view class='title'>{{item.jobName}}</view>
-                    <view class='name'>{{item.name}}{{item.street_name=='其它'?'':'('+item.street_name+')'}}</view>
+                    <view class='name'>{{item.name}}</view>
                     <view class='label'>
                         <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem" wx:for-index="find" wx:if="{{find<4}}">{{fuliitem}}</text>
                     </view>
                     <text class='price' wx:if="{{item.pay.length<11}}">{{item.pay}}</text></view>
             </view>
             <view class='position-bd'>
-                <text>展位:{{item.area}}{{item.showno}}</text>
+                <text>{{item.street_name=='其它'?item.area:item.street_name}}{{item.showno}}号展位</text>
                 <text class='time'></text>
             </view>
         </view>

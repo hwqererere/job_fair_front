@@ -83,3 +83,5 @@
       <view class='fav'  bindtap='favFn'>{{fav?'取消收藏':'收藏'}}</view>
       <view class='deli'  bindtap='deliFn'>{{deli?'已投递':'投递'}}</view>
     </view>
+    <view class="timelay" wx:if="{{timelay}}"></view>
+    <view class="time" wx:if="{{timelay}}">{{time}}</view>

@@ -1,5 +1,5 @@
 .container {background: #fff;height:calc(100% - 100rpx);float:left;width:100%;position:fixed;left:0rpx;top:0rpx;}
-.icon{position:absolute;right:0rpx;top:8rpx;width:60rpx;height:60rpx;font-size:40rpx;color:#0080ff}
+.icon{position:absolute;right:0rpx;top:8rpx;width:60rpx;height:60rpx;font-size:40rpx;color:#002570}
 .icon2{top:30rpx;}
 .resume-photo {
   height: 160rpx;float:left;
@@ -27,7 +27,7 @@
 .array{float:left;width:calc(100% - 60rpx);padding-left:30rpx;padding-right:30rpx;}
 .array .icon-icon_delete{right:90rpx;color:#f00}
 .array .titleline{float:left;width:100%;height:90rpx;}
-.array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0080ff;margin-top:30rpx;margin-right:20rpx}
+.array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#002570;margin-top:30rpx;margin-right:20rpx}
 .array .titleline .title{float:left;font-size:36rpx;font-weight:bold;border-bottom:1px solid #ddd;width:calc(100% - 30rpx);height:88rpx;line-height:88rpx;}
 .array .list{float:left;width:calc(100% - 20rpx);position:relative;padding:10rpx;border-bottom:1rpx solid #ddd}
 .array .list {float:left;width:100%;}
@@ -35,7 +35,7 @@
 .array .list label:nth-child(2){float:right;}
 .array .list .line{font-size:28rpx;float:letf;line-height:44rpx;color:#999}
 .array .add{width:100%;float:left;height:100rpx;line-height:100rpx;text-align:center;font-size:30rpx;}
-.array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#0080ff;}
+.array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#002570;}
 
-.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#0080ff;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd;letter-spacing: 10rpx;}
+.save{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;text-align: center;color:#002570;font-size:40rpx;line-height:100rpx;border-top:1rpx solid #ddd;letter-spacing: 10rpx;}
 
