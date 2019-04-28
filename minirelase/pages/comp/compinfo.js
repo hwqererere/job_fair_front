@@ -27,7 +27,9 @@ Page({
     utils.requestFn('company', { company_id: wx.getStorageSync('company_id') }, function (res) {
       if (res.code == 200) {
         let comp = res.data[0] 
-        comp.fuli = res.data[0].fuliid.split(",")
+        if (res.data[0].fuliid){
+          comp.fuli = res.data[0].fuliid.split(",")
+        }        
         self.setData({ compinfo: comp })
         self.getstreet()
         self.getfuli()
@@ -106,13 +108,16 @@ Page({
     let fuliarr=[]
     for (let i = 0; i < this.data.fulilist.length;i++){
       let key=false
-      for(let j=0;j<this.data.compinfo.fuli.length;j++){
-        if (this.data.fulilist[i].id==this.data.compinfo.fuli[j]){
-          key=true
+      if (this.data.compinfo.fuli){
+        for (let j = 0; j < this.data.compinfo.fuli.length; j++) {
+          if (this.data.fulilist[i].id == this.data.compinfo.fuli[j]) {
+            key = true
+          }
         }
+
+        fuliarr[i] = { id: this.data.fulilist[i].id, fuli: this.data.fulilist[i].fuli, check: key }
       }
-     
-        fuliarr[i] = { id: this.data.fulilist[i].id, fuli: this.data.fulilist[i].fuli,check:key}
+      
       
       
     }

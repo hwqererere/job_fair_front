@@ -28,7 +28,7 @@
     </block>
 </swiper>
 <view class='search-position'>
-    <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0">
+    <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0" wx:if="{{false}}">
         <view class="set">按职能</view>
         <view class="icon {{(searchItem==0 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></view>
     </view>

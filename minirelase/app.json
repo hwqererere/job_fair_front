@@ -11,6 +11,7 @@
     "pages/index/deliverlist",
     "pages/index/favlist",
     "pages/index/organizer",
+    "pages/index/banshi",
     "pages/comp/index",
     "pages/comp/compinfo",
     "pages/comp/joblist",
@@ -21,7 +22,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0080ff",
-    "navigationBarTitleText": "莘庄就业",
+    "navigationBarTitleText": "闵行职小二",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default"
   },

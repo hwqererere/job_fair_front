@@ -24,11 +24,11 @@
         <label>我的投递</label>
       </navigator>
       <navigator  url='organizer'>
-        <label class="icon-icon_scan_namecard"></label>
+        <label class="icon-qiye"></label>
         <label>主办单位</label>
       </navigator>
-      <navigator url='deliverlistsuccess'>
-        <label class="icon-icon_shakehands"></label>
+      <navigator url='banshi'>
+        <label class="icon-zuoyezhidaoshu"></label>
         <label>办事指南</label>
       </navigator>
     </view>

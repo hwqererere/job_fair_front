@@ -26,7 +26,10 @@ Page({
     utils.requestFn('recruitInfoSelect', {company_id:wx.getStorageSync("company_id")}, function (res) {
       let tmp = res.data
       for (let i = 0; i < tmp.length; i++) {
-        tmp[i].fuli = tmp[i].fuli.split(";")
+        if (tmp[i].fuli){
+          tmp[i].fuli = tmp[i].fuli.split(";")
+        }
+        
       }
       self.setData({ job: tmp })
     })

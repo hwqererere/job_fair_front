@@ -13,9 +13,9 @@
 .swiper  .slide-image{height:240rpx;width:100%;}
 
 .search-position {width:100%;position:fixed;height:90rpx;background:#999;z-index:90;left:0rpx;top:320rpx;}
-.search-position .search-item {width:33.3%;float:left;height:82rpx;line-height:82rpx;text-align:center;background:#fff;border-bottom:8rpx solid #fff}
+.search-position .search-item {width:50%;float:left;height:82rpx;line-height:82rpx;text-align:center;background:#fff;border-bottom:8rpx solid #fff}
 .search-position .search-item.active {border-bottom:8rpx solid #e0e0e0}
-.search-position .search-item .set {font-size:28rpx;height:90rpx;float:left;margin-left: 70rpx;text-align:center}
+.search-position .search-item .set {font-size:28rpx;height:90rpx;float:left;margin-left: 120rpx;text-align:center}
 .search-position .search-item .icon {font-size:28rpx;float:left;height:90rpx;width:40rpx;}
 
 .all-position-box {position:fixed;background:#fff;top:410rpx;left:0;z-index:90;padding-top:10rpx;width:100%}
