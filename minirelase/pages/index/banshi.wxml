@@ -1,4 +1,4 @@
-<view class="list" wx:if="{{page==0}}">
+wu<view class="list" wx:if="{{page==0}}">
   <navigator url="banshi?page=1">就业见习补贴（区级）</navigator>
   <navigator url="banshi?page=2">失业保险待遇办事指南</navigator>
 </view>
