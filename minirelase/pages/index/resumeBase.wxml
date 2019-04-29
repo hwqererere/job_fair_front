@@ -1,6 +1,6 @@
 <scroll-view scroll-y="true"  class="container">
   <view class="resume-photo">
-    <view class='photo'><image bindtap="updateface" src='{{headface?headface:reslink+"style/default_head.jpg"}}'></image></view>
+    <view class='photo'><image bindtap="updateface" src='{{headface?headface:""}}'></image></view>
 
   </view>
   <view class="baseline"><label class="k2">姓名</label><label>:</label><label><input type="text" value="{{resume.username}}" bindinput='inputchange' data-type="username" placeholder='请填写姓名'></input></label></view>

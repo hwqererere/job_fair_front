@@ -355,6 +355,7 @@ Page({
     let val=e.detail.value
     let searchinfo=this.data.searchinfo;
     searchinfo.jobName=val
+    searchinfo.page=0
     this.setData({searchinfo:searchinfo})
   },
   search:function(){
