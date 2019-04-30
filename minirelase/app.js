@@ -15,6 +15,9 @@ App({
           wx.removeStorageSync('signtype')
           wx.removeStorageSync('deli')
           wx.removeStorageSync('fav')
+          wx.removeStorageSync('street')
+          wx.removeStorageSync('fuli')
+          wx.removeStorageSync('streetupdate')
           wx.setStorageSync('version', res.data.version)
 
         }
