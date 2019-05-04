@@ -10,7 +10,9 @@ Page({
     fulilist:[],
     streetlist:[],
     streetindex:0,
-    fulilay:true
+    fulilay:false,
+    fulisel:[],
+    addfuli:""
   },
 
   /**
@@ -25,7 +27,9 @@ Page({
     utils.requestFn('company', { company_id: wx.getStorageSync('company_id') }, function (res) {
       if (res.code == 200) {
         let comp = res.data[0] 
-        comp.fuli = res.data[0].fuliid.split(",")
+        if (res.data[0].fuliid){
+          comp.fuli = res.data[0].fuliid.split(",")
+        }        
         self.setData({ compinfo: comp })
         self.getstreet()
         self.getfuli()
@@ -101,6 +105,84 @@ Page({
     this.setData({conpinfo:ci})
   },
   openfuliconfig:function(){
+    let fuliarr=[]
+    for (let i = 0; i < this.data.fulilist.length;i++){
+      let key=false
+      if (this.data.compinfo.fuli){
+        for (let j = 0; j < this.data.compinfo.fuli.length; j++) {
+          if (this.data.fulilist[i].id == this.data.compinfo.fuli[j]) {
+            key = true
+          }
+        }
+
+        fuliarr[i] = { id: this.data.fulilist[i].id, fuli: this.data.fulilist[i].fuli, check: key }
+      }
+      
+      
+      
+    }
+    this.setData({ fulisel: fuliarr, fulilay:true})
+  },
+  itemcheck:function(e){
+    let id = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : e.target.dataset.id
+    let items = this.data.fulisel
+
+    for(let i=0;i<items.length;i++){
+      if (items[i].id == id ){
+        if (items[i].check){
+          items[i].check=false
+        }else{items[i].check=true}
+
+      } 
+    }
+    this.setData({ fulisel:items})
+  },
+  fuliselover:function(){
+    let comp=this.data.compinfo
+    let cont=[]
+    for(let i=0;i<this.data.fulisel.length;i++){
+      if (this.data.fulisel[i].check){
+        cont.push(this.data.fulisel[i].id)
+      }
+    }
+    comp.fuli=cont
+    this.setData({ compinfo: comp, fulilay: false})
+  },
+  newfuli:function(e){
+      this.setData({ addfuli: e.detail.value})
+  },
+  fuliadd:function(){
+    let self=this
+    utils.requestFn('fuliupdate', { fuli:self.data.addfuli},function(res){
+      if(res.code==200){
+        wx.removeStorageSync('fuli')
+        self.getfuli()
+        setTimeout(function(){
+          self.openfuliconfig()
+        },3000)
+        
+      }else{
+        wx.showToast({
+          title:res.msg,
+          icon:'none'
+        })
+      }
+    })
+  },
+  save:function(){
+    let self=this
+    let compinfo=self.data.compinfo
+
+
+    compinfo.streetId = self.data.streetlist[self.data.streetindex].id
+    utils.requestFn('udcop',compinfo,function(res){
+      if(res.code==200){
+        wx.showToast({
+          title:res.msg
+        })
+      }
+    })
 
   }
+  
 })

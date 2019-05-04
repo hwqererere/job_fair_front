@@ -1,3 +1,5 @@
+<button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
+
 <view class="logolay">
   <view class="logo mt60"></view>
   <view class="title">欢迎登录莘庄就业企业客户端</view>
@@ -26,10 +28,12 @@
 </view>
 <view class="scrolltitle"><view class="dot"></view><label>等待面试</label></view>
 <scroll-view class="scroll">
+
   <view class="li" wx:for="{{deli}}" wx:if="{{item.status==1}}">
-    <view class="img">
+  <view class="grayline2"></view>
+    <navigator class="img" url="resume?openid={{item.openid}}">
       <image src="{{reslink+item.url_id}}"></image>
-    </view>
+    </navigator>
     <view class="msg">
       <label>{{item.username}}|{{item.sex==0?"女":"男"}}</label>
       <label>{{item.jobName}}</label>

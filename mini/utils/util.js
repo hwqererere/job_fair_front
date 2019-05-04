@@ -41,7 +41,10 @@ function port(portName){
   ports.company="company"
   ports.compDeli ="company/delivery"//查询当前企业投递简历
   ports.delistat ="company/deliverystat"//更改投递状态
-
+  ports.fuliupdate ="fuli/fuli-save-or-update"//福利
+  ports.udcop ="company/update-company"
+  ports.recruitUpdate = "recruit-info-select/update" //岗位信息更新
+  ports.recruitDel = "recruit-info-select/delrecruit" //岗位信息删除
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.hothwq.com/";
   return url + ports[portName];
@@ -114,7 +117,7 @@ function formlib(){
   obj.place=['本区','本市非本区','外省市']
   obj.county=['黄浦区','徐汇区','长宁区','静安区','普陀区','虹口区','杨浦区','浦东新区','闵行区','宝山区','嘉定区','金山区','松江区','青浦区','奉贤区','崇明区']
   obj.street=['莘庄镇','七宝镇','浦江镇','梅陇镇','虹桥镇','马桥镇','吴泾镇','华漕镇','颛桥镇','江川路街道','新虹街道','古美路街道','浦锦街道']
-  obj.personnel_type = ['失业','在职','征地','协保','下岗','退休','应期毕业生','外来媳妇','退伍军人']
+  obj.personnel_type = ['失业','在职','征地','协保','下岗','退休','应届毕业生','外来媳妇','退伍军人']
   return obj
 }
 const formlibFn=function(){

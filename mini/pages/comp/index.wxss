@@ -5,24 +5,25 @@
 
 .actbox{position:fixed;top:320rpx;left:0rpx;width:100%;height:240rpx;}
 .grayline{float:left;width:100%;height:16rpx;background-color:#f8f8fa}
-.actbox .actline{float:left;width:100%;height:208rpx;}
+.actbox .actline{float:left;width:calc(100% - 40rpx);height:208rpx;margin:0rpx 20rpx;}
 .actbox .actline .li{float:left;width:25%;height:208rpx;}
 .actbox .actline .li label{float:left;width:100%;text-align:center;}
-.actbox .actline .li label:nth-child(1){height:64rpx;margin-top:44rpx;font-size:60rpx;line-height:64rpx;color:#78abdd}
+.actbox .actline .li label:nth-child(1){height:64rpx;margin-top:44rpx;font-size:60rpx;line-height:64rpx;color:#002570}
 .actbox .actline .li label:nth-child(2){margin-top:30rpx;}
-.scrolltitle{position:fixed;top:560rpx;height:60rpx;}
-.scrolltitle .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0066cc;margin-top:15rpx;margin-right:20rpx;margin-left:20rpx;}
-.scrolltitle label{height:60rpx;line-height:60rpx;}
-.scroll{position:fixed;left:0rpx;bottom:0rpx;height:calc(100% - 600rpx);width:100% }
+.scrolltitle{position:fixed;top:560rpx;height:80rpx;line-height:80rpx;width:100%;background-color:#fff}
+.scrolltitle .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#002570;margin-top:20rpx;margin-right:20rpx;margin-left:20rpx;}
+.scrolltitle label{height:60rpx;line-height:60rpx;font-size:30rpx}
+.scroll{position:fixed;left:0rpx;bottom:0rpx;height:calc(100% - 640rpx);width:100% }
 
 .bondstep{position: fixed;height:100%;z-index: 10;width:100%;left:0rpx;top:0rpx;background-color:#fff}
-.bondstep input{float:left;width:80%;margin-left:10%;border-bottom:#e9e9e9;height:100rpx;text-align:center;font-size:40rpx;margin-top:100rpx;}
-.bondstep .nextbtn{width:80%;float:left;border-radius:10rpx;height:80rpx;color:#fff;background-color:#0066cc;margin-left:10%;line-heihgt:80rpx;text-align:center;font-size:50rpx;}
+.bondstep input{float:left;width:80%;margin-left:10%;border-bottom:1rpx dashed #e6e6e6;height:88rpx;text-align:center;font-size:40rpx;margin-top:100rpx;}
+.bondstep .nextbtn{width:80%;float:left;border-radius:10rpx;height:80rpx;color:#fff;margin-top:60rpx;background-color:#0066cc;margin-left:10%;line-heihgt:80rpx;text-align:center;font-size:50rpx;}
 .bondstep icon{float:left;margin-top:60rpx;margin-left:calc(50% - 75rpx)}
 .bondstep label{float:left;width:100%;height:50rpx;line-height:50rpx;font-size:40rpx;text-align:center;margin-top:30rpx;margin-bottom:30rpx;}
 
-.li{float:left;width:100%;height:150rpx;}
+.li{float:left;width:100%;height:160rpx;}
 .li .img{float:left;margin-left:20rpx;height:150rpx;width:150rpx;overflow:hidden;border-radius:75rpx;margin-right:20rpx;}
-.li .msg{float:left;height:150rpx;width:calc(100% - 400rpx)}
-.li .msg label{float:left;width:100%;height:75rpx;line-height:75rpx;}
-.li .invite{background-color:#0066cc;color:#fff;float:right;width:180rpx;text-align:center;line-height:80rpx;height:80rpx;margin-top:35rpx;margin-right:20rpx;border-radius:20rpx;}
+.li .msg{float:left;height:180rpx;width:calc(100% - 400rpx)}
+.li .msg label{float:left;width:100%;height:40rpx;line-height:40rpx;font-size:40rpx;color:#525252;margin-top:40rpx}
+.li .msg label:nth-child(2){font-size:24rpx;color:#ccc;margin-top:10rpx;}
+.li .invite{background-color:#5a75f6;color:#fff;float:right;width:180rpx;text-align:center;line-height:70rpx;height:70rpx;margin-top:40rpx;margin-right:20rpx;border-radius:20rpx;font-size:30rpx;}

@@ -100,6 +100,14 @@ Page({
         tmp.url_id = self.data.headface
         app.globalData.updatehead=true
       }
+      if (tmp.place==0){
+        tmp.province="上海市"
+        tmp.city="上海市"
+        tmp.county="闵行区"
+      }else if(tmp.place==1){
+        tmp.province = "上海市"
+        tmp.city = "上海市"
+      }
       app.globalData.resume=tmp
 
       wx.navigateBack({

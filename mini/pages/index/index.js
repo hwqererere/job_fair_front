@@ -16,13 +16,20 @@ Page({
     allcounts:[0,0,0],
       job:[],
       page:0,
-    searchinfo:{}
+    searchinfo:{},
+    top:1
       
   },
   //事件处理函数
 
   onLoad: function (option) {
     let self = this
+    let company_id = wx.getStorageSync('company_id') ? wx.getStorageSync('company_id'):""
+    // if (company_id){
+    //   wx.redirectTo({
+    //     url: '../comp/index',
+    //   })
+    // }
     //授权验证
     let signtype = option.signtype ? option.signtype : (wx.getStorageSync('signtype') ? wx.getStorageSync('signtype') : 0)
     app.globalData.signtype = signtype
@@ -40,6 +47,22 @@ Page({
     self.getstreet();
     self.getfuli();
     self.getjobtype();
+  },
+  scrolltopset:function(){
+    if(this.data.top==3){
+      this.setData({ top: 2 })
+    }
+    
+  },
+  scrolldownset: function (e) {
+    if(e.detail.scrollTop>120){
+      if (this.data.top != 3) {
+        this.setData({ top: 3 })
+      }
+    }
+
+   
+   
   },
   getjobtype:function(){
     let self = this
@@ -69,37 +92,37 @@ Page({
   getstreet: function () {
     let self = this
     let streettmp = wx.getStorageSync('street')
-    if (!streettmp || (streettmp.update - 0 + 300000) < utils.getsortTime) {
+    let streetupdate=wx.getStorageSync('streetupdate')
+
       utils.requestFn('street', {}, function (res) {
         if (res.code == 200) {
           let street = {}
-          street.update = utils.getsortTime
+          wx.setStorageSync('streetupdate', utils.getsortTime())
+
           street.list = res.data
+
           wx.setStorageSync('street', street)
           let arr = []
           for (let i = 0; i < street.list.length; i++) {
             arr[i] = { id: street.list[i].id, check: 0, txt: street.list[i].street_name }
           }
           self.setData({ streetlist: arr })
+          
         }
       })
-    } else {
-      let arr = []
-      for (let i = 0; i < streettmp.list.length; i++) {
-        arr[i] = { id: streettmp.list[i].id, check: 0, txt: streettmp.list[i].street_name }
-      }
-      self.setData({ streetlist: arr })
-    }    
-    console.log(self.data.streetlist)
+    
+
   },
   getfuli: function () {
     let self=this
     let fulitmp=wx.getStorageSync('fuli')
-    if (!fulitmp || (fulitmp.update - 0 + 300000) < utils.getsortTime){
+    let fuliupdate=wx.getStorageSync('fuliupdate')
+    if (!fulitmp || (fuliupdate - 0 + 300000) < utils.getsortTime){
       utils.requestFn('fuli', {}, function (res) {
         if(res.code==200){
           let fuli={}
           fuli.update = utils.getsortTime
+          wx.setStorageSync('fuliupdate', utils.getsortTime)
           fuli.list=res.data
           wx.setStorageSync('fuli', fuli)
           let arr=[]
@@ -126,10 +149,17 @@ Page({
     let self=this
     utils.requestFn('recruitInfoSelect', data,function(res){
       let tmp = res.data
-      for(let i=0;i<tmp.length;i++){
-        tmp[i].fuli=tmp[i].fuli.split(";")
+      if(tmp){
+        for (let i = 0; i < tmp.length; i++) {
+          if (tmp[i].fuli) {
+            tmp[i].fuli = tmp[i].fuli.split(";")
+          }
+
+        }
+        self.setData({ job: tmp })
       }
-      self.setData({job:tmp})
+      
+      
     })
   },
   
@@ -217,7 +247,6 @@ Page({
       let job=[]
       for (let i = 0; i < self.data.jobtypelist.length;i++){
         if (self.data.jobtypelist[i].check){
-          console.log("aa")
           job.push(self.data.jobtypelist[i].id)
         }
       }
@@ -252,11 +281,17 @@ Page({
     utils.requestFn('recruitInfoSelect',searchinfo, function (res) {
       let tmp = res.data
       let job=self.data.job
+      console.log(self.data.job,tmp.length)
       for (let i = 0; i < tmp.length; i++) {
-        tmp[i].fuli = tmp[i].fuli.split(";")
+        if(tmp[i].fuli){
+          tmp[i].fuli = tmp[i].fuli.split(";")
+        }
+        
+        
         job.push(tmp[i])
       }
-      self.setData({ job: tmp, page: searchinfo.page })
+      self.setData({ job: job, page: searchinfo.page })
+      console.log(self.data.job)
     })
   },
   linkto:function(e){
@@ -309,5 +344,16 @@ Page({
         
       }
     })
+  },
+  searchval:function(e){
+    let val=e.detail.value
+    let searchinfo=this.data.searchinfo;
+    searchinfo.jobName=val
+    searchinfo.page=0
+    this.setData({searchinfo:searchinfo})
+  },
+  search:function(){
+    let searchinfo=this.data.searchinfo
+    this.getlist(searchinfo)
   }
 })

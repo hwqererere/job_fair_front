@@ -1,0 +1,7 @@
+<view class="tit">上海市民营企业招聘周闵行专场活动</view>
+<view class="tit">活动时间2019年5月11日13:30</view>
+<view class="line"><label class="left k2" ><text decode="{{true}}">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</text></label><label class="mid">：</label><label class="right">上海市闵行区珠城路155号（莘城公园）</label></view>
+<view class="line"><label class="left">指导单位</label><label class="mid">：</label><label class="right"><text>上海市人力资源和社会保障局</text><text>闵行区人民政府</text></label></view>
+<view class="line"><label class="left">主办单位</label><label class="mid">：</label><label class="right"><text>上海市就业促进中心 </text><text>闵行区人力资源和社会保障局 </text><text>莘庄镇人民政府</text></label></view>
+<view class="line"><label class="left">承办单位</label><label class="mid">：</label><label class="right"><text>闵行区就业促进中心 </text><text>莘庄镇社区事务受理服务中心</text></label></view>
+<view class="line"><label class="left">协办单位</label><label class="mid">：</label><label class="right">闵行区各镇、街道(工业区)社区事务受理中心</label></view>

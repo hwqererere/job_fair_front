@@ -27,8 +27,8 @@
     </block>
 </swiper>
 <view class="search-position {{top==2?'spopen':''}} {{top==3?'spclose':''}}">
-    <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0" wx:if="{{false}}">
-        <view class="set">按职能</view>
+    <view class='search-item {{searchItem==0?"active":""}}' bindtap="searchItemChose" data-si="0">
+        <view class="set">按薪酬</view>
         <view class="icon {{(searchItem==0 && searchOpen)?'icon-shouqi':'icon-zhankai'}}"></view>
     </view>
     <view class='search-item {{searchItem==1?"active":""}}' bindtap="searchItemChose" data-si="1">
@@ -41,11 +41,22 @@
     </view>
     <view class="all-position-box {{top==3?'close':'open'}}" wx:if="{{searchOpen && searchItem==0}}">
         <view class='all-position-list'>
-            <text class='{{allcounts[0]==0?"current":""}}' bindtap="reset" data-id="0">不限</text>
-            <text wx:for="{{jobtypelist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="0" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
+            <text class='{{allcounts[0]==0?"current":""}}' bindtap="reset" data-id="0">{{pay.minx==0?'不限最低':pay.minpay}}</text>
+              <movable-area>
+                <movable-view direction="horizontal" bindchange="paychange" data-t="min" x="{{pay.minx}}" ></movable-view>
+              </movable-area>
+
+            </view>
+         <view class='all-position-list'>
+            <text class='{{allcounts[0]==0?"current":""}}' bindtap="reset" data-id="0">{{pay.maxx==0?'不限最高':pay.maxpay}}</text>
+            <movable-area>
+                <movable-view direction="horizontal" bindchange="paychange" data-t="max" x="{{pay.maxx}}" ></movable-view>
+              </movable-area>
+
+            </view>
         <view class='all-position-btn'>
-            <view class='btn1' bindtap="reset" data-id="0">重置</view>
-            <view class='btn2' bindtap="searchitemclick">确定</view></view>
+       
+            <view class='btn3' bindtap="searchitemclick">确定</view></view>
     </view>
     <view class="all-position-box  {{top==3?'close':'open'}}" wx:if="{{searchOpen && searchItem==1}}">
         <view class='all-position-list'>
@@ -78,10 +89,10 @@
                     <view class='label'>
                         <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem" wx:for-index="find" wx:if="{{find<4}}">{{fuliitem}}</text>
                     </view>
-                    <text class='price' wx:if="{{item.pay.length<11}}">{{item.pay}}</text></view>
+                    <text class='price'>{{item.pay?item.pay:'面议'}}</text></view>
             </view>
             <view class='position-bd'>
-                <text>{{item.street_name=='其它'?item.area:item.street_name}}{{item.showno}}号展位</text>
+                <text>{{item.street_id<13?'街镇特色专区':''}}  {{item.street_name=='其它'?item.area:item.street_name}}{{item.showno}}号展位</text>
                 <text class='time'></text>
             </view>
         </view>

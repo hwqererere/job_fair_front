@@ -5,7 +5,7 @@
       <label>{{resume.username?resume.username:'姓名'}}</label>
       <label>{{resume.sex==1?'男':'女'}}{{resume.age?("|"+resume.age+'岁'):''}}{{resume.nation?("|"+resume.nation):''}}</label>
     </view>
-    <view class="icon icon-bianji icon2" bindtap="resumebase"></view>
+    <view class="icon icon-icon_compile icon2" bindtap="resumebase"></view>
   </view>
   <view class="baseline"><label class="k2">手机</label><label>:</label><label>{{resume.phone}}</label></view>
   <view class="baseline"><label class="k2">婚否</label><label>:</label><label>{{lib.marital_status[resume.marital_status]}}</label></view>

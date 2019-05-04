@@ -1,8 +1,0 @@
-.container {background: #fff;width:calc(100% - 20rpx);float:left;padding:10rpx;}
-.photoline{float:left;width:100%;}
-.photoline .photo{float:left;height:300rpx;width:200rpx;}
-.photoline .photo image{width:300rpx;height:300rpx;}
-.photoline .rightline{float:right;width:calc(100% - 300rpx);margin-top:220rpx;height:80rpx;font-size:60rpx;}
-.line{float:left;width:100%;padding:10rpx 0rpx}
-.line label{float:left;width:250rpx;margin-left:20rpx;}
-.line text{float:right;width:calc(100% - 270rpx)}

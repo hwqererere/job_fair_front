@@ -29,7 +29,7 @@
 .array{float:left;width:calc(100% - 60rpx);padding-left:30rpx;padding-right:30rpx;}
 .array .icon-icon_delete{right:120rpx;color:#f00}
 .array .titleline{float:left;width:100%;height:90rpx;}
-.array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#0066cc;margin-top:30rpx;margin-right:20rpx}
+.array .titleline .dot{float:left;width:10rpx;height:30rpx;border-radius:5rpx;background-color:#002570;margin-top:30rpx;margin-right:20rpx}
 .array .titleline .title{float:left;font-size:36rpx;font-weight:bold;border-bottom:1px solid #ddd;width:calc(100% - 30rpx);height:88rpx;line-height:88rpx;}
 .array .list{float:left;width:calc(100% - 20rpx);position:relative;padding:10rpx;border-bottom:1rpx solid #ddd}
 .array .list {float:left;width:100%;}
@@ -37,6 +37,9 @@
 .array .list label:nth-child(2){float:right;}
 
 .array .add{width:100%;float:left;height:100rpx;line-height:100rpx;text-align:center;}
-.array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#0066cc;}
+.array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#002570;}
 
-
+.btnlay{position:fixed;bottom:0rpx;width:100%;height:100rpx;}
+.btnlay view{float:left;height:100rpx;line-height:100rpx;text-align:center;font-size:40rpx}
+.btnlay .inv{color:#fff;background-color:#002570;width:70%;}
+.btnlay .del{color:#f00;background-color:#fff;width:30%;}

@@ -17,7 +17,7 @@
           </view>
         </view>
         <view class='position-bd'>
-          <text>展位{{jobinfo.area}}{{jobinfo.showno}}</text>
+          <text>{{item.street_id<13?'街镇特色专区':''}}  展位{{jobinfo.area}}{{jobinfo.showno}}</text>
           <text class='time'></text>
         </view>
         <view>招{{jobinfo.mansize}}人</view>

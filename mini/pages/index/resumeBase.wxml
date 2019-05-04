@@ -1,11 +1,11 @@
 <scroll-view scroll-y="true"  class="container">
   <view class="resume-photo">
-    <view class='photo'><image bindtap="updateface" src='{{headface?headface:reslink+"style/default_head.jpg"}}'></image></view>
+    <view class='photo'><image bindtap="updateface" src='{{headface?headface:""}}'></image></view>
 
   </view>
-  <view class="baseline"><label class="k2">姓名</label><label>:</label><label><input type="number" value="{{resume.username}}" bindinput='inputchange' data-type="username" placeholder='请填写姓名'></input></label></view>
+  <view class="baseline"><label class="k2">姓名</label><label>:</label><label><input type="text" value="{{resume.username}}" bindinput='inputchange' data-type="username" placeholder='请填写姓名'></input></label></view>
   
-  <view class="baseline"><label class="k2">名族</label><label>:</label><label><input type="number" value="{{resume.nation}}" bindinput='inputchange' data-type="nation" placeholder='请填写民族'></input></label></view>
+  <view class="baseline"><label class="k2">民族</label><label>:</label><label><input type="text" value="{{resume.nation}}" bindinput='inputchange' data-type="nation" placeholder='请填写民族'></input></label></view>
   <view class="baseline"><label class="k2">手机</label><label>:</label><label><input type="number" value="{{resume.phone}}" bindinput='inputchange' data-type="phone" placeholder='填错将收不到通知短信'></input></label></view>
   <view class="baseline"><label class="k2">婚否</label><label>:</label><label>
   <picker bindchange="inputchange" data-type="marital_status" value="{{resume.marital_status}}" range="{{lib.marital_status}}">

@@ -22,7 +22,7 @@
 .fulisel{float:left;border:1px solid #e5eaff;padding:10rpx 14rpx;color:#002570;border-radius:10rpx;width:100rpx;margin:14rpx 20rpx; }
 .fulisel.sel{background-color:#002570;color:#fff}
 .addinput{float:left;width:100%;border-top:1rpx solid #ddd;padding-top:30rpx;margin-top:10rpx;}
-.addinput input{float:left;width:300rpx;border:1rpx solid #003366;margin-left:10rpx;border-radius:10rpx;height:40rpx; }
+.addinput input{float:left;width:300rpx;border:1rpx solid #003366;margin-left:10rpx;border-radius:10rpx;height:40rpx; text-align:center;}
 .addinput .btn{height:60rpx;line-height:60rpx;font-size:30rpx;text-align:center;color:#fff;padding:0rpx 20rpx;background-color:#002570;width:100rpx;border-radius:10rpx;margin-left:20rpx;float:left;}
 .fulilayscrollview{float:left;width:calc(100% - 50rpx);height:700rpx;padding-top:40rpx;padding-left:25rpx;padding-right:25rpx;}
 .addline{float:left;width:100%;margin-top:20rpx;}

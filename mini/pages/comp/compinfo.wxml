@@ -1,3 +1,4 @@
+<view class="body" wx:if="{{!fulilay}}">
 <view class="compname">{{compinfo.name}}</view>
 <view class="baseline"><label class="k2">地址</label><label>:</label><label><input type="text" bindinput="inputchangeFn" data-type="address" value="{{compinfo.address}}"></input></label></view>
 <view class="baseline"><label class="k4">联系电话</label><label>:</label><label><input type="text" bindinput="inputchangeFn" data-type="phone_call" value="{{compinfo.phone_call}}"></input></label></view>
@@ -6,28 +7,28 @@
       {{streetlist[streetindex].street_name}}
     </view>
   </picker></label></view>
-<view class="baseline"><label class="k4">福利标签</label><label>:</label><label bindtap="openfuliconfig">
+<view class="baseline"><label class="k4 pt">福利标签</label><label>:</label><label bindtap="openfuliconfig">
     <view wx:for="{{compinfo.fuli}}" class="for1" wx:key="f1" wx:for-index="fi1"><view wx:for="{{fulilist}}" wx:for-item="listitem"  wx:if="{{listitem.id==item}}" class="for2" wx:key="f2" wx:index="fi2">{{fi1==0?'':','}}{{listitem.fuli}}</view></view>
-    <view class="icon-icon_task"></view>
+    <view class="icon-icon_task" ></view>
   </label></view>
 
 <view class="baseline"><label class="k4">企业简介</label><label>:</label><label>
-<textarea bindinput="inputchangeFn" data-type="remarks">{{compinfo.remarks}}</textarea>
+<textarea bindinput="inputchangeFn" data-type="remarks" value='{{compinfo.remarks}}'></textarea>
   </label></view>
 
 <view class="savebtn icon-icon_dispose" bindtap="save">保存</view>
-
+</view>
 
 <view class="fulilay" wx:if="{{fulilay}}">
-  <scroll-view>
-    <view class="fulisel" ></view>
+  <scroll-view class="fulilayscrollview">
+    <view  wx:for="{{fulisel}}" class="fulisel {{item.check?'sel':''}}" bindtap="itemcheck" data-id="{{item.id}}">{{item.fuli}}</view>
     <view class="addinput">
-      <input type="text" value="{{addfulival}}"></input>
-      <view class="">新增</view>
+      <input type="text" placeholder='最多4字' bindinput="newfuli"  value="{{addfuli}}"></input>
+      <view class="btn" bindtap="fuliadd">新增</view>
     </view>
   </scroll-view>
   <view class="addline">
-    <view></view>
+    <view class="btn" bindtap="fuliselover">确认选择</view>
   </view>
 </view>
 

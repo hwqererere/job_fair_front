@@ -3,13 +3,13 @@
     <view class='position-group' bindtap='positionDetailClick'>
       <view class='position-main'>
         <view class='position-hd'>
-          <view class='position-img'>
+          <view class='position-img' wx:if="{{false}}">
             <view>B区</view>
           <view>22</view>
           </view>
           <view class='position-item'>
             <view class='title'>{{jobinfo.jobName}} </view>
-            <view class='name'>{{jobinfo.name}}</view>
+            <view class='name'>{{jobinfo.name}}{{jobinfo.street_name=='其它'?'':'('+jobinfo.street_name+')'}}</view>
             <view class='label'>
               <text class='box bg1' wx:for="{{jobinfo.fuli}}">{{item}}</text>
             </view>
@@ -17,18 +17,18 @@
           </view>
         </view>
         <view class='position-bd'>
-          <text>{{jobinfo.street_name}}</text>
+          <text>展位{{jobinfo.area}}{{jobinfo.showno}}</text>
           <text class='time'></text>
         </view>
         <view>招{{jobinfo.mansize}}人</view>
       </view>
     </view>
-
+<view class="grayline"></view>
    
       <view class='position-tab-content' id="zhiwei">
         <view class='position-tab-title'>
     
-          <text>工作内容</text>
+          工作内容
         </view>
         <view class='position-tab-main'>
           <text>
@@ -37,7 +37,8 @@
 
 </text>
         </view>
-        <view class='position-tab-title MT25'>
+        <view class="grayline"></view>
+        <view class='position-tab-title'>
       
           <text>招聘要求</text>
         </view>
@@ -53,7 +54,7 @@
         </view>
 
       </view>
-      <view class='H20'></view>
+      <view class="grayline"></view>
 
       <view class='company-box' id="company">
         <view class='position-tab-title'>
@@ -78,6 +79,9 @@
 </scroll-view >
 
    <view class="foot">
-      <view class='deli'  bindtap='deliFn'>{{deli?'已投递':'投递'}}</view>
+      
       <view class='fav'  bindtap='favFn'>{{fav?'取消收藏':'收藏'}}</view>
+      <view class='deli'  bindtap='deliFn'>{{deli?'已投递':'投递'}}</view>
     </view>
+    <view class="timelay" wx:if="{{timelay && false}}"></view>
+    <view class="time" wx:if="{{timelay && false}}">{{time}}</view>

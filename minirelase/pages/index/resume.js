@@ -1,5 +1,6 @@
 // pages/resume/index.js
 const utils = require('../../utils/util')
+const drawQrcode = require('../../lib/weapp.qrcode.js');
 const app = getApp()
 Page({
 
@@ -10,7 +11,8 @@ Page({
     resume: {},
     reslink: app.globalData.reslink,
     headface:"",
-    lib: utils.formlibFn()
+    lib: utils.formlibFn(),
+    codelay: false,
   },
 
   /**
@@ -45,52 +47,30 @@ Page({
       self.setData({ headface: app.globalData.reslink+"data/" + resume.url_id })
     }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  opencode: function () {
+    if (wx.getStorageSync('resume')) {
+      this.setData({ codelay: true }, () => {
+        let width = wx.getSystemInfoSync().windowWidth
+        let size = 500 / 750 * width
+        drawQrcode({
+          width: size,
+          height: size,
+          x: 0,
+          y: 0,
+          canvasId: 'myQrcode',
+          typeNumber: 10,
+          text: JSON.stringify({ resumeId: wx.getStorageSync('openid') }),
+          callback(e) {
+            console.log(e)
+          }
+        })
+
+      })
+    }
+
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+  closelay: function () {
+    this.setData({ codelay: false })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

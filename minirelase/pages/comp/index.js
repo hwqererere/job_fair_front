@@ -145,5 +145,20 @@ Page({
       self.getdeInSe_ReCo()
     })
 
+  },
+  scan:function(){
+    utils.scan(function(res){
+      if(res.resumeId){
+        wx.navigateTo({
+          url: 'resume?openid='+res.resumeId
+        })
+      }
+    })
+  },
+  notopen:function(){
+    wx.showToast({
+      title:"招聘会未开始",
+      icon:"none"
+    })
   }
 })

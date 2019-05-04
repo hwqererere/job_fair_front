@@ -3,7 +3,7 @@
     <view class='photo'><image bindtap="updateface" src='{{head}}'></image></view>
     <view class="nameinfo" >
       <label>{{resume.username?resume.username:'姓名'}}</label>
-      <navigator class="icon-bianji" url="resumeEdit">修改</navigator>
+      <navigator class="icon-icon_compile" url="resumeEdit">修改</navigator>
     </view>
     <view class="icon icon-ico" bindtap="opencode"></view>
   </view>
@@ -20,7 +20,7 @@
         <label>收藏</label>
       </navigator>
       <navigator url='deliverlist'>
-        <label class="icon-jianli-A"></label>
+        <label class="icon-wodetoudi"></label>
         <label>我的投递</label>
       </navigator>
       <navigator  url='organizer'>

@@ -1,6 +1,6 @@
 .scroll-view {width:100%;float:left;position:fixed;top:0rpx;left:0rpx;height:calc(100% - 120rpx)}
 .container {background: #fff;height:calc(100% - 100rpx);float:left;width:100%;position:fixed;left:0rpx;top:0rpx;}
-.icon{position:absolute;right:30rpx;top:30rpx;width:60rpx;height:60rpx;font-size:40rpx;color:#0066cc}
+.icon{position:absolute;right:30rpx;top:30rpx;width:60rpx;height:60rpx;font-size:60rpx;color:#000}
 .resume-photo {
   height: 160rpx;float:left;
   border-bottom: #ddd solid 1px;
@@ -40,3 +40,7 @@
 .array .add .ico{width:30rpx;display:inline-block;height:30rpx;font-size:20rpx;color:#0066cc;}
 
 
+.laybg{position:fixed;top:0rpx;left:0rpx;width:100%;height:100%;z-index:89}
+
+.qcodelay{position:fixed;z-index:9999;width:700rpx;height:700rpx;background-color:#fff;top:calc(50% - 350rpx);left:calc(50% - 350rpx);}
+.qcodelay canvas{width:500rpx;height:500rpx;margin:100rpx;}

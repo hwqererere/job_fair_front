@@ -8,7 +8,7 @@
 }
 
 .resume-photo .photo {width: 110rpx;float:left;height: 110rpx;margin-left:calc(50% - 55rpx);margin-top:20rpx;}
-.resume-photo .photo image {width: 110rpx;height: 110rpx;margin-top:10rpx;border-radius:55rpx;overflow:hidden;}
+.resume-photo .photo image {width: 110rpx;height: 110rpx;margin-top:10rpx;border-radius:55rpx;overflow:hidden;background:url(https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/style/default_head.jpg)}
 .resume-photo .nameinfo{float:left;width:calc(100% - 150rpx);}
 .resume-photo .nameinfo label{float:left;width:100%;font-size:30rpx;height:40rpx;line-height:40rpx;}
 .resume-photo .nameinfo label:first-child{font-size:40rpx;font-weight:bold;margin-top:10rpx;line-height:70rpx;height:70rpx;}

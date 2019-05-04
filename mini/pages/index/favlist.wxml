@@ -14,8 +14,9 @@
                     <text class='price'>￥{{item.pay}}</text></view>
             </view>
             <view class='position-bd'>
-                <text>{{item.belong}}</text>
+                <text>{{item.street_name}}</text>
                 <text class='time'></text>
             </view>
         </view>
+        <view class="grayline"></view>
     </view>

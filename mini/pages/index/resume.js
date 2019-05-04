@@ -9,6 +9,7 @@ Page({
   data: {
     resume: {},
     reslink: app.globalData.reslink,
+    headface:"",
     lib: utils.formlibFn()
   },
 
@@ -20,22 +21,30 @@ Page({
     let resumeId = options.resumeId
     if (resumeId == wx.getStorageSync('openid')) {
       self.setData({ resume: wx.getStorageSync('resume') })
+      self.checkheadface(wx.getStorageSync('resume'));
     } else {
       utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {
-        if (res.data.countries.length==0){
+        if (res.data.countries.length == 0) {
           app.globalData.addresume = 1
-          wx.navigateTo({
+          wx.redirectTo({
             url: 'resumeEdit',
           })
-        }else{
+        } else {
           self.setData({ resume: res.data.countries[0].resume })
+          self.checkheadface(res.data.countries[0].resume);
         }
-        
+
       })
     }
+    
     console.log(self.data.resume)
   },
-
+  checkheadface:function(resume){
+    let self=this
+    if (resume.url_id) {
+      self.setData({ headface: app.globalData.reslink+"data/" + resume.url_id })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -47,7 +56,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

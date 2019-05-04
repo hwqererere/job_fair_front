@@ -1,6 +1,8 @@
 
 
-.position-group {margin-bottom:20rpx;background:#fff;padding:20rpx 0rpx;width:100%;float:left;}
+.position-list {}
+.position-group {margin-bottom:20rpx;background:#fff;padding-bottom: 4rpx;width:100%;float:left;}
+.position-group:first-child{padding-top:50rpx}
 .position-main {padding:0 20rpx;}
 .position-hd {float:left;border-bottom:#f6f6f6 solid 1px;padding-bottom:20rpx;width:100%;position:relative}
 .position-img {float:left;width:105rpx;height:105rpx;background-color:#357ac0;border-radius: 52rpx;margin-right:10rpx;}
@@ -15,6 +17,6 @@
 .position-hd .position-item .label .box {height:40rpx;line-height:40rpx;padding:0 15rpx;font-size:26rpx;margin-right:10rpx;display:inline-block;letter-spacing:0;}
 .position-hd .position-item .label .box.bg1 {background:#e1f3fe;color:#79bea2;}
 .position-hd .position-item .label .box.bg2 {background:#f7ece9;color:#ee9a84;}
-.position-bd {height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
+.position-bd {float:left;height:36rpx;line-height:36rpx;padding:10rpx 20rpx;}
 .position-bd text {color:#e5e5e5;font-size:24rpx;}
 .position-bd text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}

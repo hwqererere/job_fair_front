@@ -16,7 +16,7 @@
 
 .position-hd {
   position: relative;
-  padding-left: 120rpx;
+  /* padding-left: 120rpx; */
   border-bottom: #f6f6f6 solid 1px;
   padding-bottom: 20rpx;
 }
@@ -143,15 +143,13 @@
 }
 
 .position-tab-title {
-  padding: 0 30rpx;
+  padding: 0 30rpx;width:100%;font-size:32rpx;
   border-bottom: #e4e4e4 solid 1px;
   height: 100rpx;
-  line-height: 100rpx;
+  line-height: 100rpx;float:left;
 }
 
-.position-tab-title.MT25 {
-  margin-top: 25rpx;
-}
+
 
 .position-tab-title .img {
   width: 56rpx;
@@ -167,15 +165,15 @@
 }
 
 .position-tab-main {
-  padding: 30rpx;
+  padding: 20rpx 30rpx;float:left;
 }
 
 .position-tab-main text {
-  line-height: 32rpx;
+  line-height: 44rpx;
   font-size: 30rpx;
   color: #4f4f4f;
 }
-
+.grayline{float:left;width:100%;float:left;height:30rpx;background-color:#f8f8fa}
 .position-tab-map {
   padding-top: 20rpx;
 }
@@ -226,17 +224,17 @@
 }
 
 .company-name {
-  text-align: center;
-  line-height: 50rpx;font-size:40rpx;
+  text-align: center;float:left;width:100%;text-align:center;
+  line-height: 50rpx;font-size:40rpx;padding-top:30rpx;
   color: #000;
 }
 
 .company-info {
   margin: 0 20rpx;
-  margin-top: 80rpx;
+  margin-top: 20rpx;float:left;
   border-bottom: #e4e4e4 solid 1px;
   padding: 30rpx 0;
-
+  font-size:30rpx;
   vertical-align: top;
 }
 
@@ -266,5 +264,9 @@
 }
 
 .foot{position:fixed;bottom:0rpx;left:0rpx;width:100%;height:100rpx;}
-.foot .deli{float:left;width:60%;color:#000;font-size:40rpx;line-height:100rpx;background-color:#fff;text-align:center;background-color:#0066cc;color:#fff}
-.foot .fav{float:left;width:40%;color:#fff;background-color:#f00;height:100rpx;line-height:100rpx;text-align:center;font-size:40rpx;}
+.foot .deli{float:left;width:60%;color:#000;font-size:40rpx;line-height:100rpx;background-color:#fff;text-align:center;background-color:#002570;color:#fff}
+.foot .fav{float:left;width:40%;color:#000;background-color:#ddd;height:100rpx;line-height:100rpx;text-align:center;font-size:40rpx;}
+
+
+.timelay{position: fixed;bottom:0rpx;height:100rpx;z-index:100;width:60%;background-color:#000;opacity:0.7;right:0rpx;}
+.time{position:fixed;bottom:0rpx;height:100rpx;width:60%;z-index:101;color:#fff;line-height:100rpx;text-align:center;font-size:30rpx;right:0rpx}

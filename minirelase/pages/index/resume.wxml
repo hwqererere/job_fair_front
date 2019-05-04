@@ -5,7 +5,7 @@
       <label>{{resume.username?resume.username:'姓名'}}</label>
       <label>{{resume.sex==1?'男':''}}{{resume.sex==0?'女':''}}{{resume.age?("|"+resume.age+'岁'):''}}{{resume.nation?("|"+resume.nation):''}}</label>
     </view>
-   
+   <view class="icon icon-ico" bindtap="opencode"></view>
   </view>
   <view class="baseline"><label class="k2">手机</label><label>:</label><label>{{resume.phone}}</label></view>
   <view class="baseline"><label class="k2">婚否</label><label>:</label><label>{{lib.marital_status[resume.marital_status]}}</label></view>
@@ -69,7 +69,11 @@
 </scroll-view >
 
 
+<view class="laybg" wx:if="{{codelay}}" bindtap="closelay"></view>
+<view class="qcodelay " wx:if="{{codelay}}">
+    <canvas canvas-id="myQrcode"></canvas>
 
+</view>
 
 <import src="footbar.wxml" />
 <template is="footbar" data="{{current: 'resume'}}" />

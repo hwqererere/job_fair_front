@@ -9,22 +9,22 @@
     "pages/index/positionDetail",
     "pages/index/resume",
     "pages/index/deliverlist",
-    "pages/index/deliverliststat",
-    "pages/index/deliverlistsuccess",
     "pages/index/favlist",
-
-
+    "pages/index/organizer",
+    "pages/index/banshi",
     "pages/comp/index",
     "pages/comp/compinfo",
     "pages/comp/joblist",
     "pages/comp/allresume",
+    "pages/comp/resume",
     "pages/comp/want"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#003399",
-    "navigationBarTitleText": "莘庄就业",
+    "navigationBarBackgroundColor": "#002570",
+    "navigationBarTitleText": "闵行职小二",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

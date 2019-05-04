@@ -17,7 +17,8 @@ Page({
       job:[],
       page:0,
     searchinfo:{},
-    top:1
+    top:1,
+    pay:{minx:0,maxx:0,minpay:'不限',maxpay:'不限'}
       
   },
   //事件处理函数
@@ -47,6 +48,7 @@ Page({
     self.getstreet();
     self.getfuli();
     self.getjobtype();
+    self.getlist({})
   },
   scrolltopset:function(){
     if(this.data.top==3){
@@ -142,7 +144,7 @@ Page({
   },
   onShow: function () {
     this.checkresume()
-    this.getlist({})
+  
   },
 
   getlist:function(data){
@@ -191,7 +193,7 @@ Page({
     type=type-0
     let dataitem=[]
     if(type==0){
-      dataitem = self.data.jobtypelist
+     
     }else if(type==1){
       dataitem = self.data.fulilist
     }else if(type==2){
@@ -207,7 +209,7 @@ Page({
     }
     
     if(type==0){
-      self.setData({ jobtypelist: dataitem, allcounts: dataallcounts })
+      
     }else if(type==1){
       self.setData({ fulilist: dataitem, allcounts: dataallcounts })
     }else if(type==2){
@@ -221,37 +223,44 @@ Page({
     let type = id - 0
     let dataitem = []
     if (type == 0) {
-      dataitem = self.data.jobtypelist
+      self.setData({pay:{minx:0,maxx:0,minpay:'不限',maxpay:'不限'}})
+      let search=self.data.searchinfo
+      if(search.maxpay){
+        delete search.maxpay
+      }
+      if(search.minpay){
+        delete search.minpay
+      }
+      console.log(self.data.pay)
+      self.setData({searchinfo:search})
     } else if (type == 1) {
       dataitem = self.data.fulilist
     } else if (type == 2) {
       dataitem = self.data.streetlist
     }
-    let dataallcounts = self.data.allcounts
-    for(let i=0;i<dataitem.length;i++){
-      dataitem[i].check=0
+    if(type!=0){
+      let dataallcounts = self.data.allcounts
+      for(let i=0;i<dataitem.length;i++){
+        dataitem[i].check=0
+      }
+      dataallcounts[type]=0
+      if (type == 0) {
+      } else if (type == 1) {
+        self.setData({ fulilist: dataitem, allcounts: dataallcounts })
+      } else if (type == 2) {
+        self.setData({ streetlist: dataitem, allcounts: dataallcounts })
+      }
     }
-    dataallcounts[type]=0
-    if (type == 0) {
-      self.setData({ jobtypelist: dataitem, allcounts: dataallcounts })
-    } else if (type == 1) {
-      self.setData({ fulilist: dataitem, allcounts: dataallcounts })
-    } else if (type == 2) {
-      self.setData({ streetlist: dataitem, allcounts: dataallcounts })
-    }
+    
   },
   searchitemclick:function(){
     let self=this
     let search={}
-    if (self.data.allcounts[0]!=0){
-      let job=[]
-      for (let i = 0; i < self.data.jobtypelist.length;i++){
-        if (self.data.jobtypelist[i].check){
-          job.push(self.data.jobtypelist[i].id)
-        }
-      }
-
-      search.jobId = job.join(",")
+    if (self.data.pay.minx!=0){
+      search.minpay=self.data.pay.minpay
+    }
+    if(self.data.pay.maxx!=0){
+      search.maxpay=self.data.pay.maxpay
     }
     if(self.data.allcounts[2]!=0){
       let street = []
@@ -281,7 +290,7 @@ Page({
     utils.requestFn('recruitInfoSelect',searchinfo, function (res) {
       let tmp = res.data
       let job=self.data.job
-      console.log(self.data.job,tmp.length)
+     
       for (let i = 0; i < tmp.length; i++) {
         if(tmp[i].fuli){
           tmp[i].fuli = tmp[i].fuli.split(";")
@@ -291,7 +300,6 @@ Page({
         job.push(tmp[i])
       }
       self.setData({ job: job, page: searchinfo.page })
-      console.log(self.data.job)
     })
   },
   linkto:function(e){
@@ -309,7 +317,7 @@ Page({
     //简历是否已填
     let have_resume = wx.getStorageSync('have_resume') ? 1 : 0
     if (have_resume == 0) {
-      utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res) {console.log(res)
+      utils.requestFn('resumeSelect', { UserId: wx.getStorageSync('openid') }, function (res){
         if(res.data.countries.length!=0){
           wx.setStorageSync('resume', res.data.countries[0].resume)
           wx.setStorageSync('have_resume', wx.getStorageSync('openid') )
@@ -317,7 +325,6 @@ Page({
         }else{
           self.setData({have_resume:false})
         }
-        
       })
     }
   },
@@ -334,14 +341,16 @@ Page({
     }
   },
   scan:function(){
+    let self=this
     utils.scan(function(res){
       if(res.openid){
         wx.navigateTo({
           url: 'resume?resumeId='
         })
       }else if(res.company_id){
-
-        
+        let search={}
+        search.company_id=res.company_id
+        self.getlist(search)
       }
     })
   },
@@ -355,5 +364,31 @@ Page({
   search:function(){
     let searchinfo=this.data.searchinfo
     this.getlist(searchinfo)
+  },
+  paychange:function(e){
+    let self=this
+    let lib=[1000,3000,5000,7000,9000,11000,13000,15000,17000,19000]
+    let max=480/2;
+    let type = e.target.dataset.t ? e.target.dataset.t : e.currentTarget.dataset.t
+    let val=e.detail.x
+    let pay=this.data.pay
+
+    let numa=val / max * 10
+    let num=(numa+"").split(".")
+    num=num[0]-0
+    if(type=="min"){
+      pay.minx=val
+      pay.minpay=lib[num]
+      if(val==0){
+        if(self.data.searchinfo.minpay){
+
+        }
+      }
+    }else{
+      pay.maxx=val
+      pay.maxpay=lib[num]
+
+    }
+    this.setData({pay:pay})
   }
 })

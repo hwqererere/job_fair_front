@@ -8,15 +8,9 @@ Page({
   data: {
     jobinfo:{},
     deli:false,
-    fav:false
-    // latitude: 31.2221754,
-    // longitude: 121.281587,
-    // markers: [{
-    //   id: 1,
-    //   latitude: 31.2221754,
-    //   longitude: 121.281587,
-    //   name: '某某公司'
-    // }],
+    fav:false,
+    time:"",
+    timelay:false
 
   },
 
@@ -27,6 +21,37 @@ Page({
     let self=this
     self.setData({ jobinfo: app.globalData.jobinfo})
     self.checkdeli_fav()
+
+   
+    
+    
+    this.getDate();
+    
+  },
+  tow:function(n){
+    return n >= 0 && n < 10 ? '0' + n : '' + n;
+  },
+  getDate:function(){
+    let self=this
+    let oDate = new Date();
+    let oldTime = oDate.getTime();
+    let newDate = new Date('2019/5/11 13:30:00');
+    let newTime = newDate.getTime();
+    let second = Math.floor((newTime - oldTime) / 1000);
+    if(second>0){
+      let day = Math.floor(second / 86400);
+      second = second % 86400;
+      let hour = Math.floor(second / 3600);
+      second %= 3600;
+      let minute = Math.floor(second / 60);
+      second %= 60;
+      let str = this.tow(day) + '天' + this.tow(hour) + '小时' + this.tow(minute) + '分钟' + this.tow(second) + '秒';
+      this.setData({ time: str,timelay:true })
+      setTimeout(function(){self.getDate()},1000)
+    }else{
+      this.setData({timelay:false})
+    }
+    
   },
   checkdeli_fav:function(){
     let self=this

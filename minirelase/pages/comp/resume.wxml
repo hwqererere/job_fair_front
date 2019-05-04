@@ -68,8 +68,8 @@
   </view>
 </scroll-view >
 
-
-
-
-<import src="footbar.wxml" />
-<template is="footbar" data="{{current: 'resume'}}" />
+<view class="btnlay">
+  <view class="del">删除</view>
+  <view class="inv">录用</view>
+  
+</view>

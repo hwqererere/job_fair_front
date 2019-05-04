@@ -138,7 +138,9 @@ Page({
           } else {
             wx.setStorageSync('resume', self.data.resume)
             delete app.globalData.addresume
-            wx.navigateBack({ delta: 1 })
+            wx.redirectTo({
+              url: 'resume',
+            })
           }
         }else{
           self.setData({ saving: true })

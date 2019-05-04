@@ -12,34 +12,36 @@
       <label>企业简介</label>
     </navigator>
     <navigator class="li" url="joblist">
-      <label class="icon-gongzuobao"></label>
+      <label class="icon-zhiwei"></label>
       <label>职位</label>
     </navigator>
-    <navigator class="li" url="allresume">
-      <label class="icon-jianli-A"></label>
-      <label>投递</label>
-    </navigator>
-    <navigator class="li" url="want">
-      <label class="icon-icon_shakehands"></label>
-      <label>录用</label>
-    </navigator>
+    <view class="li" bindtap="scan">
+      <label class="icon-richscan_icon"></label>
+      <label>扫一扫</label>
+    </view>
+    <view class="li" url="want" bindtap="notopen"> 
+      <label class="icon-icon_fabu"></label>
+      <label>发送录用</label>
+    </view>
   </view>
   <view class="grayline"></view>
 </view>
 <view class="scrolltitle"><view class="dot"></view><label>等待面试</label></view>
 <scroll-view class="scroll">
 
-  <view class="li" wx:for="{{deli}}" wx:if="{{item.status==1}}">
+  <navigator class="li" wx:for="{{deli}}" url="resume?openid={{item.openid}}">
   <view class="grayline2"></view>
-    <navigator class="img" url="resume?openid={{item.openid}}">
-      <image src="{{reslink+item.url_id}}"></image>
-    </navigator>
+    <view class="img" >
+      <image src="{{reslink+'data/'+item.url_id}}"></image>
+    </view>
     <view class="msg">
       <label>{{item.username}}|{{item.sex==0?"女":"男"}}</label>
       <label>{{item.jobName}}</label>
     </view>
-    <view class="invite" bindtap="invite" data-id="{{item.id}}">通知面试</view>
-  </view>
+    <view class="invite icon-youjiantou1" >
+      
+    </view>
+  </navigator>
 </scroll-view>
 
 

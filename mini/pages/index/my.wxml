@@ -12,24 +12,24 @@
   <view class="array">
     <view class="titleline">
       <view class="dot"></view>
-      <view class="title">我的投递</view>
+      <view class="title">我的职小二</view>
     </view>
-    <view class="list">
+    <view class="list leftp">
       <navigator url='favlist'>
         <label class="icon-icon_workfile_line"></label>
         <label>收藏</label>
       </navigator>
       <navigator url='deliverlist'>
         <label class="icon-jianli-A"></label>
-        <label>投递历史</label>
+        <label>我的投递</label>
       </navigator>
-      <navigator  url='deliverliststat'>
-        <label class="icon-icon_scan_namecard"></label>
-        <label>投递状态</label>
+      <navigator  url='organizer'>
+        <label class="icon-qiye"></label>
+        <label>主办单位</label>
       </navigator>
-      <navigator url='deliverlistsuccess'>
-        <label class="icon-icon_shakehands"></label>
-        <label>有意向</label>
+      <navigator url='banshi' wx:if="{{false}}">
+        <label class="icon-zuoyezhidaoshu"></label>
+        <label>办事指南</label>
       </navigator>
     </view>
 
@@ -43,36 +43,6 @@
     <canvas canvas-id="myQrcode"></canvas>
 
 </view>
-<!-- 
-
-<scroll-view scroll-y="true"  class="container">
-
-  <view class="my-top">
-    <view class="my-photo">
-      <image src='{{head}}'></image>
-      <text>{{name}}</text>
-              <view class="icon icon-code" bindtap="showresumecode"></view>
-    </view>
-  </view>
-  <view class="flex-wrp" >
-    <view class="flex-item border" bindtap='link' data-link="../resume/index?resumeId={{resumeId}}">
-      <view class="icon-resume resume"></view>
-      <text>查看简历</text>
-    </view>
-    <view class="flex-item border" bindtap='link' data-link="resumeEdit" >
-      <view class="icon-edit edit"></view>
-      <text>编辑简历</text>
-    </view>
-    <view class="flex-item border" bindtap='link' data-link="deliverlist">
-      <view class="icon-deliver deliver"></view>
-      <text>投递情况</text>
-    </view>
-    <view class="flex-item border" bindtap='link' data-link="">
-      <view class="icon-work work"></view>
-      <text>主办单位</text>
-    </view>
-  </view>
-</scroll-view> -->
 
 <import src="footbar.wxml" />
 <template is="footbar" data="{{current: 'my'}}" />

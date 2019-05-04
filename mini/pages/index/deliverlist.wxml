@@ -1,21 +1,28 @@
+<view class="ord">
+  <view class="{{curr==0?'current':''}}" bindtap='ord' data-curr="0">全部</view>
+  <view class="{{curr==1?'current':''}}" bindtap='ord' data-curr="1">等待通知</view>
+  <view class="{{curr==2?'current':''}}" bindtap='ord' data-curr="2">录用</view>
+</view>
+<scroll-view class="main">
 
-    <view class='position-group' wx:for="{{job}}" wx:key="key">
+
+<view class='position-group' wx:for="{{job}}" wx:key="key" wx:if="{{item.status!=5}}">
         <view class='position-main' bindtap="linktojob"  data-id="{{item.id}}">
             <view class='position-hd'>
-                <view class='position-img' wx:if="{{item.area && item.no}}">
-                    <view>{{item.area}}</view>
-                    <view>{{item.no}}</view></view>
+                
                 <view class='position-item'>
                     <view class='title'>{{item.jobName}}</view>
                     <view class='name'>{{item.name}}</view>
-                    <view class='label'>
-                        <text class='box bg1' wx:for="{{item.fuli}}" wx:key="fulikey" wx:for-item="fuliitem">{{fuliitem}}</text>
+                     <view class='name'>您是第{{item.sort}}位投递该职位的人</view>
+                    
+                    <text class='price' wx:if="{{item.status==2}}">拒绝</text>
+                    <text class='price' wx:if="{{item.status==3 || item.status==1}}">等待反馈</text>
+                    <text class='price' wx:if="{{item.status==4}}">录用</text>
                     </view>
-                    <text class='price'>￥{{item.pay}}</text></view>
             </view>
-            <view class='position-bd'>
-                <text>{{item.belong}}</text>
-                <text class='time'></text>
-            </view>
+     
         </view>
     </view>
+
+</scroll-view>
+    
