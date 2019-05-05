@@ -59,9 +59,9 @@
             <view class='btn3' bindtap="searchitemclick">确定</view></view>
     </view>
     <view class="all-position-box  {{top==3?'close':'open'}}" wx:if="{{searchOpen && searchItem==1}}">
-        <view class='all-position-list'>
+        <scroll-view scroll-y="true"  class='all-position-list'>
             <text class='{{allcounts[1]==0?"current":""}}' bindtap="reset" data-id="1">不限</text>
-            <text wx:for="{{fulilist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="1" class="{{item.check==1?'current':''}}">{{item.txt}}</text></view>
+            <text wx:for="{{fulilist}}" wx:key="key00" bindtap="setitem" data-id="{{index}}" data-type="1" class="{{item.check==1?'current':''}}">{{item.txt}}</text></scroll-view>
         <view class='all-position-btn'>
             <view class='btn1' bindtap="reset" data-id="1">重置</view>
             <view class='btn2' bindtap="searchitemclick">确定</view></view>

@@ -119,7 +119,7 @@ Page({
     let self=this
     let fulitmp=wx.getStorageSync('fuli')
     let fuliupdate=wx.getStorageSync('fuliupdate')
-    if (!fulitmp || (fuliupdate - 0 + 300000) < utils.getsortTime){
+    
       utils.requestFn('fuli', {}, function (res) {
         if(res.code==200){
           let fuli={}
@@ -134,13 +134,7 @@ Page({
           self.setData({fulilist:arr})
         }
       })
-    }else{
-      let arr=[]
-      for (let i = 0; i < fulitmp.list.length; i++) {
-        arr[i] = { id: fulitmp.list[i].id, check: 0, txt: fulitmp.list[i].fuli }
-      }
-      self.setData({ fulilist: arr })
-    }    
+    
   },
   onShow: function () {
     this.checkresume()

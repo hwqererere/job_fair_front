@@ -23,7 +23,7 @@
 .all-position-box.open{top:496rpx;}
 .all-position-box.close{top:166rpx;}
 .all-position-bg {position:absolute;background:#000;opacity:0.4;top:110rpx;left:0;z-index:199;width:100%;height:200%;}
-.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;margin-bottom:10rpx;}
+.all-position-list {padding:0 36rpx;width:calc(100% - 72rpx);float:left;margin-bottom:10rpx;max-height:400rpx;}
 .all-position-list text {font-size:24rpx;float:left;background:#eee;color:#7f7f7f;padding:10rpx 24rpx;height:30rpx;line-height:30rpx;border-radius:20rpx;margin:10rpx 10rpx;min-width:100rpx;text-align:center;}
 .all-position-list text.current {background:#002570;color:#fff;}
 .all-position-list movable-area{margin-left:30rpx;float:left;width:480rpx;height:10rpx;background-color:#999;margin-top:30rpx;}
