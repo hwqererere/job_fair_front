@@ -10,7 +10,9 @@ Page({
     bondsteps:0,
     bondcompname:"",
     reslink: app.globalData.reslink,
-    deli:[]
+    deli:[],
+    delitmp:[],
+    scrol:0
   },
 
   /**
@@ -24,6 +26,9 @@ Page({
     if (openid != "") {
       app.globalData.openid = openid
       self.setData({ access: true })
+      self.checkcompbond(function(){
+          self.getdeInSe_ReCo()
+        })
 
     } else {
       utils.loginaccess(signtype, function () {
@@ -36,17 +41,10 @@ Page({
 
     if (!wx.getStorageSync('openid')){
       utils.loginaccess(1,function(){
-        self.checkcompbond(function(){
-          self.getdeInSe_ReCo()
-        })
-      })
-    }else{
-      if(!wx.getStorageSync('company_id')){
         self.checkcompbond(function () {
           self.getdeInSe_ReCo()
         })
-      }
-      
+      })
     }
   },
   bindGetUserInfo: function (e) {
@@ -99,7 +97,7 @@ Page({
     utils.requestFn('compDeli',{company_id:wx.getStorageSync('company_id')},function(res){
       if(res.code==200){
         
-        self.setData({deli:res.data})
+        self.setData({deli:res.data,delitmp:res.data})
       }
     })
   },
@@ -138,14 +136,7 @@ Page({
     }
     
   },
-  invite:function(e){
-    let self=this
-    let id = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : e.target.dataset.id
-    utils.requestFn('delistat', { id: id, stat: 3 }, function () { 
-      self.getdeInSe_ReCo()
-    })
-
-  },
+  
   scan:function(){
     utils.scan(function(res){
       if(res.resumeId){
@@ -160,5 +151,22 @@ Page({
       title:"招聘会未开始",
       icon:"none"
     })
+  },
+  scr:function(e){
+    let self=this
+    let val = e.currentTarget.dataset.val ? e.currentTarget.dataset.val : e.target.dataset.val
+    self.setData({scrol:val})
+    let newdeli=[]
+    if(val==0){
+      newdeli=self.data.delitmp
+    }    
+    for(let i=0;i<self.data.delitmp.length;i++){
+      if(val==1 && self.data.delitmp[i].status==1){
+        newdeli.push(self.data.delitmp[i])
+      }else if(val==2 && self.data.delitmp[i].status==4){
+        newdeli.push(self.data.delitmp[i])
+      }
+    }
+    self.setData({deli:newdeli})
   }
 })

@@ -350,6 +350,7 @@ Page({
       }else if(res.company_id){
         let search={}
         search.company_id=res.company_id
+        self.setData({searchinfo:search})
         self.getlist(search)
       }
     })

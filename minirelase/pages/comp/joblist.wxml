@@ -10,7 +10,7 @@
                     </view>
            
     </view>
-<view class="btnlay icon-tianjia btnadd" bindtap="changeinfo" wx:if="{{!changelay}}">
+<view class="btnlay icon-tianjia btnadd" bindtap="changeinfo" data-id="0" wx:if="{{!changelay}}">
   新增职位
   
 </view>
@@ -28,7 +28,7 @@
      </label></view>
     <view class="baseline"><label class="k2">薪酬</label><label>:</label><label><input type="text" value="{{changejob.pay}}" bindinput='inputchangeFn' data-type="pay" placeholder='请填写薪酬'></input></label></view>
     <view class="baseline"><label class="k4">工作地点</label><label>:</label><label><input type="text" value="{{changejob.workingplace}}" bindinput='inputchangeFn' data-type="workingplace" placeholder='工作地点'></input></label></view>
-    <view class="baseline"><label class="k4">职能归属</label><label>:</label><label>
+    <view class="baseline" wx:if="{{false}}"><label class="k4">职能归属</label><label>:</label><label>
       <picker bindchange="jobchange" data-type="street" value="{{jobtypelist[jobtypeindex]}}" range="{{jobtypelist}}" range-key="job_name" >
         <view class="picker" >
           {{jobtypelist[jobtypeindex].job_name}}

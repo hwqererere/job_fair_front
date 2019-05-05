@@ -21,17 +21,30 @@ Page({
   onLoad: function (options) {
     this.getjobtype()
   },
-  getlist: function () {
+  getlist: function (page) {
     let self = this
-    utils.requestFn('recruitInfoSelect', {company_id:wx.getStorageSync("company_id")}, function (res) {
+    utils.requestFn('recruitInfoSelect', {company_id:wx.getStorageSync("company_id"),page:page}, function (res) {
       let tmp = res.data
-      for (let i = 0; i < tmp.length; i++) {
-        if (tmp[i].fuli){
-          tmp[i].fuli = tmp[i].fuli.split(";")
+      if(page==0){
+        for (let i = 0; i < tmp.length; i++) {
+          if (tmp[i].fuli){
+            tmp[i].fuli = tmp[i].fuli.split(";")
+          }        
         }
+        self.setData({ job: tmp })
+      }else{
+        let job=self.data.job
+        for(let i=0;i<tmp.length;i++){
+          job.push(tmp[i])
+        }
+        self.setData({ job: job })
         
       }
-      self.setData({ job: tmp })
+      if(tmp.length>=9){
+        page+=1
+        self.getlist(page)
+      }
+
     })
   },
   getjobtype: function () {
@@ -54,7 +67,7 @@ Page({
     }
   },
   onShow: function () {
-    this.getlist()
+    this.getlist(0)
   },
   changeinfo:function(e){
     let self=this
@@ -93,7 +106,7 @@ Page({
         wx.showToast({
           title: res.msg
         })
-        self.getlist()
+        self.getlist(0)
       }
       self.setData({ changelay:false})
     })
@@ -114,7 +127,7 @@ Page({
               title: re.msg,
               icon:"none"
             })
-            self.getlist()
+            self.getlist(0)
           })
         } else if (res.cancel) {
           self.setData({ delid:0})

@@ -16,7 +16,7 @@
 .position-group text {color:#e5e5e5;font-size:24rpx;}
 .position-group text.time {color:#9d9d9d;font-size:24rpx;float:right;margin-top:2rpx;}
 
-.changelay{width:100%;position:fixed;left:0rpx;top:0rpx;height:calc(100% - 596rpx);background: #f8f8fa;overflow-y:auto;}
+.changelay{width:100%;position:fixed;left:0rpx;top:0rpx;height:calc(100% - 100rpx);background: #f8f8fa;overflow-y:auto;}
 
 
 

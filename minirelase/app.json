@@ -15,9 +15,8 @@
     "pages/comp/index",
     "pages/comp/compinfo",
     "pages/comp/joblist",
-    "pages/comp/allresume",
-    "pages/comp/resume",
-    "pages/comp/want"
+    "pages/comp/resume"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

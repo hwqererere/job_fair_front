@@ -13,10 +13,10 @@
   </label></view>
 
 <view class="baseline"><label class="k4">企业简介</label><label>:</label><label>
-<textarea bindinput="inputchangeFn" data-type="remarks" value='{{compinfo.remarks}}'></textarea>
+{{compinfo.remarks}}
   </label></view>
 
-<view class="savebtn icon-icon_dispose" bindtap="save">保存</view>
+  <view class="savebtn icon-icon_dispose" bindtap="save">保存</view>
 </view>
 
 <view class="fulilay" wx:if="{{fulilay}}">
@@ -27,8 +27,8 @@
       <view class="btn" bindtap="fuliadd">新增</view>
     </view>
   </scroll-view>
-  <view class="addline">
-    <view class="btn" bindtap="fuliselover">确认选择</view>
+  <view class="addline" bindtap="fuliselover">
+    确认选择
   </view>
 </view>
 

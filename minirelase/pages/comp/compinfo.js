@@ -32,16 +32,14 @@ Page({
         }        
         self.setData({ compinfo: comp })
         self.getstreet()
-        self.getfuli()
+        self.getfuli(function(){})
       }
     })
   },
   
   getstreet: function () {
     let self = this
-    let streettmp = wx.getStorageSync('street')
-    if (!streettmp || (streettmp.update - 0 + 300000) < utils.getsortTime) {
-      utils.requestFn('street', {}, function (res) {
+    utils.requestFn('street', {}, function (res) {
         if (res.code == 200) {
           let street = {}
           street.update = utils.getsortTime
@@ -52,35 +50,24 @@ Page({
           self.setstreet()
          
         }
-      })
-    } else {
-      self.setData({ streetlist: streettmp.list })
-      self.setstreet()
-      
-    }
+    })
+    
 
   },
-  getfuli: function () {
+  getfuli: function (callback) {
 
     let self = this
-    let fulitmp = wx.getStorageSync('fuli')
-    if (!fulitmp || (fulitmp.update - 0 + 300000) < utils.getsortTime) {
       utils.requestFn('fuli', {}, function (res) {
         if (res.code == 200) {
           let fuli = {}
           fuli.update = utils.getsortTime
           fuli.list = res.data
           wx.setStorageSync('fuli', fuli)
-         
           self.setData({ fulilist: fuli.list })
-          
+          callback.call(this)
         }
       })
-    } else {
-      
-      self.setData({ fulilist: fulitmp.list })
-    }
-    console.log(self.data.fulilist)
+    
     
   },
   onShow: function () {
@@ -116,12 +103,15 @@ Page({
         }
 
         fuliarr[i] = { id: this.data.fulilist[i].id, fuli: this.data.fulilist[i].fuli, check: key }
+      }else{
+        fuliarr[i] = { id: this.data.fulilist[i].id, fuli: this.data.fulilist[i].fuli, check: key }
       }
       
       
       
     }
     this.setData({ fulisel: fuliarr, fulilay:true})
+    console.log(this.data.fulisel)
   },
   itemcheck:function(e){
     let id = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : e.target.dataset.id
@@ -155,12 +145,11 @@ Page({
     let self=this
     utils.requestFn('fuliupdate', { fuli:self.data.addfuli},function(res){
       if(res.code==200){
-        wx.removeStorageSync('fuli')
-        self.getfuli()
-        setTimeout(function(){
+       
+        self.getfuli(function(){
           self.openfuliconfig()
-        },3000)
-        
+        })
+       self.setData({addfuli:""})       
       }else{
         wx.showToast({
           title:res.msg,

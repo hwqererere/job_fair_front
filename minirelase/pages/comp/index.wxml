@@ -1,11 +1,11 @@
 <button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
 
-<view class="logolay">
+<view class="logolay" wx:if="{{false}}">
   <view class="logo mt60"></view>
   <view class="title">欢迎登录莘庄就业企业客户端</view>
 </view>
 <view class="actbox">
-  <view class="grayline"></view>
+
   <view class="actline">
     <navigator class="li" url="compinfo">
       <label class="icon-icon_compile"></label>
@@ -21,21 +21,25 @@
     </view>
     <view class="li" url="want" bindtap="notopen"> 
       <label class="icon-icon_fabu"></label>
-      <label>发送录用</label>
+      <label>发送邮箱</label>
     </view>
   </view>
   <view class="grayline"></view>
 </view>
-<view class="scrolltitle"><view class="dot"></view><label>等待面试</label></view>
+<view class="scrolltitle">
+  <view class="li {{scrol==0?'sel':''}}" bindtap="scr" data-val="0">全部</view>
+  <view class="li {{scrol==1?'sel':''}}" bindtap="scr" data-val="1">未处理</view>
+  <view class="li {{scrol==2?'sel':''}}" bindtap="scr" data-val="2">录用</view>
+</view>
 <scroll-view class="scroll">
 
-  <navigator class="li" wx:for="{{deli}}" url="resume?openid={{item.openid}}">
+  <navigator class="li" wx:for="{{deli}}" wx:key="key" url="resume?openid={{item.openid}}&deid={{item.id}}" wx:if="{{item.status!=2}}">
   <view class="grayline2"></view>
     <view class="img" >
       <image src="{{reslink+'data/'+item.url_id}}"></image>
     </view>
     <view class="msg">
-      <label>{{item.username}}|{{item.sex==0?"女":"男"}}</label>
+      <label>{{item.username}}|{{item.sex==0?"女":"男"}}{{item.status}}</label>
       <label>{{item.jobName}}</label>
     </view>
     <view class="invite icon-youjiantou1" >
