@@ -14,7 +14,7 @@
                     <text class='price'>￥{{item.pay}}</text></view>
             </view>
             <view class='position-bd'>
-                <text>{{item.street_name}}</text>
+                <text>{{item.street_id<13?'街镇特色专区':''}}  {{item.street_name=='其它'?item.area:item.street_name}}{{item.showno}}号展位</text>
                 <text class='time'></text>
             </view>
         </view>

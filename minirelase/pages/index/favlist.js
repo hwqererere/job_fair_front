@@ -1,4 +1,4 @@
-// pages/index/favlist.js
+const app = getApp()
 Page({
 
   /**
@@ -29,39 +29,17 @@ Page({
     this.setData({ job: wx.getStorageSync('fav')})
     console.log(this.data.job)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  linktojob: function (e) {
+    let self = this
+    let id = e.target.dataset.id ? e.target.dataset.id : e.currentTarget.dataset.id
+    let fav=wx.getStorageSync('fav')
+    for (let i = 0; i < fav.length; i++) {
+      if (fav[i].id == id) {
+        app.globalData.jobinfo = fav[i]
+        wx.navigateTo({
+          url: 'positionDetail',
+        })
+      }
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
