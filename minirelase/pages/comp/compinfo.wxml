@@ -20,7 +20,7 @@
 </view>
 
 <view class="fulilay" wx:if="{{fulilay}}">
-  <scroll-view class="fulilayscrollview">
+  <scroll-view scroll-y="true" class="fulilayscrollview">
     <view  wx:for="{{fulisel}}" class="fulisel {{item.check?'sel':''}}" bindtap="itemcheck" data-id="{{item.id}}">{{item.fuli}}</view>
     <view class="addinput">
       <input type="text" placeholder='最多4字' bindinput="newfuli"  value="{{addfuli}}"></input>

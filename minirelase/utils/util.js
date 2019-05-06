@@ -46,7 +46,7 @@ function port(portName){
   ports.recruitUpdate = "recruit-info-select/update" //岗位信息更新
   ports.recruitDel = "recruit-info-select/delrecruit" //岗位信息删除
   // let url ="https://res.hothwq.com/index.php?r=";
-  let url = "https://res.hothwq.com/";
+  let url = wx.getStorageSync('serverhost')+"/";
   return url + ports[portName];
 }
 
@@ -168,6 +168,7 @@ const scan=function(callback){
     onlyFromCamera: true,
     success(res) {
       let result=res.result
+      console.log(result)
       callback.call(this,JSON.parse(result))
       }
   })

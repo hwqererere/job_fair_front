@@ -31,7 +31,7 @@
   <view class="li {{scrol==1?'sel':''}}" bindtap="scr" data-val="1">未处理</view>
   <view class="li {{scrol==2?'sel':''}}" bindtap="scr" data-val="2">录用</view>
 </view>
-<scroll-view class="scroll">
+<scroll-view scroll-y="true"  class="scroll">
 
   <navigator class="li" wx:for="{{deli}}" wx:key="key" url="resume?openid={{item.openid}}&deid={{item.id}}" wx:if="{{item.status!=2}}">
   <view class="grayline2"></view>

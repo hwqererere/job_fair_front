@@ -18,13 +18,17 @@ Page({
       page:0,
     searchinfo:{},
     top:1,
-    pay:{minx:0,maxx:0,minpay:'不限',maxpay:'不限'}
-      
+    pay:{minx:0,maxx:0,minpay:'不限',maxpay:'不限'},
+    sign:false
   },
   //事件处理函数
 
   onLoad: function (option) {
     let self = this
+    if(option.sign){
+      console.log("aaa")
+      self.setData({sign:true})
+    }
     let company_id = wx.getStorageSync('company_id') ? wx.getStorageSync('company_id'):""
     // if (company_id){
     //   wx.redirectTo({
