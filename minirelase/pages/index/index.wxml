@@ -100,3 +100,7 @@
 </scroll-view>
 <import src="footbar.wxml" />
 <template is="footbar" data="{{current: 'index'}}" />
+<view class="loginlay" wx:if="{{loginlay}}" bindtap="closeloginlay">
+  <icon type="success" size="70"></icon>
+  <view>签到成功</view>
+</view>

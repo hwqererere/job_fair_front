@@ -71,8 +71,22 @@
         </view>
  
       </view>
-     
+     <view class="grayline"></view>
+
+      <view class='company-box'>
+        <view class='position-tab-title'>
+          
+          <text>公司福利</text>
+        </view>
+
+        <view class='company-info'>
+         
+            {{jobinfo.fuliword}}
+    
+         
+        </view>
  
+      </view>
  
 
   </view>

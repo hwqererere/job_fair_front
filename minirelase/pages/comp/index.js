@@ -12,7 +12,8 @@ Page({
     reslink: app.globalData.reslink,
     deli:[],
     delitmp:[],
-    scrol:0
+    scrol:0,
+
   },
 
   /**
@@ -47,6 +48,7 @@ Page({
       })
     }
   },
+  
   bindGetUserInfo: function (e) {
     let self = this
     if (e.detail.userInfo) {

@@ -34,7 +34,7 @@ function port(portName){
   ports.street = "fuli/street"//所属街道列表
   ports.deliUserDeli ="delivery-info-select/user-delivery" //用户投递
   ports.deliUserDs = "delivery-info-select/user-delilist" //用户状态
-  
+  ports.recruitsign ="recruitsign"//用户签到
 
   ports.compBund="company/select-bundling"//查询微信号绑定企业信息
   ports.compUpdUseCom ="company/update-user-company"//绑定微信号到企业

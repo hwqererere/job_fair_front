@@ -19,7 +19,8 @@ Page({
     searchinfo:{},
     top:1,
     pay:{minx:0,maxx:0,minpay:'不限',maxpay:'不限'},
-    sign:false
+    sign:false,
+    loginlay:false
   },
   //事件处理函数
 
@@ -69,6 +70,33 @@ Page({
 
    
    
+  },
+  checklogsign: function () {
+    let self=this
+    if (wx.getStorageSync('openid')) {
+      if (!wx.getStorageSync('login')) {
+        utils.requestFn('recruitsign', { openid: wx.getStorageSync('openid') }, function (res) {
+          if (res.code == 200) {
+            self.setData({ loginlay: true })
+            wx.setStorageSync('login',1)
+            setTimeout(function(){
+              self.setData({ loginlay: false })
+            },3000)
+          } else {
+            if (openid == "oCbNK5HvXHAlhMqPiDupn6y4BRCY") {
+              wx.showToast({
+                title: res.msg,
+                icon: 'none',
+                duration: 1000
+              })
+            }
+          }
+        })
+      }
+    }
+  },
+  closeloginlay:function(){
+    self.setData({ loginlay: false })
   },
   getjobtype:function(){
     let self = this
