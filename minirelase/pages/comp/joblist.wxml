@@ -20,22 +20,11 @@
     <view class="baseline"><label class="k4">职位名称</label><label>:</label><label><input type="text" value="{{changejob.jobName}}" bindinput='inputchangeFn' data-type="jobName" placeholder='请填写职位名称'></input></label></view>
     <view class="baseline"><label class="k4">招人数量</label><label>:</label><label><input type="text" value="{{changejob.mansize}}" bindinput='inputchangeFn' data-type="mansize" placeholder='默认为1'></input></label></view>
      <view class="baseline"><label class="k2">学历</label><label>:</label><label>
-     <picker bindchange="inputchangeFn" data-type="record" value="{{changejob.record}}" range="{{lib.education}}">
-    <view class="picker">
-      {{lib.education[changejob.record]}}
-    </view>
-  </picker>
+     <input type="text" value="{{changejob.record}}" bindinput='inputchangeFn' data-type="record" placeholder='请填写职位学历'></input>
      </label></view>
-    <view class="baseline"><label class="k2">薪酬</label><label>:</label><label><input type="text" value="{{changejob.pay}}" bindinput='inputchangeFn' data-type="pay" placeholder='请填写薪酬'></input></label></view>
+    <view class="baseline"><label class="k2">薪酬</label><label>:</label><label><input type="number" value="{{changejob.minpay}}" bindinput='inputchangeFn' data-type="minpay" placeholder='薪酬下限'></input><view>-</view><input type="number" value="{{changejob.maxpay}}" bindinput='inputchangeFn' data-type="maxpay" placeholder='薪酬上限'></input></label></view>
     <view class="baseline"><label class="k4">工作地点</label><label>:</label><label><input type="text" value="{{changejob.workingplace}}" bindinput='inputchangeFn' data-type="workingplace" placeholder='工作地点'></input></label></view>
-    <view class="baseline" wx:if="{{false}}"><label class="k4">职能归属</label><label>:</label><label>
-      <picker bindchange="jobchange" data-type="street" value="{{jobtypelist[jobtypeindex]}}" range="{{jobtypelist}}" range-key="job_name" >
-        <view class="picker" >
-          {{jobtypelist[jobtypeindex].job_name}}
-        </view>
-      </picker>
-    
-    </label></view>
+
     <view class="baseline"><label class="k4">工作内容</label><label>:</label><label>
     <textarea value='{{changejob.work_content}}' bindinput="inputchangeFn" data-type="work_content"></textarea>
     </label></view>

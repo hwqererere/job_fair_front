@@ -84,6 +84,7 @@ Page({
         callback.call(this)
         self.setData({ bondsteps: 0 })
       }else if(res.code==400){
+        wx.removeStorageSync('company_id')
         self.setData({ bondsteps: 1 })
       }else{
         self.setData({ bondsteps: 1 })

@@ -73,12 +73,12 @@ Page({
     let self=this
     let id = e.currentTarget.dataset.id ? e.currentTarget.dataset.id : e.target.dataset.id
     if(id==0){
-      let changejob = { id: 0, jobName: "", record:0, mansize: "1", pay: "面议", workingplace: "", job_id: 1, work_content: "", work_demand:""}
+      let changejob = { id: 0, jobName: "", record:0, mansize: "1", minpay: "",maxpay:"", workingplace: "", job_id: 1, work_content: "", work_demand:""}
       self.setData({ changejob: changejob, changelay:true})
     }else{
       for(let i=0;i<self.data.job.length;i++){
         if (self.data.job[i].id==id){
-          let changejob = { id: self.data.job[i].id, jobName: self.data.job[i].jobName, mansize: self.data.job[i].mansize, pay: self.data.job[i].pay, workingplace: self.data.job[i].workingplace, job_id: self.data.job[i].job_id, work_content: self.data.job[i].work_content, work_demand: self.data.job[i].work_demand, record: self.data.job[i].record }
+          let changejob = { id: self.data.job[i].id, jobName: self.data.job[i].jobName, mansize: self.data.job[i].mansize, minpay: self.data.job[i].minpay, maxpay: self.data.job[i].maxpay, workingplace: self.data.job[i].workingplace, job_id: self.data.job[i].job_id, work_content: self.data.job[i].work_content, work_demand: self.data.job[i].work_demand, record: self.data.job[i].record }
           self.setData({ changejob: changejob, changelay: true })
         }
       }
@@ -100,6 +100,7 @@ Page({
 
 
     changejob.job_id = self.data.jobtypelist[self.data.jobtypeindex].id
+    changejob.job_id
     changejob.company_id = wx.getStorageSync("company_id")
     utils.requestFn('recruitUpdate', changejob, function (res) {
       if (res.code == 200) {

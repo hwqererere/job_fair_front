@@ -26,8 +26,17 @@ Page({
 
   onLoad: function (option) {
     let self = this
+    if (wx.getStorageSync('company_id')){
+     
+      let cid = wx.getStorageSync('company_id')-0
+      console.log(wx.getStorageSync('company_id'))
+      if (cid>0){
+        wx.redirectTo({
+          url: '../comp/index',
+        })
+      }
+    }
     if(option.sign){
-      console.log("aaa")
       self.setData({sign:true})
     }
     let company_id = wx.getStorageSync('company_id') ? wx.getStorageSync('company_id'):""
@@ -44,10 +53,18 @@ Page({
       app.globalData.openid = openid
       self.setData({ access: true })
       self.checkresume()
+      if(self.data.sign){
+        self.checklogsign();
+      }
+     
     } else {
       utils.loginaccess(signtype, function () {
+        if (self.data.sign) {
+          self.checklogsign();
+        }
         self.setData({ access: true })
         self.checkresume()
+        
       })
     }
     self.getstreet();
@@ -198,6 +215,9 @@ Page({
       utils.loginaccess(signtype, function () {
         self.setData({ access: true })
         self.checkresume()
+        if (self.data.sign) {
+          self.checklogsign();
+        }
       })
     }
    
