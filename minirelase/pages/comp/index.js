@@ -78,6 +78,7 @@ Page({
     let self=this
     utils.requestFn('compBund', { user_id:wx.getStorageSync('openid')},function(res){
       if(res.code==200){
+        wx.removeStorageSync('company_id')
         self.setData({ bondsteps:1})
       }else if(res.code==300){
         wx.setStorageSync('company_id',res.data[0].company_id)
@@ -87,6 +88,7 @@ Page({
         wx.removeStorageSync('company_id')
         self.setData({ bondsteps: 1 })
       }else{
+        wx.removeStorageSync('company_id')
         self.setData({ bondsteps: 1 })
         wx.showToast({
           title:res.msg,
@@ -143,6 +145,7 @@ Page({
   scan:function(){
     utils.scan(function(res){
       if(res.resumeId){
+        utils.requestFn('sign', {}, function () { })
         wx.navigateTo({
           url: 'resume?openid='+res.resumeId
         })

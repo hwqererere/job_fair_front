@@ -3,12 +3,14 @@ App({
   onLaunch: function () {
     let self=this
     var timestamp = new Date().getTime();
+    self.globalData.serverhost = wx.getStorageSync('serverhost');
     wx.request({
       url: self.globalData.reslink +"style/version?_random=timestamp",
       success:function(res){
-        wx.setStorageSync('serverhost',res.data.host)
+        
         let version = wx.getStorageSync('version') ? wx.getStorageSync('version'):0
         if(version<res.data.version){
+
           wx.removeStorageSync('resume')
           wx.removeStorageSync('have_resume')
           wx.removeStorageSync('openid')
@@ -26,6 +28,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    reslink:"https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/"
+    reslink:"https://res-1251120695.cos.ap-shanghai.myqcloud.com/mhjczx/",
+    serverhost:"https://res.mhjczx.com/"
   }
 })

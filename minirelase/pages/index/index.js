@@ -100,13 +100,13 @@ Page({
               self.setData({ loginlay: false })
             },3000)
           } else {
-            if (openid == "oCbNK5HvXHAlhMqPiDupn6y4BRCY") {
+            
               wx.showToast({
                 title: res.msg,
                 icon: 'none',
                 duration: 1000
               })
-            }
+            
           }
         })
       }
@@ -166,14 +166,14 @@ Page({
   },
   getfuli: function () {
     let self=this
-    let fulitmp=wx.getStorageSync('fuli')
-    let fuliupdate=wx.getStorageSync('fuliupdate')
+    let fulitmp = wx.getStorageSync('fuli') ? wx.getStorageSync('fuli'):[]
+    let fuliupdate = wx.getStorageSync('fuliupdate') ? wx.getStorageSync('fuliupdate'):0
     
       utils.requestFn('fuli', {}, function (res) {
         if(res.code==200){
           let fuli={}
-          fuli.update = utils.getsortTime
-          wx.setStorageSync('fuliupdate', utils.getsortTime)
+          fuli.update = utils.getsortTime()
+          wx.setStorageSync('fuliupdate', utils.getsortTime())
           fuli.list=res.data
           wx.setStorageSync('fuli', fuli)
           let arr=[]
@@ -398,6 +398,7 @@ Page({
         search.company_id=res.company_id
         self.setData({searchinfo:search})
         self.getlist(search)
+        utils.requestFn('sign',{},function(){})
       }
     })
   },

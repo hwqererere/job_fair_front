@@ -35,6 +35,8 @@ function port(portName){
   ports.deliUserDeli ="delivery-info-select/user-delivery" //用户投递
   ports.deliUserDs = "delivery-info-select/user-delilist" //用户状态
   ports.recruitsign ="recruitsign"//用户签到
+  ports.sign ="recruitsign/scancount" //扫码统计
+
 
   ports.compBund="company/select-bundling"//查询微信号绑定企业信息
   ports.compUpdUseCom ="company/update-user-company"//绑定微信号到企业
@@ -46,8 +48,9 @@ function port(portName){
   ports.recruitUpdate = "recruit-info-select/update" //岗位信息更新
   ports.recruitDel = "recruit-info-select/delrecruit" //岗位信息删除
   // let url ="https://res.hothwq.com/index.php?r=";
-  let url = wx.getStorageSync('serverhost')+"/";
-  return url + ports[portName];
+  let url = "https://res.mhjczx.com/"+ ports[portName];
+
+  return url ;
 }
 
 const portFn=function(portName){
