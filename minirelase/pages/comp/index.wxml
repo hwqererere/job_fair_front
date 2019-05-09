@@ -20,8 +20,8 @@
       <label>扫一扫</label>
     </view>
     <view class="li" url="want" bindtap="notopen"> 
-      <label class="icon-icon_fabu"></label>
-      <label>发送邮箱</label>
+      <label class="icon-xiazai"></label>
+      <label>数据下载</label>
     </view>
   </view>
   <view class="grayline"></view>

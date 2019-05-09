@@ -35,7 +35,7 @@ Page({
     let self=this
     let oDate = new Date();
     let oldTime = oDate.getTime();
-    let newDate = new Date('2019/5/11 13:30:00');
+    let newDate = new Date('2019/5/11 13:15:00');
     let newTime = newDate.getTime();
     let second = Math.floor((newTime - oldTime) / 1000);
     if(second>0){
