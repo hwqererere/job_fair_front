@@ -10,7 +10,10 @@ Page({
     resume: {},
     reslink: app.globalData.reslink,
     lib: utils.formlibFn(),
-    deid:0
+    deid:0,
+    btn:false,
+    tipslay:false,
+    tip:""
   },
 
   /**
@@ -18,14 +21,19 @@ Page({
    */
   onLoad: function (options) {
     let self = this
+    let nobtn = options.nobtn ? options.nobtn:0
+    if(!nobtn){
+      self.setData({btn:true})
+    }
     self.setData({ deid: options.deid})
-      utils.requestFn('resumeSelect', { UserId: options.openid }, function (res) {
-        
-          self.setData({ resume: res.data.countries[0].resume })
-
-
-      })
-
+    utils.requestFn('resumeSelect', { UserId: options.openid }, function (res) {
+      self.setData({ resume: res.data.countries[0].resume, })
+    })
+    utils.requestFn('getdeliverytip',{ id: self.data.deid},function(res){
+      if(res.code==200){
+        self.setData({tip:res.data})
+      }
+    })
   },
   del:function(){
     let self = this
@@ -77,6 +85,23 @@ Page({
 
         }
       }
+    })
+  },
+  opentipslay:function(){
+    this.setData({ tipslay:true})
+  },
+  closetipslay:function(){
+    this.setData({ tipslay: false })
+  },
+  tbind:function(e){
+    let tip = this.data.tip
+    this.setData({ tip: e.detail.value})
+   
+  },
+  savetips:function(){
+    let self=this
+    utils.requestFn('cdtip', { id: self.data.deid,tip:self.data.tip},function(){
+      self.setData({ tipslay: false })
     })
   }
     

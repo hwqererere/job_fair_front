@@ -1,4 +1,4 @@
-<scroll-view scroll-y="true"  class="container">
+<scroll-view scroll-y="true"  class="{{btn?'container':'container2'}}">
   <view class="resume-photo">
     <view class='photo'><image bindtap="updateface" src='{{headface?headface:reslink+"style/default_head.jpg"}}'></image></view>
     <view class="nameinfo">
@@ -68,8 +68,21 @@
   </view>
 </scroll-view >
 
-<view class="btnlay">
+<view class="btnlay" wx:if="{{btn}}">
   <view class="del" bindtap="del">删除</view>
   <view class="inv" bindtap="inv">录用</view>
   
+</view>
+
+<view class="tips icon-bianji" bindtap="opentipslay">
+
+</view>
+<view class="tipslay" wx:if="{{tipslay}}">
+    <view class="title">小贴士</view>
+    <textarea bindinput="tbind" value="{{tip}}"></textarea>
+    <view class="btnline">
+      <view class="close" bindtap="closetipslay">关闭</view>
+      <view class="save" bindtap="savetips">确定</view>
+    </view>
+
 </view>

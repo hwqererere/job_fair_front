@@ -15,7 +15,8 @@
     "pages/comp/index",
     "pages/comp/compinfo",
     "pages/comp/joblist",
-    "pages/comp/resume"
+    "pages/comp/resume",
+    "pages/comp/mailsend"
 
   ],
   "window": {

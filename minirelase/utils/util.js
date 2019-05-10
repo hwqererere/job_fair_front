@@ -47,6 +47,9 @@ function port(portName){
   ports.udcop ="company/update-company"
   ports.recruitUpdate = "recruit-info-select/update" //岗位信息更新
   ports.recruitDel = "recruit-info-select/delrecruit" //岗位信息删除
+  ports.mail ="company/sendmail"
+  ports.cdtip ="company/deliverytip"//小贴士
+  ports.getdeliverytip ="company/getdeliverytip"
   // let url ="https://res.hothwq.com/index.php?r=";
   let url = "https://res.mhjczx.com/"+ ports[portName];
 

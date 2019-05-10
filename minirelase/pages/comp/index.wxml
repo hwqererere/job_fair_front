@@ -19,21 +19,22 @@
       <label class="icon-richscan_icon"></label>
       <label>扫一扫</label>
     </view>
-    <view class="li" url="want" bindtap="notopen"> 
-      <label class="icon-xiazai"></label>
-      <label>数据下载</label>
-    </view>
+    <navigator class="li" url="mailsend" > 
+      <label class="icon-icon_fabu"></label>
+      <label>数据发送</label>
+    </navigator>
   </view>
   <view class="grayline"></view>
 </view>
 <view class="scrolltitle">
-  <view class="li {{scrol==0?'sel':''}}" bindtap="scr" data-val="0">全部</view>
+ 
   <view class="li {{scrol==1?'sel':''}}" bindtap="scr" data-val="1">未处理</view>
   <view class="li {{scrol==2?'sel':''}}" bindtap="scr" data-val="2">录用</view>
+   <view class="li {{scrol==0?'sel':''}}" bindtap="scr" data-val="0">全部</view>
 </view>
 <scroll-view scroll-y="true"  class="scroll">
 
-  <navigator class="li" wx:for="{{deli}}" wx:key="key" url="resume?openid={{item.openid}}&deid={{item.id}}" wx:if="{{item.status!=2}}">
+  <navigator class="li" wx:for="{{deli}}" wx:key="key" url="resume?openid={{item.openid}}&deid={{item.id}}" wx:if="{{item.status!=2 && scrol==1}}">
   <view class="grayline2"></view>
     <view class="img" >
       <image src="{{reslink+'data/'+item.url_id}}"></image>
@@ -46,6 +47,19 @@
       
     </view>
   </navigator>
+
+    <navigator class="li" wx:for="{{deli}}" wx:key="key" url="resume?openid={{item.openid}}&deid={{item.id}}&nobtn={{(item.status==4||item.status==2)?'1':'0'}}" wx:if="{{item.status!=2 && scrol!=1}}">
+  <view class="grayline2"></view>
+    <view class="img" >
+      <image src="{{reslink+'data/'+item.url_id}}"></image>
+    </view>
+    <view class="msg">
+      <label>{{item.username}}|{{item.sex==0?"女":"男"}}{{item.status}}</label>
+      <label>{{item.jobName}}</label>
+    </view>
+    
+  </navigator>
+
 </scroll-view>
 
 

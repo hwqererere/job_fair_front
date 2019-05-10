@@ -12,7 +12,7 @@ Page({
     reslink: app.globalData.reslink,
     deli:[],
     delitmp:[],
-    scrol:0,
+    scrol:1,
 
   },
 
@@ -102,7 +102,14 @@ Page({
     utils.requestFn('compDeli',{company_id:wx.getStorageSync('company_id')},function(res){
       if(res.code==200){
         
-        self.setData({deli:res.data,delitmp:res.data})
+        self.setData({delitmp:res.data})
+        let newdeli = []
+        for (let i = 0; i < self.data.delitmp.length; i++) {
+          if (self.data.delitmp[i].status == 1) {
+            newdeli.push(self.data.delitmp[i])
+          }
+        }
+        self.setData({ deli: newdeli })
       }
     })
   },
@@ -152,12 +159,7 @@ Page({
       }
     })
   },
-  notopen:function(){
-    wx.showToast({
-      title:"招聘会未开始",
-      icon:"none"
-    })
-  },
+
   scr:function(e){
     let self=this
     let val = e.currentTarget.dataset.val ? e.currentTarget.dataset.val : e.target.dataset.val
