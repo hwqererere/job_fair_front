@@ -82,7 +82,12 @@ Page({
             })
           })
         } else if (res.cancel) {
-
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000,
+            
+          })
         }
       }
     })

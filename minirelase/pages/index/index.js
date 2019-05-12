@@ -29,7 +29,7 @@ Page({
     if (wx.getStorageSync('company_id')){
      
       let cid = wx.getStorageSync('company_id')-0
-      console.log(wx.getStorageSync('company_id'))
+
       if (cid>0){
         wx.redirectTo({
           url: '../comp/index',
@@ -100,7 +100,7 @@ Page({
               self.setData({ loginlay: false })
             },3000)
           } else {
-            
+         
               wx.showToast({
                 title: res.msg,
                 icon: 'none',

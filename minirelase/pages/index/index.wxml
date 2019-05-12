@@ -5,14 +5,15 @@
 
 
 <view class='header-search'>
-        <view class="tit">莘庄</view>
-        <view class='search-input'><input type='text'  bindinput="searchval" placeholder='搜索职位/公司'></input><view class="search icon-linedesign-12" bindtap="search"></view></view>
-        
-        
-        <view class="scan">
-          <view class=' icon-richscan_icon' bindtap="scan"></view>
+<view class="scan" bindtap="scan">
+          <view class=' icon-richscan_icon' ></view>
           <view class='scanword'>扫一扫</view>
         </view>
+        
+        <view class='search-input'><input type='text'  bindinput="searchval" placeholder='搜索职位/公司'></input><view class="search icon-linedesign-12" bindtap="search"></view></view>
+        
+        <view class="tit">莘庄</view>
+        
 </view>
 <swiper class="swiper" indicator-dots="true" autoplay="false" interval="50000" duration="500">
     <block >

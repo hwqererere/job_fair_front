@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<script src="jquery.min.js" type="text/javascript" ></script>
+	<style>
+		.sign{position:absolute; left:15%;width:60%;font-size:80px;top:100px;}
+		.scan{position:absolute; left:15%;width:60%;font-size:80px;top:300px;}
+		.deli{position:absolute; left:15%;width:60%;font-size:80px;top:500px;}
+		em{font-style: normal;}
+	</style>
+</head>
+
+<body>
+<div class="sign">现场签到人数：<em></em></div>
+<div class="scan">扫码人数：<em></em></div>
+<div class="deli">意向录用人数:<em></em></div>
+
+<script >
+	function setdefault(){
+		requestFn("https://res.mhjczx.com/recruitsign/count-sign",function(res){
+			if(res.code==200){
+				sessionStorage.setItem('signcount',res.data.signcount)
+				sessionStorage.setItem('scancount',res.data.scancount)
+				sessionStorage.setItem('delicount',res.data.delicount)
+
+				var tmpsign=sessionStorage.getItem('signcounttmp')?sessionStorage.getItem('signcounttmp'):0
+				if(res.data.signcount>tmpsign){
+					sessionStorage.setItem('signcounttmp',res.data.signcount)
+				}
+				var tmpscan=sessionStorage.getItem('scancounttmp')?sessionStorage.getItem('scancounttmp'):0
+				if(res.data.scancount>tmpscan){
+					sessionStorage.setItem('scancounttmp',res.data.scancount)
+				}
+				var tmpdeli=sessionStorage.getItem('delicounttmp')?sessionStorage.getItem('delicounttmp'):0
+				if(res.data.delicount>tmpdeli){
+					sessionStorage.setItem('delicounttmp',res.data.signcount)
+				}
+
+			}
+		})
+
+	}
+setdefault();
+autoadd();
+setInterval(function(){
+	setdefault()
+},3000000)
+function autoadd(){
+	var tmpsign=sessionStorage.getItem('signcounttmp')
+	tmpsign=tmpsign-0+1
+	sessionStorage.setItem('signcounttmp',tmpsign)
+	$(".sign em").html(tmpsign);
+
+	var tmpscan=sessionStorage.getItem('scancounttmp')
+	var num=Math.floor(Math.random()*10+1);
+	console.log(num)
+	tmpscan=tmpscan-0+num
+	sessionStorage.setItem('scancounttmp',tmpscan)
+	$(".scan em").html(tmpscan);
+	
+	var tmpdeli=sessionStorage.getItem('delicounttmp')
+	var num=Math.floor(Math.random()*2+1);
+	tmpdeli=tmpdeli-0+num
+	sessionStorage.setItem('delicounttmp',tmpdeli)
+	$(".deli em").html(tmpdeli);
+}
+setInterval(function(){
+	autoadd()
+
+},17000)
+
+function requestFn(link,callback){
+	$.ajax({url:link,dataType: 'json',
+    contentType: 'application/json',async:false,success:function(res){
+			callback.call(this,res)
+
+		}})
+}
+
+</script>
+</body>
+</html>
