@@ -3,6 +3,7 @@ App({
   onLaunch: function () {
     let self=this
     var timestamp = new Date().getTime();
+    wx.getUpdateManager();
     self.globalData.serverhost = wx.getStorageSync('serverhost');
     wx.request({
       url: self.globalData.reslink +"style/version?_random=timestamp",

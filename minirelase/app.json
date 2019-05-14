@@ -16,8 +16,10 @@
     "pages/comp/compinfo",
     "pages/comp/joblist",
     "pages/comp/resume",
-    "pages/comp/mailsend"
+    "pages/comp/mailsend",
 
+
+    "pages/index2/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
