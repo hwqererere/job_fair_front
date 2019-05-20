@@ -40,9 +40,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "other",
-					"pathName": "pages/index/index",
+					"pathName": "pages/index2/index",
 					"query": "sign=1",
 					"scene": null
 				}

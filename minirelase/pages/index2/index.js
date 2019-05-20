@@ -1,64 +1,49 @@
 //获取应用实例
 const app = getApp()
 var route=require("../../utils/route.js")
-var model=require("../../utils/model.js")
 var utils=require("../../utils/util.js")
 Page({
   data: {
-    access:true,
-    addtomyminiprogram:false,    
-    pageid:"",
-    tips:"",
-    animate:"",
-    nickName:"",
-    nobgm:"0",
-    floatedData:{id:""},
-    indexData:{},
-    rankData:{},
-    getcoinData:{},
-    cashData:{},
-    cashlistData:{},
-    morepageData:{},
-    ad:0
+    access:false,
+
   },
   
   onLoad: function (options) {
     let _this=this
-    let nickName=wx.getStorageSync("nickName")?wx.getStorageSync("nickName"):''
-    _this.setData({nickName:nickName})
-
-    let pageid=options.pageid?options.pageid:""
-    if(pageid==""){
-      app.globalData.timeing=0;
-      utils.setconfigdata(options,function(){
-        route.getUrlData(_this,options,function(){
-          _this.showCallback()
-        })
-      })
-    }  
-    _this.showad()
+    let openid = wx.getStorageSync("openid") ? wx.getStorageSync("openid"):''
+    if(openid==''){
+      _this.setData({access:true})
+    }
   },
   onShow:function(){
     let _this=this
-    let user_id=app.globalData.user_id?app.globalData.user_id:""
-    if(user_id==""){
-      app.globalData.user_id=wx.getStorageSync("user_id")+""
-      user_id=wx.getStorageSync("user_id")+""
-    }
-    if(user_id!=""){
-      _this.showCallback()
-    }
-    
+    _this.showCallback()
   },
-
+  showCallback: function () {
+    let _this = this
+    let allpages = getCurrentPages()
+    let thispage = allpages[allpages.length - 1]
+    let pageid = thispage.options.pageid ? thispage.options.pageid : "index"
+    let apppageid = app.globalData.pageid ? app.globalData.pageid : ""
+    route.pageCtrl(_this, pageid)
+    wx.hideLoading()
+  },
  
-  bindgetUserInfo: function(e) {
-    let _this=this
-    route.bindUserInfo(_this,e)
+  bindGetUserInfo: function (e) {
+    let self = this
+    if (e.detail.userInfo) {
+      let signtype = app.globalData.signtype
+      utils.loginaccess(signtype, function () {
+        self.setData({ access: true })
+        self.checkresume()
+        if (self.data.sign) {
+          self.checklogsign();
+        }
+      })
+    }
   },
   fn:function(e){
     let _this=this
-
     route.fn(_this,e)
   },
   

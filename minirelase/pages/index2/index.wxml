@@ -1,2 +1,6 @@
-<!--pages/index2/index.wxml-->
-<text>pages/index2/index.wxml</text>
+<view class="body">
+    <import src="ind.wxml" />
+
+    <template wx:if="{{pageid=='index'}}" is="index" data="{{...{indexData:indexData} }}" />
+</view>
+<button class="access" wx:if="{{!access}}" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo"></button>
